@@ -1,5 +1,5 @@
 <?php
-// ใช้ __DIR__ เพื่อให้โค้ดทำงานได้จากทุกที่
+// ใช้ __DIR__ เพื่อให้ไฟล์ถูกสร้างในโฟลเดอร์ที่เหมาะสม
 $baseDir = __DIR__ . "/googleScholarWebscraping";
 $htmlFilePath = "$baseDir/scholar_output.html";
 $jsonFilePath = "$baseDir/scholar_data.json";
@@ -13,7 +13,7 @@ if (!is_dir($baseDir)) {
 
 // 🔗 ตั้งค่า URL ใหม่ (เปลี่ยนตรงนี้เมื่อต้องการดึงข้อมูลของคนใหม่)
 $newResearcher = [
-    "url" => "https://scholar.google.com/citations?hl=th&user=sAp1BWsAAAAJ"
+    "url" => "https://scholar.google.com/citations?user=E01V5gUAAAAJ&hl=th"
 ];
 
 // อ่าน URL ก่อนหน้า
@@ -83,6 +83,10 @@ foreach ($articles as $article) {
     $citationsNode = $xpath->query('.//td[@class="gsc_a_c"]', $article);
     $citations = $citationsNode->length > 0 ? trim($citationsNode->item(0)->textContent) : '0';
 
+    // ดึงปีที่ทำวิจัย
+    $yearNode = $xpath->query('.//td[@class="gsc_a_y"]', $article);
+    $year = $yearNode->length > 0 ? trim($yearNode->item(0)->textContent) : 'N/A';
+
     // 🕒 หน่วงเวลาเพิ่ม (สุ่ม 1-3 วินาที)
     $delay = rand(1, 3);
     echo "⏳ รอ $delay วินาทีก่อนดึงบทความต่อไป...\n";
@@ -92,7 +96,8 @@ foreach ($articles as $article) {
     $newData['articles'][] = [
         'title' => $title,
         'link' => $link,
-        'citations' => $citations
+        'citations' => $citations,
+        'year' => $year // เพิ่มปีที่ทำวิจัย
     ];
 }
 
