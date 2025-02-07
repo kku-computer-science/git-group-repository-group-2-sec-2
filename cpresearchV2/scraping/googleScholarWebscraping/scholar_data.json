@@ -1,0 +1,156 @@
+{
+    "researchers": [
+        {
+            "profile": "Pusadee Seresangtakul",
+            "total_citations": "398",
+            "articles": [
+                {
+                    "title": "Thai finger-spelling sign language recognition using global and local features with SVM",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:9yKSN-GCB0IC",
+                    "citations": "45"
+                },
+                {
+                    "title": "A generative model of fundamental frequency contours for polysyllabic words of Thai tones",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:u-x6o8ySG0sC",
+                    "citations": "24"
+                },
+                {
+                    "title": "Analysis of pitch contour of Thai tone using Fujisaki's model",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:IjCSPb-OGe4C",
+                    "citations": "24"
+                },
+                {
+                    "title": "Automatic Thai subjective examination using cosine similarity",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:qjMakFHDy7sC",
+                    "citations": "23"
+                },
+                {
+                    "title": "Multi-stroke thai finger-spelling sign language recognition system with deep learning",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:IWHjjKOFINEC",
+                    "citations": "22"
+                },
+                {
+                    "title": "Sentiment analysis for Thai language in hotel domain using machine learning algorithms",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:hFOr9nPyWt4C",
+                    "citations": "19"
+                },
+                {
+                    "title": "A comparison of classical discriminant analysis and artificial neural networks in predicting student graduation outcomes",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:ULOm3_A8WrAC",
+                    "citations": "18"
+                },
+                {
+                    "title": "An efficient deep learning for Thai sentiment analysis",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:RHpTSmoSYBkC",
+                    "citations": "17"
+                },
+                {
+                    "title": "A hybrid approach to lao word segmentation using longest syllable level matching with named entities recognition",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:roLk4NBRz8UC",
+                    "citations": "14"
+                },
+                {
+                    "title": "Python code smell detection using machine learning",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:e5wmG9Sq2KIC",
+                    "citations": "13"
+                },
+                {
+                    "title": "Analysis and synthesis of pitch contour of Thai tone using Fujisaki's model",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:WF5omc3nYNoC",
+                    "citations": "11"
+                },
+                {
+                    "title": "Information integration of heterogeneous medical database systems using metadata",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:2osOgNQ5qMEC",
+                    "citations": "10"
+                },
+                {
+                    "title": "Isarn digit speech recognition using HMM",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:YsMSGLbcyi4C",
+                    "citations": "10"
+                },
+                {
+                    "title": "A Framework for Constructing Thai Sentiment Corpus using the Cosine Similarity Technique",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:-f6ydRqryjwC",
+                    "citations": "9"
+                },
+                {
+                    "title": "ESAP plus: a web-based server for EST-SSR marker development",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:zYLM7Y9cAGgC",
+                    "citations": "9"
+                },
+                {
+                    "title": "Isarn Dharma word segmentation using a statistical approach with named entity recognition",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:QIV2ME_5wuYC",
+                    "citations": "8"
+                },
+                {
+                    "title": "Thai-Isarn dialect parallel corpus construction for machine translation",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:KlAtU1dfN6UC",
+                    "citations": "8"
+                },
+                {
+                    "title": "Thai to Isarn dialect machine translation using rule-based and example-based",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:4TOpqqG69KYC",
+                    "citations": "8"
+                },
+                {
+                    "title": "Tonal Contour Generation for Isarn Speech Synthesis Using Deep Learning and Sampling-Based F0 Representation",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:dhFuZR0502QC",
+                    "citations": "7"
+                },
+                {
+                    "title": "Lao-Thai machine translation using statistical model",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=E01V5gUAAAAJ&citation_for_view=E01V5gUAAAAJ:Se3iqnhoufwC",
+                    "citations": "7"
+                }
+            ]
+        },
+        {
+            "profile": "Boonsup Waikham",
+            "total_citations": "95",
+            "articles": [
+                {
+                    "title": "Parallel KNN and neighborhood classification implementations on GPU for network intrusion detection",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:In6cVmBjs0IC",
+                    "citations": "33"
+                },
+                {
+                    "title": "Mobile animal tracking systems using light sensor for efficient power and cost saving motion detection",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:iyewoVqAXLQC",
+                    "citations": "25"
+                },
+                {
+                    "title": "MAP: An optimized energy-efficient cluster header selection technique for wireless sensor networks",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:sfnaS5RM6jYC",
+                    "citations": "13"
+                },
+                {
+                    "title": "H-FCD: hybrid fuzzy centroid and DV-Hop localization algorithm in wireless sensor networks",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:Azgs6IHzeyYC",
+                    "citations": "9"
+                },
+                {
+                    "title": "Android OS mobile monitoring systems using an efficient transmission technique over Tmote sky WSNs",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:ji7lAbPyDbYC",
+                    "citations": "7"
+                },
+                {
+                    "title": "Brain Cancer Cell Detection Optimization Schemes Using Image Processing and Soft Computing",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:QoJ_w57xiyAC",
+                    "citations": "4"
+                },
+                {
+                    "title": "A novel architecture for mobile ECG recognition systems using hybrid wavelet transform feature extraction schemes",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:4e5Qn2KL_jwC",
+                    "citations": "3"
+                },
+                {
+                    "title": "DNA forensic system for police forensic science center cooperation: Architectural design and implementation",
+                    "link": "https:\/\/scholar.google.com\/citations?view_op=view_citation&hl=th&oe=CP874&user=sAp1BWsAAAAJ&citation_for_view=sAp1BWsAAAAJ:tz746QTLzJkC",
+                    "citations": "1"
+                }
+            ]
+        }
+    ]
+}
