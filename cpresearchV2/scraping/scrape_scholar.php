@@ -1,5 +1,5 @@
 <?php
-// ใช้ __DIR__ เพื่อให้ไฟล์ถูกสร้างในโฟลเดอร์ที่เหมาะสม
+// ใช้ __DIR__ เพื่อให้ไฟล์อยู่ในโฟลเดอร์ที่ถูกต้อง
 $baseDir = __DIR__ . "/googleScholarWebscraping";
 $htmlFilePath = "$baseDir/scholar_output.html";
 $jsonFilePath = "$baseDir/scholar_data.json";
@@ -11,8 +11,9 @@ if (!is_dir($baseDir)) {
     echo "📂 สร้างโฟลเดอร์: $baseDir\n";
 }
 
-// 🔗 ตั้งค่า URL ใหม่ (เปลี่ยนตรงนี้เมื่อต้องการดึงข้อมูลของคนใหม่)
+// 🔗 ตั้งค่า URL ใหม่
 $newResearcher = [
+    "name" => "Dr. Alice Johnson",
     "url" => "https://scholar.google.com/citations?user=E01V5gUAAAAJ&hl=th"
 ];
 
@@ -25,7 +26,7 @@ $isNewResearcher = !in_array($newResearcher['url'], $previousUrls);
 if ($isNewResearcher) {
     echo "🆕 เพิ่มผู้วิจัยใหม่: " . $newResearcher['name'] . "\n";
     file_put_contents($urlListFile, $newResearcher['url'] . PHP_EOL, FILE_APPEND);
-    if (file_exists($htmlFilePath)) unlink($htmlFilePath); // ลบไฟล์เก่าก่อนสร้างใหม่
+    if (file_exists($htmlFilePath)) unlink($htmlFilePath);
 }
 
 // 🕒 หน่วงเวลาแบบสุ่ม 3-7 วินาที
@@ -54,12 +55,26 @@ $xpath = new DOMXPath($doc);
 $profileNode = $xpath->query('//meta[@property="og:title"]');
 $profileName = $profileNode->length > 0 ? $profileNode->item(0)->getAttribute('content') : 'N/A';
 
-// 📊 ดึงจำนวนการอ้างอิงทั้งหมด
-$totalCitationsNode = $xpath->query('//meta[@property="og:description"]');
+// 📊 ดึงจำนวนการอ้างอิงทั้งหมด และ Expertise
+$descriptionNode = $xpath->query('//meta[@property="og:description"]');
 $totalCitations = 'N/A';
-if ($totalCitationsNode->length > 0) {
-    preg_match('/อ้างอิงโดย (\d+)/u', $totalCitationsNode->item(0)->getAttribute('content'), $matches);
+$expertise = [];
+
+if ($descriptionNode->length > 0) {
+    $descriptionContent = $descriptionNode->item(0)->getAttribute('content');
+
+    // ดึง Total Citations
+    preg_match('/อ้างอิงโดย (\d+)/u', $descriptionContent, $matches);
     $totalCitations = $matches[1] ?? 'N/A';
+
+    // ดึง Expertise (กรอง "อ้างอิงโดย ..." ออก)
+    preg_match('/- (.+)$/', $descriptionContent, $expMatches);
+    if (!empty($expMatches[1])) {
+        $expertise = array_filter(
+            array_map('trim', explode(' - ', $expMatches[1])),
+            fn($item) => !preg_match('/อ้างอิงโดย \d+ รายการ/u', $item)
+        );
+    }
 }
 
 // 🔹 ดึงข้อมูลบทความ
@@ -68,7 +83,8 @@ $articles = $xpath->query('//tr[@class="gsc_a_tr"]');
 $newData = [
     'profile' => $profileName,
     'total_citations' => $totalCitations,
-    'articles' => []
+    'expertise' => array_values($expertise),
+    'papers' => []
 ];
 
 foreach ($articles as $article) {
@@ -87,28 +103,47 @@ foreach ($articles as $article) {
     $yearNode = $xpath->query('.//td[@class="gsc_a_y"]', $article);
     $year = $yearNode->length > 0 ? trim($yearNode->item(0)->textContent) : 'N/A';
 
-    // 🕒 หน่วงเวลาเพิ่ม (สุ่ม 1-3 วินาที)
-    $delay = rand(1, 3);
-    echo "⏳ รอ $delay วินาทีก่อนดึงบทความต่อไป...\n";
+    // 🕒 หน่วงเวลาเพิ่ม (สุ่ม 2-5 วินาที)
+    $delay = rand(2, 5);
+    echo "⏳ รอ $delay วินาทีก่อนดึงข้อมูล Paper...\n";
     sleep($delay);
 
-    // เพิ่มข้อมูลบทความใหม่
-    $newData['articles'][] = [
-        'title' => $title,
-        'link' => $link,
+    // ดึงข้อมูล Paper เพิ่มเติมจากหน้าของ Paper
+    $paperHtml = file_get_contents($link);
+    $paperDoc = new DOMDocument();
+    libxml_use_internal_errors(true);
+    $paperDoc->loadHTML($paperHtml);
+    libxml_clear_errors();
+    $paperXPath = new DOMXPath($paperDoc);
+
+    // ดึง Paper Type และรายละเอียด
+    $paperTypeField = $paperXPath->query('//div[@class="gsc_oci_field"][text()="Conference" or text()="Journal" or text()="Book Chapter"]');
+    if ($paperTypeField->length > 0) {
+        $paperType = trim($paperTypeField->item(0)->textContent);
+        $paperTypeDetailNode = $paperTypeField->item(0)->parentNode->getElementsByTagName('div')->item(1);
+        $paperTypeDetail = $paperTypeDetailNode ? trim($paperTypeDetailNode->textContent) : "Unknown";
+    } else {
+        $paperType = "Unknown";
+        $paperTypeDetail = "Unknown";
+    }
+
+    // ดึง Description
+    $descriptionNode = $paperXPath->query('//div[contains(@class,"gsh_small") or contains(@class,"gsc_oci_value")]');
+    $description = $descriptionNode->length > 0 ? trim($descriptionNode->item(0)->textContent) : "No description available.";
+
+    // เพิ่มข้อมูล Paper
+    $newData['papers'][] = [
+        'paper' => $title,
+        'paperUrl' => $link,
         'citations' => $citations,
-        'year' => $year // เพิ่มปีที่ทำวิจัย
+        'year' => $year,
+        'paper_type' => $paperType,
+        'paper_type_detail' => $paperTypeDetail,
+        'description' => $description
     ];
 }
 
-// 3️⃣ โหลด JSON เก่าถ้ามีอยู่
-$existingData = file_exists($jsonFilePath) ? json_decode(file_get_contents($jsonFilePath), true) : [];
-if (!is_array($existingData)) $existingData = []; // ป้องกัน JSON เสีย
-
-// 4️⃣ เพิ่มข้อมูลใหม่เข้าไปใน JSON โดยไม่ลบข้อมูลเก่า
-$existingData['researchers'][] = $newData;
-
-// 5️⃣ บันทึกข้อมูล JSON อัปเดต
-file_put_contents($jsonFilePath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-echo "📂 อัปเดตข้อมูล JSON ที่: $jsonFilePath\n";
+// 🔥 บันทึก JSON
+file_put_contents($jsonFilePath, json_encode($newData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+echo "📂 บันทึกข้อมูล JSON ที่: $jsonFilePath\n";
 ?>
