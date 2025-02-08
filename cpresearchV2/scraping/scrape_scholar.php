@@ -13,7 +13,7 @@ if (!is_dir($baseDir)) {
 
 // 🔗 ตั้งค่า URL ใหม่ (เปลี่ยนตรงนี้เมื่อต้องการดึงข้อมูลของคนใหม่)
 $newResearcher = [
-    "url" => "https://scholar.google.com/citations?user=E01V5gUAAAAJ&hl=th"
+    "url" => "https://scholar.google.com/citations?hl=th&user=xF4E8-gAAAAJ"
 ];
 
 // อ่าน URL ก่อนหน้า
