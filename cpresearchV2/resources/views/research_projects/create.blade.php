@@ -106,14 +106,32 @@
                     </div> -->
 
                     <div class="form-group row mt-2">
-                        <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ</label>
+                        <label for="exampleInputfund_details" class="col-sm-2">ผู้รับผิดชอบโครงการ</label>
                         <div class="col-sm-9">
-                            <select id='head0' style='width: 200px;' name="head">
-                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                            <select id="head0" style="width: 200px;" name="head">
+                                @php
+                                // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                                $userRole = DB::table('model_has_roles')
+                                ->where('model_id', Auth::user()->id)
+                                ->value('role_id');
+                                @endphp
+
+                                @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+                                <option value="">Select User</option>
+                                @foreach($users as $user)
+                                <option value="{{ $user->id }}" {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
+                                    {{ $user->fname_th }} {{ $user->lname_th }}
+                                </option>
                                 @endforeach
+                                @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อของตัวเอง --}}
+                                <option value="{{ Auth::user()->id }}" selected>
+                                    {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                                </option>
+                                @endif
                             </select>
                         </div>
                     </div>
+
                     <div class="form-group row mt-2">
                         <label for="exampleInputfund_details" class="col-sm-2 ">ผู้รับผิดชอบโครงการ (ร่วม) ภายใน</label>
                         <div class="col-sm-9">
@@ -147,7 +165,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> 
+                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
                             </div>
                         </div>
                     </div> -->
@@ -161,12 +179,12 @@
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
                                         <!-- <th>Email Id</th> -->
-                                            <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
+                                        <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore2" title="Add More Person"><i class="mdi mdi-plus"></i></span></a></th>
                                     <tr>
                                         <td><input type="text" name="title_name[]" class="form-control" placeholder="ตำแหน่งหรือคำนำหน้า"></td>
-                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ" ></td>
-                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล" ></td>
+                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ"></td>
+                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล"></td>
                                         <!-- <td><input type="text" name="emailid[]" class="form-control"></td> -->
                                         <td><a href='javascript:void(0);' class='remove'><span><i class="mdi mdi-minus"></span></a></td>
                                     </tr>
