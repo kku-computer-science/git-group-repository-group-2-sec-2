@@ -74,6 +74,7 @@ return array(
     'App\\Http\\Middleware\\isUserMiddleware' => $baseDir . '/app/Http/Middleware/isUserMiddleware.php',
     'App\\Imports\\UsersImport' => $baseDir . '/app/Imports/UsersImport.php',
     'App\\Models\\Academicwork' => $baseDir . '/app/Models/Academicwork.php',
+    'App\\Models\\ApiStatus' => $baseDir . '/app/Models/ApiStatus.php',
     'App\\Models\\Author' => $baseDir . '/app/Models/Author.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Course' => $baseDir . '/app/Models/Course.php',

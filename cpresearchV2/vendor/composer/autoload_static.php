@@ -695,6 +695,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'App\\Http\\Middleware\\isUserMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/isUserMiddleware.php',
         'App\\Imports\\UsersImport' => __DIR__ . '/../..' . '/app/Imports/UsersImport.php',
         'App\\Models\\Academicwork' => __DIR__ . '/../..' . '/app/Models/Academicwork.php',
+        'App\\Models\\ApiStatus' => __DIR__ . '/../..' . '/app/Models/ApiStatus.php',
         'App\\Models\\Author' => __DIR__ . '/../..' . '/app/Models/Author.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Course' => __DIR__ . '/../..' . '/app/Models/Course.php',

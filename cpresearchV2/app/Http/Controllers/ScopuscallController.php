@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 
 class ScopuscallController extends Controller
 {
@@ -22,7 +24,8 @@ class ScopuscallController extends Controller
      */
     public function create($id)
     {
-        //$data = User::all();
+        try{
+            //$data = User::all();
         //$data = User::find(46);
         //return $id;
         $id = Crypt::decrypt($id);
@@ -41,9 +44,21 @@ class ScopuscallController extends Controller
         ])->json();
 
 
-        //$check=$url["search-results"]["entry"];
-        $content = $url["search-results"]["entry"];
+        if (isset($url['error']) || empty($url)) {
+            throw new \Exception('Scopus API ไม่สามารถใช้งานได้');
+        }
 
+        $content = $url['search-results']['entry'];
+
+        // ตรวจสอบว่าข้อมูลมีปัญหาหรือไม่
+        if (empty($content)) {
+            throw new \Exception('ไม่พบข้อมูลจาก Scopus API');
+        }
+
+        // อัปเดตสถานะ API ว่าใช้งานได้
+        $this->updateApiStatus('Scopus API', 'active');
+
+        
 
         $links = $url["search-results"]["link"];
         //print_r($links);
@@ -300,7 +315,29 @@ class ScopuscallController extends Controller
         }
         //}
         //return 'succes';
-        return redirect()->back();
+        return redirect()->back()->with('success', 'ดึงข้อมูลสำเร็จ');
+        }catch(\Exception $e){
+            Log::error("เกิดข้อผิดพลาด: " . $e->getMessage());
+
+            // อัปเดตสถานะ API ว่าไม่สามารถใช้งานได้
+            $this->updateApiStatus('Scopus API', 'inactive', $e->getMessage());
+
+            return redirect()->back()->with('error', 'API มีปัญหา: ' . $e->getMessage());
+        }
+        
+    }
+    private function updateApiStatus($apiName, $status, $message = null)
+    {
+        // Create an instance of the controller
+        $controller = new APIstatusController();
+
+        // Call the updateOrCreate method on the controller instance
+        $controller->updateOrCreate(new \Illuminate\Http\Request([
+            'api_name' => $apiName,
+            'status' => $status,
+            'last_checked' => now(),
+            'message' => $message,
+        ]));
     }
 
     /**
