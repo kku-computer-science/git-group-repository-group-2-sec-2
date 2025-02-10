@@ -654,7 +654,7 @@
                                 swal("Error deleting!", "Please try again", "error");
                             }
                         });
-                        
+
                     });
 
                 }
