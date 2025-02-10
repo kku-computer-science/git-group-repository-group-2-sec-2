@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ApiStatus;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use SebastianBergmann\Environment\Console;
+use Illuminate\Support\Facades\Log;
 
 class APIstatusController extends Controller
 {
@@ -19,23 +18,37 @@ class APIstatusController extends Controller
     {
         // Validate the incoming request data
         $validated = $request->validate([
-            'api_name' => 'required|string|max:255', // Adjust validation as needed
-            'status' => 'required|string|max:255', // Adjust validation as needed
-            'last_checked' => 'required|date', // Adjust validation as needed
-            'message' => 'required|string|max:255', // Adjust validation as needed
+            'api_name' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
+            'last_checked' => 'required|date',
+            'message' => 'nullable|string|max:255', // Make message nullable
         ]);
 
-        // Using 'updateOrCreate' to either update an existing record or create a new one
-        $status = ApiStatus::updateOrCreate(
-            ['api_name' => $validated['api_name']], // Check if the api_name already exists
-            [
-                'status' => $validated['status'],
-                'last_checked' => $validated['last_checked'],
-                'message' => $validated['message']
-            ]
-        );
+        // Ensure last_checked is properly formatted
+        $validated['last_checked'] = now()->toDateTimeString();
 
-        // Redirect back to the index with a success message
-        return redirect()->route('apistatus.index');
+        try {
+            // Using 'updateOrCreate' to either update an existing record or create a new one
+            $status = ApiStatus::updateOrCreate(
+                ['api_name' => $validated['api_name']], // Check if the api_name already exists
+                [
+                    'status' => $validated['status'],
+                    'last_checked' => $validated['last_checked'],
+                    'message' => $validated['message']
+                ]
+            );
+
+            Log::info('API status updated or created successfully:', ['status' => $status]);
+
+            // Return appropriate response based on request type
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json(['message' => 'API status updated successfully', 'data' => $status], 200);
+            }
+
+            return redirect()->route('apistatus.index');
+        } catch (\Exception $e) {
+            Log::error('Failed to update or create API status:', ['error' => $e->getMessage()]);
+            return response()->json(['error' => 'Failed to update or create API status'], 500);
+        }
     }
 }
