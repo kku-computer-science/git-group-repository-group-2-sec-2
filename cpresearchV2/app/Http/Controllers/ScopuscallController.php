@@ -39,7 +39,7 @@ class ScopuscallController extends Controller
             'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
             'apikey' => '6ab3c2a01c29f0e36b00c8fa1d013f83',
         ])->json();
-
+ 
 
         //$check=$url["search-results"]["entry"];
         $content = $url["search-results"]["entry"];
