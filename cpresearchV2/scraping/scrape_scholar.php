@@ -1,6 +1,5 @@
 <?php
-
-// 📌 ตั้งค่าโฟลเดอร์เก็บไฟล์
+// 📌 ตั้งค่าโฟลเดอร์เก็บไฟล์หหห
 $baseDir = __DIR__ . "/googleScholarWebscraping";
 $htmlFilePath = "$baseDir/scholar_output.html";
 $jsonFilePath = "$baseDir/scholar_data.json";
@@ -8,18 +7,85 @@ $jsonFilePath = "$baseDir/scholar_data.json";
 // ตรวจสอบและสร้างโฟลเดอร์หากไม่มี
 if (!is_dir($baseDir)) {
     mkdir($baseDir, 0777, true);
-    echo "📂 สร้างโฟลเดอร์: $baseDir\n";
 }
 
-// 📌 ฟังก์ชันดึงข้อมูลจาก Google Scholar
-function fetchScholarData($url) {
-    $response = file_get_contents($url);
-    return $response ? $response : null;
+// 📌 ลบไฟล์เก่าหากมีอยู่
+if (file_exists($htmlFilePath)) unlink($htmlFilePath);
+if (file_exists($jsonFilePath)) unlink($jsonFilePath);
+
+// 📌 ฟังก์ชันดึงรายการพร็อกซีจาก ProxyScrape
+function fetchProxyList() {
+    $proxyApiUrl = 'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all';
+    $proxyList = file($proxyApiUrl, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    return $proxyList ?: [];
 }
 
-// 📌 ดึงข้อมูลจาก Google Scholar
+// 📌 ฟังก์ชันสุ่มพร็อกซี
+function getRandomProxy($proxyList) {
+    return $proxyList[array_rand($proxyList)];
+}
+
+// 📌 ฟังก์ชันดึงข้อมูลจาก Google Scholar โดยใช้ Proxy และ Retry
+function fetchWithRetry($url, $maxRetries = 5) {
+    $proxyList = fetchProxyList();
+    if (empty($proxyList)) {
+        echo "❌ ไม่พบพร็อกซีที่ใช้งานได้\n";
+        return null;
+    }
+
+    $retryCount = 0;
+    $waitTime = 2; // เริ่มต้นหน่วงเวลา 2 วินาที
+    $userAgents = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+        'Mozilla/5.0 (X11; Linux x86_64)'
+    ];
+
+    while ($retryCount < $maxRetries) {
+        $proxy = getRandomProxy($proxyList);
+        echo "🕵️‍♂️ ใช้ Proxy: $proxy\n";
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'User-Agent: ' . $userAgents[array_rand($userAgents)],
+            'Accept-Language: en-US,en;q=0.9'
+        ]);
+
+        // 📌 ใช้ Proxy
+        curl_setopt($ch, CURLOPT_PROXY, $proxy);
+        curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode === 200) {
+            return $response;
+        } elseif ($httpCode === 429) {
+            $retryCount++;
+            $backoff = $waitTime * pow(2, $retryCount);
+            echo "🚨 HTTP 429 - เปลี่ยน Proxy และรอ {$backoff} วินาที...\n";
+            sleep($backoff);
+        } else {
+            echo "⚠️ ไม่สามารถโหลดจาก Proxy: $proxy\n";
+            $proxyList = array_diff($proxyList, [$proxy]); // ลบ Proxy ที่ใช้ไม่ได้ออก
+            if (empty($proxyList)) {
+                echo "❌ ไม่มี Proxy ที่ใช้งานได้เหลืออยู่\n";
+                return null;
+            }
+        }
+    }
+
+    return null;
+}
+
+// 📌 เริ่ม Scrap Google Scholar
 $researcherUrl = "https://scholar.google.com/citations?hl=en&user=sAp1BWsAAAAJ";
-$html = fetchScholarData($researcherUrl);
+$html = fetchWithRetry($researcherUrl);
 if (!$html) {
     die("❌ ไม่สามารถดึงข้อมูลจาก Google Scholar ได้");
 }
@@ -47,10 +113,10 @@ if ($descriptionNode->length > 0) {
     $totalCitations = $matches[1] ?? 'N/A';
 }
 
-// 🔹 ดึงข้อมูลบทความ
+// 📌 ดึงข้อมูลบทความ
 $articles = $xpath->query('//tr[@class="gsc_a_tr"]');
 $paperCount = 0;
-$maxPapers = 5; // จำกัดบทความที่ดึงมา
+$maxPapers = 2;
 
 $newData = [
     'profile' => $profileName,
@@ -61,33 +127,27 @@ $newData = [
 foreach ($articles as $article) {
     if ($maxPapers !== null && $paperCount >= $maxPapers) break;
 
-    // 📌 ดึงชื่อบทความ
     $titleNode = $xpath->query('.//a[@class="gsc_a_at"]', $article);
     $title = $titleNode->length > 0 ? trim($titleNode->item(0)->textContent) : 'N/A';
-    $paperUrl = $titleNode->length > 0 ? 'https://scholar.google.com' . str_replace("hl=th", "hl=en", $titleNode->item(0)->getAttribute('href')) : 'N/A';
 
-    // 📌 ดึงชื่อผู้เขียน
-    $authorNode = $xpath->query('.//div[@class="gs_gray"]', $article);
+    $paperUrlNode = $xpath->query("//a[@class='gsc_oci_title_link']");
+    $paperUrl = $paperUrlNode->length > 0 ? $paperUrlNode->item(0)->getAttribute('href') : 'N/A';
+
+    $authorNode = $xpath->query("//div[@class='gsc_oci_field' and text()='Authors']/following-sibling::div[@class='gsc_oci_value']");
     $authors = $authorNode->length > 0 ? trim($authorNode->item(0)->textContent) : 'N/A';
-
-    // 📌 ดึงจำนวนอ้างอิง
+    
     $citationsNode = $xpath->query('.//td[@class="gsc_a_c"]', $article);
     $citations = $citationsNode->length > 0 ? trim($citationsNode->item(0)->textContent) : '0';
 
-    // 📌 ดึงปีที่ตีพิมพ์
     $yearNode = $xpath->query('.//td[@class="gsc_a_y"]', $article);
     $year = $yearNode->length > 0 ? trim($yearNode->item(0)->textContent) : 'N/A';
 
-    // 📌 ดึงประเภทเอกสาร
-    $sourceNode = $xpath->query('.//div[@class="gs_gray"][2]', $article);
-    $paper_type_detail = $sourceNode->length > 0 ? trim($sourceNode->item(0)->textContent) : 'N/A';
-    $paper_type = strpos(strtolower($paper_type_detail), 'conference') !== false ? 'Conference' : 'Journal';
+    $paperTypeNode = $xpath->query("//div[@class='gsc_oci_field' and text()='Journal']/following-sibling::div[@class='gsc_oci_value']");
+    $paper_type_detail = $paperTypeNode->length > 0 ? trim($paperTypeNode->item(0)->textContent) : 'N/A';
 
-    // 📌 ดึงคำอธิบาย (description)
-    $descriptionNode = $xpath->query('//meta[@property="og:description"]');
-    $description = $descriptionNode->length > 0 ? trim($descriptionNode->item(0)->getAttribute('content')) : 'N/A';
+    $descriptionNode = $xpath->query("//div[@class='gsh_small']/div[@class='gsh_csp']");
+    $description = $descriptionNode->length > 0 ? trim($descriptionNode->item(0)->textContent) : 'N/A';
 
-    // 📌 เพิ่มข้อมูลบทความ
     $newData['papers'][] = [
         'paper' => $title,
         'authors' => $authors,
