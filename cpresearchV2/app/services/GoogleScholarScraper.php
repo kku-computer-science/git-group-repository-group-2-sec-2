@@ -71,6 +71,11 @@ class GoogleScholarScraper
                     'description' => $paperData['description']
                 ];
             });
+                $crawler = $client->request('GET', $url);
+    $data = $crawler->html(); // ดู HTML ที่ได้จาก Google Scholar
+
+    // Debug ข้อมูลที่ได้รับ
+    dd($data);
 
             return [
                 'profile' => $profile_name,
@@ -125,6 +130,11 @@ class GoogleScholarScraper
                 'paperTypeDetail' => 'N/A'
             ];
         }
+        $crawler = $client->request('GET', $url);
+$data = $crawler->html(); // ดู HTML ที่ได้จาก Google Scholar
+
+// Debug ข้อมูลที่ได้รับ
+dd($data);
     }
 
     private function getRandomUserAgent()
