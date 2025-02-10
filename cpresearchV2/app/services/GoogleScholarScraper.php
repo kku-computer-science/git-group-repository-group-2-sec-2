@@ -10,10 +10,9 @@ class GoogleScholarScraper
     public function scrapeScholarProfile($scholar_id)
     {
         try {
-            $url = "https://scholar.google.com/citations?&hl=en&user=" . $scholar_id;
+            $url = "https://scholar.google.com/citations?&hl=en&pagesize=100&user=" . $scholar_id;
 
             // ✅ หน่วงเวลา 10-20 วินาที ก่อนโหลดหน้า Google Scholar
-            sleep(rand(10, 20));
 
             $httpClient = HttpClient::create([
                 'timeout' => 10,
@@ -30,7 +29,7 @@ class GoogleScholarScraper
             }
 
             // ✅ หน่วงเวลาเพิ่มอีก 5-10 วินาที หลังโหลดหน้าเว็บเสร็จ
-            sleep(rand(5, 10));
+            sleep(rand(5, 8));
 
             // ✅ ดึงข้อมูลโปรไฟล์
             $profile_name = $crawler->filter('#gsc_prf_in')->count() ? $crawler->filter('#gsc_prf_in')->text() : 'N/A';
@@ -41,8 +40,7 @@ class GoogleScholarScraper
 
             // ✅ ดึงข้อมูล Paper ทั้งหมด
             $papers = [];
-            $crawler->filter('.gsc_a_tr')->slice(0, 1)->each(function ($node) use (&$papers) {
-
+            $crawler->filter('.gsc_a_tr')->each(function ($node) use (&$papers) {                
                 $titleElement = $node->filter('.gsc_a_t a');
                 $authorsElement = $node->filter('.gsc_a_t div.gs_gray')->eq(0);
                 $citationsElement = $node->filter('.gsc_a_c a');
@@ -55,13 +53,12 @@ class GoogleScholarScraper
                 $year = $yearElement->count() ? $yearElement->text() : 'N/A';
 
                 // ✅ หน่วงเวลา 8-15 วินาที ก่อนโหลดรายละเอียด Paper
-                sleep(rand(8, 10));
 
                 // ✅ ดึงข้อมูล Paper แบบละเอียดจากหน้าของ Paper
                 $paperData = $this->fetchPaperDetails($paperPageUrl);
 
                 // ✅ หน่วงเวลา 5-10 วินาที หลังโหลดเสร็จ
-                sleep(rand(5, 7));
+           
 
                 $papers[] = [
                     'paper' => $title,
@@ -91,7 +88,7 @@ class GoogleScholarScraper
     {
         try {
             // ✅ หน่วงเวลา 10-20 วินาทีก่อนโหลดหน้ารายละเอียด Paper
-            sleep(rand(10, 20));
+           
 
             $client = new Client();
             $crawler = $client->request('GET', $paperPageUrl);
@@ -113,7 +110,6 @@ class GoogleScholarScraper
             $paperTypeDetail = $paperTypeDetailNode->count() ? trim($paperTypeDetailNode->text()) : 'N/A';
 
             // ✅ หน่วงเวลา 5-10 วินาที ก่อนคืนค่า
-            sleep(rand(5, 10));
 
             return [
                 'paperUrl' => $paperUrl,
