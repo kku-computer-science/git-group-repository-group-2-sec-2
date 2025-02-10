@@ -94,8 +94,9 @@ class GoogleScholarScraper
             $crawler = $client->request('GET', $paperPageUrl);
 
             // ✅ ดึง Paper URL จาก <a class="gsc_oci_title_link">
-            $paperUrlNode = $crawler->filter('.gsc_oci_title_link');
-            $paperUrl = $paperUrlNode->count() ? $paperUrlNode->attr('href') : '#';
+            // $paperUrlNode = $crawler->filter('.gsc_oci_title_link');
+            // $paperUrl = $paperUrlNode->count() ? $paperUrlNode->attr('href') : '#';
+            $paperUrl = $paperPageUrl;
 
             // ✅ ดึงคำอธิบายจาก <div class="gsh_small">
             $descriptionNode = $crawler->filter('.gsh_small');
