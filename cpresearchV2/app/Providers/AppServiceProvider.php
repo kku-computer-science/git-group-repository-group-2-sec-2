@@ -29,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
             'layouts.layout', 
             function ($view) {
                 //$view->with('dn', \App\Models\Program::where('degree_id', '=', 1)->get());
-                $view->with('r', \Spatie\Permission\Models\Role::whereIn('id', [2, 6, 7, 8])->get());
+                $view->with('r', \Spatie\Permission\Models\Role::whereIn('name', ['teacher', 'Undergrad Student', 'Master Student', 'Doctoral Student'])
+                ->orderby('id')
+                ->get());
             }
         );
     }
