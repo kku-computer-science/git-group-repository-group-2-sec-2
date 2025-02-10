@@ -24,7 +24,6 @@ async function fetchScopusData(request, scopusId, apiKey) {
     }
 }
 
-
 // ทดสอบการดึงข้อมูล SCOPUS ด้วย SCOPUS ID ที่ถูกต้อง
 test('ทดสอบการดึงข้อมูล SCOPUS ด้วย SCOPUS ID ที่ถูกต้อง', async ({ request }) => {
     const response = await fetchScopusData(request, VALID_SCOPUS_ID, VALID_API_KEY);
@@ -43,8 +42,17 @@ test('ทดสอบการดึงข้อมูล SCOPUS ด้วย SC
     expect(parseInt(coreData['citedby-count'])).toBe(0);
 
     // ตรวจสอบรายชื่อผู้เขียน
-    const authors = data['abstracts-retrieval-response']['authors']?.['author'] || [];
+    // ตรวจสอบรายชื่อผู้เขียน
+    const authorsArray = data['abstracts-retrieval-response']['coredata']?.['dc:creator']?.['author'] || [];
+    const authors = Array.isArray(authorsArray) ? authorsArray : [authorsArray];
+
+    // ตรวจสอบว่ามีข้อมูลนักวิจัย
     expect(authors.length).toBeGreaterThan(0);
+    expect(authors).toEqual(expect.arrayContaining([
+        expect.objectContaining({ "ce:indexed-name": "Boonprapapan T." }),
+        expect.objectContaining({ "ce:indexed-name": "Seresangtakul P." }),
+        expect.objectContaining({ "ce:indexed-name": "Horata P." })
+    ]));
 
     // ตรวจสอบ keywords
     const keywordsArray = data['abstracts-retrieval-response']['authkeywords']?.['author-keyword'] || [];
