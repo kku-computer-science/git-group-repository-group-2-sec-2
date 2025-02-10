@@ -28,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(
             'layouts.layout', 
             function ($view) {
-                $view->with('dn', \App\Models\Program::where('degree_id', '=', 1)->get());
+                //$view->with('dn', \App\Models\Program::where('degree_id', '=', 1)->get());
+                $view->with('r', \Spatie\Permission\Models\Role::whereIn('id', [2, 6, 7, 8])->get());
             }
         );
     }

@@ -74,9 +74,9 @@
                             {{ trans('message.Researchers') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach($dn as $department)
-                            <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
+                            @foreach($r as $role)
+                            <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$role->id])}}">
+                                    {{$role->name}}</a>
                             </li>
                             @endforeach
                         </ul>
