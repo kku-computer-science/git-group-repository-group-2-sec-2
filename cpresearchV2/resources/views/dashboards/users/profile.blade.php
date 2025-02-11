@@ -59,7 +59,7 @@
                 <h3 class="mb-4">Profile Settings</h3>
                 <form class="form-horizontal" method="POST" action="{{ route('adminUpdateInfo') }}" id="AdminInfoForm">
                     <div class="row">
-                    <div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Academic Ranks</label>
                                 <select id="category" class="custom-select my-select" name="academic_ranks_en">
@@ -135,12 +135,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        </div>
+    <div class="form-group">
+        <label>Scholar ID</label>
+        <input type="text" class="form-control" id="inputScholarID" placeholder="Enter Scholar ID"
+               value="{{ Auth::user()->scholar_id }}" name="scholar_id">
+        <span class="text-danger error-text scholar_id_error"></span>
+    </div>
+</div>
+
                         @if(Auth::user()->hasRole('teacher'))
-
-                        
-
-
                         <div class="col-md-4">
                             <div class="form-group">
                                 <div class="checkbox">

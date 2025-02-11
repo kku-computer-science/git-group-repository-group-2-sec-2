@@ -45,7 +45,7 @@ class ProfileuserController extends Controller
             'fname_th' => 'required',
             'lname_th' => 'required',
             'email' => 'required|email|unique:users,email,' . Auth::user()->id,
-
+            'scholar_id' => 'nullable|string|max:255',
         ]);
 
         if (!$validator->passes()) {
@@ -119,7 +119,7 @@ class ProfileuserController extends Controller
                 'title_name_en' => $request->title_name_en,
                 'title_name_th' => $title_name_th,
                 'doctoral_degree' => $doctoral,
-
+                'scholar_id' => $request->scholar_id,
             ]);
 
             if (!$query) {
