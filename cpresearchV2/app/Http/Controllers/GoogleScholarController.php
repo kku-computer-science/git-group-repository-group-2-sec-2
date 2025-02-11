@@ -33,14 +33,7 @@ class GoogleScholarController extends Controller
             return response()->json(['error' => 'User not authenticated'], 401);
         }
 
-        // ✅ ดึง ID ของ Google Scholar จากตาราง source_data
-        $googleScholarSource = Source_data::where('source_name', 'Google Scholar')->first();
-
-        if (!$googleScholarSource) {
-            return response()->json(['error' => 'Google Scholar source not found'], 500);
-        }
-
-        // ✅ บันทึก Paper พร้อมเชื่อมโยงกับ User และกำหนดหมวดหมู่ Google Scholar
+        // ✅ บันทึก Paper พร้อมเชื่อมโยงกับ User
         foreach ($data['papers'] as $paperData) {
             $paper = Paper::updateOrCreate(
                 ['paper_name' => $paperData['paper']],
@@ -51,7 +44,6 @@ class GoogleScholarController extends Controller
                     'paper_yearpub' => is_numeric($paperData['year']) ? (int) $paperData['year'] : null,
                     'paper_citation' => is_numeric($paperData['citations']) ? (int) $paperData['citations'] : 0,
                     'paper_sourcetitle' => $paperData['paper_type_detail'] ?? null,
-                    'source_data_id' => $googleScholarSource->id, // ✅ ระบุหมวดหมู่ Google Scholar
                     'publication' => null,
                     'paper_volume' => null,
                     'paper_issue' => null,
@@ -61,6 +53,8 @@ class GoogleScholarController extends Controller
                     'reference_number' => null
                 ]
             );
+            $source = Source_data::findOrFail(4);
+            $paper->source()->sync($source);
 
             // ✅ ตรวจสอบว่ามีความสัมพันธ์ระหว่าง User และ Paper หรือยัง
             $exists = DB::table('user_papers')
@@ -72,12 +66,6 @@ class GoogleScholarController extends Controller
                 // ✅ เชื่อมโยง User กับ Paper โดยกำหนด `author_type`
                 $paper->teacher()->attach($user->id, ['author_type' => 1]);
             }
-
-            // ✅ เพิ่มความสัมพันธ์ระหว่าง Paper และ Source_data
-            DB::table('source_papers')->updateOrInsert(
-                ['paper_id' => $paper->id, 'source_id' => $googleScholarSource->id],
-                ['created_at' => now(), 'updated_at' => now()]
-            );
         }
 
         return response()->json($data);
