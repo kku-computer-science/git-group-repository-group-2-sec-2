@@ -50,10 +50,10 @@ class ResearcherController extends Controller
         $user8 = User::role('teacher')->where('position_th', 'อ.')->with('program')->whereHas('program', function($q) use($id){
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        
+
         $users = collect([...$user1, ...$user4, ...$user2, ...$user5, ...$user3, ...$user6, ...$user7, ...$user8]);
         //return $users;
-        // $request = Program::with(['users' => fn($query) => 
+        // $request = Program::with(['users' => fn($query) =>
         // //$query->role('teacher')->orderByRaw("FIELD(position_en , 'Prof. Dr.' as 1, 'Assoc. Prof. Dr.' as 2, 'Asst. Prof. Dr.' as 3,'Assoc. Prof.' as 4, 'Asst. Prof.' as 5, 'Dr.' as 6,'Lecturer' as 7) ASC")
         // $query->role('teacher')->orderByRaw("FIELD(position_en , 'Prof. Dr.' , 'Assoc. Prof. Dr.' , 'Asst. Prof. Dr.' ,'Assoc. Prof.' , 'Asst. Prof.' , 'Dr.' ,'Lecturer' )")
         // ->with('expertise')])
@@ -69,7 +69,7 @@ class ResearcherController extends Controller
     }
     public function searchs($id, $text)
     {
-        
+
 
         $users = User::whereHas('roles', function ($q) use ($id) {
                 $q->where('roles.id', $id);
@@ -98,13 +98,20 @@ class ResearcherController extends Controller
     }
     public function requestByRole($id)
     {
+        if($id != 2 && $id != 6 && $id != 7 && $id != 8){
+            $newid = 2;
+        }
+        else{
+            $newid = $id;
+        }
+
         // Query users with the specified role
-        $users = User::whereHas('roles', function ($query) use ($id) {
-            $query->where('roles.id', $id);
+        $users = User::whereHas('roles', function ($query) use ($newid) {
+            $query->where('roles.id', $newid);
         })->get();
-        
+
         //$request = Program::where('id','=',$id)->get();
-        $request = Role::where('id', $id)->get();
+        $request = Role::where('id', $newid)->get();
         // Return the users or pass them to a view
         return view('researchers', compact('request', 'users'));
     }
