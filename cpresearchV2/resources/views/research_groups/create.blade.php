@@ -56,7 +56,7 @@
                 <div class="form-group row">
                     <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_detail_en" value="{{ old('group_detail_en') }}" class="form-control"
+                        <textarea name="group_detail_th" value="{{ old('group_detail_en') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>

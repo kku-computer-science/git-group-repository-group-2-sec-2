@@ -78,7 +78,7 @@ class ProfileuserController extends Controller
                     $pos_en = 'Prof.';
                     $pos_th = 'ศ.';
                 }
-                if ($request->academic_ranks_en == "Associate Professo") {
+                if ($request->academic_ranks_en == "Associate Professor") {
                     $pos_en = 'Assoc. Prof.';
                     $pos_th = 'รศ.';
                 }

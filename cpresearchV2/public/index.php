@@ -2,7 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
-
+ini_set('max_execution_time', 300); // เพิ่มเวลาเป็น 5 นาที
 define('LARAVEL_START', microtime(true));
 
 /*
