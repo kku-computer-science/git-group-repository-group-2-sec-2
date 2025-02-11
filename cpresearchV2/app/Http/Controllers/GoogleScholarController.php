@@ -23,34 +23,17 @@ class GoogleScholarController extends Controller
             return response()->json(['error' => $data['error']], 500);
         }
 
-        // 🔹 เตรียมข้อมูล JSON ตามที่ต้องการ
-        $response = [
-            'profile' => $data['profile'] ?? 'Unknown',
-            'total_citations' => $data['total_citations'] ?? '0',
-            'papers' => []
-        ];
-
+        // 🔹 บันทึก Paper ลงฐานข้อมูล
         foreach ($data['papers'] as $paper) {
-            $paperUrl = "https://scholar.google.com/scholar?q=" . urlencode($paper['paper']); // 🔹 สร้าง URL ของ Paper
-            $response['papers'][] = [
-                'paper' => $paper['paper'] ?? 'Untitled Paper',
-                'authors' => $paper['authors'] ?? 'Unknown',
-                'citations' => is_numeric($paper['citations']) ? (int) $paper['citations'] : 0,
-                'year' => is_numeric($paper['year']) ? (int) $paper['year'] : null,
-                'paperUrl' => $paperUrl
-            ];
-
-            // 🔹 บันทึกลงฐานข้อมูล
             Paper::updateOrCreate(
-                ['paper_name' => $paper['paper']],
+                ['paper_name' => $paper['paper']],  
                 [
                     'abstract' => $paper['authors'] ?? null,
-                    'paper_type' => null,
-                    'paper_subtype' => null,
-                    'paper_url' => $paperUrl, 
+                    'paper_type' => $paper['paper_type_detail'] ?? null, 
+                    'paper_url' => $paper['paperUrl'],
                     'paper_yearpub' => is_numeric($paper['year']) ? (int) $paper['year'] : null,
                     'paper_citation' => is_numeric($paper['citations']) ? (int) $paper['citations'] : 0,
-                    'paper_sourcetitle' => null,
+                    'paper_sourcetitle' => $paper['paper_type_detail'] ?? null,
                     'publication' => null,
                     'paper_volume' => null,
                     'paper_issue' => null,
@@ -62,6 +45,6 @@ class GoogleScholarController extends Controller
             );
         }
 
-        return response()->json($response);
+        return response()->json($data);
     }
 }
