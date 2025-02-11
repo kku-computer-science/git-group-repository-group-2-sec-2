@@ -22,6 +22,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 use App\Http\Controllers\GoogleScholarController;
 
 Route::get('/scholar/{scholar_id}', [GoogleScholarController::class, 'getScholarProfile']);
-
-
-
