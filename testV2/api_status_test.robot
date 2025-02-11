@@ -6,6 +6,8 @@ ${URL}         http://127.0.0.1:8000/login
 ${BROWSER}     chrome
 ${USERNAME}    chitsutha@kku.ac.th
 ${PASSWORD}    123456789
+${USERNAME_ADMIN}    admin@gmail.com
+${PASSWORD_ADMIN}    12345678
 ${DELAY}       0.2
 ${TIMEOUT}     10s
 
@@ -18,6 +20,8 @@ Call Paper
     Go To Published Research Tab
     Click Call Paper
     Wait For Paper
+    Logout
+    Login As Admin
     Go To Research API
     Close Browser
 
@@ -44,8 +48,20 @@ Click Call Paper
 Wait For Paper
     Sleep    15s
 
+Logout
+    Wait Until Element Is Visible    xpath=/html/body/div/nav/div[2]/ul[2]/li[3]/a    timeout=${TIMEOUT}
+    Click Element    xpath=/html/body/div/nav/div[2]/ul[2]/li[3]/a
+    Set Selenium Speed    ${DELAY}
+
+Login As Admin
+    Wait Until Element Is Visible    name=username    timeout=${TIMEOUT}
+    Input Text    name=username    ${USERNAME_ADMIN}
+    Input Text    name=password    ${PASSWORD_ADMIN}
+    Click Button    xpath=//button[@type='submit']
+    Set Selenium Speed    ${DELAY}
+
 Go To Research API
-    Wait Until Element Is Visible    xpath=//*[@id="sidebar"]/ul/li[10]/a    timeout=${TIMEOUT}
-    Click Element    xpath=//*[@id="sidebar"]/ul/li[10]/a
+    Wait Until Element Is Visible    xpath=//*[@id="sidebar"]/ul/li[17]/a    timeout=${TIMEOUT}
+    Click Element    xpath=//*[@id="sidebar"]/ul/li[17]/a
     Sleep    5s
     Set Selenium Speed    ${DELAY}
