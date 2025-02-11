@@ -457,24 +457,26 @@
         </div>
 
         <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
-            <table id="example7" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                    </tr>
-                </thead>
-                <tbody id="scholar-body">
-                </tbody>
-            </table>
-        </div>
+    <table id="example7" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Year</th>
+                <th scope="col">Paper Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Document Type</th>
+                <th scope="col">Page</th>
+                <th scope="col">Journals/Transactions</th>
+                <th scope="col">Citations</th>
+                <th scope="col">Doi</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+</div>
+
 
     </div>
     
