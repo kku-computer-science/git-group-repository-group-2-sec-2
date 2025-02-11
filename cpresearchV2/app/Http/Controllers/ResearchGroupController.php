@@ -9,6 +9,8 @@ use App\Models\Fund;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth; // เพิ่มเข้ามา
+
 
 class ResearchGroupController extends Controller
 {
@@ -27,8 +29,13 @@ class ResearchGroupController extends Controller
 
     public function index()
     {
-        //$researchGroups = ResearchGroup::latest()->paginate(5);
-        $researchGroups = ResearchGroup::with('User')->get();
+        $user = Auth::user(); // ดึงข้อมูล User ที่ล็อกอินอยู่
+
+        // ดึงเฉพาะกลุ่มวิจัยที่ผู้ใช้เป็นสมาชิก
+        $researchGroups = ResearchGroup::whereHas('user', function ($query) use ($user) {
+            $query->where('users.id', $user->id);
+        })->with('User')->get();
+
         return view('research_groups.index', compact('researchGroups'));
     }
 
