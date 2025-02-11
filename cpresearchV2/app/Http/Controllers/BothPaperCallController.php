@@ -17,7 +17,9 @@ class BothPaperCallController extends Controller
         try {
             $userId = Crypt::decrypt($id);
             $user = User::findOrFail($userId);
-
+            if (!$user->scholar_id) {
+                return response()->json(['error' => 'User does not have a Scholar ID'], 400);
+            }
             // ✅ เรียกใช้งาน Scopus API
             $scopusController = new ScopuscallController();
             $scopusResponse = $scopusController->create($id);
