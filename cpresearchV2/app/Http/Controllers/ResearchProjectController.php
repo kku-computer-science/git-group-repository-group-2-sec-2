@@ -20,27 +20,31 @@ class ResearchProjectController extends Controller
      */
     public function index()
     {
-
-        $id = auth()->user()->id;
-        if (auth()->user()->HasRole('admin')) {
-            $researchProjects = ResearchProject::with('User')->get();
-        } elseif (auth()->user()->HasRole('headproject')) {
-            $researchProjects = ResearchProject::with('User')->get();
-        } elseif (auth()->user()->HasRole('staff')) {
-            $researchProjects = ResearchProject::with('User')->get();
+        $user = auth()->user();
+    
+        if ($user->hasRole('admin') || $user->hasRole('staff')) {
+            // Admin และ Staff เห็นทุกโครงการ
+            $researchProjects = ResearchProject::with('user')->get();
+        } elseif ($user->hasRole('headproject')) {
+            // Headproject เห็นทั้งโครงการที่เป็นหัวหน้า และโครงการที่มีส่วนร่วม
+            $researchProjects = ResearchProject::whereIn('id', function ($query) use ($user) {
+                $query->select('research_project_id')
+                      ->from('work_of_research_projects')
+                      ->where('user_id', $user->id);
+            })->get();
         } else {
-            $researchProjects = User::find($id)->researchProject()->get();
-            //$researchProjects=User::find($id)->researchProject()->latest()->paginate(5);
-
-            //$researchProjects = ResearchProject::with('User')->latest()->paginate(5);
+            // ผู้ใช้ทั่วไป เห็นเฉพาะโครงการที่ตนมีส่วนร่วม
+            $researchProjects = ResearchProject::whereIn('id', function ($query) use ($user) {
+                $query->select('research_project_id')
+                      ->from('work_of_research_projects')
+                      ->where('user_id', $user->id);
+            })->get();
         }
-        //dd($id);
-        //$researchProjects = ResearchProject::latest()->paginate(5);
-        //$researchProjects = ResearchProject::with('User')->latest()->paginate(5);
-        //return $researchProjects;
-
+    
         return view('research_projects.index', compact('researchProjects'));
     }
+    
+
     /**
      * Show the form for creating a new resource.
      *
