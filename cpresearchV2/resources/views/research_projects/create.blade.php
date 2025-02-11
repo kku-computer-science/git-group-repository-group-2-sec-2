@@ -212,25 +212,74 @@
     @section('javascript')
     <script>
         $(document).ready(function() {
-            $("#selUser0").select2()
-            $("#head0").select2()
-            //$("#fund").select2()
-            //$("#dep").select2()
+            $("#selUser0").select2();
+            $("#head0").select2();
+
+            function updateAvailableOptions() {
+                // ดึงค่า ID ของผู้รับผิดชอบโครงการหลัก
+                let headUserId = $("#head0").val();
+
+                // สร้างเซ็ตเก็บค่า user ID ที่ถูกเลือกไปแล้ว
+                let selectedUsers = new Set();
+                $("select[name^='moreFields']").each(function() {
+                    let val = $(this).val();
+                    if (val) selectedUsers.add(val);
+                });
+
+                // อัปเดต options ในทุก select
+                $("select[name^='moreFields']").each(function() {
+                    let currentValue = $(this).val();
+                    $(this).find("option").each(function() {
+                        let optionValue = $(this).val();
+
+                        // ปิดการเลือกถ้าชื่อนี้ถูกเลือกไปแล้ว หรือเป็นผู้รับผิดชอบหลัก
+                        if (optionValue && (selectedUsers.has(optionValue) && optionValue !== currentValue || optionValue === headUserId)) {
+                            $(this).prop("disabled", true);
+                        } else {
+                            $(this).prop("disabled", false);
+                        }
+                    });
+                });
+            }
+
+            // ตรวจจับการเปลี่ยนค่าในทุก select
+            $(document).on("change", "select[name^='moreFields']", function() {
+                updateAvailableOptions();
+            });
+
             var i = 0;
-
             $("#add-btn2").click(function() {
-
                 ++i;
-                $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i +
-                    '" name="moreFields[' + i +
-                    '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
-                );
-                $("#selUser" + i).select2()
-            });
-            $(document).on('click', '.remove-tr', function() {
-                $(this).parents('tr').remove();
+                var newRow = `<tr>
+                        <td>
+                            <select id="selUser${i}" name="moreFields[${i}][userid]" class="form-control selectUser" style="width: 200px;">
+                                <option value="">Select User</option>
+                                @foreach($users as $user)
+                                    @if($user->id != "{{ Auth::user()->id }}") // ตรวจสอบว่า user ไม่ใช่ผู้รับผิดชอบหลัก
+                                        <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm remove-tr">
+                                <i class="mdi mdi-minus"></i>
+                            </button>
+                        </td>
+                    </tr>`;
+
+                $("#dynamicAddRemove").append(newRow);
+                $("#selUser" + i).select2();
+
+                updateAvailableOptions(); // อัปเดตรายชื่อที่เลือกได้
             });
 
+            $(document).on("click", ".remove-tr", function() {
+                $(this).parents("tr").remove();
+                updateAvailableOptions(); // อัปเดตรายชื่อที่เลือกได้เมื่อมีการลบ
+            });
+
+            updateAvailableOptions(); // เรียกใช้งานครั้งแรก
         });
     </script>
     <script type="text/javascript">
