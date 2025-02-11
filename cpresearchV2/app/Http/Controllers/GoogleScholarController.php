@@ -50,7 +50,6 @@ class GoogleScholarController extends Controller
             // 🔹 เชื่อมโยง User กับ Paper ผ่าน user_papers
             $researcher->paper()->attach($paper->id, ['author_type' => 'Researcher']);
         }
-
-        return response()->json(['message' => 'Data saved successfully']);
+        return redirect()->back();
     }
 }
