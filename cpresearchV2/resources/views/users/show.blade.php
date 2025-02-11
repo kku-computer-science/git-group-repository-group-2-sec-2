@@ -43,11 +43,11 @@
                     <h6 class="col-md-3"><b>Program </b></h6>
                     <h6 class="col-md-9">{{ $user->program->program_name_en }}</h6>
                 </div>
-                
-                
+
+
                 <div class="row mt-2">
                     <h6 class="col-md-3"><b>ประวัติการศึกษา </b></h6>
-                    
+
                     <h6 class="col-md-4" style="line-height:1.4;">@foreach( $user->education as $edu){{$edu->qua_name}} <br>@endforeach</h6>
                     <h6 class="col-md-5" style="line-height:1.4;">@foreach( $user->education as $edu){{$edu->uname}} <br>@endforeach</h6>
                 </div>
@@ -56,7 +56,10 @@
                     <h6 class="col-md-3"><b>Password:</b></h6>
                     <h6 class="col-md-9"></h6>
                 </div>
-                
+                <div class="row mt-2">
+                    <h6 class="col-md-3"><b>Scholar ID:</b></h6>
+                    <h6 class="col-md-9">{{ $user->scholar_id ?? '-' }}</h6>
+                </div>
                 @can('role-create')
                 <a class="btn btn-primary btn-sm mt-5" href="{{ route('users.index') }}">Back</a>
                 @endcan

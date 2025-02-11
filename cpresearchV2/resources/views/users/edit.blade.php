@@ -61,7 +61,7 @@
                     {!! Form::select('roles[]', $roles, $userRole, array('class' => 'selectpicker','multiple data-live-search'=>"true")) !!}
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <p class="col-sm-3"><b>Status</b></p>
                 <div class="col-sm-8">
@@ -97,6 +97,13 @@
 
 
             </div>
+            <div class="form-group row">
+                <p class="col-sm-3"><b>Scholar ID</b></p>
+                <div class="col-sm-8">
+                    <input type="text" name="scholar_id" value="{{ $user->scholar_id }}" class="form-control" placeholder="Enter Scholar ID">
+                </div>
+            </div>
+
 
             <button type="submit" class="btn btn-primary mt-5">Submit</button>
             <a class="btn btn-light mt-5" href="{{ route('users.index') }}">Cancel</a>
