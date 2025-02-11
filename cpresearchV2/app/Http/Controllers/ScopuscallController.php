@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-
 class ScopuscallController extends Controller
 {
     /**
@@ -44,7 +43,7 @@ class ScopuscallController extends Controller
             'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
             'apikey' => $keyapi,
         ])->json();
-
+ 
 
         if (isset($url['error']) || empty($url)) {
             throw new \Exception('Scopus API ไม่สามารถใช้งานได้');

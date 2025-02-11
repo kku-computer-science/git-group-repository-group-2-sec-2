@@ -35,7 +35,9 @@ class User extends Authenticatable
         'picture',
         'status',
         'program_id',
-        'username'
+        'username',
+
+        'scholar_id'
         
     ];
 
