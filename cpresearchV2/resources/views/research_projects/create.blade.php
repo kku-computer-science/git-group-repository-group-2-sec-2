@@ -366,15 +366,24 @@
             let projectStart = document.getElementById("Project_start");
             let projectEnd = document.getElementById("Project_end");
 
+            function validateDates() {
+                if (projectStart.value && projectEnd.value) {
+                    if (projectEnd.value < projectStart.value) {
+                        alert("เลือกวันที่สิ้นสุดก่อนวันที่เริ่มต้นไม่ได้!");
+                        projectEnd.value = ""; // รีเซ็ตค่าของวันที่สิ้นสุด
+                    }
+                }
+            }
+
+            // เมื่อเลือกวันที่เริ่มต้น
             projectStart.addEventListener("change", function() {
-                projectEnd.min = projectStart.value; // กำหนดให้วันสิ้นสุดต้องไม่น้อยกว่าวันเริ่มต้น
+                projectEnd.min = projectStart.value; // บังคับให้เลือกวันที่สิ้นสุดไม่น้อยกว่าวันที่เริ่มต้น
+                validateDates();
             });
 
+            // เมื่อเลือกวันที่สิ้นสุด
             projectEnd.addEventListener("change", function() {
-                if (projectEnd.value < projectStart.value) {
-                    alert("วันที่สิ้นสุดต้องไม่น้อยกว่าวันที่เริ่มต้น!");
-                    projectEnd.value = projectStart.value; // รีเซ็ตให้เป็นวันเริ่มต้นหากเลือกไม่ถูกต้อง
-                }
+                validateDates();
             });
         });
     </script>
