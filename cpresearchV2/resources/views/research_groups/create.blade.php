@@ -70,11 +70,26 @@
                     <p class="col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
+                            @php
+                            // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                            $userRole = DB::table('model_has_roles')
+                            ->where('model_id', Auth::user()->id)
+                            ->value('role_id');
+                            @endphp
+
+                            @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+                            <option value="">Select User</option>
                             @foreach($users as $user)
-                            <option value="{{ $user->id }}">
+                            <option value="{{ $user->id }}"
+                                {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
                                 {{ $user->fname_th }} {{ $user->lname_th }}
                             </option>
                             @endforeach
+                            @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
+                            <option value="{{ Auth::user()->id }}" selected>
+                                {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                            </option>
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -91,7 +106,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary upload mt-5">Submit</button>
                 <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}"> Back</a>
-                </form>
+            </form>
         </div>
     </div>
 </div>
@@ -104,8 +119,8 @@ $("body").on("click",".upload",function(e){
   });
 
 
-  var options = { 
-    complete: function(response) 
+  var options = {
+    complete: function(response)
     {
         if($.isEmptyObject(response.responseJSON.error)){
             // $("input[name='title']").val('');
@@ -126,24 +141,24 @@ $("body").on("click",".upload",function(e){
   }
 </script> -->
 <script>
-$(document).ready(function() {
-    $("#selUser0").select2()
-    $("#head0").select2()
+    $(document).ready(function() {
+        $("#selUser0").select2()
+        $("#head0").select2()
 
-    var i = 0;
+        var i = 0;
 
-    $("#add-btn2").click(function() {
+        $("#add-btn2").click(function() {
 
-        ++i;
-        $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
+            ++i;
+            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
+                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
             );
-        $("#selUser" + i).select2()
-    });
-    $(document).on('click', '.remove-tr', function() {
-        $(this).parents('tr').remove();
-    });
+            $("#selUser" + i).select2()
+        });
+        $(document).on('click', '.remove-tr', function() {
+            $(this).parents('tr').remove();
+        });
 
-});
+    });
 </script>
 @stop

@@ -38,13 +38,13 @@
                 <div class="form-group row">
                     <p class="col-sm-3 "><b>วันเริ่มต้นโครงการ</b></p>
                     <div class="col-sm-4">
-                        <input type="date" name="project_start" value="{{ $researchProject->project_start }}" class="form-control">
+                        <input type="date" name="project_start" id="Project_start" value="{{ $researchProject->project_start }}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
                     <p class="col-sm-3 "><b>วันสิ้นสุดโครงการ</b></p>
                     <div class="col-sm-4">
-                        <input type="date" name="project_end" value="{{ $researchProject->project_end }}" class="form-control">
+                        <input type="date" name="project_end" id="Project_end" value="{{ $researchProject->project_end }}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row mt-2">
@@ -71,12 +71,12 @@
                 <div class="form-group row mt-2">
                     <p class="col-sm-3 "><b>หน่วยงานที่รับผิดชอบ</b></p>
                     <div class="col-sm-3">
-                        <select id='dep' style='width: 200px;' class="custom-select my-select"  name="responsible_department">
+                        <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
                             <option value=''>เลือกสาขาวิชา</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}" {{ $dep->department_name_th == $researchProject->responsible_department ? 'selected' : '' }}>{{ $dep->department_name_th }}</option>@endforeach
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <p class="col-sm-3 "><b>รายละเอียดโครงการวิจัย</b></p>
                     <div class="col-sm-8">
@@ -100,16 +100,27 @@
                         <tr>
                             <td>
                                 <select id='head0' style='width: 200px;' name="head">
-                                    @foreach($researchProject->user as $u)
-                                    @if($u->pivot->role == 1)
+                                    @php
+                                    // ตรวจสอบ role ของผู้ใช้ที่ล็อกอิน
+                                    $userRole = DB::table('model_has_roles')
+                                    ->where('model_id', Auth::user()->id)
+                                    ->value('role_id');
+                                    @endphp
+
+                                    @if($userRole == 1) {{-- ถ้าเป็น admin ให้เลือกได้ทุกคน --}}
+                                    <option value="">Select User</option>
                                     @foreach($users as $user)
-                                    <option value="{{ $user->id }}" @if($u->id == $user->id) selected @endif>
+                                    <option value="{{ $user->id }}" {{ $researchProject->head == $user->id ? 'selected' : '' }}>
                                         {{ $user->fname_th }} {{ $user->lname_th }}
                                     </option>
                                     @endforeach
+                                    @else {{-- ถ้าไม่ใช่ admin ให้เลือกได้เฉพาะตัวเอง --}}
+                                    <option value="{{ Auth::user()->id }}" selected>
+                                        {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                                    </option>
                                     @endif
-                                    @endforeach
                                 </select>
+
                             </td>
                         </tr>
                     </table>
@@ -123,21 +134,21 @@
                     </table>
                 </div>
                 <div class="form-group row">
-                        <label for="exampleInputpaper_author" class="col-sm-3 col-form-label">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
-                        <div class="col-sm-9">
-                            <div class="table-responsive">
-                                <table class="table table-bordered w-75" id="dynamic_field">
+                    <label for="exampleInputpaper_author" class="col-sm-3 col-form-label">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
+                    <div class="col-sm-9">
+                        <div class="table-responsive">
+                            <table class="table table-bordered w-75" id="dynamic_field">
 
-                                    <tr>
-                                        <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button>
+                                    </td>
+                                </tr>
 
-                                </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
-                            </div>
+                            </table>
+                            <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
                         </div>
-                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary mt-5">Submit</button>
                 <a class="btn btn-light mt-5" href="{{ route('researchProjects.index') }}"> Back</a>
             </form>
@@ -147,45 +158,66 @@
 @stop
 @section('javascript')
 <script>
-    $(document).ready(function() {
+$(document).ready(function () {
+    $("#head0").select2();
 
-        $("#head0").select2()
-        //$("#fund").select2()
+    function updateAvailableOptions() {
+        let headUserId = $("#head0").val();
+        let selectedUsers = new Set();
 
-        //$("#dep").select2()
-        var researchProject = <?php echo $researchProject['user']; ?>;
-        var i = 0;
-
-        for (i = 0; i < researchProject.length; i++) {
-            var obj = researchProject[i];
-
-            if (obj.pivot.role === 2) {
-                $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                    '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
-                );
-                document.getElementById("selUser" + i).value = obj.id;
-                $("#selUser" + i).select2()
-
-            }
-            //document.getElementById("#dynamicAddRemove").value = "10";
-        }
-
-
-        $("#add-btn2").click(function() {
-
-            ++i;
-            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
-            );
-            $("#selUser" + i).select2()
+        // ดึงค่าผู้ที่ถูกเลือกไปแล้ว
+        $("select[name^='moreFields']").each(function () {
+            let val = $(this).val();
+            if (val) selectedUsers.add(val);
         });
 
+        // ปิดการเลือกชื่อตามที่ถูกเลือกไปแล้ว
+        $("select[name^='moreFields']").each(function () {
+            let currentValue = $(this).val();
+            $(this).find("option").each(function () {
+                let optionValue = $(this).val();
 
-        $(document).on('click', '.remove-tr', function() {
-            $(this).parents('tr').remove();
+                if (optionValue && (selectedUsers.has(optionValue) && optionValue !== currentValue || optionValue === headUserId)) {
+                    $(this).prop("disabled", true);
+                } else {
+                    $(this).prop("disabled", false);
+                }
+            });
         });
+    }
 
+    $(document).on("change", "select[name^='moreFields']", function () {
+        updateAvailableOptions();
     });
+
+    var i = 0;
+    $("#add-btn2").click(function () {
+        ++i;
+        var newRow = `<tr>
+                        <td>
+                            <select id="selUser${i}" name="moreFields[${i}][userid]" class="form-control selectUser" style="width: 200px;">
+                                <option value="">Select User</option>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td>
+                    </tr>`;
+
+        $("#dynamicAddRemove").append(newRow);
+        $("#selUser" + i).select2();
+        updateAvailableOptions();
+    });
+
+    $(document).on("click", ".remove-tr", function () {
+        $(this).parents("tr").remove();
+        updateAvailableOptions();
+    });
+
+    updateAvailableOptions();
+});
+
 </script>
 <script>
     $(document).ready(function() {
@@ -195,11 +227,12 @@
         var i = 0;
         //console.log(patent)
 
-        for (i = 0; i < outsider.length; i++) {value="'+ obj.title_name +'"
+        for (i = 0; i < outsider.length; i++) {
+            value = "'+ obj.title_name +'"
             //console.log(patent);
             var obj = outsider[i];
             $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" value="'+ obj.title_name +'" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" value="'+ obj.fname +'" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" value="'+ obj.lname +'" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" value="' + obj.title_name + '" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" value="' + obj.fname + '" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" value="' + obj.lname + '" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
             //document.getElementById("selUser" + i).value = obj.id;
             //console.log(obj.author_fname)
@@ -228,4 +261,31 @@
 
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let projectStart = document.getElementById("Project_start");
+        let projectEnd = document.getElementById("Project_end");
+
+        function validateDates() {
+            if (projectStart.value && projectEnd.value) {
+                if (projectEnd.value < projectStart.value) {
+                    alert("เลือกวันที่สิ้นสุดก่อนวันที่เริ่มต้นไม่ได้!");
+                    projectEnd.value = ""; // รีเซ็ตค่าของวันที่สิ้นสุด
+                }
+            }
+        }
+
+        // เมื่อเลือกวันที่เริ่มต้น
+        projectStart.addEventListener("change", function() {
+            projectEnd.min = projectStart.value; // บังคับให้เลือกวันที่สิ้นสุดไม่น้อยกว่าวันที่เริ่มต้น
+            validateDates();
+        });
+
+        // เมื่อเลือกวันที่สิ้นสุด
+        projectEnd.addEventListener("change", function() {
+            validateDates();
+        });
+    });
+</script>
+
 @stop
