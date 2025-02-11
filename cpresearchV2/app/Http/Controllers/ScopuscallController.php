@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ScopuscallController extends Controller
 {
@@ -39,7 +40,7 @@ class ScopuscallController extends Controller
             'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
             'apikey' => '6ab3c2a01c29f0e36b00c8fa1d013f83',
         ])->json();
-
+ 
 
         //$check=$url["search-results"]["entry"];
         $content = $url["search-results"]["entry"];
@@ -146,6 +147,11 @@ class ScopuscallController extends Controller
 
                     $source = Source_data::findOrFail(1);
                     $paper->source()->sync($source);
+
+                    if (!isset($all['abstracts-retrieval-response']['authors']['author'])) {
+                        Log::error("No authors found in response for paper: " . $item['dc:title']);
+                        continue; // Skip this paper if authors are missing
+                    }
 
                     $all_au = $all['abstracts-retrieval-response']['authors']['author'];
                     // if (array_key_exists('author', $all['message']['items'][0])) {

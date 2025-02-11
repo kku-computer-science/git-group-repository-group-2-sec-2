@@ -62,7 +62,7 @@ class GoogleScholarController extends Controller
 
             if (!$exists) {
                 // ✅ เชื่อมโยง User กับ Paper โดยกำหนด `author_type`
-                $user->teacher()->attach($paper->id, ['author_type' => 1]);
+                $paper->teacher()->attach($user->id, ['author_type' => 1]);
             }
         }
 

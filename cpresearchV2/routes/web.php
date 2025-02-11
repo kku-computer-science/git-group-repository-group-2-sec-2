@@ -97,6 +97,9 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
 
+Route::get('/callpaper/{id}', [App\Http\Controllers\BothPaperCallController::class, 'callBothSources'])->name('callpaper');
+
+
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
     
