@@ -17,7 +17,6 @@ class BothPaperCallController extends Controller
         try {
             $userId = Crypt::decrypt($id);
             $user = User::findOrFail($userId);
-
             // ✅ เรียกใช้งาน Scopus API
             $scopusController = new ScopuscallController();
             $scopusResponse = $scopusController->create($id);
