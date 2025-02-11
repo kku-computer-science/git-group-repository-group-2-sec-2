@@ -456,8 +456,7 @@
             </table>
         </div>
 
-    </div>
-    <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
+        <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
             <table id="example7" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -476,6 +475,9 @@
                 </tbody>
             </table>
         </div>
+
+    </div>
+    
 
     
 </div>
