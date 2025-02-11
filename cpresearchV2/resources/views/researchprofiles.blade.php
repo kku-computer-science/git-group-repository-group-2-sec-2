@@ -148,6 +148,9 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">Scholar</button>
+        </li>
     </ul>
     <br>
     <div class="tab-content" id="myTabContent">
@@ -454,6 +457,27 @@
         </div>
 
     </div>
+    <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
+            <table id="example7" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Year</th>
+                        <th style="width:90%;">Paper Name</th>
+                        <th>Author</th>
+                        <th>Document Type</th>
+                        <th style="width:100%;">Page</th>
+                        <th>Journals/Transactions</th>
+                        <th>Ciations</th>
+                        <th>Doi</th>
+                    </tr>
+                </thead>
+                <tbody id="scholar-body">
+                </tbody>
+            </table>
+        </div>
+
+    
 </div>
 <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.js"></script> -->

@@ -59,6 +59,36 @@
                 <h3 class="mb-4">Profile Settings</h3>
                 <form class="form-horizontal" method="POST" action="{{ route('adminUpdateInfo') }}" id="AdminInfoForm">
                     <div class="row">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Academic Ranks</label>
+                                <select id="category" class="custom-select my-select" name="academic_ranks_en">
+                                    <option value="Professor" {{ Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : '' }}>Professor</option>
+                                    <option value="Associate Professor" {{ Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : '' }}>Associate Professor</option>
+                                    <option value="Assistant Professor" {{ Auth::user()->academic_ranks_en == 'Assistant Professor' ? 'selected' : '' }}>Assistant Professor</option>
+                                    <option value="Lecturer" {{ Auth::user()->academic_ranks_en == 'Lecturer' ? 'selected' : '' }}>Lecturer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>ตำแหน่งทางวิชาการ</label>
+                                <select name="academic_ranks_th" id="subcategory" class="custom-select my-select">
+                                    <optgroup id="Professor" label="Professor">
+                                        <option value="ศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : '' }}>ศาสตราจารย์</option>
+                                    </optgroup>
+                                    <optgroup id="Associate Professor" label="Associate Professor">
+                                        <option value="รองศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : '' }}>รองศาสตราจารย์</option>
+                                    </optgroup>
+                                    <optgroup id="Assistant Professor" label="Assistant Professor">
+                                        <option value="ผู้ช่วยศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : '' }}>ผู้ช่วยศาสตราจารย์</option>
+                                    </optgroup>
+                                    <optgroup id="Lecturer" label="Lecturer">
+                                        <option value="อาจารย์" {{ Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : '' }}>อาจารย์</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group col-sm-4">
                                 <label>Name title</label>
@@ -107,36 +137,10 @@
                         <div class="col-md-6">
                         </div>
                         @if(Auth::user()->hasRole('teacher'))
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Academic Ranks</label>
-                                <select id="category" class="custom-select my-select" name="academic_ranks_en">
-                                    <option value="Professor" {{ Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : '' }}>Professor</option>
-                                    <option value="Associate Professor" {{ Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : '' }}>Associate Professor</option>
-                                    <option value="Assistant Professor" {{ Auth::user()->academic_ranks_en == 'Assistant Professor' ? 'selected' : '' }}>Assistant Professor</option>
-                                    <option value="Lecturer" {{ Auth::user()->academic_ranks_en == 'Lecturer' ? 'selected' : '' }}>Lecturer</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>ตำแหน่งทางวิชาการ</label>
-                                <select name="academic_ranks_th" id="subcategory" class="custom-select my-select">
-                                    <optgroup id="Professor" label="Professor">
-                                        <option value="ศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : '' }}>ศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Associate Professor" label="Associate Professor">
-                                        <option value="รองศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : '' }}>รองศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Assistant Professor" label="Assistant Professor">
-                                        <option value="ผู้ช่วยศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : '' }}>ผู้ช่วยศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Lecturer" label="Lecturer">
-                                        <option value="อาจารย์" {{ Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : '' }}>อาจารย์</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
+
+                        
+
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <div class="checkbox">
