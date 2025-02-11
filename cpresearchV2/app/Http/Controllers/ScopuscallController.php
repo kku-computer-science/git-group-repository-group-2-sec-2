@@ -25,7 +25,7 @@ class ScopuscallController extends Controller
     public function create($id)
     {
         try{
-            //$data = User::all();
+        //$data = User::all();
         //$data = User::find(46);
         //return $id;
         $id = Crypt::decrypt($id);
@@ -51,6 +51,9 @@ class ScopuscallController extends Controller
         }
 
         $content = $url['search-results']['entry'];
+
+        // dd($url['search-results']['entry']);
+
 
         // ตรวจสอบว่าข้อมูลมีปัญหาหรือไม่
         if (empty($content)) {
@@ -161,6 +164,11 @@ class ScopuscallController extends Controller
 
                     $source = Source_data::findOrFail(1);
                     $paper->source()->sync($source);
+
+                    if (!isset($all['abstracts-retrieval-response']['authors']['author'])) {
+                        Log::error("No authors found in response for paper: " . $item['dc:title']);
+                        continue; // Skip this paper if authors are missing
+                    }
 
                     $all_au = $all['abstracts-retrieval-response']['authors']['author'];
                     $x = 1;
