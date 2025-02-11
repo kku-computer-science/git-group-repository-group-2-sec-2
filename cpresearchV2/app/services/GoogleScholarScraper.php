@@ -1,32 +1,30 @@
-<?php
+<?php 
+
 namespace App\Services;  
-use Exception;        
-use DOMDocument;      
-use DOMXPath;  
+
+use Exception;
+use DOMDocument;
+use DOMXPath;
 
 class GoogleScholarScraper
 {
     public function scrapeScholarProfile($scholar_id)
     {
         try {
-            $url = "https://scholar.google.com/citations?view_op=list_works&hl=en&user=" . $scholar_id;
+            $url = "https://scholar.google.com/citations?view_op=list_works&pagesize=100&hl=en&user=" . $scholar_id;
 
-            // ✅ ใช้ cURL ดึง HTML
             $html = $this->fetchPage($url);
             if (!$html) {
                 throw new Exception("Failed to load page from Google Scholar");
             }
 
-            // ✅ ใช้ DOMDocument เพื่อดึงข้อมูล
             $dom = new DOMDocument();
             @$dom->loadHTML($html);
             $xpath = new DOMXPath($dom);
 
-            // ✅ ดึงข้อมูลโปรไฟล์
             $profile_name = $this->getXPathText($xpath, '//*[@id="gsc_prf_in"]');
             $total_citations = $this->getXPathText($xpath, '//*[@id="gsc_rsb_st"]//td[@class="gsc_rsb_std"][1]');
 
-            // ✅ ดึงข้อมูล Paper ทั้งหมด
             $papers = [];
             $paperNodes = $xpath->query('//tr[@class="gsc_a_tr"]');
 
@@ -56,7 +54,7 @@ class GoogleScholarScraper
         }
     }
 
-    private function fetchPage($url)
+    protected function fetchPage($url)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -84,13 +82,3 @@ class GoogleScholarScraper
         return $userAgents[array_rand($userAgents)];
     }
 }
-
-// ✅ ทดสอบใช้งาน
-// $scraper = new GoogleScholarScraper();
-// $data = $scraper->scrapeScholarProfile("00JXDiUAAAAJ");
-
-// echo "<pre>";
-// print_r($data);
-// echo "</pre>";
-
-?>
