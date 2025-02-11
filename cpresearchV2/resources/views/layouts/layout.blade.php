@@ -76,7 +76,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($r as $role)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$role->id])}}">
-                                    {{$role->name}}</a>
+                                    {{ $role->name == 'teacher' ? 'Lecturer' : $role->name }}</a>
                             </li>
                             @endforeach
                         </ul>
