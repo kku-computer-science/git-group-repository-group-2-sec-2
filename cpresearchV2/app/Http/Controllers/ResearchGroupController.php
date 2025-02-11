@@ -9,7 +9,10 @@ use App\Models\Fund;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth; // เพิ่มเข้ามา
+=======
+>>>>>>> main
 
 class ResearchGroupController extends Controller
 {
@@ -26,6 +29,7 @@ class ResearchGroupController extends Controller
         $this->middleware('permission:groups-delete', ['only' => ['destroy']]);
     }
 
+<<<<<<< HEAD
     //new
     public function index()
     {
@@ -38,6 +42,14 @@ class ResearchGroupController extends Controller
 
         return view('research_groups.index', compact('researchGroups'));
     }//new
+=======
+    public function index()
+    {
+        //$researchGroups = ResearchGroup::latest()->paginate(5);
+        $researchGroups = ResearchGroup::with('User')->get();
+        return view('research_groups.index', compact('researchGroups'));
+    }
+>>>>>>> main
 
     /**
      * Show the form for creating a new resource.

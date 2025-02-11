@@ -16,6 +16,7 @@ class FundController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     //New
     public function index()
     {
@@ -32,6 +33,33 @@ class FundController extends Controller
         return view('funds.index', compact('funds'));
     } //New
 
+=======
+    public function index()
+    {
+        //$funds = Fund::latest()->paginate(5);
+        $id = auth()->user()->id;
+        if( auth()->user()->HasRole('admin') ){
+            $funds = Fund::with('User')->get();
+        }
+        elseif( auth()->user()->HasRole('headproject') ){
+            $funds = Fund::with('User')->get();
+            
+        }
+        elseif( auth()->user()->HasRole('staff') ){
+            $funds = Fund::with('User')->get();
+            
+        }
+        else{
+            $funds=User::find($id)->fund()->get();
+            //$researchProjects=User::find($id)->researchProject()->latest()->paginate(5);
+            
+            //$researchProjects = ResearchProject::with('User')->latest()->paginate(5);
+        }
+
+        return view('funds.index',compact('funds'));
+    }
+     
+>>>>>>> main
     /**
      * Show the form for creating a new resource.
      *
