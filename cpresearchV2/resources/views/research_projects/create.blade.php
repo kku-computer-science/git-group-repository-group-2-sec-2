@@ -141,10 +141,16 @@
                                 </tr>
                                 <tr>
                                     <!-- <td><input type="text" name="moreFields[0][Budget]" placeholder="Enter title" class="form-control" /></td> -->
-                                    <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                            <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                    <td>
+                                        <select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
+                                            <option value=''>Select User</option>
+                                            @foreach($users as $user)
+                                            @if($user->id != old('head', Auth::user()->id)) {{-- ตรวจสอบว่า user ไม่ใช่ผู้รับผิดชอบหลัก --}}
+                                            <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                            @endif
                                             @endforeach
-                                        </select></td>
+                                        </select>
+                                    </td>
 
                                 </tr>
                             </table>
@@ -306,4 +312,22 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let projectStart = document.getElementById("Project_start");
+            let projectEnd = document.getElementById("Project_end");
+
+            projectStart.addEventListener("change", function() {
+                projectEnd.min = projectStart.value; // กำหนดให้วันสิ้นสุดต้องไม่น้อยกว่าวันเริ่มต้น
+            });
+
+            projectEnd.addEventListener("change", function() {
+                if (projectEnd.value < projectStart.value) {
+                    alert("วันที่สิ้นสุดต้องไม่น้อยกว่าวันที่เริ่มต้น!");
+                    projectEnd.value = projectStart.value; // รีเซ็ตให้เป็นวันเริ่มต้นหากเลือกไม่ถูกต้อง
+                }
+            });
+        });
+    </script>
+
     @stop

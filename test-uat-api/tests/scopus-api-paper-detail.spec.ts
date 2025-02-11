@@ -43,8 +43,23 @@ test('ทดสอบการดึงข้อมูล SCOPUS ด้วย SC
 
     // ตรวจสอบรายชื่อผู้เขียน
     // ตรวจสอบรายชื่อผู้เขียน
-    const authorsArray = data['abstracts-retrieval-response']['coredata']?.['dc:creator']?.['author'] || [];
-    const authors = Array.isArray(authorsArray) ? authorsArray : [authorsArray];
+    // const authorsArray = data['abstracts-retrieval-response']['coredata']?.['dc:creator']?.['author'] || [];
+    // const authors = Array.isArray(authorsArray) ? authorsArray : [authorsArray];
+
+    // // ตรวจสอบว่ามีข้อมูลนักวิจัย
+    // expect(authors.length).toBeGreaterThan(0);
+    // expect(authors).toEqual(expect.arrayContaining([
+    //     expect.objectContaining({ "ce:indexed-name": "Boonprapapan T." }),
+    //     expect.objectContaining({ "ce:indexed-name": "Seresangtakul P." }),
+    //     expect.objectContaining({ "ce:indexed-name": "Horata P." })
+    // ]));
+
+    
+
+    // แก้ไขโค้ดดึงข้อมูลนักวิจัย
+    const authorsArray = data['abstracts-retrieval-response']['authors']?.['author'] || [];
+const authors = Array.isArray(authorsArray) ? authorsArray : [authorsArray];
+
 
     // ตรวจสอบว่ามีข้อมูลนักวิจัย
     expect(authors.length).toBeGreaterThan(0);
@@ -53,6 +68,7 @@ test('ทดสอบการดึงข้อมูล SCOPUS ด้วย SC
         expect.objectContaining({ "ce:indexed-name": "Seresangtakul P." }),
         expect.objectContaining({ "ce:indexed-name": "Horata P." })
     ]));
+
 
     // ตรวจสอบ keywords
     const keywordsArray = data['abstracts-retrieval-response']['authkeywords']?.['author-keyword'] || [];
