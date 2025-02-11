@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-02-11T19:59:45.171278" rpa="false" schemaversion="5">
+<suite id="s1" name="Invalid Login Test" source="/Users/musee/Documents/GitHub/git-group-repository-group-2-sec-2/testV2/invalid_login_test.robot">
+<test id="s1-t1" name="Invalid Login Attempt" line="14">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-11T19:59:45.258475" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/profile'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-11T19:59:45.258343" elapsed="0.810704"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-11T19:59:46.069495" elapsed="0.375565"/>
+</kw>
+<kw name="Attempt Invalid Login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-11T19:59:46.446691" level="INFO">Typing text 'invalid_username@example.com' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-11T19:59:46.446126" elapsed="0.091934"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-11T19:59:46.538373" level="INFO">Typing text '123456789' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-11T19:59:46.538194" elapsed="0.033550"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-11T19:59:46.571992" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-11T19:59:46.571873" elapsed="0.068495"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-11T19:59:46.640510" elapsed="0.000282"/>
+</kw>
+<arg>${INVALID_USERNAME}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<status status="PASS" start="2025-02-11T19:59:46.445583" elapsed="0.195510"/>
+</kw>
+<kw name="Verify Invalid Login">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-11T19:59:52.709671" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-11T19:59:52.710083" level="FAIL">Text 'Login Failed: Your user ID or password is incorrect' did not appear in 5 seconds.</msg>
+<arg>Login Failed: Your user ID or password is incorrect</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-11T19:59:46.641802" elapsed="6.071622">Text 'Login Failed: Your user ID or password is incorrect' did not appear in 5 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-02-11T19:59:46.641523" elapsed="6.072133">Text 'Login Failed: Your user ID or password is incorrect' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Attempt Invalid Login">
+<arg>${VALID_USERNAME}</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<status status="NOT RUN" start="2025-02-11T19:59:52.713946" elapsed="0.000036"/>
+</kw>
+<kw name="Verify Invalid Login">
+<status status="NOT RUN" start="2025-02-11T19:59:52.714117" elapsed="0.000023"/>
+</kw>
+<kw name="Attempt Invalid Login">
+<arg>${INVALID_USERNAME}</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<status status="NOT RUN" start="2025-02-11T19:59:52.714259" elapsed="0.000022"/>
+</kw>
+<kw name="Verify Invalid Login">
+<status status="NOT RUN" start="2025-02-11T19:59:52.714383" elapsed="0.000019"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-11T19:59:52.714523" elapsed="0.000025"/>
+</kw>
+<doc>Test logging in with invalid username or password</doc>
+<status status="FAIL" start="2025-02-11T19:59:45.257876" elapsed="7.456885">Text 'Login Failed: Your user ID or password is incorrect' did not appear in 5 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-11T19:59:45.171878" elapsed="7.543378"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Invalid Login Test">Invalid Login Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
