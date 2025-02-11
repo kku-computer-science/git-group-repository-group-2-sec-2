@@ -11,7 +11,7 @@ class GoogleScholarScraper
     public function scrapeScholarProfile($scholar_id)
     {
         try {
-            $url = "https://scholar.google.com/cns?view_op=list_works&pagesize=100&hl=en&user=" . $scholar_id;
+            $url = "https://scholar.google.com/citations?view_op=list_works&pagesize=100&hl=en&user=" . $scholar_id;
 
             // ✅ ดึง HTML จาก Google Scholar
             $html = $this->fetchPage($url);
