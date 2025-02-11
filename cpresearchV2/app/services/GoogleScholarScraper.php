@@ -1,133 +1,95 @@
-<?php
+<?php 
 
-namespace App\Services;
+namespace App\Services;  
 
-use Goutte\Client;
-use Symfony\Component\HttpClient\HttpClient;
+use Exception;
+use DOMDocument;
+use DOMXPath;
 
 class GoogleScholarScraper
 {
     public function scrapeScholarProfile($scholar_id)
     {
         try {
-            $url = "https://scholar.google.com/citations?&hl=en&pagesize=100&user=" . $scholar_id;
+            $url = "https://scholar.google.com/citations?view_op=list_works&pagesize=100&hl=en&user=" . $scholar_id;
 
-            // ✅ หน่วงเวลา 10-20 วินาที ก่อนโหลดหน้า Google Scholar
-
-            $httpClient = HttpClient::create([
-                'timeout' => 10,
-                'headers' => [
-                    'User-Agent' => $this->getRandomUserAgent()
-                ]
-            ]);
-
-            $client = new Client($httpClient);
-            $crawler = $client->request('GET', $url);
-
-            if (!$crawler) {
-                throw new \Exception("Failed to load page from Google Scholar");
+            // ✅ ดึง HTML จาก Google Scholar
+            $html = $this->fetchPage($url);
+            if (!$html) {
+                throw new Exception("Failed to load page from Google Scholar");
             }
 
-            // ✅ หน่วงเวลาเพิ่มอีก 5-10 วินาที หลังโหลดหน้าเว็บเสร็จ
-            sleep(rand(5, 8));
+            // ✅ Debug: บันทึก HTML ที่ได้จาก Google Scholar
+            file_put_contents(storage_path('logs/scholar_debug.html'), $html);
 
-            // ✅ ดึงข้อมูลโปรไฟล์
-            $profile_name = $crawler->filter('#gsc_prf_in')->count() ? $crawler->filter('#gsc_prf_in')->text() : 'N/A';
-            $total_citations = $crawler->filter('#gsc_rsb_st td.gsc_rsb_std')->eq(0)->count() ? $crawler->filter('#gsc_rsb_st td.gsc_rsb_std')->eq(0)->text() : '0';
+            // ✅ โหลด HTML เข้า DOMDocument
+            $dom = new DOMDocument();
+            @$dom->loadHTML($html);
+            $xpath = new DOMXPath($dom);
 
-            // ✅ หน่วงเวลาเพิ่มอีก 3-7 วินาที ก่อนดึง Paper
-            sleep(rand(3, 7));
+            // ✅ ดึงชื่อโปรไฟล์และจำนวน Citation
+            $profile_name = $this->getXPathText($xpath, '//*[@id="gsc_prf_in"]');
+            $total_citations = $this->getXPathText($xpath, '//*[@id="gsc_rsb_st"]//td[@class="gsc_rsb_std"][1]');
 
-            // ✅ ดึงข้อมูล Paper ทั้งหมด
+            if (!$profile_name || !$total_citations) {
+                throw new Exception("XPath query failed. Profile or citations not found.");
+            }
+
+            // ✅ ดึงรายการ Papers
             $papers = [];
-            //$crawler->filter('.gsc_a_tr')->each(function ($node) use (&$papers)
-            $crawler->filter('.gsc_a_tr')->slice(1,10)->each(function ($node) use (&$papers) {                
-                $titleElement = $node->filter('.gsc_a_t a');
-                $authorsElement = $node->filter('.gsc_a_t div.gs_gray')->eq(0);
-                $citationsElement = $node->filter('.gsc_a_c a');
-                $yearElement = $node->filter('.gsc_a_y span');
+            $paperNodes = $xpath->query('//tr[@class="gsc_a_tr"]');
 
-                $title = $titleElement->count() ? $titleElement->text() : 'N/A';
-                $paperPageUrl = $titleElement->count() ? 'https://scholar.google.com' . $titleElement->attr('href') : '#';
-                $authors = $authorsElement->count() ? $authorsElement->text() : 'N/A';
-                $citations = $citationsElement->count() ? $citationsElement->text() : '0';
-                $year = $yearElement->count() ? $yearElement->text() : 'N/A';
-
-                // ✅ หน่วงเวลา 8-15 วินาที ก่อนโหลดรายละเอียด Paper
-
-                // ✅ ดึงข้อมูล Paper แบบละเอียดจากหน้าของ Paper
-                $paperData = $this->fetchPaperDetails($paperPageUrl);
-
-                // ✅ หน่วงเวลา 5-10 วินาที หลังโหลดเสร็จ
-           
+            foreach ($paperNodes as $paper) {
+                $title = $this->getXPathText($xpath, './/td[@class="gsc_a_t"]/a', $paper);
+                $authors = $this->getXPathText($xpath, './/td[@class="gsc_a_t"]/div[@class="gs_gray"][1]', $paper);
+                $paper_type_detail = $this->getXPathText($xpath, './/td[@class="gsc_a_t"]/div[@class="gs_gray"][2]', $paper);
+                $citations = $this->getXPathText($xpath, './/td[@class="gsc_a_c"]/a', $paper);
+                $year = $this->getXPathText($xpath, './/td[@class="gsc_a_y"]/span', $paper);
+                // $paperUrl = "https://scholar.google.com/scholar?q=" . urlencode($title); // สร้าง URL ค้นหา Paper
+                // $paperUrl = $this->getXPathText($xpath, './/td[@class="gsc_a_t"]/a', $paper);
+                $paperUrlNode = $xpath->query('.//td[@class="gsc_a_t"]/a', $paper);
+$paperUrl = $paperUrlNode->length > 0 ? 'https://scholar.google.com' . $paperUrlNode->item(0)->getAttribute('href') : 'N/A';
 
                 $papers[] = [
-                    'paper' => $title,
-                    'Authors' => $authors,
-                    'paperUrl' => $paperData['paperUrl'],
-                    'citations' => $citations,
-                    'year' => $year,
-                    'paper_type' => $paperData['paperType'],
-                    'paper_type_detail' => $paperData['paperTypeDetail'],
-                    'description' => $paperData['description']
+                    'paper' => $title ?: 'Untitled Paper',
+                    'authors' => $authors ?: 'Unknown',
+                    'paper_type_detail' => $paper_type_detail ?: 'Unknown',
+                    'citations' => is_numeric($citations) ? (int) $citations : 0,
+                    'year' => is_numeric($year) ? (int) $year : null,
+                    'paperUrl' => $paperUrl
                 ];
-            });
-
+            }
 
             return [
-                'profile' => $profile_name,
-                'total_citations' => $total_citations,
+                'profile' => $profile_name ?: 'N/A',
+                'total_citations' => $total_citations ?: 'N/A',
                 'papers' => $papers
             ];
-
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return ['error' => "Failed to fetch data: " . $e->getMessage()];
         }
     }
 
-    // ✅ ฟังก์ชันดึงข้อมูล Paper แบบละเอียด
-    private function fetchPaperDetails($paperPageUrl)
+    protected function fetchPage($url)
     {
-        try {
-            // ✅ หน่วงเวลา 10-20 วินาทีก่อนโหลดหน้ารายละเอียด Paper
-           
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_USERAGENT, $this->getRandomUserAgent());
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept-Language: en-US,en;q=0.9']);
 
-            $client = new Client();
-            $crawler = $client->request('GET', $paperPageUrl);
+        $html = curl_exec($ch);
+        curl_close($ch);
+        return $html;
+    }
 
-            // ✅ ดึง Paper URL จาก <a class="gsc_oci_title_link">
-            $paperUrlNode = $crawler->filter('.gsc_oci_title_link');
-            $paperUrl = $paperUrlNode->count() ? $paperUrlNode->attr('href') : '#';
-
-            // ✅ ดึงคำอธิบายจาก <div class="gsh_small">
-            $descriptionNode = $crawler->filter('.gsh_small');
-            $description = $descriptionNode->count() ? trim($descriptionNode->text()) : "No description available.";
-
-            // ✅ ดึงประเภทของ Paper
-            $paperTypeNode = $crawler->filterXPath('//*[@id="gsc_oci_table"]/div[3]/div[1]');
-            $paperType = $paperTypeNode->count() ? trim($paperTypeNode->text()) : 'N/A';
-
-            // ✅ ดึงรายละเอียดของประเภท Paper
-            $paperTypeDetailNode = $crawler->filterXPath('//*[@id="gsc_oci_table"]/div[3]/div[2]');
-            $paperTypeDetail = $paperTypeDetailNode->count() ? trim($paperTypeDetailNode->text()) : 'N/A';
-
-            // ✅ หน่วงเวลา 5-10 วินาที ก่อนคืนค่า
-
-            return [
-                'paperUrl' => $paperUrl,
-                'description' => $description,
-                'paperType' => $paperType,
-                'paperTypeDetail' => $paperTypeDetail
-            ];
-        } catch (\Exception $e) {
-            return [
-                'paperUrl' => '#',
-                'description' => "Failed to fetch description.",
-                'paperType' => 'N/A',
-                'paperTypeDetail' => 'N/A'
-            ];
-        }
-
+    private function getXPathText($xpath, $query, $contextNode = null)
+    {
+        $node = $contextNode ? $xpath->query($query, $contextNode) : $xpath->query($query);
+        return $node->length > 0 ? trim($node->item(0)->textContent) : 'N/A';
     }
 
     private function getRandomUserAgent()

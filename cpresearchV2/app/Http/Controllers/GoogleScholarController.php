@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\GoogleScholarScraper;
 use App\Models\Paper;
+use App\Models\User;
+use App\Models\Author;
+use App\Models\Source_data;
+use Illuminate\Support\Facades\DB;
 
 class GoogleScholarController extends Controller
 {
@@ -23,20 +27,24 @@ class GoogleScholarController extends Controller
             return response()->json(['error' => $data['error']], 500);
         }
 
-        // 🔹 บันทึก Paper ลงฐานข้อมูล
-        foreach ($data['papers'] as $paper) {
-            Paper::updateOrCreate(
-                ['paper_name' => $paper['paper']],  // ค้นหาว่ามี Paper นี้อยู่แล้วหรือไม่
+        // ✅ ดึง User ที่ล็อกอิน (หรือใช้ user ID ที่กำหนดเอง)
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json(['error' => 'User not authenticated'], 401);
+        }
+
+        // ✅ บันทึก Paper พร้อมเชื่อมโยงกับ User
+        foreach ($data['papers'] as $paperData) {
+            $paper = Paper::updateOrCreate(
+                ['paper_name' => $paperData['paper']],
                 [
-                    'abstract' => $paper['description'],
-                    'paper_type' => $paper['paper_type'],
-                    // 'paper_subtype' => $paper['paper_type_detail'],
-                    'paper_subtype' => null,
-                    'paper_url' => $paper['paperUrl'],
-                    'paper_yearpub' => $paper['year'],
-                    'paper_citation' => (int) $paper['citations'],
-                    'paper_sourcetitle' => 'Google Scholar',  // เพิ่มข้อมูลแหล่งที่มา
-                    'publication' => null, // ถ้าไม่มี ให้เป็น NULL
+                    'abstract' => null,
+                    'paper_type' => null,
+                    'paper_url' => $paperData['paperUrl'],
+                    'paper_yearpub' => is_numeric($paperData['year']) ? (int) $paperData['year'] : null,
+                    'paper_citation' => is_numeric($paperData['citations']) ? (int) $paperData['citations'] : 0,
+                    'paper_sourcetitle' => $paperData['paper_type_detail'] ?? null,
+                    'publication' => null,
                     'paper_volume' => null,
                     'paper_issue' => null,
                     'paper_page' => null,
@@ -45,11 +53,19 @@ class GoogleScholarController extends Controller
                     'reference_number' => null
                 ]
             );
+
+            // ✅ ตรวจสอบว่ามีความสัมพันธ์ระหว่าง User และ Paper หรือยัง
+            $exists = DB::table('user_papers')
+                ->where('user_id', $user->id)
+                ->where('paper_id', $paper->id)
+                ->exists();
+
+            if (!$exists) {
+                // ✅ เชื่อมโยง User กับ Paper โดยกำหนด `author_type`
+                $paper->teacher()->attach($user->id, ['author_type' => 1]);
+            }
         }
 
-        return response()->json([
-            'message' => 'Data saved successfully',
-            'papers' => $data['papers']
-        ]);
+        return response()->json($data);
     }
 }
