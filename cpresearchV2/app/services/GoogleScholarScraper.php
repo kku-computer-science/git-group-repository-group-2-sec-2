@@ -40,7 +40,8 @@ class GoogleScholarScraper
 
             // ✅ ดึงข้อมูล Paper ทั้งหมด
             $papers = [];
-            $crawler->filter('.gsc_a_tr')->each(function ($node) use (&$papers) {                
+            //$crawler->filter('.gsc_a_tr')->each(function ($node) use (&$papers)
+            $crawler->filter('.gsc_a_tr')->slice(1,10)->each(function ($node) use (&$papers) {                
                 $titleElement = $node->filter('.gsc_a_t a');
                 $authorsElement = $node->filter('.gsc_a_t div.gs_gray')->eq(0);
                 $citationsElement = $node->filter('.gsc_a_c a');

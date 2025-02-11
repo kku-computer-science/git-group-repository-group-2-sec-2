@@ -27,10 +27,11 @@ class BothPaperCallController extends Controller
             $scholarController = new GoogleScholarController($googleScholarScraper);
             $scholarResponse = $scholarController->getScholarProfile($user->scholar_id);
 
-            return response()->json([
-                'scopus' => $scopusResponse,
-                'google_scholar' => $scholarResponse
-            ]);
+            // return response()->json([
+            //     'scopus' => $scopusResponse,
+            //     'google_scholar' => $scholarResponse
+            // ]);
+            return redirect()->back();
 
         } catch (\Exception $e) {
             return response()->json(['error' => "Failed to fetch data: " . $e->getMessage()], 500);

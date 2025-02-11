@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\GoogleScholarScraper;
-use App\Models\User;
 use App\Models\Paper;
 
 class GoogleScholarController extends Controller
@@ -20,36 +19,37 @@ class GoogleScholarController extends Controller
     {
         $data = $this->scraper->scrapeScholarProfile($scholar_id);
 
-        // 🔹 ค้นหาหรือสร้าง User ที่มี scholar_id นี้
-        $researcher = User::updateOrCreate(
-            ['scholar_id' => $scholar_id],
-            ['fname_en' => is_array($data['profile']) ? ($data['profile']['name'] ?? 'Unknown') : $data['profile']]
-        );
-        foreach ($data['papers'] as $paperData) {
-            // 🔹 ตรวจสอบว่ามี Paper นี้อยู่แล้วหรือไม่
-            $existingPaper = Paper::where('paper_name', $paperData['paper'])
-                ->whereHas('teacher', function ($query) use ($researcher) {
-                    $query->where('users.id', $researcher->id);
-                })
-                ->first();
-
-            if ($existingPaper) {
-                continue; // ✅ ถ้ามีแล้ว ข้ามการเพิ่มข้อมูลซ้ำ
-            }
-
-            // 🔹 เพิ่ม Paper ใหม่
-            $paper = Paper::create([
-                'paper_name'       => $paperData['paper'],
-                'paper_yearpub'    => $paperData['year'] ?? null,
-                'paper_citation'   => $paperData['citations'] ?? 0,
-                'paper_type'       => $paperData['paper_type'] ?? null,
-                'abstract'         => $paperData['description'] ?? null,
-                'paper_url'        => $paperData['paperUrl'] ?? null
-            ]);
-
-            // 🔹 เชื่อมโยง User กับ Paper ผ่าน user_papers
-            $researcher->paper()->attach($paper->id, ['author_type' => 'Researcher']);
+        if (isset($data['error'])) {
+            return response()->json(['error' => $data['error']], 500);
         }
-        return redirect()->back();
+
+        // 🔹 บันทึก Paper ลงฐานข้อมูล
+        foreach ($data['papers'] as $paper) {
+            Paper::updateOrCreate(
+                ['paper_name' => $paper['paper']],  // ค้นหาว่ามี Paper นี้อยู่แล้วหรือไม่
+                [
+                    'abstract' => $paper['description'],
+                    'paper_type' => $paper['paper_type'],
+                    // 'paper_subtype' => $paper['paper_type_detail'],
+                    'paper_subtype' => null,
+                    'paper_url' => $paper['paperUrl'],
+                    'paper_yearpub' => $paper['year'],
+                    'paper_citation' => (int) $paper['citations'],
+                    'paper_sourcetitle' => 'Google Scholar',  // เพิ่มข้อมูลแหล่งที่มา
+                    'publication' => null, // ถ้าไม่มี ให้เป็น NULL
+                    'paper_volume' => null,
+                    'paper_issue' => null,
+                    'paper_page' => null,
+                    'paper_doi' => null,
+                    'paper_funder' => null,
+                    'reference_number' => null
+                ]
+            );
+        }
+
+        return response()->json([
+            'message' => 'Data saved successfully',
+            'papers' => $data['papers']
+        ]);
     }
 }
