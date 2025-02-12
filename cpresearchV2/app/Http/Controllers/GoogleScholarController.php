@@ -64,6 +64,9 @@ class GoogleScholarController extends Controller
                     ]
                 );
 
+                $source = Source_data::findOrFail(4);
+                $paper->source()->sync($source);
+
                 // ✅ ตรวจสอบว่ามีความสัมพันธ์ระหว่าง User และ Paper หรือยัง
                 $exists = DB::table('user_papers')
                     ->where('user_id', $user->id)
