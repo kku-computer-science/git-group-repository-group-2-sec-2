@@ -42,8 +42,6 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
-<<<<<<<<< Temporary merge branch 1
-
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
         ports:
