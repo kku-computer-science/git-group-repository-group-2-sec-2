@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.3 on linux)" generated="2025-02-12T11:55:22.821477" rpa="false" schemaversion="5">
+<suite id="s1" name="Uat Test" source="/home/mean/Desktop/git-group-repository-group-2-sec-2/test_uat/uat_test.robot">
+<test id="s1-t1" name="Click Researchers Menu and Browse Profiles" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:22.961497" level="INFO">Opening browser 'Edge' to base url 'http://127.0.0.1:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T11:55:22.961184" elapsed="2.288876"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-12T11:55:25.250494" elapsed="0.121441"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:27.372849" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:25.372304" elapsed="2.000814"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:27.374458" level="INFO">Executing JavaScript:
+document.querySelector("a[data-bs-toggle='dropdown']").click()
+Without any arguments.</msg>
+<arg>document.querySelector("a[data-bs-toggle='dropdown']").click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T11:55:27.373571" elapsed="0.038338"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:29.413314" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:27.412614" elapsed="2.000959"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:29.415009" level="INFO">Clicking element 'xpath=//ul[contains(@class, 'dropdown-menu show')]//a[contains(text(), 'Computer Science')]'.</msg>
+<arg>xpath=//ul[contains(@class, 'dropdown-menu show')]//a[contains(text(), 'Computer Science')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:29.414148" elapsed="0.663637"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:33.078580" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:30.078157" elapsed="3.000651"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:33.284946" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-127.png"&gt;&lt;img src="selenium-screenshot-127.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:33.079346" elapsed="0.205876"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:33.285778" elapsed="0.301673"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:35.588701" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:33.588102" elapsed="2.000837"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T11:55:35.589410" elapsed="0.041929"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:35.632355" level="INFO">Clicking element 'xpath=(//div[contains(@class, 'card-body')])[1]'.</msg>
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:35.631856" elapsed="1.430041"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:40.063707" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:37.062556" elapsed="3.001381"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:40.240226" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-128.png"&gt;&lt;img src="selenium-screenshot-128.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:40.064422" elapsed="0.175925"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:40.267120" level="INFO">${tabs} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.115")&gt;, &lt;selenium.webdri...</msg>
+<var>${tabs}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:40.240569" elapsed="0.026619"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:40.267900" elapsed="0.264180"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:40.533044" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.115")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:40.532524" elapsed="0.115046"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:42.649055" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:40.648003" elapsed="2.001324"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:42.825673" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-129.png"&gt;&lt;img src="selenium-screenshot-129.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:42.649747" elapsed="0.176116"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.115")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:40.267734" elapsed="2.558281"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:42.826591" elapsed="0.267186"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:43.094699" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.116")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:43.094184" elapsed="0.096038"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:45.190886" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:43.190465" elapsed="2.000684"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:45.371684" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-130.png"&gt;&lt;img src="selenium-screenshot-130.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:45.191629" elapsed="0.180186"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.116")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:42.826355" elapsed="2.545548"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:45.372254" elapsed="0.265131"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:45.638309" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.117")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:45.637779" elapsed="0.123363"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:47.762157" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:45.761518" elapsed="2.000877"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:47.940702" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-131.png"&gt;&lt;img src="selenium-screenshot-131.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:47.762757" elapsed="0.178185"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.117")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:45.372111" elapsed="2.569023"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:47.941817" elapsed="0.269677"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:48.212507" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.118")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:48.211925" elapsed="0.117888"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:50.331057" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:48.330354" elapsed="2.000934"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:50.512565" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-132.png"&gt;&lt;img src="selenium-screenshot-132.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:50.331648" elapsed="0.181101"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.118")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:47.941526" elapsed="2.571354"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:50.513430" elapsed="0.265971"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:50.780315" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.119")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:50.779784" elapsed="0.121239"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:52.902454" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:50.901431" elapsed="2.001253"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:53.075192" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-133.png"&gt;&lt;img src="selenium-screenshot-133.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:52.903076" elapsed="0.172233"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.119")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:50.513204" elapsed="2.562182"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:53.075684" elapsed="0.266079"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:53.342724" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.120")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:53.342203" elapsed="0.119019"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:55.462502" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:53.461723" elapsed="2.001027"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:55.636454" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-134.png"&gt;&lt;img src="selenium-screenshot-134.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:55.463184" elapsed="0.173397"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.120")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:53.075555" elapsed="2.561111"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:55:55.637081" elapsed="0.265814"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:55.903802" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.121")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:55.903310" elapsed="0.121490"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:55:58.025907" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:56.025275" elapsed="2.000886"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:58.196142" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-135.png"&gt;&lt;img src="selenium-screenshot-135.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:55:58.026519" elapsed="0.169740"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.12CEA022A758978353369FC8F4A9227B.e.121")&gt;</var>
+<status status="PASS" start="2025-02-12T11:55:55.636915" elapsed="2.559422"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs}</value>
+<status status="PASS" start="2025-02-12T11:55:40.267396" elapsed="17.929007"/>
+</for>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:55:58.196888" level="INFO">Clicking element 'xpath=//a[@data-bs-toggle='dropdown']'.</msg>
+<arg>xpath=//a[@data-bs-toggle='dropdown']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:55:58.196642" elapsed="0.142503"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:01.340889" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:55:58.339802" elapsed="3.001350"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:01.505506" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-136.png"&gt;&lt;img src="selenium-screenshot-136.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:01.341595" elapsed="0.164101"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:01.506893" level="INFO">Executing JavaScript:
+document.querySelector("a[data-bs-toggle='dropdown']").click()
+Without any arguments.</msg>
+<arg>document.querySelector("a[data-bs-toggle='dropdown']").click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T11:56:01.506102" elapsed="0.012974"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:03.520135" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:01.519577" elapsed="2.000797"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:03.521256" level="INFO">Opening url 'http://127.0.0.1:8000/researchers/2'</msg>
+<arg>http://127.0.0.1:8000/researchers/2</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-12T11:56:03.520881" elapsed="0.282002"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>http://127.0.0.1:8000/researchers/2</arg>
+<arg>5s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-02-12T11:56:03.803463" elapsed="0.012847"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:04.048608" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-137.png"&gt;&lt;img src="selenium-screenshot-137.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:03.816664" elapsed="0.232178"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:04.049314" elapsed="0.298386"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:06.349067" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:04.348312" elapsed="2.000974"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T11:56:06.349755" elapsed="0.036988"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:06.387642" level="INFO">Clicking element 'xpath=(//a[contains(@href, '/detail/')])[1]'.</msg>
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:06.387223" elapsed="1.259221"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:10.647708" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:07.647085" elapsed="3.000842"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:10.829486" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-138.png"&gt;&lt;img src="selenium-screenshot-138.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:10.648485" elapsed="0.181147"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:10.842260" level="INFO">${tabs_it} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.170")&gt;, &lt;selenium.webdri...</msg>
+<var>${tabs_it}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:10.829952" elapsed="0.012361"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:10.842849" elapsed="0.262324"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:11.106074" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.170")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:11.105549" elapsed="0.103194"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:13.209799" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:11.209181" elapsed="2.000874"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:13.376344" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-139.png"&gt;&lt;img src="selenium-screenshot-139.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:13.210416" elapsed="0.166052"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.170")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:10.842731" elapsed="2.533865"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:13.376910" elapsed="0.265692"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:13.643592" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.171")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:13.643045" elapsed="0.112708"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:15.756723" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:13.756199" elapsed="2.000753"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:15.931799" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-140.png"&gt;&lt;img src="selenium-screenshot-140.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:15.757343" elapsed="0.174680"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.171")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:13.376779" elapsed="2.555389"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:15.932750" elapsed="0.266513"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:16.200253" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.172")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:16.199688" elapsed="0.111676"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:18.312517" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:16.311855" elapsed="2.000898"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:18.497563" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-141.png"&gt;&lt;img src="selenium-screenshot-141.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:18.313161" elapsed="0.184618"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.172")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:15.932505" elapsed="2.565427"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:18.498594" elapsed="0.267980"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:18.767479" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.173")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:18.766961" elapsed="0.106846"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:20.875069" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:18.874309" elapsed="2.001002"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:21.045090" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-142.png"&gt;&lt;img src="selenium-screenshot-142.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:20.875714" elapsed="0.169593"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.173")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:18.498330" elapsed="2.547129"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:21.046120" elapsed="0.267363"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:21.314390" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.174")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:21.313864" elapsed="0.105971"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:23.420935" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:21.420318" elapsed="2.000868"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:23.598399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-143.png"&gt;&lt;img src="selenium-screenshot-143.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:23.421543" elapsed="0.177076"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.174")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:21.045835" elapsed="2.552940"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:23.599451" elapsed="0.266282"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:23.866665" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.175")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:23.866164" elapsed="0.107915"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:25.975646" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:23.974502" elapsed="2.001565"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:26.150781" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-144.png"&gt;&lt;img src="selenium-screenshot-144.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:25.976599" elapsed="0.174406"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.175")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:23.599185" elapsed="2.551956"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:26.151676" elapsed="0.265223"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:26.417452" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.176")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:26.417164" elapsed="0.080929"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:28.499163" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:26.498537" elapsed="2.000767"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:28.679738" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-145.png"&gt;&lt;img src="selenium-screenshot-145.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:28.499513" elapsed="0.180421"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.45AD8A72D410DD5B2CD5CFDC1A3D1812.e.176")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:26.151451" elapsed="2.528648"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs_it}</value>
+<status status="PASS" start="2025-02-12T11:56:10.842489" elapsed="17.837743"/>
+</for>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:28.681039" level="INFO">Clicking element 'xpath=//a[@data-bs-toggle='dropdown']'.</msg>
+<arg>xpath=//a[@data-bs-toggle='dropdown']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:28.680630" elapsed="0.078312"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:31.760065" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:28.759222" elapsed="3.001069"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:31.952026" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-146.png"&gt;&lt;img src="selenium-screenshot-146.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:31.760777" elapsed="0.191471"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:31.953585" level="INFO">Executing JavaScript:
+document.querySelector("a[data-bs-toggle='dropdown']").click()
+Without any arguments.</msg>
+<arg>document.querySelector("a[data-bs-toggle='dropdown']").click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T11:56:31.952697" elapsed="0.015010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:33.968913" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:31.968337" elapsed="2.000822"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:33.970054" level="INFO">Opening url 'http://127.0.0.1:8000/researchers/3'</msg>
+<arg>http://127.0.0.1:8000/researchers/3</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-12T11:56:33.969664" elapsed="0.286654"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>http://127.0.0.1:8000/researchers/3</arg>
+<arg>5s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-02-12T11:56:34.256893" elapsed="0.008163"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:34.497592" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-147.png"&gt;&lt;img src="selenium-screenshot-147.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:34.265363" elapsed="0.232461"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:34.498318" elapsed="0.292230"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:36.791472" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:34.791009" elapsed="2.000692"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T11:56:36.792180" elapsed="0.032422"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:36.825639" level="INFO">Clicking element 'xpath=(//a[contains(@href, '/detail/')])[1]'.</msg>
+<arg>xpath=(//a[contains(@href, '/detail/')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:36.825153" elapsed="1.039438"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:40.865768" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:37.865116" elapsed="3.000973"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:41.043811" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-148.png"&gt;&lt;img src="selenium-screenshot-148.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:40.866695" elapsed="0.177374"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:41.064434" level="INFO">${tabs_it} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.222")&gt;, &lt;selenium.webdri...</msg>
+<var>${tabs_it}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:41.044538" elapsed="0.019957"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:41.065200" elapsed="0.267256"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:41.333343" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.222")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:41.332830" elapsed="0.108251"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:43.442129" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:41.441486" elapsed="2.000901"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:43.628880" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-149.png"&gt;&lt;img src="selenium-screenshot-149.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:43.442772" elapsed="0.186358"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.222")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:41.065056" elapsed="2.564226"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:43.629911" elapsed="0.269662"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:43.900493" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.223")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:43.899982" elapsed="0.111786"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:46.012819" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:44.012216" elapsed="2.000884"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:46.201441" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-150.png"&gt;&lt;img src="selenium-screenshot-150.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:46.013519" elapsed="0.188135"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.223")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:43.629649" elapsed="2.572157"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:46.202455" elapsed="0.269202"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:46.472560" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.224")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:46.472061" elapsed="0.110152"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:48.583391" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:46.582679" elapsed="2.000946"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:48.758305" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-151.png"&gt;&lt;img src="selenium-screenshot-151.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:48.584009" elapsed="0.174484"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.224")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:46.202191" elapsed="2.556432"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:48.759195" elapsed="0.265994"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:49.026122" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.225")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:49.025605" elapsed="0.108355"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:51.135522" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:49.134439" elapsed="2.001338"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:51.313905" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-152.png"&gt;&lt;img src="selenium-screenshot-152.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:51.136203" elapsed="0.177947"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.225")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:48.758931" elapsed="2.555376"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:51.314940" elapsed="0.268391"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:51.584333" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.226")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:51.583786" elapsed="0.109018"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:53.694100" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:51.693296" elapsed="2.001034"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:53.881341" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-153.png"&gt;&lt;img src="selenium-screenshot-153.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:53.694690" elapsed="0.186941"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.226")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:51.314671" elapsed="2.567102"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:53.882358" elapsed="0.265400"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:54.148672" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.227")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:54.148170" elapsed="0.100745"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:56.249936" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:54.249320" elapsed="2.000880"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:56.437374" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-154.png"&gt;&lt;img src="selenium-screenshot-154.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:56.250558" elapsed="0.187032"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.227")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:53.882126" elapsed="2.555615"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T11:56:56.438411" elapsed="0.266280"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:56.705602" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.228")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T11:56:56.705098" elapsed="0.109200"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T11:56:58.815555" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T11:56:56.814771" elapsed="2.001014"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T11:56:58.997194" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-155.png"&gt;&lt;img src="selenium-screenshot-155.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T11:56:58.816168" elapsed="0.181261"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="57e2a23fba7b7e18b4288622c5944a92", element="f.4414406CB275B76FFB3AA6153EF2DF3B.d.31D591DFBBBC222643D76FCBD94E6726.e.228")&gt;</var>
+<status status="PASS" start="2025-02-12T11:56:56.438142" elapsed="2.559449"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs_it}</value>
+<status status="PASS" start="2025-02-12T11:56:41.064766" elapsed="17.932984"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-12T11:56:58.998243" elapsed="0.138621"/>
+</kw>
+<status status="PASS" start="2025-02-12T11:55:22.960141" elapsed="96.177212"/>
+</test>
+<status status="PASS" start="2025-02-12T11:55:22.822420" elapsed="96.315953"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Uat Test" id="s1" pass="1" fail="0" skip="0">Uat Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
