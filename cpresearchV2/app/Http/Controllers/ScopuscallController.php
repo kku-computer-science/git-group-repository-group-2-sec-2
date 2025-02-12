@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ScopuscallController extends Controller
 {
@@ -22,6 +23,7 @@ class ScopuscallController extends Controller
      */
     public function create($id)
     {
+        try{
         //$data = User::all();
         //$data = User::find(46);
         //return $id;
@@ -35,15 +37,32 @@ class ScopuscallController extends Controller
         $lname = $data['lname_en'];
         $id    = $data['id'];
 
+        $keyapi = '941c606e597bb9c2631b1da47e05e71e';
+
         $url = Http::get('https://api.elsevier.com/content/search/scopus?', [
             'query' => "AUTHOR-NAME(" . "$lname" . "," . "$fname" . ")",
-            'apikey' => '6ab3c2a01c29f0e36b00c8fa1d013f83',
+            'apikey' => $keyapi,
         ])->json();
+ 
+
+        if (isset($url['error']) || empty($url)) {
+            throw new \Exception('Scopus API ไม่สามารถใช้งานได้');
+        }
+
+        $content = $url['search-results']['entry'];
+
+        // dd($url['search-results']['entry']);
 
 
-        //$check=$url["search-results"]["entry"];
-        $content = $url["search-results"]["entry"];
+        // ตรวจสอบว่าข้อมูลมีปัญหาหรือไม่
+        if (empty($content)) {
+            throw new \Exception('ไม่พบข้อมูลจาก Scopus API');
+        }
 
+        // อัปเดตสถานะ API ว่าใช้งานได้
+        $this->updateApiStatus('Scopus API', 'active');
+
+        
 
         $links = $url["search-results"]["link"];
         //print_r($links);
@@ -71,7 +90,7 @@ class ScopuscallController extends Controller
                     $scoid = explode(":", $scoid);
                     $scoid = $scoid[1];
 
-                    $all = Http::get("https://api.elsevier.com/content/abstract/scopus_id/" . $scoid . "?filed=authors&apiKey=6ab3c2a01c29f0e36b00c8fa1d013f83&httpAccept=application%2Fjson");
+                    $all = Http::get("https://api.elsevier.com/content/abstract/scopus_id/" . $scoid . "?filed=authors&apiKey=". $keyapi ."&httpAccept=application%2Fjson");
                     //$all = Http::get("https://api.crossref.org/works/"."");
                     //$all = Http::get("https://api.crossref.org/works?query.title=" . $item['dc:title'] . "&rows=2");
                     $paper = new Paper;
@@ -141,88 +160,19 @@ class ScopuscallController extends Controller
 
 
                     $paper->save();
-                    //$user = User::findOrFail($id);
-                    //$paper->teacher()->sync($id);
 
                     $source = Source_data::findOrFail(1);
                     $paper->source()->sync($source);
 
-                    $all_au = $all['abstracts-retrieval-response']['authors']['author'];
-                    // if (array_key_exists('author', $all['message']['items'][0])) {
-                    //     //$all_au = $all['message']['items'][0]['author'];
-                    //     if (array_key_exists('ce:given-name', $all['message']['items'][0]['author'][0])) {
-                    //         $all_au = $all['message']['items'][0]['author'];
-                    //     } else {
-                    //         $all_au = $all['message']['items'][1]['author'];
-                    //     }
-                    // } else {
-                    //     $all_au = $all['message']['items'][1]['author'];
-                    // }
+                    if (!isset($all['abstracts-retrieval-response']['authors']['author'])) {
+                        Log::error("No authors found in response for paper: " . $item['dc:title']);
+                        continue; // Skip this paper if authors are missing
+                    }
 
-                    //return $all_au;
-                    // foreach ($all as $i) {
-                    //     $all_au = $i['author'];
-                    // }
-                    //return $all_au[0]['ce:given-name'];
+                    $all_au = $all['abstracts-retrieval-response']['authors']['author'];
                     $x = 1;
                     $length = count($all_au);
                     foreach ($all_au as $i) {
-
-                        //return $i;
-                        /*if (Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first() == null) { //เช็คว่ามีชื่อผู้แต่งคนนี้มีหรือยังในฐานข้อมูล ถ้ายังให้
-                                $author = new Author;
-                                if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) { //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
-                                    //$comp = User::select(DB::raw("concat(left(fname_en,1),'.') as name"))->get();
-                                    //return $comp;
-                                    $author->author_fname = $i['ce:given-name'];
-                                    $author->author_lname = $i['ce:surname'];
-                                    $author->save();
-                                    if ($x === 1) {
-                                        $paper->author()->attach($author, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->author()->attach($author, ['author_type' => 3]);
-                                    } else {
-                                        $paper->author()->attach($author, ['author_type' => 2]);
-                                    }
-                                } else {
-                                    $us = User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first();
-                                    $usid = $us->id;
-                                    if ($x === 1) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->teacher()->attach($usid, ['author_type' => 2]);
-                                    }
-                                }
-
-                            } else {
-                               
-                                if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) { //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
-                                    $author = Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first();
-                                    $authorid = $author->id;
-                                    if ($x === 1) {
-                                        $paper->author()->attach($authorid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->author()->attach($authorid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->author()->attach($authorid, ['author_type' => 2]);
-                                    }
-                                } else {
-                                    $us = User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first();
-                                    $usid = $us->id;
-                                    if ($x === 1) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->teacher()->attach($usid, ['author_type' => 2]);
-                                    }
-                                }
-
-                                //$paper->author()->attach($authorid);
-                                //$user = User::find($id);
-                            }*/
                             if (array_key_exists('ce:given-name', $i)) {
                                 $i['ce:given-name'] = $i['ce:given-name'];
                             }else{
@@ -299,9 +249,35 @@ class ScopuscallController extends Controller
             }
         }
         //}
-        //return 'succes';
         return redirect()->back();
+        }catch(\Exception $e){
+            Log::error("เกิดข้อผิดพลาด: " . $e->getMessage());
+
+            // อัปเดตสถานะ API ว่าไม่สามารถใช้งานได้
+            $this->updateApiStatus('Scopus API', 'inactive', $e->getMessage());
+
+            return redirect()->back()->with('error', 'API มีปัญหา: ' . $e->getMessage());
+        }
+        
     }
+    private function updateApiStatus($apiName, $status, $message = null)
+{
+    $requestData = [
+        'api_name' => $apiName,
+        'status' => $status,
+        'last_checked' => now()->toDateTimeString(),
+        'message' => $message,
+    ];
+
+    // Log the data for debugging
+    Log::info('Updating API status with data:', $requestData);
+
+    // Create an instance of the controller
+    $controller = new APIstatusController();
+
+    // Call the updateOrCreate method on the controller instance
+    return $controller->updateOrCreate(new \Illuminate\Http\Request($requestData));
+}
 
     /**
      * Show the form for creating a new resource.

@@ -4,7 +4,7 @@
     <p class="title"> Researchers </p>
     @foreach($request as $res)
     <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->program_name_en}}
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->name}}
     </span>
     <div class="d-flex">
         <div class="ml-auto">

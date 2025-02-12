@@ -28,7 +28,7 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>หน่วยงาน</b></p>
-                <p class="card-text col-sm-9">{{ $fund->fund_name }}</p>
+                <p class="card-text col-sm-9">{{ $fund->support_resource }}</p>
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>เพิ่มรายละเอียดโดย</b></p>

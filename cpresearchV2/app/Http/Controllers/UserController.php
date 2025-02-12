@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+
         $roles = Role::pluck('name','name')->all();
         //$roles = Role::all();
         //$deps = Department::pluck('department_name_EN','department_name_EN')->all();
@@ -56,7 +56,7 @@ class UserController extends Controller
         // return response()->json($subcat);
     }
 
-    
+
     public function getCategory(Request $request)
     {
         $cat = $request->cat_id;
@@ -84,13 +84,14 @@ class UserController extends Controller
             'roles' => 'required',
             // 'position' => 'required',
             'sub_cat' => 'required',
+            'scholar_id' => 'nullable|string|max:255',
         ]);
-    
+
         //$input = $request->all();
         //$input['password'] = Hash::make($input['password']);
-    
+
         //$user = User::create($input);
-        $user = User::create([  
+        $user = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'fname_en' => $request->fname_en,
@@ -98,8 +99,9 @@ class UserController extends Controller
             'fname_th' => $request->fname_th,
             'lname_th' => $request->lname_th,
             // 'position' =>  $request->position,
+            'scholar_id' => $request->scholar_id ?? null,
         ]);
-        
+
         $user->assignRole($request->roles);
 
         //dd($request->deps->id);
@@ -138,10 +140,10 @@ class UserController extends Controller
         $user = User::find($id);
         $departments = Department::all();
         $id = $user->program->department_id;
-        $programs = Program::whereHas('department', function($q) use ($id){    
+        $programs = Program::whereHas('department', function($q) use ($id){
             $q->where('id', '=', $id);
         })->get();
-        
+
         $roles = Role::pluck('name', 'name')->all();
         $deps = Department::pluck('department_name_EN','department_name_EN')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
@@ -165,24 +167,31 @@ class UserController extends Controller
             'lname_th' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'confirmed',
-            'roles' => 'required'
+            'roles' => 'required',
         ]);
-    
+
         $input = $request->all();
-        
-        if(!empty($input['password'])) { 
+
+        if(!empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
         } else {
-            $input = Arr::except($input, array('password'));    
+            $input = Arr::except($input, array('password'));
         }
-    
+
         $user = User::find($id);
-        $user->update($input);
+        $user->update([
+            'fname_en' => $input['fname_en'],
+            'lname_en' => $input['lname_en'],
+            'fname_th' => $input['fname_th'],
+            'lname_th' => $input['lname_th'],
+            'email' => $input['email'],
+            'scholar_id' => $input['scholar_id'] ?? $user->scholar_id, // อัปเดต scholar_id ถ้ามีค่าใหม่
+        ]);
 
         DB::table('model_has_roles')
             ->where('model_id', $id)
             ->delete();
-    
+
         $user->assignRole($request->input('roles'));
         $pro_id = $request->sub_cat;
         $program = Program::find($pro_id);
@@ -200,7 +209,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        
+
         User::find($id)->delete();
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully.');
@@ -215,13 +224,13 @@ class UserController extends Controller
         //return 'aaaaaa';
         $file = $request->file('admin_image');
        $new_name = 'UIMG_'.date('Ymd').uniqid().'.jpg';
-        
+
         //dd(public_path());
         //Upload new image
         $upload = $file->move(public_path($path), $new_name);
         //$filename = time() . '.' . $file->getClientOriginalExtension();
         //$upload = $file->move('user/images', $filename);
-     
+
         if( !$upload ){
             return response()->json(['status'=>0,'msg'=>'Something went wrong, upload new picture failed.']);
         }else{

@@ -51,6 +51,7 @@ class PermissionTableSeeder extends Seeder
             'departments-create',
             'departments-edit',
             'departments-delete',
+            'apistatus-list',
         ];
 
         foreach ($data as $permission) {

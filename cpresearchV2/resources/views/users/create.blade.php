@@ -61,10 +61,10 @@
                         </div>
                     </div>
                     <div class="form-group col-sm-8">
-                    <p><b>Role:</b></p>
+                        <p><b>Role:</b></p>
                         <div class="col-sm-8">
-                            
-                            {!! Form::select('roles[]', $roles,[],  array('class' => 'selectpicker','multiple')) !!}
+
+                            {!! Form::select('roles[]', $roles,[], array('class' => 'selectpicker','multiple')) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -84,17 +84,20 @@
                                     <option value="">Select Subcategory</option>
                                 </select>
                             </div>
-
                         </div>
                     </div>
-
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <p><b>Scholar ID (Optional)</b></p>
+                            {!! Form::text('scholar_id', null, array('placeholder' => 'Enter Scholar ID', 'class' => 'form-control')) !!}
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <a class="btn btn-secondary" href="{{ route('users.index') }}">Cencel</a>
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -109,7 +112,7 @@
             $('#subcat').empty();
             $.each(data, function(index, areaObj) {
                 //console.log(areaObj)
-                $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en +' in '+ areaObj.program_name_en + '</option>');
+                $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en + ' in ' + areaObj.program_name_en + '</option>');
             });
         });
     });

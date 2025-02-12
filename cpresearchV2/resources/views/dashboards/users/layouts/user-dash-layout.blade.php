@@ -272,6 +272,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
+                    @can('apistatus-list')
+                    <li class="nav-item nav-category">API Status</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('apistatus.index')}}">
+        <i class="menu-icon mdi mdi-server"></i>
+        <span class="menu-title">Research API</span>
+    </a>
+</li>
+@endcan
+
                 </ul>
             </nav>
 

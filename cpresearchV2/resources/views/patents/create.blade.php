@@ -52,7 +52,7 @@
                         <label for="exampleInputac_type" class="col-sm-3 ">ประเภท</label>
                         <div class="col-sm-4">
                             <select id="category" class="custom-select my-select" name="ac_type">
-                                <option value="" disabled selected >---- โปรดระบุประเภท ----</option>
+                                <option value="" disabled selected>---- โปรดระบุประเภท ----</option>
                                 <optgroup label="สิทธิบัตร">
                                     <option value="สิทธิบัตร">สิทธิบัตร</option>
                                     <option value="สิทธิบัตร (การประดิษฐ์)">สิทธิบัตร (การประดิษฐ์)</option>
@@ -99,9 +99,27 @@
                             <div class="table-responsive">
                                 <table class="table table-hover small-text" id="dynamicAddRemove">
                                     <tr>
-                                        <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}
-                                                </option>@endforeach
+                                        <td>
+                                            <select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
+                                                @php
+                                                // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                                                $userRole = DB::table('model_has_roles')
+                                                ->where('model_id', Auth::user()->id)
+                                                ->value('role_id');
+                                                @endphp
+
+                                                @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+                                                <option value="">Select User</option>
+                                                @foreach($users as $user)
+                                                <option value="{{ $user->id }}">
+                                                    {{ $user->fname_th }} {{ $user->lname_th }}
+                                                </option>
+                                                @endforeach
+                                                @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
+                                                <option value="{{ Auth::user()->id }}" selected>
+                                                    {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                                                </option>
+                                                @endif
                                             </select>
                                         </td>
                                         <td><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
@@ -134,16 +152,16 @@
                             <div class="table-responsive">
                                 <table class="table table-hover small-text" id="tb">
                                     <tr class="tr-header">
-                                        
+
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
                                         <!-- <th>Email Id</th> -->
-                                            <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
+                                        <!-- <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button> -->
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore2" title="Add More Person"><i class="mdi mdi-plus"></i></span></a></th>
                                     <tr>
                                         <!--  -->
-                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ" ></td>
-                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล" ></td>
+                                        <td><input type="text" name="fname[]" class="form-control" placeholder="ชื่อ"></td>
+                                        <td><input type="text" name="lname[]" class="form-control" placeholder="นามสกุล"></td>
                                         <!-- <td><input type="text" name="emailid[]" class="form-control"></td> -->
                                         <td><a href='javascript:void(0);' class='remove'><span><i class="mdi mdi-minus"></span></a></td>
                                     </tr>
@@ -182,21 +200,21 @@
     });
 </script>
 <script>
-        $(document).ready(function() {
-            $('#addMore2').on('click', function() {
-                var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
-                data.find("input").val('');
-            });
-            $(document).on('click', '.remove', function() {
-                var trIndex = $(this).closest("tr").index();
-                if (trIndex > 1) {
-                    $(this).closest("tr").remove();
-                } else {
-                    alert("Sorry!! Can't remove first row!");
-                }
-            });
+    $(document).ready(function() {
+        $('#addMore2').on('click', function() {
+            var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+            data.find("input").val('');
         });
-    </script>
+        $(document).on('click', '.remove', function() {
+            var trIndex = $(this).closest("tr").index();
+            if (trIndex > 1) {
+                $(this).closest("tr").remove();
+            } else {
+                alert("Sorry!! Can't remove first row!");
+            }
+        });
+    });
+</script>
 <script type="text/javascript">
     $(document).ready(function() {
         var postURL = "<?php echo url('addmore'); ?>";
