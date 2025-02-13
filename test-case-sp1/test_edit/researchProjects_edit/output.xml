@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-12T08:30:36.167663" rpa="false" schemaversion="5">
+<suite id="s1" name="researchProjects edit" source="C:\Users\franc\Desktop\se_67\test-case-sp1_\test_edit\researchProjects_edit\researchProjects_edit.robot">
+<test id="s1-t1" name="User Can Submit And Edit Research Project" line="37">
+<kw name="Open Browser And Login">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:36.407200" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T08:30:36.407005" elapsed="1.623932"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-12T08:30:38.031317" elapsed="0.032533"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:30:38.064328" elapsed="0.030114"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:38.095151" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:38.094737" elapsed="0.122075"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:38.217471" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:38.217153" elapsed="0.125447"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:38.342975" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:38.342779" elapsed="1.415143"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-12T08:30:39.758116" elapsed="0.008635"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:39.837309" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T08:30:39.766908" elapsed="0.070524"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:30:40.838038" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:30:39.837574" elapsed="1.000566"/>
+</kw>
+<status status="PASS" start="2025-02-12T08:30:36.406491" elapsed="4.431749"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:40.838800" level="INFO">Opening url 'http://127.0.0.1:8000/researchProjects/create'</msg>
+<arg>${URL_RESPROJECT_CREATE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-12T08:30:40.838660" elapsed="0.289406"/>
+</kw>
+<kw name="Fill Research Project Form">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_RESPROJECT_NAME}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:30:41.128808" elapsed="0.016445"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:41.145646" level="INFO">Typing text 'Test_ระบบแปลภาษาไทย-อีสาน' into text field '//input[@name='project_name']'.</msg>
+<arg>${INPUT_RESPROJECT_NAME}</arg>
+<arg>Test_ระบบแปลภาษาไทย-อีสาน</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:41.145444" elapsed="0.088458"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:41.234316" level="INFO">Typing text '01112025' into text field '//input[@name="project_start"]'.</msg>
+<arg>${INPUT_START_DATE}</arg>
+<arg>01112025</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:41.234096" elapsed="0.050072"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:30:51.284650" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:30:41.284325" elapsed="10.000438"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:30:51.285112" level="INFO">Typing text '02112025' into text field '//input[@name="project_end"]'.</msg>
+<arg>${INPUT_END_DATE}</arg>
+<arg>02112025</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:30:51.284916" elapsed="0.048753"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:31:01.334268" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:30:51.333827" elapsed="10.000566"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.334753" level="INFO">Selecting options from selection list '//select[@name="fund"]' by label โครงการ.</msg>
+<arg>${DROPDOWN_FUND}</arg>
+<arg>โครงการ</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.334547" elapsed="0.048208"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_YEAR}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.382926" elapsed="0.011133"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.394411" level="INFO">Typing text '2024' into text field '//input[@name="project_year"]'.</msg>
+<arg>${INPUT_YEAR}</arg>
+<arg>2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.394215" elapsed="0.055293"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_BUDGET}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.449668" elapsed="0.011907"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.461919" level="INFO">Typing text '5000000' into text field '//input[@name="budget"]'.</msg>
+<arg>${INPUT_BUDGET}</arg>
+<arg>5000000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.461730" elapsed="0.058946"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.521051" level="INFO">Selecting options from selection list '//select[@id="dep"]' by label สาขาวิชาวิทยาการคอมพิวเตอร์.</msg>
+<arg>${DROPDOWN_DEPARTMENT}</arg>
+<arg>สาขาวิชาวิทยาการคอมพิวเตอร์</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.520853" elapsed="0.047421"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.568895" level="INFO">Selecting options from selection list '//select[@id="status"]' by label ปิดโครงการ.</msg>
+<arg>${DROPDOWN_STATUS}</arg>
+<arg>ปิดโครงการ</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.568650" elapsed="0.045067"/>
+</kw>
+<kw name="Select Responsible Person">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SELECT_RESPONSIBLE_PERSON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.614147" elapsed="0.011312"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.625796" level="INFO">Clicking element '//*[@id="select2-head0-container"]'.</msg>
+<arg>${SELECT_RESPONSIBLE_PERSON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.625615" elapsed="0.051360"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:01.677346" level="INFO">Typing text 'พุธษดี ศิริแสงตระกูล' into text field 'xpath=//span[@class='select2-search select2-search--dropdown']/input'.</msg>
+<arg>xpath=//span[@class='select2-search select2-search--dropdown']/input</arg>
+<arg>พุธษดี ศิริแสงตระกูล</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.677163" elapsed="0.072935"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:31:03.751033" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:31:01.750301" elapsed="2.000880"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:03.751617" level="INFO">Sending key(s) ('ENTER',) to xpath=//span[@class='select2-search select2-search--dropdown']/input element.</msg>
+<msg time="2025-02-12T08:31:04.025734" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-02-12T08:31:04.025805" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath=//span[@class='select2-search select2-search--dropdown']/input</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-02-12T08:31:03.751336" elapsed="0.282662"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:31:05.034770" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:31:04.034173" elapsed="1.000716"/>
+</kw>
+<doc>เลือกอาจารย์ที่รับผิดชอบโครงการ</doc>
+<status status="PASS" start="2025-02-12T08:31:01.613933" elapsed="3.421067"/>
+</kw>
+<doc>กรอกข้อมูลโครงการวิจัย</doc>
+<status status="PASS" start="2025-02-12T08:30:41.128564" elapsed="23.906481"/>
+</kw>
+<kw name="Submit Research Project Form">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T08:31:05.035645" elapsed="0.012746"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T08:31:05.048507" elapsed="0.281413"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:05.330258" level="INFO">Clicking button '//button[@type='submit' and contains(text(), 'Submit')]'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T08:31:05.330085" elapsed="0.449443"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T08:31:07.780487" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T08:31:05.779715" elapsed="2.000870"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:07.855770" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T08:31:07.780742" elapsed="0.075164"/>
+</kw>
+<doc>กดปุ่ม Submit เพื่อบันทึกโครงการวิจัย</doc>
+<status status="PASS" start="2025-02-12T08:31:05.035454" elapsed="2.820528"/>
+</kw>
+<kw name="Go To Research Project List">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:07.856624" level="INFO">Opening url 'http://127.0.0.1:8000/researchProjects'</msg>
+<arg>${URL_RESPROJECT}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-12T08:31:07.856532" elapsed="0.314728"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:08.259346" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T08:31:08.171437" elapsed="0.087998"/>
+</kw>
+<doc>กลับไปที่หน้ารายการโครงการวิจัย</doc>
+<status status="PASS" start="2025-02-12T08:31:07.856340" elapsed="0.403183"/>
+</kw>
+<kw name="Open Research Project For Edit">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-12T08:31:18.452104" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T08:31:18.452289" level="FAIL">Element '//table/tbody/tr[1]/td[1]/a' not visible after 10 seconds.</msg>
+<arg>//table/tbody/tr[1]/td[1]/a</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-12T08:31:08.259955" elapsed="10.193889">Element '//table/tbody/tr[1]/td[1]/a' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//table/tbody/tr[1]/td[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.454008" elapsed="0.000026"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>แก้ไขข้อมูลโครงการวิจัย</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.454098" elapsed="0.000017"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.454178" elapsed="0.000016"/>
+</kw>
+<doc>เปิดโครงการวิจัยล่าสุดเพื่อทำการแก้ไข</doc>
+<status status="FAIL" start="2025-02-12T08:31:08.259763" elapsed="10.194521">Element '//table/tbody/tr[1]/td[1]/a' not visible after 10 seconds.</status>
+</kw>
+<kw name="Edit Research Project Name">
+<doc>แก้ไขชื่อโครงการวิจัยก่อนกด Submit</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.454648" elapsed="0.000035"/>
+</kw>
+<kw name="Submit Research Project Form">
+<doc>กดปุ่ม Submit เพื่อบันทึกโครงการวิจัย</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.455054" elapsed="0.000034"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T08:31:18.455308" elapsed="0.000024"/>
+</kw>
+<status status="FAIL" start="2025-02-12T08:30:36.405946" elapsed="42.049727">Element '//table/tbody/tr[1]/td[1]/a' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-12T08:30:36.168949" elapsed="42.287684"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="researchProjects edit">researchProjects edit</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
