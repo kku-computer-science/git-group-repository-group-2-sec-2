@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-12T13:24:35.120266" rpa="false" schemaversion="5">
+<suite id="s1" name="Books Test" source="C:\Users\franc\Desktop\se_67\test-case-sp1_\test\book\books_test.robot">
+<test id="s1-t1" name="Navigate To Books And View Details" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:35.366115" level="INFO">Opening browser 'Chrome' to base url 'https://soften2sec267.cpkkuhost.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:24:35.365872" elapsed="3.402650"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-12T13:24:38.768886" elapsed="0.025878"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:38.795058" elapsed="0.016881"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:38.812617" level="INFO">Typing text 'punhor1@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:38.812317" elapsed="0.080299"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:38.893133" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:38.892915" elapsed="0.071060"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:38.964402" level="INFO">Clicking button 'xpath=//button[contains(text(),'Log In')]'.</msg>
+<arg>xpath=//button[contains(text(),'Log In')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:38.964243" elapsed="2.523897"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T13:24:43.489065" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T13:24:41.488435" elapsed="2.000748"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:43.494598" level="INFO">Current location contains '/dashboard'.</msg>
+<arg>/dashboard</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-02-12T13:24:43.489536" elapsed="0.005131"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:43.495056" level="INFO">Clicking element 'xpath=//*[@id="sidebar"]/ul/li[8]/a'.</msg>
+<arg>xpath=//*[@id="sidebar"]/ul/li[8]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:43.494906" elapsed="0.049080"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T13:24:44.545227" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T13:24:43.544529" elapsed="1.000801"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="ManagePublications"]/ul/li[2]/a</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:44.545596" elapsed="0.014243"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:44.560278" level="INFO">Clicking element 'xpath=//*[@id="ManagePublications"]/ul/li[2]/a'.</msg>
+<arg>xpath=//*[@id="ManagePublications"]/ul/li[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:44.560113" elapsed="0.556518"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T13:24:47.117585" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T13:24:45.116969" elapsed="2.000756"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:47.121707" level="INFO">Current location contains '/books'.</msg>
+<arg>/books</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.118115" elapsed="0.003757"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="example1"]/tbody[1]/tr/td[6]/form/li[1]/a</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.122104" elapsed="0.012846"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="example1"]/tbody[1]/tr/td[6]/form/li[1]/a</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.135203" elapsed="0.269885"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:47.493311" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.405364" elapsed="0.088122"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:47.494286" level="INFO">Clicking element 'xpath=//*[@id="example1"]/tbody[1]/tr/td[6]/form/li[1]/a'.</msg>
+<arg>xpath=//*[@id="example1"]/tbody[1]/tr/td[6]/form/li[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.493954" elapsed="0.372696"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T13:24:49.867488" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T13:24:47.867003" elapsed="2.000629"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:49.870188" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF66E8802F5+28725]
+	(No symbol) [0x00007FF66E7E2AE0]
+	(No symbol) [0x00007FF66E67510A]
+	(No symbol) [0x00007FF66E64EEA5]
+	(No symbol) [0x00007FF66E6F6F87]
+	(No symbol) [0x00007FF66E70FA52]
+	(No symbol) [0x00007FF66E6EFD53]
+	(No symbol) [0x00007FF66E6BA0E3]
+	(No symbol) [0x00007FF66E6BB471]
+	GetHandleVerifier [0x00007FF66EBAF30D+3366989]
+	GetHandleVerifier [0x00007FF66EBC12F0+3440688]
+	GetHandleVerifier [0x00007FF66EBB78FD+3401277]
+	GetHandleVerifier [0x00007FF66E94AAAB+858091]
+	(No symbol) [0x00007FF66E7EE74F]
+	(No symbol) [0x00007FF66E7EA304]
+	(No symbol) [0x00007FF66E7EA49D]
+	(No symbol) [0x00007FF66E7D8B69]
+	BaseThreadInitThunk [0x00007FFAFED7259D+29]
+	RtlUserThreadStart [0x00007FFB003CAF38+40]
+</msg>
+<msg time="2025-02-12T13:24:49.871714" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF66E8802F5+28725]
+	(No symbol) [0x00007FF66E7E2AE0]
+	(No symbol) [0x00007FF66E67510A]
+	(No symbol) [0x00007FF66E64EEA5]
+	(No symbol) [0x00007FF66E6F6F87]
+	(No symbol) [0x00007FF66E70FA52]
+	(No symbol) [0x00007FF66E6EFD53]
+	(No symbol) [0x00007FF66E6BA0E3]
+	(No symbol) [0x00007FF66E6BB471]
+	GetHandleVerifier [0x00007FF66EBAF30D+3366989]
+	GetHandleVerifier [0x00007FF66EBC12F0+3440688]
+	GetHandleVerifier [0x00007FF66EBB78FD+3401277]
+	GetHandleVerifier [0x00007FF66E94AAAB+858091]
+	(No symbol) [0x00007FF66E7EE74F]
+	(No symbol) [0x00007FF66E7EA304]
+	(No symbol) [0x00007FF66E7EA49D]
+	(No symbol) [0x00007FF66E7D8B69]
+	BaseThreadInitThunk [0x00007FFAFED7259D+29]
+	RtlUserThreadStart [0x00007FFB003CAF38+40]
+</msg>
+<arg>/books/</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="FAIL" start="2025-02-12T13:24:49.867940" elapsed="0.006321">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF66E8802F5+28725]
+	(No symbol) [0x00007FF66E7E2AE0]
+	(No symbol) [0x00007FF66E67510A]
+	(No symbol) [0x00007FF66E64EEA5]
+	(No symbol) [0x00007FF66E6F6F87]
+	(No symbol) [0x00007FF66E70FA52]
+	(No symbol) [0x00007FF66E6EFD53]
+	(No symbol) [0x00007FF66E6BA0E3]
+	(No symbol) [0x00007FF66E6BB471]
+	GetHandleVerifier [0x00007FF66EBAF30D+3366989]
+	GetHandleVerifier [0x00007FF66EBC12F0+3440688]
+	GetHandleVerifier [0x00007FF66EBB78FD+3401277]
+	GetHandleVerifier [0x00007FF66E94AAAB+858091]
+	(No symbol) [0x00007FF66E7EE74F]
+	(No symbol) [0x00007FF66E7EA304]
+	(No symbol) [0x00007FF66E7EA49D]
+	(No symbol) [0x00007FF66E7D8B69]
+	BaseThreadInitThunk [0x00007FFAFED7259D+29]
+	RtlUserThreadStart [0x00007FFB003CAF38+40]
+</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:49.874512" elapsed="0.000033"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>รายละเอียดหนังสือ</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:49.874684" elapsed="0.000020"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:49.874804" elapsed="0.000017"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:24:35.365047" elapsed="14.509989">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF66E8802F5+28725]
+	(No symbol) [0x00007FF66E7E2AE0]
+	(No symbol) [0x00007FF66E67510A]
+	(No symbol) [0x00007FF66E64EEA5]
+	(No symbol) [0x00007FF66E6F6F87]
+	(No symbol) [0x00007FF66E70FA52]
+	(No symbol) [0x00007FF66E6EFD53]
+	(No symbol) [0x00007FF66E6BA0E3]
+	(No symbol) [0x00007FF66E6BB471]
+	GetHandleVerifier [0x00007FF66EBAF30D+3366989]
+	GetHandleVerifier [0x00007FF66EBC12F0+3440688]
+	GetHandleVerifier [0x00007FF66EBB78FD+3401277]
+	GetHandleVerifier [0x00007FF66E94AAAB+858091]
+	(No symbol) [0x00007FF66E7EE74F]
+	(No symbol) [0x00007FF66E7EA304]
+	(No symbol) [0x00007FF66E7EA49D]
+	(No symbol) [0x00007FF66E7D8B69]
+	BaseThreadInitThunk [0x00007FFAFED7259D+29]
+	RtlUserThreadStart [0x00007FFB003CAF38+40]
+</status>
+</test>
+<status status="FAIL" start="2025-02-12T13:24:35.121554" elapsed="14.755092"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Books Test">Books Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-12T13:24:49.870188" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00007FF66E8802F5+28725]
+	(No symbol) [0x00007FF66E7E2AE0]
+	(No symbol) [0x00007FF66E67510A]
+	(No symbol) [0x00007FF66E64EEA5]
+	(No symbol) [0x00007FF66E6F6F87]
+	(No symbol) [0x00007FF66E70FA52]
+	(No symbol) [0x00007FF66E6EFD53]
+	(No symbol) [0x00007FF66E6BA0E3]
+	(No symbol) [0x00007FF66E6BB471]
+	GetHandleVerifier [0x00007FF66EBAF30D+3366989]
+	GetHandleVerifier [0x00007FF66EBC12F0+3440688]
+	GetHandleVerifier [0x00007FF66EBB78FD+3401277]
+	GetHandleVerifier [0x00007FF66E94AAAB+858091]
+	(No symbol) [0x00007FF66E7EE74F]
+	(No symbol) [0x00007FF66E7EA304]
+	(No symbol) [0x00007FF66E7EA49D]
+	(No symbol) [0x00007FF66E7D8B69]
+	BaseThreadInitThunk [0x00007FFAFED7259D+29]
+	RtlUserThreadStart [0x00007FFB003CAF38+40]
+</msg>
+</errors>
+</robot>

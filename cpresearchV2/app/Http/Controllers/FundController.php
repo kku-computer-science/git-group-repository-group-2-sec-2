@@ -16,31 +16,22 @@ class FundController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //$funds = Fund::latest()->paginate(5);
-        $id = auth()->user()->id;
-        if( auth()->user()->HasRole('admin') ){
-            $funds = Fund::with('User')->get();
-        }
-        elseif( auth()->user()->HasRole('headproject') ){
-            $funds = Fund::with('User')->get();
-            
-        }
-        elseif( auth()->user()->HasRole('staff') ){
-            $funds = Fund::with('User')->get();
-            
-        }
-        else{
-            $funds=User::find($id)->fund()->get();
-            //$researchProjects=User::find($id)->researchProject()->latest()->paginate(5);
-            
-            //$researchProjects = ResearchProject::with('User')->latest()->paginate(5);
+        $id = auth()->id(); // ดึง ID ของ User ที่ล็อกอิน
+
+        if (auth()->user()->hasRole('admin')) {
+            // Admin เห็นทุกงาน
+            $funds = Fund::with('user')->get();
+        } else {
+            // ผู้ใช้ทั่วไปเห็นแค่ของตัวเอง
+            $funds = Fund::where('user_id', $id)->get();
         }
 
-        return view('funds.index',compact('funds'));
+        return view('funds.index', compact('funds'));
     }
-     
+
     /**
      * Show the form for creating a new resource.
      *

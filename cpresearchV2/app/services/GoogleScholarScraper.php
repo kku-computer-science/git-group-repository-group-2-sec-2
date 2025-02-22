@@ -61,6 +61,7 @@ $paperUrl = $paperUrlNode->length > 0 ? 'https://scholar.google.com' . $paperUrl
             }
 
             return [
+                'scholar_id' => $scholar_id ?: 'N/A',
                 'profile' => $profile_name ?: 'N/A',
                 'total_citations' => $total_citations ?: 'N/A',
                 'papers' => $papers

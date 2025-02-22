@@ -38,6 +38,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\APIstatusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,7 +75,7 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
-Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
+Route::get('researchers/{id}', [ResearcherController::class, 'requestByRole'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
 Route::get('/researchproject', [App\Http\Controllers\ResearchProjController::class, 'index'])->name('researchproject');
 Route::get('/researchgroup', [App\Http\Controllers\ResearchgroupsController::class, 'index'])->name('researchgroup');
@@ -111,6 +112,10 @@ Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], functi
     Route::post('import', [ImportExportController::class, 'import']);
     // Route::get('export', [ImportExportController::class, 'export']);
 
+    //admin watch API
+    Route::get('/apistatus', [APIstatusController::class, 'index'])->name('apistatus.index');
+    Route::post('/apistatus/update', [APIstatusController::class, 'updateOrCreate'])->name('apistatus.update');
+
 });
 
 Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
@@ -141,6 +146,7 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/ajax-get-subcat', [UserController::class, 'getCategory']);
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
+
 
 });
 

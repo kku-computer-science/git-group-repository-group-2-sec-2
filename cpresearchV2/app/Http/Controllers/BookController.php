@@ -36,9 +36,12 @@ class BookController extends Controller
             // })->whereHas('source', function ($query) {
             //     return $query->where('source_data_id', '=', 4);
             // })->paginate(10);
-            $books = Academicwork::with('user')->whereHas('user', function ($query) use ($id) {
-                 $query->where('users.id', '=', $id);
-            })->paginate(10);
+
+            $books = Academicwork::with('user')
+                ->where('ac_type', 'book') // เพิ่มเงื่อนไขกรองเฉพาะ book
+                ->whereHas('user', function ($query) use ($id) {
+                    $query->where('users.id', '=', $id);
+                })->paginate(10);
         }
 
         // $papers = Paper::with('teacher','author')->whereHas('teacher', function($query) use($id) {

@@ -96,7 +96,7 @@
                         @if (!$loop->last)
                         {{$n}}
                         @else
-                        Before {{$n}}
+                        {{trans('message.before')}} {{$n}}
                         @endif
                     </button>
                 </h2>

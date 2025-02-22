@@ -56,7 +56,7 @@
                 <div class="form-group row">
                     <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_detail_en" value="{{ old('group_detail_en') }}" class="form-control"
+                        <textarea name="group_detail_th" value="{{ old('group_detail_en') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>
@@ -70,11 +70,26 @@
                     <p class="col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
+                            @php
+                            // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                            $userRole = DB::table('model_has_roles')
+                            ->where('model_id', Auth::user()->id)
+                            ->value('role_id');
+                            @endphp
+
+                            @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+                            <option value="">Select User</option>
                             @foreach($users as $user)
-                            <option value="{{ $user->id }}">
+                            <option value="{{ $user->id }}"
+                                {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
                                 {{ $user->fname_th }} {{ $user->lname_th }}
                             </option>
                             @endforeach
+                            @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
+                            <option value="{{ Auth::user()->id }}" selected>
+                                {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                            </option>
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -91,7 +106,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary upload mt-5">Submit</button>
                 <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}"> Back</a>
-                </form>
+            </form>
         </div>
     </div>
 </div>
@@ -104,8 +119,8 @@ $("body").on("click",".upload",function(e){
   });
 
 
-  var options = { 
-    complete: function(response) 
+  var options = {
+    complete: function(response)
     {
         if($.isEmptyObject(response.responseJSON.error)){
             // $("input[name='title']").val('');
@@ -126,24 +141,72 @@ $("body").on("click",".upload",function(e){
   }
 </script> -->
 <script>
-$(document).ready(function() {
-    $("#selUser0").select2()
-    $("#head0").select2()
+    $(document).ready(function() {
+        $("#head0").select2();
 
-    var i = 0;
+        function updateAvailableOptions() {
+            let headUserId = $("#head0").val(); // ดึงค่า ID ของหัวหน้ากลุ่มวิจัย
+            let selectedUsers = new Set();
 
-    $("#add-btn2").click(function() {
+            // เก็บค่าผู้ใช้ที่ถูกเลือกไปแล้ว
+            $("select[name^='moreFields']").each(function() {
+                let val = $(this).val();
+                if (val) selectedUsers.add(val);
+            });
 
-        ++i;
-        $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
-            );
-        $("#selUser" + i).select2()
+            // ปิดการเลือกชื่อที่ถูกเลือกไปแล้ว และหัวหน้ากลุ่ม
+            $("select[name^='moreFields']").each(function() {
+                let currentValue = $(this).val();
+                $(this).find("option").each(function() {
+                    let optionValue = $(this).val();
+
+                    if (optionValue && (selectedUsers.has(optionValue) && optionValue !== currentValue || optionValue === headUserId)) {
+                        $(this).prop("disabled", true); // ปิดการเลือก
+                    } else {
+                        $(this).prop("disabled", false); // เปิดให้เลือก
+                    }
+                });
+            });
+        }
+
+        $(document).on("change", "select[name^='moreFields']", function() {
+            updateAvailableOptions();
+        });
+
+        var i = 0;
+        $("#add-btn2").click(function() {
+            ++i;
+            var newRow = `<tr>
+                        <td>
+                            <select id="selUser${i}" name="moreFields[${i}][userid]" class="form-control selectUser" style="width: 200px;">
+                                <option value="">Select User</option>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm remove-tr">
+                                <i class="mdi mdi-minus"></i>
+                            </button>
+                        </td>
+                    </tr>`;
+
+            $("#dynamicAddRemove").append(newRow);
+            $("#selUser" + i).select2();
+            updateAvailableOptions();
+        });
+
+        $(document).on("click", ".remove-tr", function() {
+            $(this).parents("tr").remove();
+            updateAvailableOptions();
+        });
+
+        $("#head0").on("change", function() {
+            updateAvailableOptions();
+        });
+
+        updateAvailableOptions();
     });
-    $(document).on('click', '.remove-tr', function() {
-        $(this).parents('tr').remove();
-    });
-
-});
 </script>
 @stop
