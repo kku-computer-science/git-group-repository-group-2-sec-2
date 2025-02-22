@@ -35,6 +35,7 @@ return [
     'closed'                      => 'ปิดโครงการ',
     'currency'                    => 'บาท',
 
+// cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
 
 ];

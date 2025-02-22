@@ -36,7 +36,7 @@ return [
     'currency'                      => 'Baht',
 
 
-
+// cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
 
 ];

@@ -35,7 +35,6 @@ return [
     'closed'                       => '已关闭',
     'currency'                     => '泰铢',
 
-
+// cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
-
 ];
