@@ -11,4 +11,9 @@ return [
 'education'=>'การศึกษา',
 'publications2' => 'ผลงานตีพิมพ์',
 
+
+// cpresearchV2/resources/views/research_g.blade.php
+'Research_Group' => 'กลุ่มวิจัย',
+'Laboratory_Supervisor' => 'หัวหน้าห้องปฏิบัติการ',
+
 ];

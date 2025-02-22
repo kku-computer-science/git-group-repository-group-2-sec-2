@@ -78,12 +78,12 @@
     </div>
 
     <!-- Google Translate Widget -->
-    <div id="google_translate_element"></div>
+    <!-- <div id="google_translate_element"></div> -->
 
     <!-- ปุ่มเปลี่ยนภาษาเป็นภาษาจีน -->
-    <div class="mt-3 text-center">
+    <!-- <div class="mt-3 text-center">
         <button class="btn btn-primary" onclick="changeLanguage('zh-CN')">切换到中文</button>
-    </div>
+    </div> -->
 
     <div class="container mixpaper pb-10 mt-3">
         <h3>{{ trans('message.publications') }}</h3>
