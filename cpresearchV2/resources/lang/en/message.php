@@ -19,10 +19,11 @@ return [
 // 'Expertise' => 'Expertise',
 'Add_Expertise' => 'Add Expertise',
 // 'Course' => 'Course',
-// 'Research_Information_Management_System' => 'Research Information Management System',
+ 'Research_Information_Management_System' => 'Research Information Management System',
 // 'Add_Course' => 'Add Course',
 
 // cpresearchV2/resources/views/programs/index.blade.php
+'Add_New_Program' => 'Add New Program',
 'Education_Level' => 'Education Level',
 'Academic_Program' => 'Academic Program',
 'Name_TH' => 'Name (TH)',
@@ -40,7 +41,45 @@ return [
 'Create_Department' => 'Create Department',
 'Departments' => 'Departments',
 
+// cpresearchV2/resources/views/books/create.blade.php
+'Add_Book' => 'Add Book',
+'Book_Name' => 'Book Name',
+'Enter_Book_Details' => 'Enter Book Details',
+'Place_Of_Publication' => 'Place of publication',
+'Year_(A.D.)' => 'Year (A.D.)',
+'Number_Of_Pages' => 'Number of Pages',
 
+// cpresearchV2/resources/views/research_groups/create.blade.php
+'Create_Research_Group' => 'Create Research Group',
+'Edit_Research_Group_Details' => 'Edit Research Group Details',
+'Research_Group_Name_TH' => 'Research Group Name (TH)',
+'Research_Group_Name_EN' => 'Research Group Name (EN)',
+'Research_Group_Description_TH' => 'Research Group Description (TH)',
+'Research_Group_Description_EN' => 'Research Group Description (EN)',
+'Image' => 'Image',
+'Research_Group_Leader' => 'Research Group Leader',
+'Research_Group_Members' => 'Research Group Members',
+'Back' => 'Back',
+
+// cpresearchV2/resources/views/users/create.blade.php
+'Add_User' => 'Add User',
+'Add_User_Details' => 'Edit User Details',
+'First_Name_TH' => 'First Name (TH)',
+'Last_Name_TH' => 'Last Name (TH)',
+'First_Name_EN' => 'First Name (EN)',
+'Last_Name_EN' => 'Last Name (EN)',
+'Email' => 'Email',
+'Password' => 'Password',
+'Confirm_Password' => 'Confirm Password',
+'Role' => 'Role',
+'Department' => 'Department',
+'Program' => 'Program',
+'Select_Subcategory' => 'Select Subcategory',
+'Scholar_ID_(Optional)' => 'Scholar ID (Optional)',
+
+// cpresearchV2/resources/views/users/import.blade.php
+'Import' => 'Import Excel, CSV File',
+'Choose_File' => 'Choose File',
 
 //=========================Mean==============================
 

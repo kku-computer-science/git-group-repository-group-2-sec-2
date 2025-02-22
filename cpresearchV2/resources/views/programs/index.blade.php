@@ -153,7 +153,7 @@
         $('#new-program').click(function() {
             $('#btn-save').val("create-program");
             $('#program').trigger("reset");
-            $('#programCrudModal').html("Add New program");
+            $('#programCrudModal').html("{{trans('message.Add_New_Program')}}");
             $('#crud-modal').modal('show');
         });
 
