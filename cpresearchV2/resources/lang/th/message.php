@@ -37,6 +37,29 @@ return [
 
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
+// cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    'logout' => 'ออกจากระบบ',
+    'header' => 'ระบบจัดการข้อมูลวิจัย',
+    'dashboard' => 'แดชบอร์ด',
+    'profile' => 'ข้อมูลส่วนตัว',
+    'option' => 'ตัวเลือก',
+    'fund' => 'จัดการทุนวิจัย',
+    'project' => 'โครงการวิจัย',
+    'group' => 'กลุ่มวิจัย',
+    'publication' => 'ผลงานตีพิมพ์',
+    'research' => 'งานวิจัยที่ได้รับการตีพิมพ์',
+    'book' => 'หนังสือ',
+    'patent' => 'ผลงานวิชาการอื่นๆ',
+    'admin' => 'ผู้ดูแลระบบ',
+    'user' => 'ผู้ใช้งาน',
+    'role' => 'บทบาท',
+    'permission' => 'สิทธิ์',
+    'department' => 'สาขาวิชา',
+    'program' => 'จัดการหลักสูตร',
+    'expertise_menu' => 'จัดการความเชี่ยวชาญ',
+    'api'  => 'สถานะ API ของงานวิจัย',
+
+
 
 // cpresearchV2\resources\views\auth\login.blade.php
     'account_login' => 'เข้าสู่ระบบ',
@@ -48,7 +71,11 @@ return [
     'username_login' => 'สำหรับชื่อผู้ใช้ ใช้ KKU-Mail เข้าสู่ระบบ',
     'username_student' => 'สำหรับนักศึกษาที่เข้าสู่ระบบครั้งแรก ให้เข้าสู่ระบบด้วยรหัสนักศึกษา',
 
+// cpresearchV2\resources\views\report.blade.php
+    'stat_5years' => 'สถิติจำนวนบทความทั้งหมด 5 ปี ย้อนหลัง',
+    'stat_citation' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
 
-
+// cpresearchV2\resources\views\dashboards\users\index.blade.php
+'greeting' => 'สวัสดี,:position :fname :lname!',
 
 ];

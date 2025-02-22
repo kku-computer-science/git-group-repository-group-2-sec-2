@@ -38,6 +38,27 @@ return [
 
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
+// cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    'logout' => 'Logout',
+    'header' => 'Research Information Management System',
+    'dashboard' => 'Dashboard',
+    'profile' => 'User Profile',
+    'option' => 'OPTION',
+    'fund' => 'Manage Fund',
+    'project' => 'Research Project',
+    'group' => 'Research Group',
+    'publication' => 'Manage Publications',
+    'research' => 'Published research',
+    'book' => 'Book',
+    'patent' => 'Other academic works',
+    'admin' => 'Admin',
+    'user' => 'Users',
+    'role' => 'Roles',
+    'permission' => 'Permission',
+    'department' => 'Departments',
+    'program' => 'Manage Programs',
+    'expertise_menu' => 'Manage Expertise',
+    'api'  => 'API Status',
 
 // cpresearchV2\resources\views\auth\login.blade.php
     'account_login' => 'Account Login',
@@ -49,4 +70,10 @@ return [
     'username_login' => 'For Username, use KKU-Mail to log in. ',
     'username_student' => 'For students who are logging in for the first time, please log in with your student ID number.',
 
+// cpresearchV2\resources\views\report.blade.php
+    'stat_5years' => 'Statistics of the total number of articles in the last 5 years',
+    'stat_citation' => 'Statistics of the number of articles cited',
+
+// cpresearchV2\resources\views\dashboards\users\index.blade.php
+'greeting' => 'Hello,:position :fname :lname!',
 ];
