@@ -38,4 +38,21 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
 
+
+//cpresearchV2/resources/views/funds/index.blade.php
+    'fund' => 'ทุนวิจัย',
+    'fund_no' => 'ลำดับ',
+    'fund_name' => 'ชื่อทุน',
+    'fund_type' => 'ประเภททุน',
+    'fund_level' => 'ระดับทุน',
+    'action' => 'การดำเนินการ',
+    'search' => 'ค้นหา',
+    'show' => 'แสดง',
+    'entries' => 'รายการ',
+    'add' => 'เพิ่ม',
+    'showing' => 'การแสดง',
+    'to' => 'ถึง',
+    'of' => 'จาก',
+    'previous' => 'ก่อนหน้า',
+    'next' => 'ถัดไป',
 ];

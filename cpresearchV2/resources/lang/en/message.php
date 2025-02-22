@@ -39,4 +39,20 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
 
+//cpresearchV2/resources/views/funds/index.blade.php
+    'fund' => 'fund',
+    'fund_no' => 'No.',
+    'fund_name' => 'Fund Name',
+    'fund_type' => 'Fund Type',
+    'fund_level' => 'Fund Level',
+    'action' => 'Action',
+    'search' => 'Search',
+    'show' => 'Show',
+    'entries' => 'entries',
+    'add' => 'Add',
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'previous' => 'Previous',
+    'next' => 'Next',
 ];

@@ -1,6 +1,6 @@
 <?php
 return [
-// cpresearchV2\resources\views\layouts\layout.blade.php
+    // cpresearchV2\resources\views\layouts\layout.blade.php
     'Home'                         => '首页',
     'Researchers'                  => '研究人员',
     'ResearchProj'                 => '研究项目',
@@ -11,14 +11,14 @@ return [
     'publications2'                => '出版物',
     'login'                        => '登录',
 
-// cpresearchV2\resources\views\home.blade.php
+    // cpresearchV2\resources\views\home.blade.php
     'publications'                 => '近 5 年出版物',
     'reference'                    => '参考',
     'before'                       => '之前',
     // 'report_total_articles'     => '报告文章总数（5年：累计）',
     // 'number'                    => '编号',
 
-// cpresearchV2\resources\views\research_proj.blade.php
+    // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'  => '学术服务/研究项目',
     'order'                        => '序号',
     'year'                         => '年',
@@ -35,6 +35,23 @@ return [
     'closed'                       => '已关闭',
     'currency'                     => '泰铢',
 
-// cpresearchV2\resources\views\welcome.blade.php
+    // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
+
+    //cpresearchV2/resources/views/funds/index.blade.php
+    'fund' => '基金',
+    'fund_no' => '不.',
+    'fund_name' => '基金名稱',
+    'fund_type' => '基金類型',
+    'fund_level' => '基金層面',
+    'action' => '行動',
+    'search' => '搜尋',
+    'show' => '展示',
+    'entries' => '條目',
+    'add' => '添加',
+    'showing' => '顯示',
+    'to' => '到',
+    'of' => '的',
+    'previous' => '以前的',
+    'next' => '下一個',
 ];
