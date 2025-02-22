@@ -34,6 +34,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('css/styleadmin.css')}}">
 
+
+
+
+
     <!-- endinject -->
     <!-- <link rel="shortcut icon" href="images/favicon.png" /> -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -41,18 +45,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body>
     <div class=" container-scroller sidebar-dark">
         <!-- navbar ข้างบน 
     -->
-        <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top d-flex align-items-top flex-row p-0 m-0 w-100">
+
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                    <button class="navbar-toggler d-lg-block d-none align-self-center" type="button"
                         data-bs-toggle="minimize">
                         <span class="icon-menu"></span>
                     </button>
@@ -94,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             @endforeach
                         </div>
                     </li>
-                    
+
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
@@ -228,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endcan
                     @can('export')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('exportfile')}}" >
+                        <a class="nav-link" href="{{route('exportfile')}}">
                             <i class="menu-icon mdi mdi-file-export"></i>
                             <span class="menu-title">Export</span>
                         </a>
@@ -293,13 +303,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @can('apistatus-list')
                     <li class="nav-item nav-category">API Status</li>
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('apistatus.index')}}">
-        <i class="menu-icon mdi mdi-server"></i>
-        <span class="menu-title">Research API</span>
-    </a>
-</li>
-@endcan
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('apistatus.index')}}">
+                            <i class="menu-icon mdi mdi-server"></i>
+                            <span class="menu-title">Research API</span>
+                        </a>
+                    </li>
+                    @endcan
 
                 </ul>
             </nav>
@@ -354,7 +364,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @yield('javascript')
 
 
+
 </body>
+
 
 
 </html>

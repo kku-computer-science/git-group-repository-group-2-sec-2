@@ -38,4 +38,6 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
 
+    'account_login' => 'เข้าสู่ระบบ',
+
 ];

@@ -319,6 +319,9 @@
 			font-size: 12px;
 		}
 	</style>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
@@ -375,11 +378,31 @@
 		</div>
 	</div> -->
 
+
 	<div class="form">
 		<div class="form-toggle"></div>
 		<div class="form-panel one">
+			<div>
+			<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span
+                                class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                            {{ Config::get('languages')[App::getLocale()]['display'] }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('langswitch', $lang) }}"><span
+                                    class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+                                {{$language['display']}}</a>
+                            @endif
+                            @endforeach
+                        </div>
+                    </li>
+			</div>
 			<div class="form-header">
-				<h1>Account Login</h1>
+				<h1>{{trans('message.account_login') }}</h1>
 			</div>
 			<div class="form-content">
 				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
