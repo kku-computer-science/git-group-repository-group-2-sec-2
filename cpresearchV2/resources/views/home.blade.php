@@ -140,7 +140,7 @@
                         @if (!$loop->last)
                         {{$n}}
                         @else
-                        Before {{$n}}
+                        {{trans('message.before')}} {{$n}}
                         @endif
 
                     </button>
@@ -161,7 +161,7 @@
                                     <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[อ้างอิง]</button>
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[{{trans('message.reference')}}]</button>
                                 </p>
                             </div>
                         </div>
