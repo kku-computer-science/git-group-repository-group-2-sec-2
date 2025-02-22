@@ -63,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-menu-wrapper d-flex align-items-top">
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">Research Information Management System <span
+                        <h1 class="welcome-text">{{trans('message.Research_Information_Management_System')}} <span
                                 class="text-black fw-bold"></span></h1>
                         <h3 class="welcome-sub-text"> </h3>
                     </li>

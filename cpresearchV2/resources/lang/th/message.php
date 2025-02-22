@@ -38,9 +38,36 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
 
-
+//=========================Mean==============================
 // cpresearchV2/resources/views/research_g.blade.php
 'Research_Group' => 'กลุ่มวิจัย',
 'Laboratory_Supervisor' => 'หัวหน้าห้องปฏิบัติการ',
+// 'Expertise' => 'ความเชี่ยวชาญ',
+'Add_Expertise' => 'เพิ่มความเชี่ยวชาญ',
+// 'Course' => 'หลักสูตร',
+
+// cpresearchV2/resources/views/programs/index.blade.php
+'Education_Level' => 'ระดับการศึกษา',
+'Academic_Program' => 'สาขาวิชา',
+'Name_TH' => 'ชื่อ (ไทย)',
+'Name_EN' => 'ชื่อ (อังกฤษ)',
+'Submit' => 'ยืนยัน',
+'Cancle' => 'ยกเลิก',
+// 'Research_Information_Management_System' => 'ระบบจัดการข้อมูลวิจัย',
+// 'Add_Course' => 'เพิ่มหลักสูตร',
+
+// cpresearchV2/resources/views/dashboards/users/profile.blade.php
+'Name' => 'ชื่อ',
+'Expert_Name' => 'ชื่อผู้เชี่ยวชาญ',
+
+// cpresearchV2/resources/views/departments/create.blade.php
+'Department_Name_TH' => 'ชื่อหน่วยงาน (ไทย)',
+'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
+'Create_Department' => 'สร้างหน่วยงาน',
+'Departments' => 'หน่วยงาน',
+
+
+//=========================Mean==============================
+
 
 ];
