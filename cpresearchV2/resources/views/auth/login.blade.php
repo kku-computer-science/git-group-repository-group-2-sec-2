@@ -382,7 +382,7 @@
 	<div class="form">
 		<div class="form-toggle"></div>
 		<div class="form-panel one">
-			<div>
+			<div class="d-flex justify-content-end">
 			<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -415,7 +415,7 @@
 					@endif
 					<!-- <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz"> -->
 					<div class="form-group validate-input">
-						<label for="email">Username</label>
+						<label for="email">{{trans('message.username')}}</label>
 						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
 						@error('username')
 						<span class="invalid-feedback" role="alert">
@@ -424,23 +424,23 @@
 						@enderror
 					</div>
 					<div class="form-group validate-input" data-validate="Password is required">
-						<label for="password">Password</label>
+						<label for="password">{{trans('message.password')}}</label>
 						<input id="password" class="input" type="password" name="password" required="required" />
 					</div>
 					<div class="form-group">
 						<label class="form-remember">
-							<input id="ckb1" name="remember" type="checkbox" />Remember Me
+							<input id="ckb1" name="remember" type="checkbox" />{{trans('message.remember_me')}}
 						</label>
 					</div>
 					<div class="form-group">
-						<button type="submit">Log In</button>
+						<button type="submit">{{trans('message.login')}}</button>
 					</div>
 					<div class="form-remember pb-3">
-							<p style="color: red; text-align: right;"> *** หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ</p>
+							<p style="color: red; text-align: right;"> *** {{trans('message.forgot_password')}}</p>
 					</div>
 					<ul>
-						<li>สำหรับ Username ใช้ KKU-Mail ในการเข้าสู่ระบบ</li>
-						<li>สำหรับนักศึกษาที่เข้าระบบเป็นครั้งแรกให้เข้าสู่ระด้วยรหัสนักศึกษา</li>
+						<li>{{trans('message.username_login')}}</li>
+						<li>{{trans('message.username_student')}}</li>
 					</ul>
 				</form>
 			</div>

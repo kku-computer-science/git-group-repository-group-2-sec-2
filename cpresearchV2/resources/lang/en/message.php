@@ -39,4 +39,14 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
 
+// cpresearchV2\resources\views\auth\login.blade.php
+    'account_login' => 'Account Login',
+    'username'      => 'Username',
+    'password'      => 'Password',
+    'remember_me'   => 'Remember me',
+    'login'         => 'Login',
+    'forgot_password' => 'If you forgot your password, please contact the administrator.',
+    'username_login' => 'For Username, use KKU-Mail to log in. ',
+    'username_student' => 'For students who are logging in for the first time, please log in with your student ID number.',
+
 ];

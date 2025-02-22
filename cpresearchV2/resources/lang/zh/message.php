@@ -37,4 +37,15 @@ return [
 
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
+//cpresearchV2\resources\views\auth\login.blade.php
+    'account_login' => '账户登录',
+    'username'      => '用户名',
+    'password'      => '密码',
+    'remember_me'   => '记住我',
+    'login'         => '登录',
+    'forgot_password' => '如果您忘记了密码，请
+    联系管理员。',
+    'username_login' => '对于用户名，请使用 KKU-Mail 登录。',
+    'username_student' => '首次登录的学生，请使用学号登录。',
+    
 ];

@@ -38,6 +38,17 @@ return [
 // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'ยินดีต้อนรับเข้าสู่ระบบจัดการข้อมูลวิจัยของสาขาวิชาวิทยาการคอมพิวเตอร์',
 
+// cpresearchV2\resources\views\auth\login.blade.php
     'account_login' => 'เข้าสู่ระบบ',
+    'username'      => 'ชื่อผู้ใช้',
+    'password'      => 'รหัสผ่าน',
+    'remember_me'   => 'จดจำฉัน',
+    'login'         => 'เข้าสู่ระบบ',
+    'forgot_password' => 'หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ',
+    'username_login' => 'สำหรับชื่อผู้ใช้ ใช้ KKU-Mail เข้าสู่ระบบ',
+    'username_student' => 'สำหรับนักศึกษาที่เข้าสู่ระบบครั้งแรก ให้เข้าสู่ระบบด้วยรหัสนักศึกษา',
+
+
+
 
 ];
