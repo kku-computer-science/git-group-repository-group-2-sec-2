@@ -72,4 +72,16 @@ return [
     'research_project_created' => 'Research project created successfully.',
     'research_project_updated' => 'Research project updated successfully.',
     'research_project_deleted' => 'Research project deleted successfully.',
+
+    //cpresearchV2/resources/views/research_groups/index.blade.php
+    'research_group' => 'Research Group',
+    'research_group_name' => 'Group Name',
+    'research_group_head' => 'Head',
+    'research_group_member' => 'Member',
+
+    //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+    'research_group_created' => 'Research group created successfully!',
+    'research_group_updated' => 'Research group updated successfully!',
+    'research_group_deleted' => 'Research group deleted successfully!',
+
 ];

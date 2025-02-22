@@ -71,4 +71,15 @@ return [
     'research_project_created' => '研究项目创建成功。',
     'research_project_updated' => '研究项目更新成功。',
     'research_project_deleted' => '研究项目删除成功。',
+
+    //cpresearchV2/resources/views/research_groups/index.blade.php
+    'research_group' => '研究小組',
+    'research_group_name' => '組名',
+    'research_group_head' => '頭',
+    'research_group_member' => '成員',
+
+    //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+    'research_group_created' => '研究小组创建成功!',
+    'research_group_updated' => '研究小组更新成功!',
+    'research_group_deleted' => '研究小组删除成功!',
 ];

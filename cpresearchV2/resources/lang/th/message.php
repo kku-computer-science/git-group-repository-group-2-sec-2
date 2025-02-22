@@ -50,7 +50,7 @@ return [
     'show' => 'แสดง',
     'entries' => 'รายการ',
     'add' => 'เพิ่ม',
-    'showing' => 'การแสดง',
+    'showing' => 'แสดง',
     'to' => 'ถึง',
     'of' => 'จาก',
     'previous' => 'ก่อนหน้า',
@@ -72,4 +72,15 @@ return [
     'research_project_created' => 'สร้างโครงการวิจัยสำเร็จ',
     'research_project_updated' => 'อัปเดตโครงการวิจัยสำเร็จ',
     'research_project_deleted' => 'ลบโครงการวิจัยสำเร็จ',
+
+    //cpresearchV2/resources/views/research_groups/index.blade.php
+    'research_group' => 'กลุ่มวิจัย',
+    'research_group_name' => 'ชื่อกลุ่มวิจัย',
+    'research_group_head' => 'หัวหน้ากลุ่มวิจัย',
+    'research_group_member' => 'สมาชิกกลุ่มวิจัย',
+
+    //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+    'research_group_created' => 'สร้างกลุ่มวิจัยสำเร็จ!',
+    'research_group_updated' => 'อัปเดตกลุ่มวิจัยสำเร็จ!',
+    'research_group_deleted' => 'ลบกลุ่มวิจัยสำเร็จ!',
 ];
