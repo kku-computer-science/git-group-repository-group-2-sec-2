@@ -20,7 +20,7 @@
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{{trans('message.fund_no')}}</th>
+                            <th>{{trans('message.no_dot')}}</th>
                             <th>{{trans('message.fund_name')}}</th>
                             <th>{{trans('message.fund_type')}}</th>
                             <th>{{trans('message.fund_level')}}</th>
@@ -80,14 +80,12 @@
 $(document).ready(function() {
     var table = $('#example1').DataTable({
         fixedHeader: true,
-        searching: true, // เปิดช่องค้นหา
-        lengthChange: true, // เปิดตัวเลือกจำนวนแถว
+        searching: true,
+        lengthChange: true, 
         language: {
-            search: `{{trans('message.search')}}:`, // เปลี่ยนข้อความ Search เป็น ค้นหา
-            // lengthMenu: "แสดง _MENU_ รายการต่อหน้า", // เปลี่ยนตัวเลือกจำนวนแถว
+            search: `{{trans('message.search')}}:`,
             lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
-            // info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ", // เปลี่ยนข้อความแสดงข้อมูล
-            info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,    
+            info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
             paginate: {
                 next: `{{trans('message.next')}}`,
                 previous: `{{trans('message.previous')}}`

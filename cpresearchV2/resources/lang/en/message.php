@@ -1,6 +1,6 @@
 <?php
 return [
-// cpresearchV2\resources\views\layouts\layout.blade.php
+    // cpresearchV2\resources\views\layouts\layout.blade.php
     'Home'                          => 'Home',
     'Researchers'                   => 'Researchers',
     'ResearchProj'                  => 'Research Project',
@@ -11,14 +11,14 @@ return [
     'publications2'                 => 'Publications',
     'login'                         => 'Login',
 
-// cpresearchV2\resources\views\home.blade.php
+    // cpresearchV2\resources\views\home.blade.php
     'publications'                  => 'Publications (In the Last 5 Years)',
     'reference'                     => 'Reference',
     'before'                        => 'Before',
     // 'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
     // 'number'                     => 'Number',
 
-// cpresearchV2\resources\views\research_proj.blade.php
+    // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'   => 'Academic Service/ Research Project',
     'order'                         => 'No.',
     'year'                          => 'Year',
@@ -36,12 +36,12 @@ return [
     'currency'                      => 'Baht',
 
 
-// cpresearchV2\resources\views\welcome.blade.php
+    // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
 
-//cpresearchV2/resources/views/funds/index.blade.php
+    //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
-    'fund_no' => 'No.',
+    'no_dot' => 'No.',
     'fund_name' => 'Fund Name',
     'fund_type' => 'Fund Type',
     'fund_level' => 'Fund Level',
@@ -55,4 +55,21 @@ return [
     'of' => 'of',
     'previous' => 'Previous',
     'next' => 'Next',
+
+    //cpresearchV2/app/Http/Controllers/FundController.php
+    'fund_created' => 'Fund created successfully.',
+    'fund_updated' => 'Fund updated successfully.',
+    'fund_deleted' => 'Fund deleted successfully.',
+
+    //cpresearchV2/resources/views/research_projects/index.blade.php
+    'research_project' => 'Research Project',
+    'research_project_name' => 'Project Name',
+    'research_project_year' => 'Year',
+    'research_project_head' => 'Head',
+    'research_project_member' => 'Member',
+
+    //cpresearchV2/app/Http/Controllers/ResearchProjectController.php
+    'research_project_created' => 'Research project created successfully.',
+    'research_project_updated' => 'Research project updated successfully.',
+    'research_project_deleted' => 'Research project deleted successfully.',
 ];

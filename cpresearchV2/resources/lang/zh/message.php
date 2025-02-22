@@ -40,7 +40,7 @@ return [
 
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => '基金',
-    'fund_no' => '不.',
+    'no_dot' => '不.',
     'fund_name' => '基金名稱',
     'fund_type' => '基金類型',
     'fund_level' => '基金層面',
@@ -54,4 +54,21 @@ return [
     'of' => '的',
     'previous' => '以前的',
     'next' => '下一個',
+
+    //cpresearchV2/app/Http/Controllers/FundController.php
+    'fund_created' => '基金创建成功。',
+    'fund_updated' => '基金更新成功。',
+    'fund_deleted' => '基金删除成功。',
+
+    //cpresearchV2/resources/views/research_projects/index.blade.php
+    'research_project' => '研究項目',
+    'research_project_name' => '項目名稱',
+    'research_project_year' => '年',
+    'research_project_head' => '頭',
+    'research_project_member' => '成員',
+
+    //cpresearchV2/app/Http/Controllers/ResearchProjectController.php
+    'research_project_created' => '研究项目创建成功。',
+    'research_project_updated' => '研究项目更新成功。',
+    'research_project_deleted' => '研究项目删除成功。',
 ];

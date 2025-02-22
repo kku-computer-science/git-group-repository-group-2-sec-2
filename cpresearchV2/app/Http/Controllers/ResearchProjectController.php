@@ -21,7 +21,7 @@ class ResearchProjectController extends Controller
     public function index()
     {
         $user = auth()->user();
-    
+
         if ($user->hasRole('admin') || $user->hasRole('staff')) {
             // Admin และ Staff เห็นทุกโครงการ
             $researchProjects = ResearchProject::with('user')->get();
@@ -40,10 +40,10 @@ class ResearchProjectController extends Controller
                       ->where('user_id', $user->id);
             })->get();
         }
-    
+
         return view('research_projects.index', compact('researchProjects'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -84,7 +84,7 @@ class ResearchProjectController extends Controller
                 'head.required' => 'ต้องใส่ข้อมูล ผู้รับผิดชอบโครงการ',
             ]
         );
-        //return $request->fund; 
+        //return $request->fund;
         $fund = Fund::find($request->fund);
         $req = $request->all();
         //return $req;
@@ -143,7 +143,7 @@ class ResearchProjectController extends Controller
         //$user = User::find(auth()->user()->id);
         //$user->researchProject()->attach(2);
 
-        return redirect()->route('researchProjects.index')->with('success', 'research projects created successfully.');
+        return redirect()->route('researchProjects.index')->with('success', trans('message.research_project_created'));
     }
 
 
@@ -256,8 +256,8 @@ class ResearchProjectController extends Controller
                 //$x++;
             }
         }
-        return redirect()->route('researchProjects.index')
-            ->with('success', 'Research Project updated successfully');
+        return redirect()->route('researchProjects.index')->with('success', trans('message.research_project_updated'));
+
     }
 
     /**
@@ -271,7 +271,7 @@ class ResearchProjectController extends Controller
 
         $this->authorize('delete', $researchProject);
         $researchProject->delete();
-        return redirect()->route('researchProjects.index')
-            ->with('success', 'Research Project deleted successfully');
+        return redirect()->route('researchProjects.index')->with('success', trans('message.research_project_deleted'));
+
     }
 }
