@@ -143,32 +143,32 @@
 
                             <td>{{ $user->email }}</td>
                             <td>
-    @if(!empty($user->getRoleNames()))
-        @foreach($user->getRoleNames() as $val)
-            @php
-                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
-                $roleTranslations = [
-                    'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
-                    'teacher' => ['th' => 'อาจารย์', 'zh' => '教师'],
-                    'student' => ['th' => 'นักศึกษา', 'zh' => '学生'],
-                    'staff' => ['th' => 'เจ้าหน้าที่', 'zh' => '职员'],
-                    'headproject' => ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
-                    'Undergrad Student' => ['th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
-                    'Master Student' => ['th' => 'นักศึกษาปริญญาโท', 'zh' => '研究生'],
-                    'Doctoral Student' => ['th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
-                ];
-            @endphp
+                                @if(!empty($user->getRoleNames()))
+                                @foreach($user->getRoleNames() as $val)
+                                @php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                $roleTranslations = [
+                                'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
+                                'teacher' => ['th' => 'อาจารย์', 'zh' => '教师'],
+                                'student' => ['th' => 'นักศึกษา', 'zh' => '学生'],
+                                'staff' => ['th' => 'เจ้าหน้าที่', 'zh' => '职员'],
+                                'headproject' => ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
+                                'Undergrad Student' => ['th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
+                                'Master Student' => ['th' => 'นักศึกษาปริญญาโท', 'zh' => '研究生'],
+                                'Doctoral Student' => ['th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
+                                ];
+                                @endphp
 
-            @if($locale == 'en')
-                <label class="badge badge-dark">{{ $val }}</label>
-            @else
-                <label class="badge badge-dark">
-                    {{ $roleTranslations[$val][$locale] ?? $val }}
-                </label>
-            @endif
-        @endforeach
-    @endif
-</td>
+                                @if($locale == 'en')
+                                <label class="badge badge-dark">{{ $val }}</label>
+                                @else
+                                <label class="badge badge-dark">
+                                    {{ $roleTranslations[$val][$locale] ?? $val }}
+                                </label>
+                                @endif
+                                @endforeach
+                                @endif
+                            </td>
 
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">

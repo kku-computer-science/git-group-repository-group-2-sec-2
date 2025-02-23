@@ -133,4 +133,13 @@ return [
     'user_created_successfully' => 'User created successfully.',
     'user_updated_successfully' => 'User updated successfully.',
     'user_deleted_successfully' => 'User deleted successfully.',
+
+    //cpresearchV2/resources/views/roles/index.blade.php
+    'roles' => 'Roles',
+    'role_name' => 'Name',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'role_created' => 'Role created successfully.',
+    'role_updated' => 'Role updated successfully.',
+    'role_deleted' => 'Role deleted successfully.',
 ];

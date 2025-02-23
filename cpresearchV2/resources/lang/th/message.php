@@ -133,4 +133,13 @@ return [
     'user_created_successfully' => 'สร้างผู้ใช้สำเร็จ',
     'user_updated_successfully' => 'อัปเดตผู้ใช้สำเร็จ',
     'user_deleted_successfully' => 'ลบผู้ใช้สำเร็จ',
+
+    //cpresearchV2/resources/views/roles/index.blade.php
+    'roles' => 'บทบาท',
+    'role_name' => 'ชื่อ',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'role_created' => 'สร้างบทบาทสำเร็จ',
+    'role_updated' => 'อัปเดตบทบาทสำเร็จ',
+    'role_deleted' => 'ลบบทบาทสำเร็จ',
 ];

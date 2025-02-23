@@ -132,4 +132,13 @@ return [
     'user_created_successfully' => '用户创建成功。',
     'user_updated_successfully' => '用户更新成功。',
     'user_deleted_successfully' => '用户删除成功。',
+
+    //cpresearchV2/resources/views/roles/index.blade.php
+    'roles' => '角色',
+    'role_name' => '姓名',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'role_created' => '角色创建成功。',
+    'role_updated' => '角色更新成功。',
+    'role_deleted' => '角色删除成功。',
 ];
