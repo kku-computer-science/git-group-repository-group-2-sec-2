@@ -87,7 +87,7 @@ return [
     'keyword'                => '关键词',
     'journal_type'           => '期刊类型',
     'document_type'          => '文档类型',
-    'publication'            => 'Publication',
+    'publication'            => '出版物',
     'author'                 => '作者',
     'first_author'           => '第一作者',
     'co_author'              => '共同作者',
@@ -147,4 +147,8 @@ return [
 // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                    => '权限',
     'name'                          => '名称',
+
+//cpresearchV2\resources\views\researchgroupdetail.blade.php
+    'laboratory_supervisor' => '实验室主管',
+    'student'               => '学生',
 ];

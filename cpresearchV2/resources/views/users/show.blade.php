@@ -33,17 +33,29 @@
                 @if($val == "teacher")
                 <div class="row mt-2">
                     <h6 class="col-md-3"><b> {{ trans('message.academic_ranks') }} </b></h6>
-                    <h6 class="col-md-9">{{ $user->academic_ranks_en }}</h6>
+
+                    <!-- ============================================================================ -->
+                    <h6 class="col-md-9">
+                        {{ app()->getLocale() == 'zh' ? $user->academic_ranks_en : $user->{'academic_ranks_'.app()->getLocale()} }}
+                    </h6>                    
+                    <!-- ============================================================================ -->
+
                 </div>
+                 <!-- ============================================================================ -->
                 <div class="row mt-2">
                     <h6 class="col-md-3"><b>{{ trans('message.department') }} </b></h6>
-                    <h6 class="col-md-9">{{ $user->program->department->department_name_en }}</h6>
+                    <h6 class="col-md-9">
+                        {{ app()->getLocale() == 'zh' ? $user->program->department->department_name_en : $user->program->department->{'department_name_'.app()->getLocale()} }}
+                    </h6>
                 </div>
+                 <!-- ============================================================================ -->
                 <div class="row mt-2">
                     <h6 class="col-md-3"><b>{{ trans('message.program') }} </b></h6>
-                    <h6 class="col-md-9">{{ $user->program->program_name_en }}</h6>
+                    <h6 class="col-md-9">
+                        {{ app()->getLocale() == 'zh' ? $user->program->program_name_en : $user->program->{'program_name_'.app()->getLocale()} }}
+                    </h6>
                 </div>
-
+                 <!-- ============================================================================ -->
 
                 <div class="row mt-2">
                     <h6 class="col-md-3"><b>{{ trans('message.education_history') }}</b></h6>

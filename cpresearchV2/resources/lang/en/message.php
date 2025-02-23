@@ -150,4 +150,8 @@ return [
     'permission'                => 'Permission',
     'name'                      => 'Name',
 
+
+//cpresearchV2\resources\views\researchgroupdetail.blade.php
+    'laboratory_supervisor' => 'Laboratory Supervisor',
+    'student'               => 'Student',
 ];

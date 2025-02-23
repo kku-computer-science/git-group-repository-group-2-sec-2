@@ -44,7 +44,12 @@
                 <p class="card-text col-sm-3"><b>{{ trans('message.project_leader') }}</b></p>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 1)
-                <p class="card-text col-sm-9">{{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}}</p>
+                <p class="card-text col-sm-9">
+                    <!-- {{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}} -->
+                        {{ app()->getLocale() == 'zh' ? $user->position_en : $user->{'position_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->fname_en : $user->{'fname_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->lname_en : $user->{'lname_'.app()->getLocale()} }}
+                </p>
                 @endif
                 @endforeach
             </div>
@@ -52,7 +57,11 @@
                 <p class="card-text col-sm-3"><b>{{ trans('message.project_members') }}</b></p>
                 @foreach($researchProject->user as $user)
                 @if ( $user->pivot->role == 2)
-                <p class="card-text col-sm-9">{{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}}
+                <p class="card-text col-sm-9">
+                    <!-- {{$user->position_th}}{{ $user->fname_th}} {{ $user->fname_th}} -->
+                        {{ app()->getLocale() == 'zh' ? $user->position_en : $user->{'position_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->fname_en : $user->{'fname_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->lname_en : $user->{'lname_'.app()->getLocale()} }}
 				@if (!$loop->last),@endif
                 @endif
                 

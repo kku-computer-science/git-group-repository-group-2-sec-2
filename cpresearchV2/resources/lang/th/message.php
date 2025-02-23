@@ -86,7 +86,7 @@ return [
     'keyword'                => 'คำสำคัญ',
     'journal_type'           => 'ประเภทวารสาร',
     'document_type'          => 'ประเภทเอกสาร',
-    'publication'            => 'Publication',
+    'publication'            => 'การตีพิมพ์',
     'author'                 => 'ผู้เขียน',
     'first_author'           => 'ผู้เขียนคนแรก',
     'co_author'              => 'ผู้เขียนร่วม',
@@ -97,6 +97,7 @@ return [
     'issue'                  => 'ฉบับที่',
     'page_number'            => 'เลขหน้า',
     'doi'                    => 'DOI',
+
     // 'url'                    => 'URL',
 
 // cpresearchV2\resources\views\patents\show.blade.php
@@ -146,6 +147,10 @@ return [
 // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                => 'สิทธิ์การเข้าถึง',
     'name'                      => 'ชื่อ',
+
+//cpresearchV2\resources\views\researchgroupdetail.blade.php
+    'laboratory_supervisor' => 'ผู้ควบคุมห้องปฏิบัติการ',
+    'student'               => 'นักศึกษา',
 ];
 
 

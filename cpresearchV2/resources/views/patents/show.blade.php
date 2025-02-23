@@ -24,10 +24,16 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.prepared_by') }}</b></p>
-                <p class="card-text col-sm-9">@foreach($patent->user as $a)
-                    {{ $a->fname_th }} {{ $a->lname_th }}
-                @if (!$loop->last),@endif
-                @endforeach
+                <!-- ================================================================================================= -->
+                <p class="card-text col-sm-9">
+                        @foreach($patent->user as $a)
+                        {{ app()->getLocale() == 'zh' ? $a->fname_en : $a->{'fname_'.app()->getLocale()} }} 
+                        {{ app()->getLocale() == 'zh' ? $a->lname_en : $a->{'lname_'.app()->getLocale()} }}
+                        @if (!$loop->last),@endif
+                        @endforeach
+                </p>
+                <!-- ================================================================================================= -->
+
                 </p>
             </div>
             <div class="row">
@@ -38,6 +44,7 @@
                 @if (!$loop->last),@endif
                 @endforeach</p>
             </div>
+
             
             <div class="pull-right mt-5">
                 <a class="btn btn-primary btn-sm" href="{{ route('patents.index') }}"> {{ trans('message.back') }}</a>

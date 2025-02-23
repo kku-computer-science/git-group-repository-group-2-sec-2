@@ -35,7 +35,12 @@
                 <p class="card-text col-sm-9">
                     @foreach($researchGroup->user as $user)
                     @if ( $user->pivot->role == 1)
-                    {{$user->position_th}}{{ $user->fname_th}} {{ $user->lname_th}}
+                    <!-- {{ app()->getLocale() == 'zh' ? $user->program->department->department_name_en : $user->program->department->{'department_name_'.app()->getLocale()} }} -->
+                    <!-- {{$user->position_th}}{{ $user->fname_th}} {{ $user->lname_th}}   -->
+                        {{ app()->getLocale() == 'zh' ? $user->position_en : $user->{'position_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->fname_en : $user->{'fname_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->lname_en : $user->{'lname_'.app()->getLocale()} }}
+
                     @endif
                     @endforeach</p>
             </div>
@@ -44,7 +49,10 @@
                 <p class="card-text col-sm-9">
                     @foreach($researchGroup->user as $user)
                     @if ( $user->pivot->role == 2)
-                    {{$user->position_th}}{{ $user->fname_th}} {{ $user->lname_th}},
+                    <!-- {{$user->position_th}}{{ $user->fname_th}} {{ $user->lname_th}}, -->
+                        {{ app()->getLocale() == 'zh' ? $user->position_en : $user->{'position_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->fname_en : $user->{'fname_'.app()->getLocale()} }}
+                        {{ app()->getLocale() == 'zh' ? $user->lname_en : $user->{'lname_'.app()->getLocale()} }}
                     @endif
                     @endforeach</p>
             </div>
