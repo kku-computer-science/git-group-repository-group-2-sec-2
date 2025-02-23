@@ -182,4 +182,13 @@ return [
     'expertise_created' => 'สร้างข้อมูลความเชี่ยวชาญสำเร็จ',
     'expertise_updated' => 'อัปเดตข้อมูลความเชี่ยวชาญสำเร็จ',
     'expertise_deleted' => 'ลบข้อมูลความเชี่ยวชาญสำเร็จ',
+
+    //cpresearchV2/resources/views/researchers.blade.php
+    'researchers' => 'ผู้วิจัย',
+    'researcher_role_teacher' => 'อาจารย์',
+    'researcher_role_undergrad_student' => 'นักศึกษาปริญญาตรี',
+    'researcher_role_master_student' => 'นักศึกษาปริญญาโท',
+    'researcher_role_doctoral_student' => 'นักศึกษาปริญญาเอก',
+    'placeholder_research' => 'ความเชี่ยวชาญที่สนใจ',
+
 ];

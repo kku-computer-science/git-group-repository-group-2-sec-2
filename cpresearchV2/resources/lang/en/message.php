@@ -183,4 +183,13 @@ return [
     'expertise_updated' => 'Expertise data is updated successfully.',
     'expertise_deleted' => 'Expertise deleted successfully.',
 
+    //cpresearchV2/resources/views/researchers.blade.php
+    'researchers' => 'Researchers',
+    'researcher_role_teacher' => 'Teacher',
+    'researcher_role_undergrad_student' => 'Undergrad Student',
+    'researcher_role_master_student' => 'Master Student',
+    'researcher_role_doctoral_student' => 'Doctoral Student',
+    'placeholder_research' => 'Research interests',
+
+
 ];

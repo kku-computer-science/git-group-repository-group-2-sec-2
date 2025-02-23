@@ -182,4 +182,13 @@ return [
     'expertise_created' => '成功创建专长条目。',
     'expertise_updated' => '专长数据更新成功。',
     'expertise_deleted' => '专长已成功删除。',
+
+        //cpresearchV2/resources/views/researchers.blade.php
+        'researchers' => '研究人员',
+        'researcher_role_teacher' => '教师',
+        'researcher_role_undergrad_student' => '本科生',
+        'researcher_role_master_student' => '硕士生',
+        'researcher_role_doctoral_student' => '博士生',
+        'placeholder_research' => '研究兴趣',
+
 ];
