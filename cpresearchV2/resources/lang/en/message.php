@@ -173,4 +173,14 @@ return [
     'program_updated' => 'Program data is updated successfully.',
     'program_deleted' => 'Program deleted successfully.',
 
+    //cpresearchV2/resources/views/expertise/index.blade.php
+    'expertise' => 'Expertise',
+    'expertise_name' => 'Name',
+    'expertise_teacher_name' => 'Teacher Name',
+
+    //cpresearchV2/app/Http/Controllers/ExpertiseController.php
+    'expertise_created' => 'Expertise entry created successfully.',
+    'expertise_updated' => 'Expertise data is updated successfully.',
+    'expertise_deleted' => 'Expertise deleted successfully.',
+
 ];

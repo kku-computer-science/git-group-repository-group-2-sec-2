@@ -172,4 +172,14 @@ return [
     'program_created' => 'สร้างหลักสูตรเรียบร้อยแล้ว',
     'program_updated' => 'อัปเดตข้อมูลหลักสูตรเรียบร้อยแล้ว',
     'program_deleted' => 'ลบหลักสูตรเรียบร้อยแล้ว',
+
+    //cpresearchV2/resources/views/expertise/index.blade.php
+    'expertise' => 'ความเชี่ยวชาญ',
+    'expertise_name' => 'ชื่อ',
+    'expertise_teacher_name' => 'ชื่ออาจารย์',
+
+    //cpresearchV2/app/Http/Controllers/ExpertiseController.php
+    'expertise_created' => 'สร้างข้อมูลความเชี่ยวชาญสำเร็จ',
+    'expertise_updated' => 'อัปเดตข้อมูลความเชี่ยวชาญสำเร็จ',
+    'expertise_deleted' => 'ลบข้อมูลความเชี่ยวชาญสำเร็จ',
 ];

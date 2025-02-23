@@ -172,4 +172,14 @@ return [
     'program_created' => '课程创建成功。',
     'program_updated' => '课程数据已成功更新。',
     'program_deleted' => '课程已成功删除。',
+
+    //cpresearchV2/resources/views/expertise/index.blade.php
+    'expertise' => '專業知識',
+    'expertise_name' => '姓名',
+    'expertise_teacher_name' => '老師姓名',
+
+    //cpresearchV2/app/Http/Controllers/ExpertiseController.php
+    'expertise_created' => '成功创建专长条目。',
+    'expertise_updated' => '专长数据更新成功。',
+    'expertise_deleted' => '专长已成功删除。',
 ];
