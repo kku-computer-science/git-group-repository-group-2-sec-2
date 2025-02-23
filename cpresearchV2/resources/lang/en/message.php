@@ -142,4 +142,14 @@ return [
     'role_created' => 'Role created successfully.',
     'role_updated' => 'Role updated successfully.',
     'role_deleted' => 'Role deleted successfully.',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'permissions' => '​Permissions',
+    'permission_name' => 'Name',
+    'permission_new' => 'New Permission',
+
+    //cpresearchV2/app/Http/Controllers/PermissionController.php
+    'permission_created' => 'Permission created successfully.',
+    'permission_updated' => 'Permission updated successfully.',
+    'permission_deleted' => 'Permission deleted successfully.',
 ];

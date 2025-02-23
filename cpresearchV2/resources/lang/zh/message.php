@@ -141,4 +141,15 @@ return [
     'role_created' => '角色创建成功。',
     'role_updated' => '角色更新成功。',
     'role_deleted' => '角色删除成功。',
+
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'permissions' => '權限',
+    'permission_name' => '姓名',
+    'permission_new' => '新權限',
+
+    //cpresearchV2/app/Http/Controllers/PermissionController.php
+    'permission_created' => '权限创建成功。',
+    'permission_updated' => '权限更新成功。',
+    'permission_deleted' => '权限删除成功。',
 ];

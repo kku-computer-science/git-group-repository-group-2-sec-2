@@ -142,4 +142,14 @@ return [
     'role_created' => 'สร้างบทบาทสำเร็จ',
     'role_updated' => 'อัปเดตบทบาทสำเร็จ',
     'role_deleted' => 'ลบบทบาทสำเร็จ',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'permissions' => 'สิทธิ์การเข้าถึง',
+    'permission_name' => 'ชื่อ',
+    'permission_new' => 'เพิ่มสิทธิ์ใหม่',
+
+    //cpresearchV2/app/Http/Controllers/PermissionController.php
+    'permission_created' => 'สร้างสิทธิ์การเข้าถึงสำเร็จ',
+    'permission_updated' => 'อัปเดตสิทธิ์การเข้าถึงสำเร็จ',
+    'permission_deleted' => 'ลบสิทธิ์การเข้าถึงสำเร็จ',
 ];
