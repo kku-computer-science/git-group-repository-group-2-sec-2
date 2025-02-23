@@ -303,9 +303,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @can('certificate-form')
                     <li class="nav-item nav-category">For Student</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('apistatus.certificate_form')}}">
+                        <a class="nav-link" href="{{ route('certificate_form.index')}}">
                             <i class="menu-icon mdi mdi-server"></i>
                             <span class="menu-title">Certificate Form</span>
+                        </a>
+                    </li>
+                    @endcan
+
+                    @can('highlight')
+                    <li class="nav-item nav-category">For Staff</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('highlight.index')}}">
+                            <i class="menu-icon mdi mdi-server"></i>
+                            <span class="menu-title">Highlight</span>
+                        </a>
+                    </li>
+                    @endcan
+
+                    @can('assistant-researcher')
+                    <li class="nav-item nav-category">For Teacher</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('assistant_researcher.index')}}">
+                            <i class="menu-icon mdi mdi-server"></i>
+                            <span class="menu-title">Assistant Reseacher</span>
                         </a>
                     </li>
                     @endcan

@@ -90,6 +90,6 @@ return [
     'status' => "Status",
     'department' => "Department",
     'program' => "Program",
-    'scholar_id' => "Scholar ID",
+    'scholar_id' => "Scholar ID"
 
 ];

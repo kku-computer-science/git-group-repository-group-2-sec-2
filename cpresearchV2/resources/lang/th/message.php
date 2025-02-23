@@ -68,7 +68,7 @@ return [
 //  cpresearchV2\resources\views\roles\edit.blade.php
     'edit_role' => "แก้ไขบทบาท",
     'role_name' => "ชื่อบทบาท",
-    'permission' => "สิทธิ์",
+    'permission' => "สิทธิ์การเข้าถึง",
     'back' => "กลับ",
 
 // cpresearchV2\resources\views\permissions\edit.blade.php
