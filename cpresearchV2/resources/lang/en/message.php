@@ -107,4 +107,16 @@ return [
     'book_updated' => 'Book updated successfully.',
     'book_deleted' => 'Book deleted successfully.',
 
+    //cpresearchV2/resources/views/patents/index.blade.php
+    'patent' => 'Other academic works',
+    'patent_name' => 'Name',
+    'patent_type' => 'Type',
+    'patent_date' => 'Registration Date',
+    'patent_number' => 'Registration Number',
+    'patent_author' => 'Author',
+
+    //cpresearchV2/app/Http/Controllers/PatentController.php
+    'patent_created' => 'Patent created successfully.',
+    'patent_updated' => 'Patent updated successfully.',
+    'patent_deleted' => 'Patent deleted successfully.',
 ];

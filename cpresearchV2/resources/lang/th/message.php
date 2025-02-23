@@ -106,4 +106,17 @@ return [
     'book_created' => 'สร้างข้อมูลหนังสือสำเร็จ',
     'book_updated' => 'อัปเดตข้อมูลหนังสือสำเร็จ',
     'book_deleted' => 'ลบข้อมูลหนังสือสำเร็จ',
+
+    //cpresearchV2/resources/views/patents/index.blade.php
+    'patent' => 'ผลงานวิชาการอื่นๆ',
+    'patent_name' => 'ชื่อ',
+    'patent_type' => 'ประเภท',
+    'patent_date' => 'วันที่จดทะเบียน',
+    'patent_number' => 'เลขทะเบียน',
+    'patent_author' => 'ผู้จัดทำ',
+
+    //cpresearchV2/app/Http/Controllers/PatentController.php
+    'patent_created' => 'สร้างสิทธิบัตรสำเร็จ',
+    'patent_updated' => 'อัปเดตสิทธิบัตรสำเร็จ',
+    'patent_deleted' => 'ลบสิทธิบัตรสำเร็จ',
 ];

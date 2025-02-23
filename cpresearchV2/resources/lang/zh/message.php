@@ -105,4 +105,17 @@ return [
     'book_created' => '书籍创建成功。',
     'book_updated' => '书籍更新成功。',
     'book_deleted' => '书籍删除成功。',
+
+    //cpresearchV2/resources/views/patents/index.blade.php
+    'patent' => '其他學術著作',
+    'patent_name' => '姓名',
+    'patent_type' => '類型',
+    'patent_date' => '註冊日期',
+    'patent_number' => '註冊號碼',
+    'patent_author' => '作者',
+
+    //cpresearchV2/app/Http/Controllers/PatentController.php
+    'patent_created' => '专利创建成功。',
+    'patent_updated' => '专利更新成功。',
+    'patent_deleted' => '专利删除成功。',
 ];
