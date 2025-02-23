@@ -162,4 +162,15 @@ return [
     'department_created' => 'Department created successfully.',
     'department_updated' => 'Department updated successfully.',
     'department_deleted' => 'Department deleted successfully.',
+
+    //cpresearchV2/resources/views/programs/index.blade.php
+    'programs' => 'Programs',
+    'program_name' => 'Name',
+    'program_degree' => 'Degree',
+
+    //cpresearchV2/app/Http/Controllers/ProgramController.php
+    'program_created' => 'Program entry created successfully.',
+    'program_updated' => 'Program data is updated successfully.',
+    'program_deleted' => 'Program deleted successfully.',
+
 ];

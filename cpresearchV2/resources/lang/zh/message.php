@@ -153,13 +153,23 @@ return [
     'permission_updated' => '权限更新成功。',
     'permission_deleted' => '权限删除成功。',
 
-        //cpresearchV2/resources/views/departments/index.blade.php
-        'departments' => '部門',
-        'department_name' => '姓名',
-        'department_new' => '新部門',
+    //cpresearchV2/resources/views/departments/index.blade.php
+    'departments' => '部門',
+    'department_name' => '姓名',
+    'department_new' => '新部門',
 
-        //cpresearchV2/app/Http/Controllers/DepartmentController.php
-        'department_created' => '部门创建成功。',
-        'department_updated' => '部门更新成功。',
-        'department_deleted' => '部门删除成功。',
+    //cpresearchV2/app/Http/Controllers/DepartmentController.php
+    'department_created' => '部门创建成功。',
+    'department_updated' => '部门更新成功。',
+    'department_deleted' => '部门删除成功。',
+
+    //cpresearchV2/resources/views/programs/index.blade.php
+    'programs' => '程式',
+    'program_name' => '姓名',
+    'program_degree' => '程度',
+
+    //cpresearchV2/app/Http/Controllers/ProgramController.php
+    'program_created' => '课程创建成功。',
+    'program_updated' => '课程数据已成功更新。',
+    'program_deleted' => '课程已成功删除。',
 ];

@@ -162,4 +162,14 @@ return [
     'department_created' => 'สร้างสาขาวิชาสำเร็จ',
     'department_updated' => 'อัปเดตสาขาวิชาสำเร็จ',
     'department_deleted' => 'ลบสาขาวิชาสำเร็จ',
+
+    //cpresearchV2/resources/views/programs/index.blade.php
+    'programs' => 'หลักสูตร',
+    'program_name' => 'ชื่อ',
+    'program_degree' => 'ระดับการศึกษา',
+
+    //cpresearchV2/app/Http/Controllers/ProgramController.php
+    'program_created' => 'สร้างหลักสูตรเรียบร้อยแล้ว',
+    'program_updated' => 'อัปเดตข้อมูลหลักสูตรเรียบร้อยแล้ว',
+    'program_deleted' => 'ลบหลักสูตรเรียบร้อยแล้ว',
 ];
