@@ -119,4 +119,18 @@ return [
     'patent_created' => 'Patent created successfully.',
     'patent_updated' => 'Patent updated successfully.',
     'patent_deleted' => 'Patent deleted successfully.',
+
+    //cpresearchV2/resources/views/users/index.blade.php
+    'users' => 'Users',
+    'user_name' => 'Name',
+    'user_email' => 'Email',
+    'user_role' => 'Roles',
+    'user_department' => 'Department',
+    'user_new_user' => 'New User',
+    'user_import_new_user' => 'Import New User',
+
+    //cpresearchV2/app/Http/Controllers/UserController.php
+    'user_created_successfully' => 'User created successfully.',
+    'user_updated_successfully' => 'User updated successfully.',
+    'user_deleted_successfully' => 'User deleted successfully.',
 ];

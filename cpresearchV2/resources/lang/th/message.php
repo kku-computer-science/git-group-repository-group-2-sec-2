@@ -119,4 +119,18 @@ return [
     'patent_created' => 'สร้างสิทธิบัตรสำเร็จ',
     'patent_updated' => 'อัปเดตสิทธิบัตรสำเร็จ',
     'patent_deleted' => 'ลบสิทธิบัตรสำเร็จ',
+
+    //cpresearchV2/resources/views/users/index.blade.php
+    'users' => 'ผู้ใช้',
+    'user_name' => 'ชื่อ',
+    'user_email' => 'อีเมล',
+    'user_role' => 'บทบาท',
+    'user_department' => 'สาขาวิชา',
+    'user_new_user' => 'เพิ่มผู้ใช้ใหม่',
+    'user_import_new_user' => 'นำเข้าผู้ใช้ใหม่',
+
+    //cpresearchV2/app/Http/Controllers/UserController.php
+    'user_created_successfully' => 'สร้างผู้ใช้สำเร็จ',
+    'user_updated_successfully' => 'อัปเดตผู้ใช้สำเร็จ',
+    'user_deleted_successfully' => 'ลบผู้ใช้สำเร็จ',
 ];

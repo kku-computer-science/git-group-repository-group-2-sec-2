@@ -118,4 +118,18 @@ return [
     'patent_created' => '专利创建成功。',
     'patent_updated' => '专利更新成功。',
     'patent_deleted' => '专利删除成功。',
+
+    //cpresearchV2/resources/views/users/index.blade.php
+    'users' => '使用者',
+    'user_name' => '姓名',
+    'user_email' => '電子郵件',
+    'user_role' => '角色',
+    'user_department' => '部門',
+    'user_new_user' => '新用戶',
+    'user_import_new_user' => '導入新用戶',
+
+    //cpresearchV2/app/Http/Controllers/UserController.php
+    'user_created_successfully' => '用户创建成功。',
+    'user_updated_successfully' => '用户更新成功。',
+    'user_deleted_successfully' => '用户删除成功。',
 ];
