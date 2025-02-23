@@ -292,14 +292,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endcan
                     @can('apistatus-list')
                     <li class="nav-item nav-category">API Status</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('apistatus.index')}}">
+                            <i class="menu-icon mdi mdi-server"></i>
+                            <span class="menu-title">Research API</span>
+                        </a>
+                    </li>
+                    @endcan
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('apistatus.index')}}">
-        <i class="menu-icon mdi mdi-server"></i>
-        <span class="menu-title">Research API</span>
-    </a>
-</li>
-@endcan
+                    @can('certificate-form')
+                    <li class="nav-item nav-category">For Student</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('apistatus.certificate_form')}}">
+                            <i class="menu-icon mdi mdi-server"></i>
+                            <span class="menu-title">Certificate Form</span>
+                        </a>
+                    </li>
+                    @endcan
 
                 </ul>
             </nav>
