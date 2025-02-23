@@ -93,4 +93,16 @@ return [
     //cpresearchV2/app/Http/Controllers/PaperController.php
     'paper_created' => '研究论文创建成功。',
     'paper_updated' => '研究论文更新成功。',
+
+    //cpresearchV2/resources/views/books/index.blade.php
+    'book' => '書',
+    'book_name' => '書名',
+    'book_year' => '年',
+    'book_source' => '來源',
+    'book_page' => '頁',
+
+    //cpresearchV2/app/Http/Controllers/BookController.php
+    'book_created' => '书籍创建成功。',
+    'book_updated' => '书籍更新成功。',
+    'book_deleted' => '书籍删除成功。',
 ];

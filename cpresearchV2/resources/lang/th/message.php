@@ -94,4 +94,16 @@ return [
     //cpresearchV2/app/Http/Controllers/PaperController.php
     'paper_created' => 'สร้างข้อมูลงานวิจัยสำเร็จ',
     'paper_updated' => 'อัปเดตข้อมูลงานวิจัยสำเร็จ',
+
+    //cpresearchV2/resources/views/books/index.blade.php
+    'book' => 'หนังสือ',
+    'book_name' => 'ชื่อหนังสือ',
+    'book_year' => 'ปี',
+    'book_source' => 'สถานที่ตีพิมพ์',
+    'book_page' => 'หน้า',
+
+    //cpresearchV2/app/Http/Controllers/BookController.php
+    'book_created' => 'สร้างข้อมูลหนังสือสำเร็จ',
+    'book_updated' => 'อัปเดตข้อมูลหนังสือสำเร็จ',
+    'book_deleted' => 'ลบข้อมูลหนังสือสำเร็จ',
 ];

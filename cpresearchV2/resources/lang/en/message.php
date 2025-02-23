@@ -94,4 +94,17 @@ return [
     //cpresearchV2/app/Http/Controllers/PaperController.php
     'paper_created' => 'Paper created successfully.',
     'paper_updated' => 'Paper updated successfully.',
+
+    //cpresearchV2/resources/views/books/index.blade.php
+    'book' => 'Book',
+    'book_name' => 'Book Name',
+    'book_year' => 'Year',
+    'book_source' => 'Source',
+    'book_page' => 'Page',
+
+    //cpresearchV2/app/Http/Controllers/BookController.php
+    'book_created' => 'Book created successfully.',
+    'book_updated' => 'Book updated successfully.',
+    'book_deleted' => 'Book deleted successfully.',
+
 ];
