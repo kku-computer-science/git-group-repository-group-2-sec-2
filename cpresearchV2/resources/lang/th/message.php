@@ -83,4 +83,15 @@ return [
     'research_group_created' => 'สร้างกลุ่มวิจัยสำเร็จ!',
     'research_group_updated' => 'อัปเดตกลุ่มวิจัยสำเร็จ!',
     'research_group_deleted' => 'ลบกลุ่มวิจัยสำเร็จ!',
+
+    //cpresearchV2/resources/views/papers/index.blade.php
+    'published_research' => 'วารผลงานตีพิมพ์',
+    'published_research_name' => 'ชื่องานวิจัย',
+    'published_research_type' => 'ประเภท',
+    'published_research_year' => 'ปีที่ตีพิมพ์',
+    'published_research_call_paper' => 'เรียกงานวิจัย',
+
+    //cpresearchV2/app/Http/Controllers/PaperController.php
+    'paper_created' => 'สร้างข้อมูลงานวิจัยสำเร็จ',
+    'paper_updated' => 'อัปเดตข้อมูลงานวิจัยสำเร็จ',
 ];

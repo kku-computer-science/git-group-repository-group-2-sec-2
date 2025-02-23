@@ -82,4 +82,15 @@ return [
     'research_group_created' => '研究小组创建成功!',
     'research_group_updated' => '研究小组更新成功!',
     'research_group_deleted' => '研究小组删除成功!',
+
+    //cpresearchV2/resources/views/papers/index.blade.php
+    'published_research' => '已發表的研究',
+    'published_research_name' => '論文名稱',
+    'published_research_type' => '紙張類型',
+    'published_research_year' => '出版年份',
+    'published_research_call_paper' => '徵求意見稿',
+
+    //cpresearchV2/app/Http/Controllers/PaperController.php
+    'paper_created' => '研究论文创建成功。',
+    'paper_updated' => '研究论文更新成功。',
 ];

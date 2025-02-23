@@ -84,4 +84,14 @@ return [
     'research_group_updated' => 'Research group updated successfully!',
     'research_group_deleted' => 'Research group deleted successfully!',
 
+    //cpresearchV2/resources/views/papers/index.blade.php
+    'published_research' => 'Published Research',
+    'published_research_name' => 'Paper Name',
+    'published_research_type' => 'Paper Type',
+    'published_research_year' => 'Publication year',
+    'published_research_call_paper' => 'Call Paper',
+
+    //cpresearchV2/app/Http/Controllers/PaperController.php
+    'paper_created' => 'Paper created successfully.',
+    'paper_updated' => 'Paper updated successfully.',
 ];
