@@ -152,4 +152,14 @@ return [
     'permission_created' => 'Permission created successfully.',
     'permission_updated' => 'Permission updated successfully.',
     'permission_deleted' => 'Permission deleted successfully.',
+
+    //cpresearchV2/resources/views/departments/index.blade.php
+    'departments' => 'Departments',
+    'department_name' => 'Name',
+    'department_new' => 'New Department',
+
+    //cpresearchV2/app/Http/Controllers/DepartmentController.php
+    'department_created' => 'Department created successfully.',
+    'department_updated' => 'Department updated successfully.',
+    'department_deleted' => 'Department deleted successfully.',
 ];

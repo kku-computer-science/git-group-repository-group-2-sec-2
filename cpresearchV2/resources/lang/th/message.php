@@ -125,7 +125,7 @@ return [
     'user_name' => 'ชื่อ',
     'user_email' => 'อีเมล',
     'user_role' => 'บทบาท',
-    'user_department' => 'สาขาวิชา',
+    'user_department' => 'หลักสูตร',
     'user_new_user' => 'เพิ่มผู้ใช้ใหม่',
     'user_import_new_user' => 'นำเข้าผู้ใช้ใหม่',
 
@@ -152,4 +152,14 @@ return [
     'permission_created' => 'สร้างสิทธิ์การเข้าถึงสำเร็จ',
     'permission_updated' => 'อัปเดตสิทธิ์การเข้าถึงสำเร็จ',
     'permission_deleted' => 'ลบสิทธิ์การเข้าถึงสำเร็จ',
+
+    //cpresearchV2/resources/views/departments/index.blade.php
+    'departments' => 'สาขาวิชา',
+    'department_name' => 'ชื่อ',
+    'department_new' => 'เพิ่มสาขาวิชาใหม่',
+
+    //cpresearchV2/app/Http/Controllers/DepartmentController.php
+    'department_created' => 'สร้างสาขาวิชาสำเร็จ',
+    'department_updated' => 'อัปเดตสาขาวิชาสำเร็จ',
+    'department_deleted' => 'ลบสาขาวิชาสำเร็จ',
 ];
