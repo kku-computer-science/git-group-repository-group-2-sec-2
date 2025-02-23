@@ -90,6 +90,22 @@ return [
     'status' => "Status",
     'department' => "Department",
     'program' => "Program",
-    'scholar_id' => "Scholar ID"
+    'scholar_id' => "Scholar ID",
+
+// cpresearchV2\resources\views\apistatus\index.blade.php
+    'api_status' => 'API Status',
+    'api_name' => 'API Name',
+    'status' => 'Status',
+    'last_checked' => 'Last Checked',
+    'message' => 'Message',
+
+// cpresearchV2\resources\views\highlight\index.blade.php
+    'highlight' => 'Highlight',
+    'welcome_higlight' => 'Welcome to the Highlight page. Please create your highlight of our proud.',
+
+// cpresearchV2\resources\views\assistant_researcher\index.blade.php
+    'assistant_researcher' => 'Assistant Researcher',
+    'assistant_wanted' => 'Research Assistant Wanted',
+    'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
 
 ];
