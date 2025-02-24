@@ -57,7 +57,16 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></a>
+            <!--a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></+a-->
+            <!--P'France_Edit-->
+            <a class="navbar-brand logo-image" href="#">
+                @if(App::getLocale() == 'zh') {{-- ถ้าเป็นภาษาจีนให้ใช้โลโก้ logo3_zh.png --}}
+                    <img src="{{ asset('img/logo3_zh.png') }}" alt="Logo in Chinese">
+                @else {{-- ค่าเริ่มต้น (ภาษาอังกฤษหรือภาษาอื่น ๆ) --}}
+                    <img src="{{ asset('img/logo2.png') }}" alt="Default Logo">
+                @endif
+            </a>
+            <!--P'France_Edit-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -119,7 +128,7 @@
                 </span>
                 @else
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="/login" target="_blank">Login</a>
+                    <a class="btn-solid-sm" href="/login" target="_blank">{{trans('message.login')}}</a>
                 </span>
                 @endauth
                 @endif

@@ -78,7 +78,7 @@
                             @endphp
 
                             @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
-                            <option value="">Select User</option>
+                            <option value="">{{trans('message.research_group_leader')}}</option>
                             @foreach($users as $user)
                             <option value="{{ $user->id }}"
                                 {{ Auth::user()->id == $user->id ? 'selected' : '' }}>

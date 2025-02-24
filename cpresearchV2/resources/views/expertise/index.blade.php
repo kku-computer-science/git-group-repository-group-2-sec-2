@@ -94,7 +94,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="expertiseCrudModal"></h4>
+                <h4 class="modal-title" id="expertiseCrudModal">{{trans('message.edit_expertise')}}</h4>
             </div>
             <div class="modal-body">
                 <form name="expForm" action="{{ route('experts.store') }}" method="POST">
@@ -103,14 +103,14 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>{{trans('message.name_expertise')}}:</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder='{{trans('message.expertise_holder')}}' onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>Submit</button>
-                            <a href="{{ route('experts.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>{{trans('message.submit_button')}}</button>
+                            <a href="{{ route('experts.index') }}" class="btn btn-danger">{{trans('message.cancel_button')}}</a>
                         </div>
                     </div>
                 </form>
@@ -125,7 +125,7 @@
 <script src="https://cdn.datatables.net/rowgroup/1.2.0/js/dataTables.rowGroup.min.js" defer></script>
 <script>
     $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
+        var table1 = $(' #example1').DataTable({
 
             order: [
                 [1, 'asc']
@@ -162,7 +162,9 @@
         $('#new-expertise').click(function() {
             $('#btn-save').val("create-expertise");
             $('#expertise').trigger("reset");
-            $('#expertiseCrudModal').html("Add New Expertise");
+            $('#expertiseCrudModal').html(
+                "Add New Expertise"
+            );
             $('#crud-modal').modal('show');
         });
 
@@ -170,7 +172,7 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("{{trans('message.edit_expertise')}}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');

@@ -3,7 +3,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{trans('message.Whoops')}}!</strong> {{trans('message.There were some problems with your input')}}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -13,61 +13,61 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">แก้ไขข้อมูลกลุ่มวิจัย</h4>
-            <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย</p>
+            <h4 class="card-title">{{trans('message.edit_research_group')}}</h4>
+            <p class="card-description">{{trans('message.edit_research_group_details')}}</p>
             <form action="{{ route('researchGroups.update',$researchGroup->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3 "><b>{{trans('message.Research_Group_Name_TH')}}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_th" value="{{ $researchGroup->group_name_th }}" class="form-control"
                             placeholder="ชื่อกลุ่มวิจัย (ภาษาไทย)">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3 "><b>{{trans('message.Research_Group_Name_EN')}}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_en" value="{{ $researchGroup->group_name_en }}" class="form-control"
                             placeholder="ชื่อกลุ่มวิจัย (English)">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.research_group_description_th')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_th" value="{{ $researchGroup->group_desc_th }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_desc_th }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.research_group_description_en')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_en" value="{{ $researchGroup->group_desc_en }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_desc_en }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.research_group_detail_th')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_th" value="{{ $researchGroup->group_detail_th }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_detail_th }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.research_group_detail_en')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ $researchGroup->group_detail_en }}" class="form-control"
                             style="height:90px">{{ $researchGroup->group_detail_en }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>image</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Image')}}</b></p>
                     <div class="col-sm-8">
                         <input type="file" name="group_image" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Leader')}}</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
                             @php
@@ -79,7 +79,7 @@
                             @endphp
 
                             @if($currentUserRole == 1) {{-- ถ้าเป็น Admin --}}
-                            <option value="">เลือกหัวหน้ากลุ่ม</option>
+                            <option value="">{{trans('message.research_group_leader')}}</option>
                             @foreach($users as $user)
                             <option value="{{ $user->id }}" {{ ($currentHeadId == $user->id) ? 'selected' : '' }}>
                                 {{ $user->fname_th }} {{ $user->lname_th }}
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 pt-4"><b>สมาชิกกลุ่มวิจัย</b></p>
+                    <p class="col-sm-3 pt-4"><b>{{trans('message.Research_Group_Members')}}</b></p>
                     <div class="col-sm-8">
                         <table class="table" id="dynamicAddRemove">
                             <tr>
@@ -111,8 +111,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-5">Submit</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index') }}"> Back</a>
+                <button type="submit" class="btn btn-primary mt-5">{{trans('message.submit_button')}}</button>
+                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index') }}"> {{trans('message.Back')}}</a>
             </form>
         </div>
     </div>
