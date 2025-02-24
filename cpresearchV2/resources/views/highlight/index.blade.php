@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Highlight</h2>
-    <p>Welcome to the Highlight page. Please create your highlight of our proud.</p>
+    <h2>{{trans('message.highlight')}}</h2>
+    <p>{{trans('message.welcome_higlight')}}</p>
 </div>
 @endsection

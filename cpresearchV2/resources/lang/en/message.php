@@ -98,6 +98,8 @@ return [
     'status' => 'Status',
     'last_checked' => 'Last Checked',
     'message' => 'Message',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
 
 // cpresearchV2\resources\views\highlight\index.blade.php
     'highlight' => 'Highlight',
@@ -105,7 +107,16 @@ return [
 
 // cpresearchV2\resources\views\assistant_researcher\index.blade.php
     'assistant_researcher' => 'Assistant Researcher',
-    'assistant_wanted' => 'Research Assistant Wanted',
+    'assistant_wanted' => 'Assistant Wanted',
     'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
 
+// cpresearchV2\resources\views\certificate-form\index.blade.php
+    'certificate_form' => 'Certificate Form',
+    'welcome_certificate' => 'Welcome to the Certificate Form page. Please proceed with your submission.',
+
+     // Navbar
+     'for_student' => 'For Student',
+     'for_head' => 'For Head Project',
+     'for_staff' => 'For Staff',
+     'research_API' => 'Research API',
 ];

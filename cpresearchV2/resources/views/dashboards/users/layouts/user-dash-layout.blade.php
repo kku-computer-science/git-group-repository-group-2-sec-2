@@ -290,42 +290,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     @endcan
+                    
                     @can('apistatus-list')
-                    <li class="nav-item nav-category">API Status</li>
+                    <li class="nav-item nav-category">{{ trans('message.api_status') }}</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('apistatus.index')}}">
+                        <a class="nav-link" href="{{ route('apistatus.index') }}">
                             <i class="menu-icon mdi mdi-server"></i>
-                            <span class="menu-title">Research API</span>
+                            <span class="menu-title">{{ trans('message.research_API') }}</span>
                         </a>
                     </li>
                     @endcan
 
                     @can('certificate-form')
-                    <li class="nav-item nav-category">For Student</li>
+                    <li class="nav-item nav-category">{{ trans('message.for_student') }}</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('certificate_form.index')}}">
-                            <i class="menu-icon mdi mdi-server"></i>
-                            <span class="menu-title">Certificate Form</span>
+                        <a class="nav-link" href="{{ route('certificate_form.index') }}">
+                            <i class="menu-icon mdi mdi-school"></i> {{-- ไอคอนสำหรับนักศึกษา --}}
+                            <span class="menu-title">{{ trans('message.certificate_form') }}</span>
                         </a>
                     </li>
                     @endcan
 
                     @can('highlight')
-                    <li class="nav-item nav-category">For Staff</li>
+                    <li class="nav-item nav-category">{{ trans('message.for_staff') }}</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('highlight.index')}}">
-                            <i class="menu-icon mdi mdi-server"></i>
-                            <span class="menu-title">Highlight</span>
+                        <a class="nav-link" href="{{ route('highlight.index') }}">
+                            <i class="menu-icon mdi mdi-star"></i> {{-- ไอคอนสำหรับ Highlight --}}
+                            <span class="menu-title">{{ trans('message.highlight') }}</span>
                         </a>
                     </li>
                     @endcan
 
                     @can('assistant-researcher')
-                    <li class="nav-item nav-category">For Teacher</li>
+                    <li class="nav-item nav-category">{{ trans('message.for_head') }}</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('assistant_researcher.index')}}">
-                            <i class="menu-icon mdi mdi-server"></i>
-                            <span class="menu-title">Assistant Reseacher</span>
+                        <a class="nav-link" href="{{ route('assistant_researcher.index') }}">
+                            <i class="menu-icon mdi mdi-account-tie"></i> {{-- ไอคอนสำหรับหัวหน้าโครงการ --}}
+                            <span class="menu-title">{{ trans('message.assistant_wanted') }}</span>
                         </a>
                     </li>
                     @endcan

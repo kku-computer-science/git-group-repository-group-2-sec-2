@@ -43,7 +43,7 @@ use App\Http\Controllers\TcicallController;
 use App\Http\Controllers\APIstatusController;
 use App\Http\Controllers\CertificateFormController;
 use App\Http\Controllers\HighlightController;
-use App\Http\Controllers\AssistantReseacherController;
+use App\Http\Controllers\AssistantResearcherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -153,8 +153,8 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
     Route::middleware(['auth'])->group(function () {
     Route::get('/certificateform', [CertificateFormController::class, 'index'])->name('certificate_form.index');
-    Route::get('/highlight', [CertificateFormController::class, 'index'])->name('highlight.index');
-    Route::get('/assistant-researcher', [CertificateFormController::class, 'index'])->name('assistant_researcher.index');
+    Route::get('/highlight', [HighlightController::class, 'index'])->name('highlight.index');
+    Route::get('/assistant-researcher', [AssistantResearcherController::class, 'index'])->name('assistant_researcher.index');
     
     });
 

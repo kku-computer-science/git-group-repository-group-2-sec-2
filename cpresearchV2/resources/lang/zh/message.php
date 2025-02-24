@@ -92,4 +92,31 @@ return [
     'department' => "部门",
     'program' => "课程",
 
+    // API Status Page
+    'api_status' => 'API 状态',
+    'api_name' => 'API 名称',
+    'status' => '状态',
+    'last_checked' => '最后检查',
+    'message' => '消息',
+    'active' => '活跃',
+    'inactive' => '未激活',
+
+    // Highlight Page
+    'highlight' => '亮点',
+    'welcome_higlight' => '欢迎来到亮点页面。请创建您引以为豪的亮点。',
+
+    // Assistant Researcher Page
+    'assistant_researcher' => '研究助理',
+    'assistant_wanted' => '招聘研究助理',
+    'assistant_welcome' => '欢迎来到研究助理招聘页面。本页面专门用于帮助项目负责人寻找研究相关任务的助手。',
+    
+    //Certificate Form Page
+    'certificate_form' => '证书表单',
+    'welcome_certificate' => '欢迎来到证书表单页面。请继续提交您的信息。',
+
+    // Navbar
+    'for_student' => '适用于学生',
+    'for_head' => '适用于项目负责人',
+    'for_staff' => '适用于工作人员',
+    'research_API' => '研究 API',
 ];

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Research Assistant Wanted</h2>
-    <p>Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.</p>
+    <h2>{{trans('message.assistant_wanted')}}</h2>
+    <p>{{trans('message.assistant_welcome')}}</p>
 </div>
 @endsection

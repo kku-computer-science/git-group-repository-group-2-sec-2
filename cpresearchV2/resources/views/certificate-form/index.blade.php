@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Certificate Form</h2>
-    <p>Welcome to the Certificate Form page. Please proceed with your submission.</p>
+    <h2>{{trans('message.certificate_form')}}</h2>
+    <p>{{trans('message.welcome_certificate')}}</p>
 </div>
 @endsection

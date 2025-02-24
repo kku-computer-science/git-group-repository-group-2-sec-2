@@ -90,4 +90,33 @@ return [
     'department' => "หน่วยงาน",
     'program' => "หลักสูตร",
     'scholar_id' => "Scholar ID",
+
+     // API Status Page
+     'api_status' => 'สถานะ API',
+     'api_name' => 'ชื่อ API',
+     'status' => 'สถานะ',
+     'last_checked' => 'ตรวจสอบล่าสุด',
+     'message' => 'ข้อความ',
+     'active' => 'ใช้งานอยู่',
+     'inactive' => 'ไม่ได้ใช้งาน',
+
+ 
+     // Highlight Page
+     'highlight' => 'ไฮไลท์',
+     'welcome_higlight' => 'ยินดีต้อนรับสู่หน้ารายการไฮไลท์ กรุณาสร้างไฮไลท์ที่คุณภาคภูมิใจ.',
+ 
+     // Assistant Researcher Page
+     'assistant_researcher' => 'ผู้ช่วยนักวิจัย',
+     'assistant_wanted' => 'ต้องการผู้ช่วยวิจัย',
+     'assistant_welcome' => 'ยินดีต้อนรับสู่หน้าประกาศรับสมัครผู้ช่วยวิจัย หน้านี้มีไว้เพื่อช่วยให้หัวหน้าโครงการค้นหาผู้ช่วยสำหรับงานที่เกี่ยวข้องกับการวิจัย.',
+
+    //Certificate Form Page
+    'certificate_form' => 'แบบฟอร์มใบรับรอง',
+    'welcome_certificate' => 'ยินดีต้อนรับสู่หน้าแบบฟอร์มใบรับรอง กรุณาดำเนินการส่งข้อมูลของคุณ',
+
+    // Navbar
+    'for_student' => 'สำหรับนักศึกษา',
+    'for_head' => 'สำหรับหัวหน้าโครงการ',
+    'for_staff' => 'สำหรับเจ้าหน้าที่',
+    'research_API' => 'API การวิจัย',
 ];
