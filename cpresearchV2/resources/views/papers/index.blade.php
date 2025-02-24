@@ -158,16 +158,33 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
+                title: `{{trans('message.Are_You_Sure')}}`,
+                text: `{{trans('message.Delete_Warning')}}`,
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
+                buttons: {
+                    cancel: {
+                        text: `{{trans('message.Cancel')}}`,
+                        visible: true,
+                        className: "btn btn-secondary"
+                    },
+                    confirm: {
+                        text: `{{trans('message.OK')}}`,
+                        className: "btn btn-danger"
+                    }
+                },
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal(`{{trans('message.Delete_Warning')}}`, {
                         icon: "success",
+                        buttons: {
+                        confirm: {
+                            text: `{{trans('message.OK')}}`,
+                            className: "btn btn-info"
+                        }
+                    },
                     }).then(function() {
                         location.reload();
                         form.submit();
