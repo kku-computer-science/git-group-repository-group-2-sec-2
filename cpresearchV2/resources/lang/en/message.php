@@ -712,4 +712,28 @@ return [
     'academic_degree' => 'Academic Degree',
     'year_of_graduation' => 'Year of Graduation',
 
+    // cpresearchv2\resources\views\users\edit.blade.php
+    'edit_user' => 'Edit User',
+    'edit_user_details' => 'Fill in the information to edit user details',
+    'edit_user_status' => 'Status',
+    'edit_user_studying' => 'Studying',
+    'edit_user_graduated' => 'Graduated',
+    'edit_user_schorlarID_holder' => 'Enter Scholar ID',
+
+    // cpresearchv2\resources\views\funds\edit.blade.php
+    'edit_fund' => 'Edit Fund',
+    'edit_fund_details' => 'Fill in the information to edit fund details',
+
+    // cpresearchv2\resources\views\research_groups\edit.blade.php
+    'edit_research_group' => 'Edit Research Group',
+    'edit_research_group_details' => 'Fill in the information to edit research group details',
+    'research_group_description_th' => 'Research Group Description (TH)',
+    'research_group_description_en' => 'Research Group Description (EN)',
+    'research_group_detail_th' => 'Research Group Detail (TH)',
+    'research_group_detail_en' => 'Research Group Detail (EN)',
+    'Whoops' => 'Whoops!',
+    'There were some problems with your input' => 'There were some problems with your input.',
+    'research_group_leader' => 'Choose Research Group Leader',
+
+
 ];
