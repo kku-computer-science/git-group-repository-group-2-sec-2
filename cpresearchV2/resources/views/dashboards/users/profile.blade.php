@@ -535,7 +535,7 @@
                                 'input[name="name"]')).val());
                         });
                         console.log(data.msg)
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     }
                 }
             });
@@ -555,7 +555,7 @@
             onSuccess: function(message, element, status) {
                 //swal("Congrats!", message , "success");
                 //alert(message);
-                swal("Update Profile Picture", "Your account is updated!", "success");
+                swal("{{trans('message.update_picutre')}}", "{{trans('message.update_picutre_success')}}", "success");
             },
             onError: function(message, element, status) {
                 alert(message);
@@ -582,7 +582,7 @@
                     } else {
                         $('#changePasswordAdminForm')[0].reset();
                         //alert(data.msg);
-                        swal("Update Password", "Your account is Password updated!", "success");
+                        swal("{{trans('message.update_password')}}", "{{trans('message.update_password_success')}}", "success");
                     }
                 }
             });
