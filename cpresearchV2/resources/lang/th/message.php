@@ -513,9 +513,93 @@ return [
 //cpresearchV2\resources\views\researchgroupdetail.blade.php
 'laboratory_supervisor' => 'ผู้ควบคุมห้องปฏิบัติการ',
 'student'               => 'นักศึกษา',
+
+    // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    'search' => 'ค้นหาที่นี่',
+    'logout' => 'ออกจากระบบ',
+    'header' => 'ระบบจัดการข้อมูลวิจัย',
+    'dashboard' => 'แดชบอร์ด',
+    'profile' => 'ข้อมูลส่วนตัว',
+    'option' => 'ตัวเลือก',
+    'fund' => 'จัดการทุนวิจัย',
+    'project' => 'โครงการวิจัย',
+    'group' => 'กลุ่มวิจัย',
+    'publication' => 'ผลงานตีพิมพ์',
+    'research' => 'งานวิจัยที่ได้รับการตีพิมพ์',
+    'book' => 'หนังสือ',
+    'patent' => 'ผลงานวิชาการอื่นๆ',
+    'admin' => 'ผู้ดูแลระบบ',
+    'user' => 'ผู้ใช้งาน',
+    'role' => 'บทบาท',
+    'permission' => 'สิทธิ์',
+    'department' => 'สาขาวิชา',
+    'program' => 'จัดการหลักสูตร',
+    'expertise_menu' => 'จัดการความเชี่ยวชาญ',
+    'api'  => 'สถานะ API ของงานวิจัย',
+
+
+
+    // cpresearchV2\resources\views\auth\login.blade.php
+    'login_failed'  => 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+    'account_login' => 'เข้าสู่ระบบ',
+    'username'      => 'ชื่อผู้ใช้',
+    'password'      => 'รหัสผ่าน',
+    'remember_me'   => 'จดจำฉัน',
+    'login'         => 'เข้าสู่ระบบ',
+    'forgot_password' => 'หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ',
+    'username_login' => 'สำหรับชื่อผู้ใช้ ใช้ KKU-Mail เข้าสู่ระบบ',
+    'username_student' => 'สำหรับนักศึกษาที่เข้าสู่ระบบครั้งแรก ให้เข้าสู่ระบบด้วยรหัสนักศึกษา',
+
+    // cpresearchV2\resources\views\report.blade.php
+    'stat_5years' => 'สถิติจำนวนบทความทั้งหมด 5 ปี ย้อนหลัง',
+    'stat_citation' => 'สถิติจำนวนบทความที่ได้รับการอ้างอิง',
+
+    // cpresearchV2\resources\views\dashboards\users\index.blade.php
+    'greeting' => 'สวัสดี,:position :fname :lname!',
+
+    // cpresearchV2\resources\views\dashboards\users\profile.blade.php
+    'change_pic' => 'เปลี่ยนรูปภาพ',
+    'account' => 'บัญชีผู้ใช้',
+    'password' => 'รหัสผ่าน',
+    'expertise' => 'ความเชี่ยวชาญ',
+    'education' => 'การศึกษา',
+    'profile_setting' => 'ตั้งค่าโปรไฟล์',
+    'academic_rank' => 'ตำแหน่งทางวิชาการ',
+    'professor' => 'ศาสตราจารย์',
+    'associate_professor' => 'รองศาสตราจารย์',
+    'assistant_professor' => 'ผู้ช่วยศาสตราจารย์',
+    'lecturer' => 'อาจารย์',
+    'name_title' => 'คำนำหน้าชื่อ',
+    'mr' => 'นาย',
+    'mrs' => 'นาง',
+    'miss' => 'นางสาว',
+    'fname_th'=> 'ชื่อ (ภาษาไทย)',
+    'lname_th'=> 'นามสกุล (ภาษาไทย)',
+    'addition_profile' => 'สำหรับอ.ผู้ที่ไม่มีคุณวุฒิปริญญาเอก โปรดระบุ',
+    'update' => 'อัพเดท',
+    'password_setting' => 'ตั้งค่ารหัสผ่าน',
+    'old_password' => 'รหัสผ่านเดิม',
+    'enter_current_password' => 'กรอกรหัสผ่านปัจจุบันของคุณ',
+    'enter_new_password' => 'กรอกรหัสผ่านใหม่ของคุณ',
+    'enter_confirm_password' => 'กรอกรหัสผ่านยืนยันของคุณ',
+    'new_password' => 'รหัสผ่านใหม่',
+    'renew_password' => 'ป้อนรหัสผ่านใหม่อีกครั้ง',
+    'confirm_password' => 'ยืนยันรหัสผ่านใหม่',
+    'add_expertise' => 'เพิ่มความเชี่ยวชาญ',
+    'name_expertise' => 'ชื่อความเชี่ยวชาญ',
+    'expertise_holder' => 'กรอกความเชี่ยวชาญของคุณ',
+    'submit_button'=> 'ยืนยัน',
+    'cancel_button'=> 'ยกเลิก',
+    'delete_title' => 'คุณแน่ใจหรือไม่?',
+    'delete_text' => 'คุณจะไม่สามารถกู้คืนข้อมูลนี้!',
+    'education_background' => 'ประวัติการศึกษา',
+    'bachelor_degree' => 'ปริญญาตรี',
+    'master_degree' => 'ปริญญาโท',
+    'doctoral_degree' => 'ปริญญาเอก',
+    'university_name' => 'ชื่อมหาวิทยาลัย',
+    'academic_degree' => 'วุฒิการศึกษา',
+    'year_of_graduation' => 'ปีที่สำเร็จการศึกษา',
+    
+
+
 ];
-
-
-
-
-

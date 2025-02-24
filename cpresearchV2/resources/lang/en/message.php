@@ -1,6 +1,6 @@
 <?php
 return [
-// 'Home' => 'Home',
+'Home' => 'Home',
 'Researchers' => 'Researchers',
 'ResearchProj' => 'Research Project',
 'ResearchGroup' => 'Research Group',
@@ -86,6 +86,8 @@ return [
 // cpresearchV2\resources\views\layouts\layout.blade.php
     // http://127.0.0.1:8000/#
 'Home'                          => 'Home',
+    // cpresearchV2\resources\views\layouts\layout.blade.php
+    'Home'                          => 'Home',
     'Researchers'                   => 'Researchers',
     'ResearchProj'                  => 'Research Project',
     'ResearchGroup'                 => 'Research Group',
@@ -122,6 +124,28 @@ return [
 
     // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => 'Welcome to the research data management system of the Department of Computer Science',
+    // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    'search' => 'Search Here',
+    'logout' => 'Logout',
+    'header' => 'Research Information Management System',
+    'dashboard' => 'Dashboard',
+    'profile' => 'User Profile',
+    'option' => 'OPTION',
+    'fund' => 'Manage Fund',
+    'project' => 'Research Project',
+    'group' => 'Research Group',
+    'publication' => 'Manage Publications',
+    'research' => 'Published research',
+    'book' => 'Book',
+    'patent' => 'Other academic works',
+    'admin' => 'Admin',
+    'user' => 'Users',
+    'role' => 'Roles',
+    'permission' => 'Permission',
+    'department' => 'Departments',
+    'program' => 'Manage Programs',
+    'expertise_menu' => 'Manage Expertise',
+    'api'  => 'API Status',
 
 'No.' => 'No.',
 'Year' => 'Year',
@@ -523,4 +547,65 @@ return [
 //cpresearchV2\resources\views\researchgroupdetail.blade.php
     'laboratory_supervisor' => 'Laboratory Supervisor',
     'student'               => 'Student',
+    // cpresearchV2\resources\views\auth\login.blade.php
+    'login_failed' => 'Login Failed: Your user ID or password is incorrect',
+    'account_login' => 'Account Login',
+    'username'      => 'Username',
+    'password'      => 'Password',
+    'remember_me'   => 'Remember me',
+    'login'         => 'Login',
+    'forgot_password' => 'If you forgot your password, please contact the administrator.',
+    'username_login' => 'For Username, use KKU-Mail to log in. ',
+    'username_student' => 'For students who are logging in for the first time, please log in with your student ID number.',
+
+    // cpresearchV2\resources\views\report.blade.php
+    'stat_5years' => 'Statistics of the total number of articles in the last 5 years',
+    'stat_citation' => 'Statistics of the number of articles cited',
+
+    // cpresearchV2\resources\views\dashboards\users\index.blade.php
+    'greeting' => 'Hello,:position :fname :lname!',
+
+    // cpresearchV2\resources\views\dashboards\users\profile.blade.php
+    'change_pic' => 'Change picture',
+    'account'   => 'Account',
+    'password' => 'Password',
+    'expertise' => 'Expertise',
+    'education' => 'Education',
+    'profile_setting' => 'Profile Setting',
+    'academic_rank' => 'Academic rank',
+    'professor' => 'Professor',
+    'associate_professor' => 'Associate Professor',
+    'assistant_professor' => 'Assistant Professor',
+    'lecturer' => 'Lecturer',
+    'name_title' => 'Name Title',
+    'mr' => 'Mr.',
+    'mrs' => 'Mrs.',
+    'miss' => 'Miss',
+    'fname_th'=> 'ชื่อ (ภาษาไทย)',
+    'lname_th'=> 'นามสกุล (ภาษาไทย)',
+    'addition_profile' => 'For lecturers who do not have a doctorate, please specify.',
+    'update' => 'Update',
+    'password_setting' => 'Password Setting',
+    'old_password' => 'Old Password',
+    'enter_current_password' => 'Enter your current password',
+    'enter_new_password' => 'Enter your new password',
+    'enter_confirm_password' => 'Enter your confirm password',
+    'new_password' => 'New Password',
+    'renew_password' => 'Re-enter new Password',
+    'confirm_password' => 'Confirm new Password',
+    'add_expertise' => 'Add Expertise',
+    'name_expertise' => 'Name Expertise',
+    'expertise_holder' => 'Enter your expertise',
+    'submit_button' => 'Submit',
+    'cancel_button' => 'Cancel',
+    'delete_title' => 'Are you sure?',
+    'delete_text' => 'You will not be able to recover this imaginary file!',
+    'education_background' => 'Education Background',
+    'bachelor_degree' => 'Bachelor Degree',
+    'master_degree' => 'Master Degree',
+    'doctoral_degree' => 'Doctoral Degree',
+    'university_name' => 'University Name',
+    'academic_degree' => 'Academic Degree',
+    'year_of_graduation' => 'Year of Graduation',
+
 ];

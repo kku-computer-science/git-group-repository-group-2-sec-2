@@ -164,7 +164,7 @@ class LoginController extends Controller
                 $this->incrementLoginAttempts($request);
                 return redirect()->back()
                     ->withInput($request->all())
-                    ->withErrors(['error' => 'Login Failed: Your user ID or password is incorrect']);
+                    ->withErrors(['error' => trans('message.login_failed')]);
             }
         } else {
             return redirect('login')->withErrors($validator->errors())->withInput();
