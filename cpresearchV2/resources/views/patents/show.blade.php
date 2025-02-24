@@ -4,43 +4,50 @@
 <div class="container">
     <div class="card col-md-8" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">รายละเอียดผลงานวิชาการอื่นๆ (สิทธิบัตร, อนุสิทธิบัตร,ลิขสิทธิ์)</h4>
-            <p class="card-description">ข้อมูลรายละเอียดผลงานวิชาการอื่นๆ (สิทธิบัตร, อนุสิทธิบัตร,ลิขสิทธิ์)</p>
+            <h4 class="card-title">{{ trans('message.other_academic_works') }}</h4>
+            <p class="card-description">{{ trans('message.other_academic_works_info') }}</p>
             <div class="row">
-                <p class="card-text col-sm-3"><b>ชื่อ</b></p>
+                <p class="card-text col-sm-3"><b>{{ trans('message.name') }}</b></p>
                 <p class="card-text col-sm-9">{{ $patent->ac_name }}</p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>ประเภท</b></p>
+                <p class="card-text col-sm-3"><b>{{ trans('message.type') }}</b></p>
                 <p class="card-text col-sm-9">{{ $patent->ac_type }}</p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>วันที่จดทะเบียน</b></p>
+                <p class="card-text col-sm-3"><b>{{ trans('message.registration_date') }}</b></p>
                 <p class="card-text col-sm-9">{{ $patent->ac_year }}</p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>เลขทะเบียน</b></p>
-                <p class="card-text col-sm-9">เลขที่ : {{ $patent->ac_refnumber }}</p>
+                <p class="card-text col-sm-3"><b>{{ trans('message.registration_number') }}</b></p>
+                <p class="card-text col-sm-9">{{ trans('message.number') }} : {{ $patent->ac_refnumber }}</p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>ผู้จัดทำ</b></p>
-                <p class="card-text col-sm-9">@foreach($patent->user as $a)
-                    {{ $a->fname_th }} {{ $a->lname_th }}
-                @if (!$loop->last),@endif
-                @endforeach
+                <p class="card-text col-sm-3"><b>{{ trans('message.prepared_by') }}</b></p>
+                <!-- ================================================================================================= -->
+                <p class="card-text col-sm-9">
+                        @foreach($patent->user as $a)
+                        {{ app()->getLocale() == 'zh' ? $a->fname_en : $a->{'fname_'.app()->getLocale()} }} 
+                        {{ app()->getLocale() == 'zh' ? $a->lname_en : $a->{'lname_'.app()->getLocale()} }}
+                        @if (!$loop->last),@endif
+                        @endforeach
+                </p>
+                <!-- ================================================================================================= -->
+
                 </p>
             </div>
             <div class="row">
-                <p class="card-text col-sm-3"><b>ผู้จัดทำ (ร่วม)</b></p>
+                <p class="card-text col-sm-3"><b>{{ trans('message.prepared_by_co') }}</b></p>
                 <p class="card-text col-sm-9">
                 @foreach($patent->author as $a)
                     {{ $a->author_fname }} {{ $a->author_lname }}
                 @if (!$loop->last),@endif
                 @endforeach</p>
             </div>
+
             
             <div class="pull-right mt-5">
-                <a class="btn btn-primary btn-sm" href="{{ route('patents.index') }}"> Back</a>
+                <a class="btn btn-primary btn-sm" href="{{ route('patents.index') }}"> {{ trans('message.back') }}</a>
             </div>
         </div>
     </div>
