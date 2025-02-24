@@ -322,6 +322,43 @@ return [
     'Submit' => 'Submit',
     'Cancel' => 'Cancel',
 
+// http://127.0.0.1:8000/researchProjects/create
+    'Whoops' => 'Whoops',
+    'There were some problems with your input' => 'There were some problems with your input',
+    'Add Research Project' => 'Add Research Project',
+    'Fill in the form below to add a new research project' => 'Fill in the form below to add a new research project',
+    'Project Name' => 'Project Name',
+    'Start Date' => 'Start Date',
+    'End Date' => 'End Date',
+    'Select Fund' => 'Select Fund',
+    'Project Year' => 'Project Year',
+    'Budget' => 'Budget',
+    'Responsible Department' => 'Responsible Department',
+    'Select Department' => 'Select Department',
+    'Project Details' => 'Project Details',
+    'Note' => 'Note',
+    'Status' => 'Status',
+    'Select Status' => 'Select Status',
+    'Submitted' => 'Submitted',
+    'In Progress' => 'In Progress',
+    'Closed' => 'Closed',
+    'Project Leader' => 'Project Leader',
+    'Select User'   => 'Select User',
+    'Internal Co-Leader' => 'Internal Co-Leader',
+    'External Co-Leader' => 'External Co-Leader',
+    'Title' => 'Title',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Add More Person' => 'Add More Person',
+    'Record Inserted Successfully' => 'Record Inserted Successfully',
+    'Sorry! Cannot remove first row!' => 'Sorry! Cannot remove first row!',
+    'Invalid Date Range' => 'Invalid Date Range',
+
+
+
+
+
+
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
     'no_dot' => 'No.',
