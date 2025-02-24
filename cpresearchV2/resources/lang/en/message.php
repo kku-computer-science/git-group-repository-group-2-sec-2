@@ -688,4 +688,18 @@ return [
      'for_head' => 'For Head Project',
      'for_staff' => 'For Staff',
      'research_API' => 'Research API',
+
+     // cpresearchV2\resources\views\research_proj.blade.php
+    'research_proj_head' => 'Academic service projects/ Research projects',
+    'proj_name' => 'Project Name',
+    'desc' => 'Description',
+    'proj_lead' => 'Project Leader',
+    'proj_duration' => 'Project Duration',
+    'proj_type' => 'Project Type',
+    'fund_agency' => 'Funding Agency',
+    'res_agency' => 'Responsible Department',
+    'alloc_budget' => 'Allocated Budget',
+    'proj_closed' => 'Closed Project',
+    'proj_req' => 'Request',
+    'proj_op' => 'Operating',
 ];

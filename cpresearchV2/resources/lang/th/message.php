@@ -364,7 +364,7 @@ return [
 'Enter_Book_Details' => 'กรอกรายละเอียดหนังสือ',
 'Place_Of_Publication' => 'สถานที่ตีพิมพ์',
 'Year_(A.D.)' => 'ปี (ค.ศ.)',
-'Number_Of_Pages' => 'จำนวนหน้า',
+'Number_Of_Pages' => 'จำนวนหน้า (Page)',
 
 // cpresearchV2/resources/views/research_groups/create.blade.php
 'Create_Research_Group' => 'สร้างกลุ่มวิจัย',
@@ -682,4 +682,17 @@ return [
     'for_head' => 'สำหรับหัวหน้าโครงการ',
     'for_staff' => 'สำหรับเจ้าหน้าที่',
     'research_API' => 'API การวิจัย',
+
+    // cpresearchV2\resources\views\research_proj.blade.php
+    'research_proj_head' => 'โครงการบริการวิชาการ/ โครงการวิจัย',
+    'proj_name' => 'ชื่อโครงการ',
+    'desc' => 'รายละเอียด',
+    'proj_lead' => 'ผู้รับผิดชอบโครงการ',
+    'proj_duration' => 'ระยะเวลาโครงการ',
+    'proj_type' => 'ประเภททุนวิจัยร',
+    'res_agency' => 'หน่วยงานที่รับผิดชอบ',
+    'proj_closed' => 'ปิดโครงการ',
+    'proj_req' => 'ยื่นขอ',
+    'proj_op' => 'กำลังดำเนินการ',
+
 ];

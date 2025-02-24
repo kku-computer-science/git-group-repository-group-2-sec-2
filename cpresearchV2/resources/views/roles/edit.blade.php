@@ -4,7 +4,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+        <strong>{{trans('message.Whoops!')}}</strong> {{trans('message.There were some problems with your input.')}}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -19,7 +19,7 @@
                 <div class="form-group row">
                     <p class="col-sm-3">{{trans('message.role_name')}}</p>
                     <div class="col-sm-8">
-                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                        {!! Form::text('name', null, array('placeholder' => trans('message.name'),'class' => 'form-control')) !!}
                     </div>
                 </div>
                 <div class="form-group">
