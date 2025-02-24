@@ -1,91 +1,91 @@
 <?php
 return [
-'Home' => 'Home',
-'Researchers' => 'Researchers',
-'ResearchProj' => 'Research Project',
-'ResearchGroup' => 'Research Group',
-'Report' => 'Reports',
-'details' =>'More details',
-'expertise' => 'Research interests',
-'publications' => 'Publications (In the Last 5 Years)',
-'education'=>'Education',
-'publications2' => 'Publications',
+    'Home' => 'Home',
+    'Researchers' => 'Researchers',
+    'ResearchProj' => 'Research Project',
+    'ResearchGroup' => 'Research Group',
+    'Report' => 'Reports',
+    'details' => 'More details',
+    'expertise' => 'Research interests',
+    'publications' => 'Publications (In the Last 5 Years)',
+    'education' => 'Education',
+    'publications2' => 'Publications',
 
-//=========================Mean==============================
+    //=========================Mean==============================
 
-// cpresearchV2/resources/views/research_g.blade.php
-'Research_Group' => 'Research Group',
-'Laboratory_Supervisor' => 'Laboratory Supervisor',
-// 'Expertise' => 'Expertise',
-'Add_Expertise' => 'Add Expertise',
-// 'Course' => 'Course',
- 'Research_Information_Management_System' => 'Research Information Management System',
-// 'Add_Course' => 'Add Course',
+    // cpresearchV2/resources/views/research_g.blade.php
+    'Research_Group' => 'Research Group',
+    'Laboratory_Supervisor' => 'Laboratory Supervisor',
+    // 'Expertise' => 'Expertise',
+    'Add_Expertise' => 'Add Expertise',
+    // 'Course' => 'Course',
+    'Research_Information_Management_System' => 'Research Information Management System',
+    // 'Add_Course' => 'Add Course',
 
-// cpresearchV2/resources/views/programs/index.blade.php
-'Add_New_Program' => 'Add New Program',
-'Education_Level' => 'Education Level',
-'Academic_Program' => 'Academic Program',
-'Name_TH' => 'Name (TH)',
-'Name_EN' => 'Name (EN)',
-'Submit' => 'Submit',
-'Cancle' => 'Cancel',
+    // cpresearchV2/resources/views/programs/index.blade.php
+    'Add_New_Program' => 'Add New Program',
+    'Education_Level' => 'Education Level',
+    'Academic_Program' => 'Academic Program',
+    'Name_TH' => 'Name (TH)',
+    'Name_EN' => 'Name (EN)',
+    'Submit' => 'Submit',
+    'Cancle' => 'Cancel',
 
-// cpresearchV2/resources/views/dashboards/users/profile.blade.php
-'Name' => 'Name',
-'Expert_Name' => 'Expert Name',
+    // cpresearchV2/resources/views/dashboards/users/profile.blade.php
+    'Name' => 'Name',
+    'Expert_Name' => 'Expert Name',
 
-// cpresearchV2/resources/views/departments/create.blade.php
-'Department_Name_TH' => 'Department Name (TH)',
-'Department_Name_EN' => 'Department Name (EN)',
-'Create_Department' => 'Create Department',
-'Departments' => 'Departments',
+    // cpresearchV2/resources/views/departments/create.blade.php
+    'Department_Name_TH' => 'Department Name (TH)',
+    'Department_Name_EN' => 'Department Name (EN)',
+    'Create_Department' => 'Create Department',
+    'Departments' => 'Departments',
 
-// cpresearchV2/resources/views/books/create.blade.php
-'Add_Book' => 'Add Book',
-'Book_Name' => 'Book Name',
-'Enter_Book_Details' => 'Enter Book Details',
-'Place_Of_Publication' => 'Place of publication',
-'Year_(A.D.)' => 'Year (A.D.)',
-'Number_Of_Pages' => 'Number of Pages',
+    // cpresearchV2/resources/views/books/create.blade.php
+    'Add_Book' => 'Add Book',
+    'Book_Name' => 'Book Name',
+    'Enter_Book_Details' => 'Enter Book Details',
+    'Place_Of_Publication' => 'Place of publication',
+    'Year_(A.D.)' => 'Year (A.D.)',
+    'Number_Of_Pages' => 'Number of Pages',
 
-// cpresearchV2/resources/views/research_groups/create.blade.php
-'Create_Research_Group' => 'Create Research Group',
-'Edit_Research_Group_Details' => 'Edit Research Group Details',
-'Research_Group_Name_TH' => 'Research Group Name (TH)',
-'Research_Group_Name_EN' => 'Research Group Name (EN)',
-'Research_Group_Description_TH' => 'Research Group Description (TH)',
-'Research_Group_Description_EN' => 'Research Group Description (EN)',
-'Image' => 'Image',
-'Research_Group_Leader' => 'Research Group Leader',
-'Research_Group_Members' => 'Research Group Members',
-'Back' => 'Back',
+    // cpresearchV2/resources/views/research_groups/create.blade.php
+    'Create_Research_Group' => 'Create Research Group',
+    'Edit_Research_Group_Details' => 'Edit Research Group Details',
+    'Research_Group_Name_TH' => 'Research Group Name (TH)',
+    'Research_Group_Name_EN' => 'Research Group Name (EN)',
+    'Research_Group_Description_TH' => 'Research Group Description (TH)',
+    'Research_Group_Description_EN' => 'Research Group Description (EN)',
+    'Image' => 'Image',
+    'Research_Group_Leader' => 'Research Group Leader',
+    'Research_Group_Members' => 'Research Group Members',
+    'Back' => 'Back',
 
-// cpresearchV2/resources/views/users/create.blade.php
-'Add_User' => 'Add User',
-'Add_User_Details' => 'Edit User Details',
-'First_Name_TH' => 'First Name (TH)',
-'Last_Name_TH' => 'Last Name (TH)',
-'First_Name_EN' => 'First Name (EN)',
-'Last_Name_EN' => 'Last Name (EN)',
-'Email' => 'Email',
-'Password' => 'Password',
-'Confirm_Password' => 'Confirm Password',
-'Role' => 'Role',
-'Department' => 'Department',
-'Program' => 'Program',
-'Select_Subcategory' => 'Select Subcategory',
-'Scholar_ID_(Optional)' => 'Scholar ID (Optional)',
+    // cpresearchV2/resources/views/users/create.blade.php
+    'Add_User' => 'Add User',
+    'Add_User_Details' => 'Edit User Details',
+    'First_Name_TH' => 'First Name (TH)',
+    'Last_Name_TH' => 'Last Name (TH)',
+    'First_Name_EN' => 'First Name (EN)',
+    'Last_Name_EN' => 'Last Name (EN)',
+    'Email' => 'Email',
+    'Password' => 'Password',
+    'Confirm_Password' => 'Confirm Password',
+    'Role' => 'Role',
+    'Department' => 'Department',
+    'Program' => 'Program',
+    'Select_Subcategory' => 'Select Subcategory',
+    'Scholar_ID_(Optional)' => 'Scholar ID (Optional)',
 
-// cpresearchV2/resources/views/users/import.blade.php
-'Import' => 'Import Excel, CSV File',
-'Choose_File' => 'Choose File',
+    // cpresearchV2/resources/views/users/import.blade.php
+    'Import' => 'Import Excel, CSV File',
+    'Choose_File' => 'Choose File',
 
-//=========================Mean==============================
+    //=========================Mean==============================
 
-// cpresearchV2\resources\views\layouts\layout.blade.php
+    // cpresearchV2\resources\views\layouts\layout.blade.php
     // http://127.0.0.1:8000/#
-'Home'                          => 'Home',
+    'Home'                          => 'Home',
     // cpresearchV2\resources\views\layouts\layout.blade.php
     'Home'                          => 'Home',
     'Researchers'                   => 'Researchers',
@@ -131,10 +131,10 @@ return [
     'dashboard' => 'Dashboard',
     'profile' => 'User Profile',
     'option' => 'OPTION',
-    'fund' => 'Manage Fund',
+    'manage_fund' => 'Manage Fund',
     'project' => 'Research Project',
     'group' => 'Research Group',
-    'publication' => 'Manage Publications',
+    'manage_publication' => 'Manage Publications',
     'research' => 'Published research',
     'book' => 'Book',
     'patent' => 'Other academic works',
@@ -143,140 +143,145 @@ return [
     'role' => 'Roles',
     'permission' => 'Permission',
     'department' => 'Departments',
-    'program' => 'Manage Programs',
+    'manage_program' => 'Manage Programs',
     'expertise_menu' => 'Manage Expertise',
     'api'  => 'API Status',
 
-'No.' => 'No.',
-'Year' => 'Year',
-'Paper Name' => 'Paper Name',
-'Name' => 'Name',
-'Authors' => 'Authors',
-'Author' => 'Author',
-'Document Type' => 'Document Type',
-'Page' => 'Page',
-'Journal' => 'Journal',
-'Journals/Transactions' => 'Journals/Transactions',
-'Citations' => 'Citations',
-'Doi' => 'Doi',
-'Source' => 'Source',
-'Summary' => 'Summary',
-'Book' => 'Book',
-'Others' => 'Other',
-'BookName' => 'Name',
-'Publication Place' => 'Publication Place',
-'Registration Number' => 'Registration Number',
-'Registration Date' => 'Registration Date',
-'First Page' => 'First Page',
-'Previous Page' => 'Previous',
-'Next Page' => 'Next',
-'Search' => 'Search',
-'Showing' => 'Showing',
-'to' => 'to',
-'of' => 'of',
-'entries' => 'entries',
-'No data available in table' => 'No data available in table',
-'filtered from' => 'filtered from',
-'Processing...' => 'Processing...',
-'Export to Excel' => 'Export to Excel',
+    // cpresearchv2\resources\views\departments\edit.blade.php
+    'edit_department' => 'Edit Department',
+    'department_name_th' => 'Department Name (TH)',
+    'department_name_en' => 'Department Name (EN)',
 
-// http://127.0.0.1:8000/permissions/create
-'Create Permission' => 'Create Permission',
-'Permission Name' => 'Permission Name',
-'Permission' => 'Permission',
-'Submit' => 'Submit',
+    'No.' => 'No.',
+    'Year' => 'Year',
+    'Paper Name' => 'Paper Name',
+    'Name' => 'Name',
+    'Authors' => 'Authors',
+    'Author' => 'Author',
+    'Document Type' => 'Document Type',
+    'Page' => 'Page',
+    'Journal' => 'Journal',
+    'Journals/Transactions' => 'Journals/Transactions',
+    'Citations' => 'Citations',
+    'Doi' => 'Doi',
+    'Source' => 'Source',
+    'Summary' => 'Summary',
+    'Book' => 'Book',
+    'Others' => 'Other',
+    'BookName' => 'Name',
+    'Publication Place' => 'Publication Place',
+    'Registration Number' => 'Registration Number',
+    'Registration Date' => 'Registration Date',
+    'First Page' => 'First Page',
+    'Previous Page' => 'Previous',
+    'Next Page' => 'Next',
+    'Search' => 'Search',
+    'Showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'entries' => 'entries',
+    'No data available in table' => 'No data available in table',
+    'filtered from' => 'filtered from',
+    'Processing...' => 'Processing...',
+    'Export to Excel' => 'Export to Excel',
 
-// http://127.0.0.1:8000/users/create
-'Create User' => 'Create User',
-'Fiil in the form below to create a new user' => 'Fiil in the form below to create a new user',
-'First Name (Thai)' => 'First Name (Thai)',
-'Last Name (Thai)' => 'Last Name (Thai)',
-'First Name (English)' => 'First Name (English)',
-'Last Name (English)' => 'Last Name (English)',
-'Email' => 'Email',
-'Password' => 'Password',
-'Confirm Password' => 'Confirm Password',
-'Role' => 'Role',
-'Department' => 'Department',
-'Program' => 'Program',
-'Optional' => 'Optional',
-'Select' => 'Select',
-'Enter' => 'Enter',
-'Cancel' => 'Cancel',
-'Oops' => 'Oops',
-'Something went wrong, please check below errors' => 'Something went wrong, please check below errors',
-// http://127.0.0.1:8000/importfiles
-'Import  Excel, CSV File' => 'Import  Excel, CSV File',
-'Choose File' => 'Choose File',
-'No file chosen' => 'No file chosen',
+    // http://127.0.0.1:8000/permissions/create
+    'Create Permission' => 'Create Permission',
+    'Permission Name' => 'Permission Name',
+    'Permission' => 'Permission',
+    'Submit' => 'Submit',
 
-// http://127.0.0.1:8000/roles/create
-'Create Role' => 'Create Role',
-'Role Name' => 'Role Name',
-'Roles' => 'Roles',
-'Role' => 'Role',
-'Permission' => 'Permission',
+    // http://127.0.0.1:8000/users/create
+    'Create User' => 'Create User',
+    'Fiil in the form below to create a new user' => 'Fiil in the form below to create a new user',
+    'First Name (Thai)' => 'First Name (Thai)',
+    'Last Name (Thai)' => 'Last Name (Thai)',
+    'First Name (English)' => 'First Name (English)',
+    'Last Name (English)' => 'Last Name (English)',
+    'Email' => 'Email',
+    'Password' => 'Password',
+    'Confirm Password' => 'Confirm Password',
+    'Role' => 'Role',
+    'Department' => 'Department',
+    'Program' => 'Program',
+    'Optional' => 'Optional',
+    'Select' => 'Select',
+    'Enter' => 'Enter',
+    'Cancel' => 'Cancel',
+    'Oops' => 'Oops',
+    'Something went wrong, please check below errors' => 'Something went wrong, please check below errors',
+    // http://127.0.0.1:8000/importfiles
+    'Import  Excel, CSV File' => 'Import  Excel, CSV File',
+    'Choose File' => 'Choose File',
+    'No file chosen' => 'No file chosen',
 
-// http://127.0.0.1:8000/funds/create
+    // http://127.0.0.1:8000/roles/create
+    'Create Role' => 'Create Role',
+    'Role Name' => 'Role Name',
+    'Roles' => 'Roles',
+    'Role' => 'Role',
+    'Permission' => 'Permission',
 
-'Fund Name' => 'Fund Name',
-'Whoops!' => 'Whoops!',
-'There were some problems with your input.' => 'There were some problems with your input.',
-'Add Research Fund' => 'Add Research Fund',
-'Fill in the form below to add a new research fund' => 'Fill in the form below to add a new research fund',
-'Research Fund Type' => 'Research Fund Type',
-'Please specify the type of fund' => 'Please specify the type of fund',
-'Internal Fund' => 'Internal Fund',
-'External Fund' => 'External Fund',
-'Research Fund Level' => 'Research Fund Level',
-'Please specify the type of fund' => 'Please specify the type of fund',
-'Please specify the level of fund' => 'Please specify the level of fund',
-'Funding Level' => 'Funding Level',
-'Not Specified' => 'Not Specified',
-'High' => 'High',
-'Medium' => 'Medium',
-'Low' => 'Low',
-'Supporting Agency / Research Project' => 'Supporting Agency / Research Project',
+    // http://127.0.0.1:8000/funds/create
 
-'Support Resource' => 'Support Resource',
+    'Fund Name' => 'Fund Name',
+    'Whoops!' => 'Whoops!',
+    'There were some problems with your input.' => 'There were some problems with your input.',
+    'Add Research Fund' => 'Add Research Fund',
+    'Fill in the form below to add a new research fund' => 'Fill in the form below to add a new research fund',
+    'Research Fund Type' => 'Research Fund Type',
+    'Please specify the type of fund' => 'Please specify the type of fund',
+    'Internal Fund' => 'Internal Fund',
+    'External Fund' => 'External Fund',
+    'Research Fund Level' => 'Research Fund Level',
+    'Please specify the type of fund' => 'Please specify the type of fund',
+    'Please specify the level of fund' => 'Please specify the level of fund',
+    'Funding Level' => 'Funding Level',
+    'Not Specified' => 'Not Specified',
+    'High' => 'High',
+    'Medium' => 'Medium',
+    'Low' => 'Low',
+    'Supporting Agency / Research Project' => 'Supporting Agency / Research Project',
 
-//
-'Add Academic Work' => 'Add Academic Work',
-'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
-'Academic Work Name' => 'Academic Work Name',
-'Name' => 'Name',
-'Type' => 'Type',
-'Please specify the type' => 'Please specify the type',
-'Patent' => 'Patent',
-'Patent (Invention)' => 'Patent (Invention)',
-'Patent (Design)' => 'Patent (Design)',
-'Petty Patent' => 'Petty Patent',
-'Copyright' => 'Copyright',
-'Copyright (Literature)' => 'Copyright (Literature)',
-'Copyright (Music)' => 'Copyright (Music)',
-'Copyright (Film)' => 'Copyright (Film)',
-'Copyright (Art)' => 'Copyright (Art)',
-'Copyright (Broadcast)' => 'Copyright (Broadcast)',
-'Copyright (Audiovisual)' => 'Copyright (Audiovisual)',
-'Copyright (Other)' => 'Copyright (Other)',
-'Copyright (Sound Recording)' => 'Copyright (Sound Recording)',
-'Other' => 'Other',
-'Trade Secret' => 'Trade Secret',
-'Trademark' => 'Trademark',
-'Copyright Date' => 'Copyright Date',
-'Registration Number' => 'Registration Number',
-'Internal Authors' => 'Internal Authors',
-'External Authors' => 'External Authors',
-'First Name' => 'First Name',
-'Last Name' => 'Last Name',
-'Add More Person' => 'Add More Person',
-'Sorry! Can\'t remove first row!' => 'Sorry! Cannot remove first row!',
-'Enter your Name' => 'Enter your Name',
-'Select User' => 'Select User',
-'Submit' => 'Submit',
-'Cancel' => 'Cancel',
-'Whoops' => 'Whoops',
-'There were some problems with your input' => 'There were some problems with your input',
+    'Support Resource' => 'Support Resource',
+
+    //
+    'Add Academic Work' => 'Add Academic Work',
+    'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
+    'Academic Work Name' => 'Academic Work Name',
+    'Name' => 'Name',
+    'Type' => 'Type',
+    'Please specify the type' => 'Please specify the type',
+    'Patent' => 'Patent',
+    'Patent (Invention)' => 'Patent (Invention)',
+    'Patent (Design)' => 'Patent (Design)',
+    'Petty Patent' => 'Petty Patent',
+    'Copyright' => 'Copyright',
+    'Copyright (Literature)' => 'Copyright (Literature)',
+    'Copyright (Music)' => 'Copyright (Music)',
+    'Copyright (Film)' => 'Copyright (Film)',
+    'Copyright (Art)' => 'Copyright (Art)',
+    'Copyright (Broadcast)' => 'Copyright (Broadcast)',
+    'Copyright (Audiovisual)' => 'Copyright (Audiovisual)',
+    'Copyright (Other)' => 'Copyright (Other)',
+    'Copyright (Sound Recording)' => 'Copyright (Sound Recording)',
+    'Other' => 'Other',
+    'Trade Secret' => 'Trade Secret',
+    'Trademark' => 'Trademark',
+    'Copyright Date' => 'Copyright Date',
+    'Registration Number' => 'Registration Number',
+    'Internal Authors' => 'Internal Authors',
+    'External Authors' => 'External Authors',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Add More Person' => 'Add More Person',
+    'Sorry! Can\'t remove first row!' => 'Sorry! Cannot remove first row!',
+    'Enter your Name' => 'Enter your Name',
+    'Select User' => 'Select User',
+    'Submit' => 'Submit',
+    'Cancel' => 'Cancel',
+    'Whoops' => 'Whoops',
+    'There were some problems with your input' => 'There were some problems with your input',
 
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
@@ -433,7 +438,7 @@ return [
 
 
 
-// cpresearchV2\resources\views\users\show.blade.php
+    // cpresearchV2\resources\views\users\show.blade.php
     'user_info'      => 'User Information',
     'user_details'   => 'User Details',
     'name_th'        => 'Name (Thai)',
@@ -445,16 +450,16 @@ return [
     'academic_ranks'   => 'Academic Ranks',
     'department'       => 'Department',
     'program'          => 'Program',
-    'education_history'=> 'Education History',
+    'education_history' => 'Education History',
 
-// cpresearchV2\resources\views\roles\show.blade.php
+    // cpresearchV2\resources\views\roles\show.blade.php
     'roles'         => 'Roles',
     'details_info'  => 'Detailed Information',
     'name'          => 'Name',
     'permissions'   => 'Permissions',
     'back'          => 'Back',
 
-// cpresearchV2\resources\views\books\show.blade.php
+    // cpresearchV2\resources\views\books\show.blade.php
     'book_detail'         => 'Book Detail',
     'book_detail_info'    => 'Book Detail Information',
     'book_name'           => 'Book Title',
@@ -463,7 +468,7 @@ return [
     'book_page'           => 'Page',
     'back'                => 'Back',
 
-// cpresearchV2\resources\views\funds\show.blade.php
+    // cpresearchV2\resources\views\funds\show.blade.php
     'fund_detail'         => 'Fund Detail',
     'fund_detail_info'    => 'Fund Detail Information',
     'fund_name'           => 'Fund Name',
@@ -474,7 +479,7 @@ return [
     'agency'              => 'Agency',
     'added_by'            => 'Added by',
 
-// cpresearchV2\resources\views\papers\show.blade.php
+    // cpresearchV2\resources\views\papers\show.blade.php
     'journal_detail'         => 'Journal Details',
     'journal_detail_info'    => 'Journal Detail Information',
     'title'                  => 'Title',
@@ -495,7 +500,7 @@ return [
     'doi'                    => 'DOI',
     // 'url'                    => 'URL',
 
-// cpresearchV2\resources\views\patents\show.blade.php
+    // cpresearchV2\resources\views\patents\show.blade.php
     'other_academic_works'      => 'Other Academic Works (Patents, Patent Applications, Copyrights)',
     'other_academic_works_info' => 'Detailed Information on Other Academic Works (Patents, Patent Applications, Copyrights)',
     'name'                      => 'Name',
@@ -506,7 +511,7 @@ return [
     'prepared_by_co'            => 'Co-Prepared By',
     'number'                    => 'Number',
 
-// cpresearchV2\resources\views\research_projects\show.blade.php
+    // cpresearchV2\resources\views\research_projects\show.blade.php
     'research_projects_detail'       => 'Research Projects Detail',
     'research_projects_detail_info'  => 'Research Projects Detail Information',
     'project_name'                   => 'Project Name',
@@ -522,7 +527,7 @@ return [
     'in_progress'                    => 'In Progress',
     'closed'                         => 'Closed',
 
-// cpresearchV2\resources\views\research_groups\show.blade.php
+    // cpresearchV2\resources\views\research_groups\show.blade.php
     'research_group_detail'            => 'Research Group Detail',
     'research_group_detail_info'       => 'Research Group Detail Information',
     'research_group_name_th'           => 'Research Group Name (Thai)',
@@ -534,17 +539,20 @@ return [
     'research_group_leader'            => 'Research Group Leader',
     'research_group_members'           => 'Research Group Members',
 
-// cpresearchV2\resources\views\departments\show.blade.php
+    // cpresearchV2\resources\views\departments\show.blade.php
     'department'          => 'Department',
     'department_name_th'  => 'Department Name TH',
     'department_name_en'  => 'Department Name EN',
+    'department_name_th_holder' => 'Enter Department Name (TH)',
+    'department_name_en_holder' => 'Enter Department Name (EN)',
 
-// cpresearchV2\resources\views\permissions\show.blade.php
+
+    // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                => 'Permission',
     'name'                      => 'Name',
 
 
-//cpresearchV2\resources\views\researchgroupdetail.blade.php
+    //cpresearchV2\resources\views\researchgroupdetail.blade.php
     'laboratory_supervisor' => 'Laboratory Supervisor',
     'student'               => 'Student',
     // cpresearchV2\resources\views\auth\login.blade.php
@@ -581,8 +589,11 @@ return [
     'mr' => 'Mr.',
     'mrs' => 'Mrs.',
     'miss' => 'Miss',
-    'fname_th'=> 'ชื่อ (ภาษาไทย)',
-    'lname_th'=> 'นามสกุล (ภาษาไทย)',
+    'fname_en' => 'First Name (English)',
+    'lname_en' => 'Last Name (English)',
+    'fname_th' => 'First Name (Thai)',
+    'lname_th' => 'Last Name (Thai)',
+    'email' => 'Email',
     'addition_profile' => 'For lecturers who do not have a doctorate, please specify.',
     'update' => 'Update',
     'password_setting' => 'Password Setting',
@@ -594,12 +605,16 @@ return [
     'renew_password' => 'Re-enter new Password',
     'confirm_password' => 'Confirm new Password',
     'add_expertise' => 'Add Expertise',
+    'edit_expertise' => 'Edit Expertise',
     'name_expertise' => 'Name Expertise',
     'expertise_holder' => 'Enter your expertise',
     'submit_button' => 'Submit',
     'cancel_button' => 'Cancel',
     'delete_title' => 'Are you sure?',
     'delete_text' => 'You will not be able to recover this imaginary file!',
+    'delete_error' => 'Oops...',
+    'try_again' => 'Please Try again!',
+    'delete_success' => 'Your file has been deleted.',
     'education_background' => 'Education Background',
     'bachelor_degree' => 'Bachelor Degree',
     'master_degree' => 'Master Degree',
@@ -607,5 +622,29 @@ return [
     'university_name' => 'University Name',
     'academic_degree' => 'Academic Degree',
     'year_of_graduation' => 'Year of Graduation',
+
+    // cpresearchv2\resources\views\users\edit.blade.php
+    'edit_user' => 'Edit User',
+    'edit_user_details' => 'Fill in the information to edit user details',
+    'edit_user_status' => 'Status',
+    'edit_user_studying' => 'Studying',
+    'edit_user_graduated' => 'Graduated',
+    'edit_user_schorlarID_holder' => 'Enter Scholar ID',
+
+    // cpresearchv2\resources\views\funds\edit.blade.php
+    'edit_fund' => 'Edit Fund',
+    'edit_fund_details' => 'Fill in the information to edit fund details',
+
+    // cpresearchv2\resources\views\research_groups\edit.blade.php
+    'edit_research_group' => 'Edit Research Group',
+    'edit_research_group_details' => 'Fill in the information to edit research group details',
+    'research_group_description_th' => 'Research Group Description (TH)',
+    'research_group_description_en' => 'Research Group Description (EN)',
+    'research_group_detail_th' => 'Research Group Detail (TH)',
+    'research_group_detail_en' => 'Research Group Detail (EN)',
+    'Whoops' => 'Whoops!',
+    'There were some problems with your input' => 'There were some problems with your input.',
+    'research_group_leader' => 'Choose Research Group Leader',
+
 
 ];

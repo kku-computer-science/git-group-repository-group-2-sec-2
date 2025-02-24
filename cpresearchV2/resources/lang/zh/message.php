@@ -183,16 +183,16 @@ return [
     'expertise_updated' => '专长数据更新成功。',
     'expertise_deleted' => '专长已成功删除。',
 
-        //cpresearchV2/resources/views/researchers.blade.php
-        'researchers' => '研究人员',
-        'researcher_role_teacher' => '教师',
-        'researcher_role_undergrad_student' => '本科生',
-        'researcher_role_master_student' => '硕士生',
-        'researcher_role_doctoral_student' => '博士生',
-        'placeholder_research' => '研究兴趣',
+    //cpresearchV2/resources/views/researchers.blade.php
+    'researchers' => '研究人员',
+    'researcher_role_teacher' => '教师',
+    'researcher_role_undergrad_student' => '本科生',
+    'researcher_role_master_student' => '硕士生',
+    'researcher_role_doctoral_student' => '博士生',
+    'placeholder_research' => '研究兴趣',
 
 
-        //=========================Mean==============================
+    //=========================Mean==============================
 
 
 
@@ -275,7 +275,7 @@ return [
 
 
 
-//=========================Mean==============================
+    //=========================Mean==============================
 
 
 
@@ -283,7 +283,7 @@ return [
 
 
 
-// cpresearchV2\resources\views\users\show.blade.php
+    // cpresearchV2\resources\views\users\show.blade.php
     'user_info'      => '用户信息',
     'user_details'   => '用户详细信息',
     'name_th'        => '姓名 (泰语)',
@@ -295,16 +295,16 @@ return [
     'academic_ranks'   => '学术职称',
     'department'       => '系',
     'program'          => '专业',
-    'education_history'=> '教育背景',
+    'education_history' => '教育背景',
 
-// cpresearchV2\resources\views\roles\show.blade.php
+    // cpresearchV2\resources\views\roles\show.blade.php
     'roles'         => '角色',
     'details_info'  => '详细信息',
     'name'          => '名称',
     'permissions'   => '权限',
     'back'          => '返回',
 
-// cpresearchV2\resources\views\books\show.blade.php
+    // cpresearchV2\resources\views\books\show.blade.php
     'book_detail'         => '图书详情',
     'book_detail_info'    => '图书详细信息',
     'book_name'           => '书名',
@@ -312,8 +312,8 @@ return [
     'book_publisher'      => '出版社',
     'book_page'           => '页',
     'back'                => '返回',
-    
-// cpresearchV2\resources\views\funds\show.blade.php
+
+    // cpresearchV2\resources\views\funds\show.blade.php
     'fund_detail'         => '基金详情',
     'fund_detail_info'    => '基金详情信息',
     'fund_name'           => '基金名称',
@@ -324,7 +324,7 @@ return [
     'agency'              => '机构',
     'added_by'            => '添加者',
 
-// cpresearchV2\resources\views\papers\show.blade.php
+    // cpresearchV2\resources\views\papers\show.blade.php
     'journal_detail'         => '期刊详情',
     'journal_detail_info'    => '期刊详细信息',
     'title'                  => '标题',
@@ -345,7 +345,7 @@ return [
     'doi'                    => 'DOI',
     // 'url'                    => '网址',
 
-// cpresearchV2\resources\views\patents\show.blade.php
+    // cpresearchV2\resources\views\patents\show.blade.php
     'other_academic_works'      => '其他学术成果（专利、专利申请、版权）',
     'other_academic_works_info' => '其他学术成果详细信息（专利、专利申请、版权）',
     'name'                      => '名称',
@@ -355,8 +355,8 @@ return [
     'prepared_by'               => '编制者',
     'prepared_by_co'            => '共同编制',
     'number'                    => '编号',
-    
-// cpresearchV2\resources\views\research_projects\show.blade.php
+
+    // cpresearchV2\resources\views\research_projects\show.blade.php
     'research_projects_detail'       => '研究项目详情',
     'research_projects_detail_info'  => '研究项目详细信息',
     'project_name'                   => '项目名称',
@@ -372,7 +372,7 @@ return [
     'in_progress'                    => '进行中',
     'closed'                         => '已关闭',
 
-// cpresearchV2\resources\views\research_groups\show.blade.php
+    // cpresearchV2\resources\views\research_groups\show.blade.php
     'research_group_detail'            => '研究小组详情',
     'research_group_detail_info'       => '研究小组详细信息',
     'research_group_name_th'           => '研究小组名称 (泰语)',
@@ -384,16 +384,16 @@ return [
     'research_group_leader'            => '研究小组负责人',
     'research_group_members'           => '研究小组成员',
 
-// cpresearchV2\resources\views\departments\show.blade.php
+    // cpresearchV2\resources\views\departments\show.blade.php
     'department'          => '系',
     'department_name_th'  => '系名称 (泰语)',
     'department_name_en'  => '系名称 (英语)',
 
-// cpresearchV2\resources\views\permissions\show.blade.php
+    // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                    => '权限',
     'name'                          => '名称',
 
-//cpresearchV2\resources\views\researchgroupdetail.blade.php
+    //cpresearchV2\resources\views\researchgroupdetail.blade.php
     'laboratory_supervisor' => '实验室主管',
     'student'               => '学生',
     // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
@@ -403,10 +403,10 @@ return [
     'dashboard' => '仪表板',
     'profile' => '用户资料',
     'option' => '选项',
-    'fund' => '管理研究经费',
+    'manage_fund' => '管理研究经费',
     'project' => '管理研究项目',
     'group' => '管理研究组',
-    'publication' => '管理出版物',
+    'manage_publication' => '管理出版物',
     'research' => '已发表研究',
     'book' => '书籍',
     'patent' => '其他学术作品',
@@ -415,7 +415,7 @@ return [
     'role' => '角色',
     'permission' => '权限',
     'department' => '部门',
-    'program' => '管理项目',
+    'manage_program' => '管理项目',
     'expertise_menu' => '管理专长',
     'api'  => '研究 API',
 
@@ -453,8 +453,11 @@ return [
     'mr' => 'Mr.',
     'mrs' => 'Mrs.',
     'miss' => 'Miss',
-    'fname_th'=> '名字（泰语）',
-    'lname_th'=> '姓氏（泰语）',
+    'fname_en' => '名字（英语）',
+    'lname_en' => '姓氏（英语）',
+    'fname_th' => '名字（泰语）',
+    'lname_th' => '姓氏（泰语）',
+    'email' => '电子邮件',
     'addition_profile' => '对于没有博士学位的讲师，请指定。',
     'update' => '更新',
     'password_setting' => '密码设置',
@@ -466,12 +469,16 @@ return [
     'renew_password' => '重新输入新密码',
     'confirm_password' => '确认新密码',
     'add_expertise' => '添加专长',
+    'edit_expertise' => '编辑专长',
     'name_expertise' => '专长名称',
     'expertise_holder' => '输入您的专长',
     'submit_button' => '提交',
     'cancel_button' => '取消',
     'delete_title' => '你确定吗？',
     'delete_text' => '您将无法恢复此数据！',
+    'delete_error' => '哎呀！',
+    'try_again' => '您的输入有一些问题。',
+    'delete_success' => '成功！',
     'education_background' => '教育背景',
     'bachelor_degree' => '学士学位',
     'master_degree' => '硕士学位',
@@ -479,4 +486,44 @@ return [
     'university_name' => '大学名称',
     'academic_degree' => '学位',
     'year_of_graduation' => '毕业年份',
+
+    // cpresearchv2\resources\views\departments\edit.blade.php
+    'edit_department' => '编辑系',
+    'department_name_th' => '系名称 (泰文)',
+    'department_name_en' => '系名称 (英文)',
+    'department_name_th_holder' => '输入系名称 (泰文)',
+    'department_name_en_holder' => '输入系名称 (英文)',
+
+    // cpresearchv2\resources\views\users\edit.blade.php
+    'edit_user' => '编辑用户',
+    'edit_user_details' => '编辑详细信息',
+    'edit_user_status' => '编辑状态',
+    'edit_user_studying' => '正在学习',
+    'edit_user_graduated' => '毕业',
+    'edit_user_schorlarID_holder' => '输入 Scholar ID',
+
+    // cpresearchv2\resources\views\funds\edit.blade.php
+    'edit_fund' => '编辑基金',
+    'edit_fund_details' => '编辑基金详细信息',
+    'Research Fund Type' => '研究资助类型',
+    'Internal Fund' => '内部基金',
+    'External Fund' => '外部基金',
+    'Not Specified' => '未指定',
+    'High' => '高',
+    'Medium' => '中',
+    'Low' => '低',
+    'Funding Level' => '资助级别',
+    'Fund Name' => '基金名称',
+    'Supporting Agency / Research Project' => '支持机构/研究项目',
+
+    // cpresearchv2\resources\views\research_groups\edit.blade.php
+    'edit_research_group' => '编辑研究小组',
+    'edit_research_group_details' => '编辑研究小组详细信息',
+    'research_group_description_th' => '研究小组描述 (泰文)',
+    'research_group_description_en' => '研究小组描述 (英文)',
+    'research_group_detail_th' => '研究小组详细信息 (泰文)',
+    'research_group_detail_en' => '研究小组详细信息 (英文)',
+    'Whoops' => '哎呀！',
+    'There were some problems with your input' => '您的输入有一些问题。',
+    'research_group_leader' => '编辑研究小组负责人',
 ];

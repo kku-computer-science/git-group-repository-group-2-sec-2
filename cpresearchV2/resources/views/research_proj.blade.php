@@ -23,7 +23,7 @@
                 </tr>
             </thead>
 
-            
+
             <tbody>
                 @foreach($resp as $i => $re)
                 <tr>

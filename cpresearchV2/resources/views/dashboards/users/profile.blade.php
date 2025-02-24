@@ -101,14 +101,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>First name (English)</label>
+                                <label>{{trans('message.fname_en')}}</label>
                                 <input type="text" class="form-control" id="inputfNameEN" placeholder="Name" value="{{ Auth::user()->fname_en }}" name="fname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Last name (English)</label>
+                                <label>{{trans('message.lname_en')}}</label>
                                 <input type="text" class="form-control" id="inputlNameEN" placeholder="Name" value="{{ Auth::user()->lname_en }}" name="lname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>{{trans('message.email')}}</label>
                                 <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="{{ Auth::user()->email }}" name="email">
                                 <span class="text-danger error-text email_error"></span>
                             </div>
@@ -605,7 +605,7 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("{{trans('message.edit_expertise')}}");
 
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
@@ -634,19 +634,19 @@
                 text: "{{ trans('message.delete_text') }}",
                 type: "warning",
                 buttons: {
-            cancel: {
-                text: "{{ trans('message.cancel_button') }}",
-                visible: true,
-                className: "btn btn-danger",
-                closeModal: true,
-            },
-            confirm: {
-                text: "{{ trans('message.submit_button') }}",
-                visible: true,
-                className: "btn btn-primary",
-                closeModal: false,
-            }
-        },
+                    cancel: {
+                        text: "{{ trans('message.cancel_button') }}",
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('message.submit_button') }}",
+                        visible: true,
+                        className: "btn btn-primary",
+                        closeModal: false,
+                    }
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {

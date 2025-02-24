@@ -198,7 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('funds.index')}}">
                             <i class="menu-icon mdi mdi-file-document-box-outline"></i>
-                            <span class="menu-title">{{trans('message.fund')}}</span>
+                            <span class="menu-title">{{trans('message.manage_fund')}}</span>
 
                         </a>
                     </li>
@@ -225,7 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications">
                             <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                            <span class="menu-title">{{trans('message.publication')}}</span>
+                            <span class="menu-title">{{trans('message.manage_publication')}}</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ManagePublications">
@@ -287,7 +287,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('programs.index')}}">
                             <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-                            <span class="menu-title">{{trans('message.program')}}</span>
+                            <span class="menu-title">{{trans('message.manage_program')}}</span>
 
                         </a>
                     </li>
