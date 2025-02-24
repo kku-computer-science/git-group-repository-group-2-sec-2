@@ -89,16 +89,21 @@
                     @csrf
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>{{trans('message.Education_Level')}}:</strong>
-                                <div class="col-sm-8">
-                                    <select id="degree" class="custom-select my-select" name="degree">
-                                        @foreach($degree as $d)
-                                        <option value="{{$d->id}}">{{$d->degree_name_th}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="form-group">
+    <strong>{{ trans('message.Education_Level') }}:</strong>
+    <div class="col-sm-8">
+        <select id="degree" class="custom-select my-select" name="degree">
+            @foreach($degree as $d)
+                @php
+                    $locale = app()->getLocale();
+                    $degree_name = ($locale === 'th') ? $d->degree_name_th : $d->degree_name_en;
+                @endphp
+                <option value="{{ $d->id }}">{{ $degree_name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
                             <div class="form-group">
                                 <strong>{{trans('message.Academic_Program')}}:</strong>
                                 <div class="col-sm-8">
