@@ -30,31 +30,31 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">แก้ไขรายละเอียด</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดงานสิทธิบัตร</p>
+                <h4 class="card-title">{{trans('message.patents_edit_details')}}</h4>
+                <p class="card-description">{{trans('message.patents_enter_details')}}</p>
                 <form class="forms-sample" action="{{ route('patents.update',$patent->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">ชื่อ</label>
+                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{trans('message.patents_name')}}</label>
                         <div class="col-sm-9">
                             <input type="text" name="ac_name" value="{{ $patent->ac_name }}" class="form-control" placeholder="Name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputac_type" class="col-sm-3 col-form-label">ประเภท</label>
+                        <label for="exampleInputac_type" class="col-sm-3 col-form-label">{{trans('message.patents_type')}}</label>
                         <div class="col-sm-9">
                             <input type="text" name="ac_type" value="{{ $patent->ac_type }}" class="form-control" placeholder="ac_type">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">วันที่ได้รับลิขสิทธิ์</label>
+                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{trans('message.date_of_rights')}}</label>
                         <div class="col-sm-9">
                             <input type="date" name="ac_year" value="{{ $patent->ac_year }}" class="form-control" placeholder="ac_year">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputac_refnumber" class="col-sm-3 col-form-label">เลขทะเบียน</label>
+                        <label for="exampleInputac_refnumber" class="col-sm-3 col-form-label">{{trans('message.registration_number')}}</label>
                         <div class="col-sm-9">
                             <input type="text" name="ac_refnumber" value="{{ $patent->ac_refnumber }}" class="form-control" placeholder="เลขทะเบียน">
                         </div>
@@ -75,7 +75,7 @@
                         </div>
                     </div> -->
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">อาจารย์ในสาขา</label>
+                        <label class="col-sm-3 col-form-label">{{trans('message.internal_professors')}}</label>
                         <div class="col-sm-9">
                             <table class="table table-bordered " id="dynamicAddRemove">
                                 <tr>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInput" class="col-sm-3 ">บุคลลภายนอก</label>
+                        <label for="exampleInput" class="col-sm-3 ">{{trans('message.external_persons')}}</label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
@@ -102,8 +102,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary me-2 mt-5">Submit</button>
-                    <a class="btn btn-light mt-5" href="{{ route('patents.index') }}">Cancel</a>
+                    <button type="submit" class="btn btn-primary me-2 mt-5">{{trans('message.submit')}}</button>
+                    <a class="btn btn-light mt-5" href="{{ route('patents.index') }}">{{trans('message.cancel')}}</a>
                 </form>
             </div>
         </div>

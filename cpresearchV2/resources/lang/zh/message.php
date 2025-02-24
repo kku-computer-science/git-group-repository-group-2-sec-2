@@ -482,4 +482,86 @@ return [
     'university_name' => '大学名称',
     'academic_degree' => '学位',
     'year_of_graduation' => '毕业年份',
+    
+// cpresearchV2\resources\views\books\edit.blade.php
+    "edit_book_details" => "编辑书籍详情",
+    "enter_book_details" => "输入书籍详细信息",
+    "book_title" => "书名",
+    "book_publisher" => "出版社",
+    "publication_year" => "出版年份（佛历）",
+    "number_of_pages" => "页数",
+    "submit" => "提交",
+    "cancel" => "取消",
+
+// cpresearchV2\resources\views\patents\edit.blade.php
+"patents_edit_details" => "编辑详情",
+    "patents_enter_details" => "输入版权详细信息",
+    "patents_name" => "名称",
+    "patents_type" => "类型",
+    "date_of_rights" => "获得权利的日期",
+    "registration_number" => "注册号",
+    "internal_professors" => "内部教授",
+    "add_professor" => "添加教授",
+    "select_user" => "选择用户",
+    "external_persons" => "外部人员",
+    "add_person" => "添加人员",
+    "first_name" => "名字",
+    "last_name" => "姓氏",
+    "enter_name" => "输入您的名字",
+    "remove" => "移除",
+    "submit" => "提交",
+    "cancel" => "取消",
+
+//  cpresearchV2\resources\views\roles\edit.blade.php
+    'edit_role' => "编辑角色",
+    'role_name' => "角色名称",
+    'permission' => "允许",
+    'back' => "后退",
+
+// cpresearchV2\resources\views\permissions\edit.blade.php
+    'edit_permission' => "编辑权限",
+    'permission_name' => "权限名称",
+
+// cpresearchV2\resources\views\users\edit.blade.php
+    'edit_user_data' => "编辑用户数据",
+    'edit_user_details' => "填写编辑用户详细信息",
+    'first_name_th' => "名字 (泰语)",
+    'last_name_th' => "姓氏 (泰语)",
+    'first_name_en' => "名字 (英语)",
+    'last_name_en' => "姓氏 (英语)",
+    'email' => "电子邮件",
+    'password' => "密码",
+    'confirm_password' => "确认密码",
+    'role' => "角色",
+    'status' => "状态",
+    'department' => "部门",
+    'program' => "课程",
+
+    // API Status Page
+    'api_status' => 'API 状态',
+    'api_name' => 'API 名称',
+    'status' => '状态',
+    'last_checked' => '最后检查',
+    'message' => '消息',
+    'active' => '活跃',
+    'inactive' => '未激活',
+
+    // Highlight Page
+    'highlight' => '亮点',
+    'welcome_higlight' => '欢迎来到亮点页面。请创建您引以为豪的亮点。',
+
+    // Assistant Researcher Page
+    'assistant_researcher' => '研究助理',
+    'assistant_wanted' => '招聘研究助理',
+    'assistant_welcome' => '欢迎来到研究助理招聘页面。本页面专门用于帮助项目负责人寻找研究相关任务的助手。',
+    
+    //Certificate Form Page
+    'certificate_form' => '证书表单',
+    'welcome_certificate' => '欢迎来到证书表单页面。请继续提交您的信息。',
+
+    // Navbar
+    'for_student' => '适用于学生',
+    'for_head' => '适用于项目负责人',
+    'for_staff' => '适用于工作人员',
+    'research_API' => '研究 API',
 ];

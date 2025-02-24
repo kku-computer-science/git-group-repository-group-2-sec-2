@@ -608,5 +608,84 @@ return [
     'university_name' => 'University Name',
     'academic_degree' => 'Academic Degree',
     'year_of_graduation' => 'Year of Graduation',
+// cpresearchV2\resources\views\books\edit.blade.php
+    "edit_book_details" => "Edit Book Details",
+    "enter_book_details"=> "Enter book details",
+    "book_title"=> "Book Title",
+    "book_publisher"=> "Publisher",
+    "publication_year"=> "Publication Year (B.E.)",
+    "number_of_pages"=> "Number of Pages",
+    "submit"=> "Submit",
+    "cancel"=> "Cancel",
 
+// cpresearchV2\resources\views\patents\edit.blade.php
+    "patents_edit_details" => "Edit Details",
+    "patents_enter_details" => "Enter copyright details",
+    "patents_name" => "Name",
+    "patents_type" => "Type",
+    "date_of_rights" => "Date of Rights Received",
+    "registration_number" => "Registration Number",
+    "internal_professors" => "Internal Professors",
+    "add_professor" => "Add Professor",
+    "select_user" => "Select User",
+    "external_persons" => "External Persons",
+    "add_person" => "Add Person",
+    "first_name" => "First Name",
+    "last_name" => "Last Name",
+    "enter_name" => "Enter your Name",
+    "remove" => "Remove",
+
+//  cpresearchV2\resources\views\roles\edit.blade.php
+    'edit_role' => "Edit Role",
+    'role_name' => "Name",
+    'permission' => "Permission",
+    'back' => "Back",
+
+// cpresearchV2\resources\views\permissions\edit.blade.php
+    'edit_permission' => "Edit Permission",
+    'permission_name' => "Permission Name",
+
+// cpresearchV2\resources\views\users\edit.blade.php
+    'edit_user_data' => "Edit User Data",
+    'edit_user_details' => "Enter details to edit user information",
+    'first_name_th' => "First Name (Thai)",
+    'last_name_th' => "Last Name (Thai)",
+    'first_name_en' => "First Name (English)",
+    'last_name_en' => "Last Name (English)",
+    'email' => "Email",
+    'password' => "Password",
+    'confirm_password' => "Confirm Password",
+    'role' => "Role",
+    'status' => "Status",
+    'department' => "Department",
+    'program' => "Program",
+    'scholar_id' => "Scholar ID",
+
+// cpresearchV2\resources\views\apistatus\index.blade.php
+    'api_status' => 'API Status',
+    'api_name' => 'API Name',
+    'status' => 'Status',
+    'last_checked' => 'Last Checked',
+    'message' => 'Message',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+
+// cpresearchV2\resources\views\highlight\index.blade.php
+    'highlight' => 'Highlight',
+    'welcome_higlight' => 'Welcome to the Highlight page. Please create your highlight of our proud.',
+
+// cpresearchV2\resources\views\assistant_researcher\index.blade.php
+    'assistant_researcher' => 'Assistant Researcher',
+    'assistant_wanted' => 'Assistant Wanted',
+    'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
+
+// cpresearchV2\resources\views\certificate-form\index.blade.php
+    'certificate_form' => 'Certificate Form',
+    'welcome_certificate' => 'Welcome to the Certificate Form page. Please proceed with your submission.',
+
+     // Navbar
+     'for_student' => 'For Student',
+     'for_head' => 'For Head Project',
+     'for_staff' => 'For Staff',
+     'research_API' => 'Research API',
 ];

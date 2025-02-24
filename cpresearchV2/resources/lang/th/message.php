@@ -604,3 +604,85 @@ return [
 
 
 ];
+// cpresearchV2\resources\views\books\edit.blade.php
+    "edit_book_details" => "แก้ไขรายละเอียดหนังสือ",
+    "enter_book_details" => "กรอกข้อมูลรายละเอียดหนังสือ",
+    "book_title" => "ชื่อหนังสือ",
+    "book_publisher" => "สถานที่ตีพิมพ์",
+    "publication_year" => "ปีที่เผยแพร่ (พ.ศ.)",
+    "number_of_pages" => "จำนวนหน้า (Page)",
+    "submit" => "ยืนยัน",
+    "cancel" => "ยกเลิก",
+
+    // cpresearchV2\resources\views\patents\edit.blade.php
+    "patents_edit_details" => "แก้ไขรายละเอียด",
+    "patents_enter_details" => "กรอกข้อมูลรายละเอียดลิขสิทธิ์",
+    "patents_name" => "ชื่อ",
+    "patents_type" => "ประเภท",
+    "date_of_rights" => "วันที่ได้รับสิทธิ์",
+    "registration_number" => "เลขทะเบียน",
+    "internal_professors" => "อาจารย์ในสาขา",
+    "add_professor" => "เพิ่มอาจารย์",
+    "select_user" => "เลือกผู้ใช้",
+    "external_persons" => "บุคคลภายนอก",
+    "add_person" => "เพิ่มบุคคล",
+    "first_name" => "ชื่อ",
+    "last_name" => "นามสกุล",
+    "enter_name" => "กรอกชื่อของคุณ",
+    "remove" => "ลบ",
+
+//  cpresearchV2\resources\views\roles\edit.blade.php
+    'edit_role' => "แก้ไขบทบาท",
+    'role_name' => "ชื่อบทบาท",
+    'permission' => "สิทธิ์การเข้าถึง",
+    'back' => "กลับ",
+
+// cpresearchV2\resources\views\permissions\edit.blade.php
+    'edit_permission' => "แก้ไขสิทธิ์",
+    'permission_name' => "ชื่อสิทธิ์",
+
+// cpresearchV2\resources\views\users\edit.blade.php
+    'edit_user_data' => "แก้ไขข้อมูลผู้ใช้งาน",
+    'edit_user_details' => "กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน",
+    'first_name_th' => "ชื่อ (ภาษาไทย)",
+    'last_name_th' => "นามสกุล (ภาษาไทย)",
+    'first_name_en' => "ชื่อ (English)",
+    'last_name_en' => "นามสกุล (English)",
+    'email' => "อีเมล",
+    'password' => "รหัสผ่าน",
+    'confirm_password' => "ยืนยันรหัสผ่าน",
+    'role' => "บทบาท",
+    'status' => "สถานะ",
+    'department' => "หน่วยงาน",
+    'program' => "หลักสูตร",
+    'scholar_id' => "Scholar ID",
+
+     // API Status Page
+     'api_status' => 'สถานะ API',
+     'api_name' => 'ชื่อ API',
+     'status' => 'สถานะ',
+     'last_checked' => 'ตรวจสอบล่าสุด',
+     'message' => 'ข้อความ',
+     'active' => 'ใช้งานอยู่',
+     'inactive' => 'ไม่ได้ใช้งาน',
+
+ 
+     // Highlight Page
+     'highlight' => 'ไฮไลท์',
+     'welcome_higlight' => 'ยินดีต้อนรับสู่หน้ารายการไฮไลท์ กรุณาสร้างไฮไลท์ที่คุณภาคภูมิใจ.',
+ 
+     // Assistant Researcher Page
+     'assistant_researcher' => 'ผู้ช่วยนักวิจัย',
+     'assistant_wanted' => 'ต้องการผู้ช่วยวิจัย',
+     'assistant_welcome' => 'ยินดีต้อนรับสู่หน้าประกาศรับสมัครผู้ช่วยวิจัย หน้านี้มีไว้เพื่อช่วยให้หัวหน้าโครงการค้นหาผู้ช่วยสำหรับงานที่เกี่ยวข้องกับการวิจัย.',
+
+    //Certificate Form Page
+    'certificate_form' => 'แบบฟอร์มใบรับรอง',
+    'welcome_certificate' => 'ยินดีต้อนรับสู่หน้าแบบฟอร์มใบรับรอง กรุณาดำเนินการส่งข้อมูลของคุณ',
+
+    // Navbar
+    'for_student' => 'สำหรับนักศึกษา',
+    'for_head' => 'สำหรับหัวหน้าโครงการ',
+    'for_staff' => 'สำหรับเจ้าหน้าที่',
+    'research_API' => 'API การวิจัย',
+];
