@@ -601,9 +601,6 @@ return [
     'academic_degree' => 'วุฒิการศึกษา',
     'year_of_graduation' => 'ปีที่สำเร็จการศึกษา',
     
-
-
-];
 // cpresearchV2\resources\views\books\edit.blade.php
     "edit_book_details" => "แก้ไขรายละเอียดหนังสือ",
     "enter_book_details" => "กรอกข้อมูลรายละเอียดหนังสือ",
