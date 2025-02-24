@@ -16,10 +16,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header">{{trans('message.departments')}}
                 @can('departments-create')
 
-                <a class="btn btn-primary" href="{{ route('departments.create') }}">New department</a>
+                <a class="btn btn-primary" href="{{ route('departments.create') }}">{{trans('message.department_new')}}</a>
 
                 @endcan
             </div>
@@ -27,19 +27,26 @@
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>{{trans('message.no_dot')}}</th>
+                            <th>{{trans('message.department_name')}}</th>
+                            <th width="280px">{{trans('message.action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $department)
                         <tr>
                             <td>{{ $department->id }}</td>
-                            <td>{{ $department->department_name_th }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                {{ $department->department_name_th }}
+                                @else
+                                {{ $department->department_name_en }}
+                                @endif
+                            </td>
+
                             <td>
                                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
-                                    
+
 
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('departments.show',$department->id) }}"><i class="mdi mdi-eye"></i></a>
 

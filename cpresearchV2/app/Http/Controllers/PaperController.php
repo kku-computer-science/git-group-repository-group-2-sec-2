@@ -93,7 +93,7 @@ class PaperController extends Controller
         //$input['keyword'] = json_encode($myNewArray);
         $input['keyword'] = $myNewArray;
         //return $input['keyword'];
-        //$input['keyword'] = 
+        //$input['keyword'] =
         $paper = Paper::create($input);
         foreach ($request->cat as $key => $value) {
             $paper->source()->attach($value);
@@ -118,7 +118,7 @@ class PaperController extends Controller
 
         //$paper->author()->detach();
         $x = 1;
-        
+
         if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
             $length = count($request->input('fname'));
             foreach ($request->input('fname') as $key => $value) {
@@ -155,7 +155,8 @@ class PaperController extends Controller
         }
 
         return redirect()->route('papers.index')
-            ->with('success', 'papers created successfully.');
+    ->with('success', trans('message.paper_created'));
+
     }
 
     /**
@@ -304,7 +305,8 @@ class PaperController extends Controller
             }
         }
         return redirect()->route('papers.index')
-            ->with('success', 'papers updated successfully');
+    ->with('success', trans('message.paper_updated'));
+
         //$paper->author()->detach();
     }
 
@@ -316,7 +318,7 @@ class PaperController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 
     public function export(Request $request)

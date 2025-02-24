@@ -17,18 +17,18 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -64,6 +64,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
+            'Themsaid\\Langman\\' => 17,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -132,6 +133,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
             'Monolog\\' => 8,
             'Mockery\\' => 8,
             'Matrix\\' => 7,
+            'Masterminds\\' => 12,
             'Maatwebsite\\Excel\\' => 18,
         ),
         'L' => 
@@ -145,6 +147,10 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sail\\' => 13,
             'Laminas\\Escaper\\' => 16,
+        ),
+        'J' => 
+        array (
+            'JustRaviga\\Deepl\\' => 17,
         ),
         'I' => 
         array (
@@ -231,6 +237,10 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
+        ),
+        'Themsaid\\Langman\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/justraviga/laravel-langman/src',
         ),
         'Tests\\' => 
         array (
@@ -433,6 +443,10 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
         ),
+        'Masterminds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
         'Maatwebsite\\Excel\\' => 
         array (
             0 => __DIR__ . '/..' . '/maatwebsite/excel/src',
@@ -472,6 +486,10 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Laminas\\Escaper\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
+        ),
+        'JustRaviga\\Deepl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/justraviga/laravel-deepl/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -624,6 +642,13 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
+        'C' => 
+        array (
+            'ChrisKonnertz\\DeepLy' => 
+            array (
+                0 => __DIR__ . '/..' . '/chriskonnertz/deeply/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -632,6 +657,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\ExportUser' => __DIR__ . '/../..' . '/app/Exports/ExportUser.php',
         'App\\Exports\\UsersExport' => __DIR__ . '/../..' . '/app/Exports/UsersExport.php',
+        'App\\Http\\Controllers\\APIstatusController' => __DIR__ . '/../..' . '/app/Http/Controllers/APIstatusController.php',
         'App\\Http\\Controllers\\AcademicworkController' => __DIR__ . '/../..' . '/app/Http/Controllers/AcademicworkController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -641,6 +667,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BibtexController' => __DIR__ . '/../..' . '/app/Http/Controllers/BibtexController.php',
         'App\\Http\\Controllers\\BookController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookController.php',
+        'App\\Http\\Controllers\\BothPaperCallController' => __DIR__ . '/../..' . '/app/Http/Controllers/BothPaperCallController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/CourseController.php',
         'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
@@ -651,6 +678,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'App\\Http\\Controllers\\ExportPaperController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExportPaperController.php',
         'App\\Http\\Controllers\\FileUpload' => __DIR__ . '/../..' . '/app/Http/Controllers/FileUpload.php',
         'App\\Http\\Controllers\\FundController' => __DIR__ . '/../..' . '/app/Http/Controllers/FundController.php',
+        'App\\Http\\Controllers\\GoogleScholarController' => __DIR__ . '/../..' . '/app/Http/Controllers/GoogleScholarController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImportExportController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImportExportController.php',
         'App\\Http\\Controllers\\LocalizationController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocalizationController.php',
@@ -834,6 +862,17 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\TranslatorImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
+        'ChrisKonnertz\\DeepLy\\DeepLy' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/DeepLy.php',
+        'ChrisKonnertz\\DeepLy\\HttpClient\\CallException' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/HttpClient/CallException.php',
+        'ChrisKonnertz\\DeepLy\\HttpClient\\CurlHttpClient' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/HttpClient/CurlHttpClient.php',
+        'ChrisKonnertz\\DeepLy\\HttpClient\\HttpClientInterface' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/HttpClient/HttpClientInterface.php',
+        'ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyFacade' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Integrations/Laravel/DeepLyFacade.php',
+        'ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyServiceProvider' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Integrations/Laravel/DeepLyServiceProvider.php',
+        'ChrisKonnertz\\DeepLy\\Models\\DocumentHandle' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Models/DocumentHandle.php',
+        'ChrisKonnertz\\DeepLy\\Models\\DocumentState' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Models/DocumentState.php',
+        'ChrisKonnertz\\DeepLy\\Models\\Glossary' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Models/Glossary.php',
+        'ChrisKonnertz\\DeepLy\\Models\\Model' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Models/Model.php',
+        'ChrisKonnertz\\DeepLy\\Models\\Usage' => __DIR__ . '/..' . '/chriskonnertz/deeply/src/ChrisKonnertz/DeepLy/Models/Usage.php',
         'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
         'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
         'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
@@ -1799,6 +1838,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'FindCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/FindCommandTest.php',
         'FontLib\\AdobeFontMetrics' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/AdobeFontMetrics.php',
         'FontLib\\BinaryStream' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/BinaryStream.php',
         'FontLib\\EOT\\File' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/EOT/File.php',
@@ -3288,6 +3328,16 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'JustRaviga\\Deepl\\Clients\\DeeplClient' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Clients/DeeplClient.php',
+        'JustRaviga\\Deepl\\Console\\Commands\\SyncCommand' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Console/Commands/SyncCommand.php',
+        'JustRaviga\\Deepl\\Deepl' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Deepl.php',
+        'JustRaviga\\Deepl\\DeeplServiceProvider' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/DeeplServiceProvider.php',
+        'JustRaviga\\Deepl\\Exceptions\\DeeplLanguageNotSupportedException' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Exceptions/DeeplLanguageNotSupportedException.php',
+        'JustRaviga\\Deepl\\Exceptions\\DeeplNoApiKeyException' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Exceptions/DeeplNoApiKeyException.php',
+        'JustRaviga\\Deepl\\Exceptions\\DeeplTranslateFailedException' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Exceptions/DeeplTranslateFailedException.php',
+        'JustRaviga\\Deepl\\Facades\\Deepl' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/Facades/Deepl.php',
+        'JustRaviga\\Deepl\\TranslationManager' => __DIR__ . '/..' . '/justraviga/laravel-deepl/src/TranslationManager.php',
+        'Kernel' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/Kernel.php',
         'Laminas\\Escaper\\Escaper' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/Escaper.php',
         'Laminas\\Escaper\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/Exception/ExceptionInterface.php',
         'Laminas\\Escaper\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/laminas/laminas-escaper/src/Exception/InvalidArgumentException.php',
@@ -3846,6 +3896,27 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Maatwebsite\\Excel\\Validators\\RowValidator' => __DIR__ . '/..' . '/maatwebsite/excel/src/Validators/RowValidator.php',
         'Maatwebsite\\Excel\\Validators\\ValidationException' => __DIR__ . '/..' . '/maatwebsite/excel/src/Validators/ValidationException.php',
         'Maatwebsite\\Excel\\Writer' => __DIR__ . '/..' . '/maatwebsite/excel/src/Writer.php',
+        'ManagerTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/ManagerTest.php',
+        'Masterminds\\HTML5' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5.php',
+        'Masterminds\\HTML5\\Elements' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Elements.php',
+        'Masterminds\\HTML5\\Entities' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Entities.php',
+        'Masterminds\\HTML5\\Exception' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Exception.php',
+        'Masterminds\\HTML5\\InstructionProcessor' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/InstructionProcessor.php',
+        'Masterminds\\HTML5\\Parser\\CharacterReference' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/CharacterReference.php',
+        'Masterminds\\HTML5\\Parser\\DOMTreeBuilder' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/DOMTreeBuilder.php',
+        'Masterminds\\HTML5\\Parser\\EventHandler' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/EventHandler.php',
+        'Masterminds\\HTML5\\Parser\\FileInputStream' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/FileInputStream.php',
+        'Masterminds\\HTML5\\Parser\\InputStream' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/InputStream.php',
+        'Masterminds\\HTML5\\Parser\\ParseError' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/ParseError.php',
+        'Masterminds\\HTML5\\Parser\\Scanner' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/Scanner.php',
+        'Masterminds\\HTML5\\Parser\\StringInputStream' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/StringInputStream.php',
+        'Masterminds\\HTML5\\Parser\\Tokenizer' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/Tokenizer.php',
+        'Masterminds\\HTML5\\Parser\\TreeBuildingRules' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/TreeBuildingRules.php',
+        'Masterminds\\HTML5\\Parser\\UTF8Utils' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Parser/UTF8Utils.php',
+        'Masterminds\\HTML5\\Serializer\\HTML5Entities' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/HTML5Entities.php',
+        'Masterminds\\HTML5\\Serializer\\OutputRules' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/OutputRules.php',
+        'Masterminds\\HTML5\\Serializer\\RulesInterface' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/RulesInterface.php',
+        'Masterminds\\HTML5\\Serializer\\Traverser' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/Traverser.php',
         'Matrix\\Builder' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Builder.php',
         'Matrix\\Decomposition\\Decomposition' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Decomposition/Decomposition.php',
         'Matrix\\Decomposition\\LU' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Decomposition/LU.php',
@@ -3861,6 +3932,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Matrix\\Operators\\Multiplication' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Multiplication.php',
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
+        'MissingCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/MissingCommandTest.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -6036,6 +6108,8 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RemoveCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/RemoveCommandTest.php',
+        'RenameCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/RenameCommandTest.php',
         'RenanBr\\BibTexParser\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/renanbr/bibtex-parser/src/Exception/ExceptionInterface.php',
         'RenanBr\\BibTexParser\\Exception\\ParserException' => __DIR__ . '/..' . '/renanbr/bibtex-parser/src/Exception/ParserException.php',
         'RenanBr\\BibTexParser\\Exception\\ProcessorException' => __DIR__ . '/..' . '/renanbr/bibtex-parser/src/Exception/ProcessorException.php',
@@ -6292,6 +6366,7 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'ShowCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/ShowCommandTest.php',
         'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
         'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
         'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',
@@ -7152,6 +7227,8 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
+        'SyncCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/SyncCommandTest.php',
+        'TestCase' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/TestCase.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
@@ -7164,12 +7241,22 @@ class ComposerStaticInitdf12afa23ac71fe1005569e1ca54098b
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'Themsaid\\Langman\\Commands\\FindCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/FindCommand.php',
+        'Themsaid\\Langman\\Commands\\MissingCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/MissingCommand.php',
+        'Themsaid\\Langman\\Commands\\RemoveCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/RemoveCommand.php',
+        'Themsaid\\Langman\\Commands\\RenameCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/RenameCommand.php',
+        'Themsaid\\Langman\\Commands\\ShowCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/ShowCommand.php',
+        'Themsaid\\Langman\\Commands\\SyncCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/SyncCommand.php',
+        'Themsaid\\Langman\\Commands\\TransCommand' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Commands/TransCommand.php',
+        'Themsaid\\Langman\\LangmanServiceProvider' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/LangmanServiceProvider.php',
+        'Themsaid\\Langman\\Manager' => __DIR__ . '/..' . '/justraviga/laravel-langman/src/Manager.php',
         'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'TransCommandTest' => __DIR__ . '/..' . '/justraviga/laravel-langman/tests/TransCommandTest.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',

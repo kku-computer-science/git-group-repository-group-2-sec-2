@@ -317,13 +317,13 @@
 
             </div>
             <div class="tab-pane fade show{{old('tab') == 'expertise' ? ' active' : null}}" id="expertise" role="tabpanel" aria-labelledby="expertise-tab">
-                <h3 class="mb-4">ความเชี่ยวชาญ</h3>
+                <h3 class="mb-4">{{trans('message.Expertise')}}</h3>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
                             <!-- <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">Add Expertise</a> -->
                             <button type="button" class="btn btn-primary btn-menu1 btn-icon-text btn-sm mb-3" data-toggle="modal" data-target="#crud-modal">
-                                <i class="mdi mdi-plus btn-icon-prepend"></i>Add Expertise
+                                <i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.Add_Expertise')}}
                             </button>
                         </div>
                     </div>
@@ -338,7 +338,7 @@
 
                 <table class="table table-striped table-hover">
                     <tr>
-                        <th colspan="2">Expertise</th>
+                        <th colspan="2">{{trans('message.Expertise')}}</th>
 
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
@@ -381,15 +381,15 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>{{trans('message.Name')}}:</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="{{trans('message.Expert_Name')}}" onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{trans('message.Submit')}}</button>
                             <!-- <a  href="{{ URL::previous() }}"class="btn btn-danger">Cancel</a>-->
-                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal">{{trans('message.Cancle')}}</button>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>

@@ -63,9 +63,9 @@ class ExpertiseController extends Controller
         }
 
         if (empty($request->exp_id))
-            $msg = 'Expertise entry created successfully.';
+            $msg = trans('message.expertise_created');
         else
-            $msg = 'Expertise data is updated successfully';
+            $msg = trans('message.expertise_updated');
 
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
@@ -129,7 +129,7 @@ class ExpertiseController extends Controller
     {
         //dd($id);
         $exp = Expertise::where('id', $id)->delete();
-        $msg = 'Expertise entry created successfully.';
+        $msg = trans('message.expertise_deleted');
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
         } else {

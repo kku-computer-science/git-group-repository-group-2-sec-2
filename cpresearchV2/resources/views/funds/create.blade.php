@@ -15,7 +15,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ trans('message.Whoops!') }}</strong> {{ trans('message.There were some problems with your input.') }}.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -27,49 +27,49 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มทุนวิจัย</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดทุนงานวิจัย</p>
+                <h4 class="card-title">{{ trans('message.Add Research Fund') }}</h4>
+                <p class="card-description">{{ trans('message.Fill in the form below to add a new research fund') }}</p>
                 <form class="forms-sample" action="{{ route('funds.store') }}" method="POST">
                     @csrf
                     <div class="form-group row">
-                        <label for="exampleInputfund_type" class="col-sm-2 ">ประเภททุนวิจัย</label>
+                        <label for="exampleInputfund_type" class="col-sm-2 ">{{ trans('message.Research Fund Type') }}</label>
                         <div class="col-sm-4">
                             <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required>
-                                <option value="" disabled selected >---- โปรดระบุประเภททุน ----</option>
-                                <option value="ทุนภายใน">ทุนภายใน</option>
-                                <option value="ทุนภายนอก">ทุนภายนอก</option>
+                                <option value="" disabled selected>{{ trans('message.Please specify the type of fund') }}</option>
+                                <option value="ทุนภายใน">{{ trans('message.Internal Fund') }}</option>
+                                <option value="ทุนภายนอก">{{ trans('message.External Fund') }}</option>
                             </select>
                         </div>
                     </div>
                     <div id="fund_code">
                         <div class="form-group row">
-                            <label for="exampleInputfund_level" class="col-sm-2 ">ระดับทุน</label>
+                            <label for="exampleInputfund_level" class="col-sm-2 ">{{ trans('message.Funding Level') }}</label>
                             <div class="col-sm-4">
                                 <select name="fund_level" class="custom-select my-select">
-                                <option value="" disabled selected >---- โปรดระบุระดับทุน ----</option>
-                                    <option value="">ไม่ระบุ</option>
-                                    <option value="สูง">สูง</option>
-                                    <option value="กลาง">กลาง</option>
-                                    <option value="ล่าง">ล่าง</option>
+                                    <option value="" disabled selected>{{ trans('message.Please specify the level of fund') }}</option>
+                                    <option value="">{{ trans('message.Not Specified') }}</option>
+                                    <option value="สูง">{{ trans('message.High') }}</option>
+                                    <option value="กลาง">{{ trans('message.Medium') }}</option>
+                                    <option value="ล่าง">{{ trans('message.Low') }}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputfund_name" class="col-sm-2 ">ชื่อทุน</label>
+                        <label for="exampleInputfund_name" class="col-sm-2 ">{{ trans('message.Fund Name') }}</label>
                         <div class="col-sm-8">
-                            <input type="text" name="fund_name" class="form-control" placeholder="name">
+                            <input type="text" name="fund_name" class="form-control" placeholder="{{ trans('message.Fund Name') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="exampleInputsupport_resource" class="col-sm-2 ">หน่วยงานที่สนับสนุน / โครงการวิจัย </label>
+                        <label for="exampleInputsupport_resource" class="col-sm-2 ">{{ trans('message.Supporting Agency / Research Project') }}</label>
                         <div class="col-sm-8">
-                            <input type="text" name="support_resource" class="form-control" placeholder="Support Resource">
+                            <input type="text" name="support_resource" class="form-control" placeholder="{{ trans('message.Support Resource') }}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="{{ route('funds.index')}}">Cancel</a>
+                    <button type="submit" class="btn btn-primary me-2">{{ trans('message.Submit') }}</button>
+                    <a class="btn btn-light" href="{{ route('funds.index')}}">{{ trans('message.Cancel') }}</a>
                 </form>
             </div>
         </div>

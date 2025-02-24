@@ -5897,3 +5897,44 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO roles (name, guard_name, created_at, updated_at)
+VALUES ('Undergrad Student', 'web', NOW(), NOW()),
+    ('Master Student', 'web', NOW(), NOW()),
+    ('Doctoral Student', 'web', NOW(), NOW());
+
+INSERT INTO model_has_roles (role_id, model_type, model_id)
+VALUES (
+        (
+            SELECT id
+            FROM roles
+            WHERE name = 'Doctoral Student'
+        ),
+        'App\\Models\\User',
+        29
+    ),
+    (
+        (
+            SELECT id
+            FROM roles
+            WHERE name = 'Master Student'
+        ),
+        'App\\Models\\User',
+        138
+    ),
+    (
+        (
+            SELECT id
+            FROM roles
+            WHERE name = 'Undergrad Student'
+        ),
+        'App\\Models\\User',
+        139
+    );
+
+UPDATE users
+SET picture = CASE
+    WHEN email = 'pakamu@kku.ac.th' THEN 'Pakarat.jpg'
+    WHEN email = 'yaniko@kku.ac.th' THEN 'Yanika.jpg'
+END
+WHERE email IN ('pakamu@kku.ac.th', 'yaniko@kku.ac.th');

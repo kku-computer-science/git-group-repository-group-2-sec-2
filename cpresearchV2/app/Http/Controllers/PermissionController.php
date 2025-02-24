@@ -54,11 +54,12 @@ class PermissionController extends Controller
         $this->validate($request, [
             'name' => 'required|unique:permissions,name',
         ]);
-    
+
         Permission::create(['name' => $request->input('name')]);
-    
+
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission created successfully.');
+    ->with('success', trans('message.permission_created'));
+
     }
 
     /**
@@ -70,7 +71,7 @@ class PermissionController extends Controller
     public function show($id)
     {
         $permission = Permission::find($id);
-    
+
         return view('permissions.show', compact('permission'));
     }
 
@@ -83,7 +84,7 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::find($id);
-    
+
         return view('permissions.edit', compact('permission'));
     }
 
@@ -99,13 +100,14 @@ class PermissionController extends Controller
         $this->validate($request, [
             'name' => 'required'
         ]);
-    
+
         $permission = Permission::find($id);
         $permission->name = $request->input('name');
         $permission->save();
-        
+
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission updated successfully.');
+    ->with('success', trans('message.permission_updated'));
+
     }
 
     /**
@@ -117,8 +119,9 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         Permission::find($id)->delete();
-        
+
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission deleted successfully');
+    ->with('success', trans('message.permission_deleted'));
+
     }
 }

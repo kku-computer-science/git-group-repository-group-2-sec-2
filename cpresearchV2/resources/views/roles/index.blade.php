@@ -9,17 +9,17 @@
         @endif
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">Roles</h4>
+                <h4 class="card-title">{{trans('message.roles')}}</h4>
                 @can('role-create')
-                <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('roles.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i>Add</a>
+                <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('roles.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.add')}}</a>
                 @endcan
 
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>{{trans('message.no_dot')}}</th>
+                            <th>{{trans('message.role_name')}}</th>
+                            <th width="280px">{{trans('message.action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +28,30 @@
 
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $role->name }}</td>
+                            <td>
+                                @php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                $roleTranslations = [
+                                'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
+                                'teacher' => ['th' => 'อาจารย์', 'zh' => '教师'],
+                                'student' => ['th' => 'นักเรียน', 'zh' => '学生'],
+                                'staff' => ['th' => 'เจ้าหน้าที่', 'zh' => '职员'],
+                                'headproject' => ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
+                                'Undergrad Student' => ['th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
+                                'Master Student' => ['th' => 'นักศึกษาปริญญาโท', 'zh' => '硕士生'],
+                                'Doctoral Student' => ['th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
+                                ];
+                                @endphp
+
+                                @if ($locale == 'en')
+                                {{ $role->name }}
+                                @elseif (isset($roleTranslations[$role->name][$locale]))
+                                {{ $roleTranslations[$role->name][$locale] }}
+                                @else
+                                {{ $role->name }}
+                                @endif
+                            </td>
+
                             <td>
                                 <form action="{{ route('roles.destroy',$role->id) }}" method="POST">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('roles.show',$role->id) }}"><i class="mdi mdi-eye"></i></a>
