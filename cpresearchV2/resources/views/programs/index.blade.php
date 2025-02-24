@@ -30,8 +30,8 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">{{trans('message.Course')}}</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend">{{trans('message.Add_Course')}}</i>  </a>
+            <h4 class="card-title" style="text-align: center;">{{trans('message.programs')}}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.add')}}</a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
