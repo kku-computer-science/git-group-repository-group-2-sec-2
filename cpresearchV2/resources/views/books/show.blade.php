@@ -9,7 +9,7 @@
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.book_name') }}</b></p>
                 <p class="card-text col-sm-9">{{ $paper->ac_name }}</p>
-            </div>
+            </div>  
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.book_year') }}</b></p>
                 <p class="card-text col-sm-9">{{  date('Y', strtotime($paper->ac_year))+543 }}</p>

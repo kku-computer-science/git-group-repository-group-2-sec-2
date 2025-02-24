@@ -30,7 +30,33 @@
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('message.document_type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_subtype }}</p>
+                @php
+    $locale = app()->getLocale();
+    $paperSubtypeMap = [];
+    if ($locale == 'th') {
+        $paperSubtypeMap = [
+            'Article'           => 'บทความ',
+            'Conference Paper'  => 'บทความประชุม',
+            'Editorial'         => 'บทความบรรณาธิการ',
+            'Erratum'           => 'ข้อแก้ไข',
+            'Review'            => 'บทความวิจารณ์',
+            'Book Chapter'      => 'บทในหนังสือ',
+        ];
+    } elseif ($locale == 'zh') {
+        $paperSubtypeMap = [
+            'Article'           => '文章',
+            'Conference Paper'  => '会议论文',
+            'Editorial'         => '社论',
+            'Erratum'           => '勘误',
+            'Review'            => '综述',
+            'Book Chapter'      => '书章',
+        ];
+    }
+@endphp
+
+<p class="card-text col-sm-9">
+    {{ isset($paperSubtypeMap[$paper->paper_subtype]) ? $paperSubtypeMap[$paper->paper_subtype] : $paper->paper_subtype }}
+</p>
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('message.publication') }}</b></p>

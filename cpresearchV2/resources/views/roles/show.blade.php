@@ -13,7 +13,35 @@
                 <p class="card-description">{{ trans('message.details_info') }}</p>
                 <div class="row">
                     <p class="card-text col-sm-3"><b>{{ trans('message.name') }} </b></p>
-                    <p class="card-text col-sm-9">{{ $role->name }}</p>
+                    @php
+    $locale = app()->getLocale();
+    $roleMap = [];
+    if ($locale == 'th') {
+        $roleMap = [
+            'admin'       => 'ผู้ดูแลระบบ',
+            'teacher'     => 'อาจารย์',
+            'student'     => 'นักศึกษา',
+            'staff'       => 'เจ้าหน้าที่',
+            'headproject' => 'หัวหน้าโครงการ',
+        ];
+    } elseif ($locale == 'zh') {
+        $roleMap = [
+            'admin'       => '管理员',
+            'teacher'     => '教师',
+            'student'     => '学生',
+            'staff'       => '职员',
+            'headproject' => '项目负责人',
+        ];
+    }
+@endphp
+
+<p class="card-text col-sm-9">
+    @if($locale == 'th' || $locale == 'zh')
+        {{ isset($roleMap[strtolower($role->name)]) ? $roleMap[strtolower($role->name)] : $role->name }}
+    @else
+        {{ $role->name }}
+    @endif
+</p>
                 </div>
                 <div class="row mt-3">
                     <p class="card-text col-sm-3"><b>{{ trans('message.permissions') }}</b></p>
