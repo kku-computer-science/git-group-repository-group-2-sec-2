@@ -11,10 +11,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">Permissions
+            <div class="card-header">{{trans('message.permissions')}}
                 @can('permission-create')
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">New Permission</a>
+                    <a class="btn btn-primary" href="{{ route('permissions.create') }}">{{trans('message.permission_new')}}</a>
                 </span>
                 @endcan
             </div>
@@ -22,9 +22,9 @@
                 <table id ="example1" class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>{{trans('message.no_dot')}}</th>
+                            <th>{{trans('message.permission_name')}}</th>
+                            <th width="280px">{{trans('message.action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +66,7 @@
                 </table>
             </div>
             <div class="justify-content-center">
-                
+
             </div>
         </div>
     </div>
@@ -79,6 +79,17 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                }
+            }
         });
     });
 </script>

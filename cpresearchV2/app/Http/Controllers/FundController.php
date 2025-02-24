@@ -1,7 +1,7 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-   
+
 use App\Models\Fund;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -41,7 +41,7 @@ class FundController extends Controller
     {
         return view('funds.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -61,10 +61,10 @@ class FundController extends Controller
         //return $request->all();
         // if($request->has('pos')){
         //     $fund_type = $request->fund_type_etc ;
-            
+
         // }else{
         //     $fund_type = $request->fund_type;
-            
+
         // }
 
         //$fund = $request->all();
@@ -75,9 +75,9 @@ class FundController extends Controller
             $input['fund_level']=null;
         }
         $user->fund()->Create($input);
-        return redirect()->route('funds.index')->with('success','fund created successfully.');
+        return redirect()->route('funds.index')->with('success', trans('message.fund_created'));
     }
-     
+
     /**
      * Display the specified resource.
      *
@@ -87,8 +87,8 @@ class FundController extends Controller
     public function show(Fund $fund)
     {
         return view('funds.show',compact('fund'));
-    } 
-     
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -98,12 +98,12 @@ class FundController extends Controller
     public function edit($id)
     {
         //return $id;
-        $fu_id = Crypt::decrypt($id);  
+        $fu_id = Crypt::decrypt($id);
         $fund=Fund::find($fu_id);
         $this->authorize('update', $fund);
         return view('funds.edit',compact('fund'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -123,10 +123,10 @@ class FundController extends Controller
             $input['fund_level']=null;
         }
         $fund->update($input);
-        return redirect()->route('funds.index')
-                        ->with('success','Fund updated successfully');
+        return redirect()->route('funds.index')->with('success', trans('message.fund_updated'));
+
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -136,8 +136,8 @@ class FundController extends Controller
     public function destroy(Fund $fund)
     {
         $fund->delete();
-    
-        return redirect()->route('funds.index')
-                        ->with('success','Fund deleted successfully');
+
+        return redirect()->route('funds.index')->with('success', trans('message.fund_deleted'));
+
     }
 }

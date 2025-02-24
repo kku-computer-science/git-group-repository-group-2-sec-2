@@ -14,18 +14,18 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">ทุนวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('funds.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
+            <h4 class="card-title">{{trans('message.fund')}}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('funds.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.add')}}</a>
             <div class="table-responsive">
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Fund name</th>
-                            <th>Fund Type</th>
-                            <th>Fund Level</th>
+                            <th>{{trans('message.no_dot')}}</th>
+                            <th>{{trans('message.fund_name')}}</th>
+                            <th>{{trans('message.fund_type')}}</th>
+                            <th>{{trans('message.fund_level')}}</th>
                             <!-- <th>Create by</th> -->
-                            <th>Action</th>
+                            <th>{{trans('message.action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,11 +77,23 @@
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
-    $(document).ready(function() {
-        var table = $('#example1').DataTable({
-            fixedHeader: true
-        });
+$(document).ready(function() {
+    var table = $('#example1').DataTable({
+        fixedHeader: true,
+        searching: true,
+        lengthChange: true, 
+        language: {
+            search: `{{trans('message.search')}}:`,
+            lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+            info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+            paginate: {
+                next: `{{trans('message.next')}}`,
+                previous: `{{trans('message.previous')}}`
+            }
+        }
     });
+});
+
 </script>
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {

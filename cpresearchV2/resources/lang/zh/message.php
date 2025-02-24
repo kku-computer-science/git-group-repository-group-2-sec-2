@@ -1,6 +1,6 @@
 <?php
 return [
-// cpresearchV2\resources\views\layouts\layout.blade.php
+    // cpresearchV2\resources\views\layouts\layout.blade.php
     'Home'                         => '首页',
     'Researchers'                  => '研究人员',
     'ResearchProj'                 => '研究项目',
@@ -11,14 +11,14 @@ return [
     'publications2'                => '出版物',
     'login'                        => '登录',
 
-// cpresearchV2\resources\views\home.blade.php
+    // cpresearchV2\resources\views\home.blade.php
     'publications'                 => '近 5 年出版物',
     'reference'                    => '参考',
     'before'                       => '之前',
     // 'report_total_articles'     => '报告文章总数（5年：累计）',
     // 'number'                    => '编号',
 
-// cpresearchV2\resources\views\research_proj.blade.php
+    // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'  => '学术服务/研究项目',
     'order'                        => '序号',
     'year'                         => '年',
@@ -35,6 +35,160 @@ return [
     'closed'                       => '已关闭',
     'currency'                     => '泰铢',
 
-// cpresearchV2\resources\views\welcome.blade.php
+    // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
+
+    //cpresearchV2/resources/views/funds/index.blade.php
+    'fund' => '基金',
+    'no_dot' => '不.',
+    'fund_name' => '基金名稱',
+    'fund_type' => '基金類型',
+    'fund_level' => '基金層面',
+    'action' => '行動',
+    'search' => '搜尋',
+    'show' => '展示',
+    'entries' => '條目',
+    'add' => '添加',
+    'showing' => '顯示',
+    'to' => '到',
+    'of' => '的',
+    'previous' => '以前的',
+    'next' => '下一個',
+
+    //cpresearchV2/app/Http/Controllers/FundController.php
+    'fund_created' => '基金创建成功。',
+    'fund_updated' => '基金更新成功。',
+    'fund_deleted' => '基金删除成功。',
+
+    //cpresearchV2/resources/views/research_projects/index.blade.php
+    'research_project' => '研究項目',
+    'research_project_name' => '項目名稱',
+    'research_project_year' => '年',
+    'research_project_head' => '頭',
+    'research_project_member' => '成員',
+
+    //cpresearchV2/app/Http/Controllers/ResearchProjectController.php
+    'research_project_created' => '研究项目创建成功。',
+    'research_project_updated' => '研究项目更新成功。',
+    'research_project_deleted' => '研究项目删除成功。',
+
+    //cpresearchV2/resources/views/research_groups/index.blade.php
+    'research_group' => '研究小組',
+    'research_group_name' => '組名',
+    'research_group_head' => '頭',
+    'research_group_member' => '成員',
+
+    //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+    'research_group_created' => '研究小组创建成功!',
+    'research_group_updated' => '研究小组更新成功!',
+    'research_group_deleted' => '研究小组删除成功!',
+
+    //cpresearchV2/resources/views/papers/index.blade.php
+    'published_research' => '已發表的研究',
+    'published_research_name' => '論文名稱',
+    'published_research_type' => '紙張類型',
+    'published_research_year' => '出版年份',
+    'published_research_call_paper' => '徵求意見稿',
+
+    //cpresearchV2/app/Http/Controllers/PaperController.php
+    'paper_created' => '研究论文创建成功。',
+    'paper_updated' => '研究论文更新成功。',
+
+    //cpresearchV2/resources/views/books/index.blade.php
+    'book' => '書',
+    'book_name' => '書名',
+    'book_year' => '年',
+    'book_source' => '來源',
+    'book_page' => '頁',
+
+    //cpresearchV2/app/Http/Controllers/BookController.php
+    'book_created' => '书籍创建成功。',
+    'book_updated' => '书籍更新成功。',
+    'book_deleted' => '书籍删除成功。',
+
+    //cpresearchV2/resources/views/patents/index.blade.php
+    'patent' => '其他學術著作',
+    'patent_name' => '姓名',
+    'patent_type' => '類型',
+    'patent_date' => '註冊日期',
+    'patent_number' => '註冊號碼',
+    'patent_author' => '作者',
+
+    //cpresearchV2/app/Http/Controllers/PatentController.php
+    'patent_created' => '专利创建成功。',
+    'patent_updated' => '专利更新成功。',
+    'patent_deleted' => '专利删除成功。',
+
+    //cpresearchV2/resources/views/users/index.blade.php
+    'users' => '使用者',
+    'user_name' => '姓名',
+    'user_email' => '電子郵件',
+    'user_role' => '角色',
+    'user_department' => '部門',
+    'user_new_user' => '新用戶',
+    'user_import_new_user' => '導入新用戶',
+
+    //cpresearchV2/app/Http/Controllers/UserController.php
+    'user_created_successfully' => '用户创建成功。',
+    'user_updated_successfully' => '用户更新成功。',
+    'user_deleted_successfully' => '用户删除成功。',
+
+    //cpresearchV2/resources/views/roles/index.blade.php
+    'roles' => '角色',
+    'role_name' => '姓名',
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'role_created' => '角色创建成功。',
+    'role_updated' => '角色更新成功。',
+    'role_deleted' => '角色删除成功。',
+
+
+    //cpresearchV2/app/Http/Controllers/RoleController.php
+    'permissions' => '權限',
+    'permission_name' => '姓名',
+    'permission_new' => '新權限',
+
+    //cpresearchV2/app/Http/Controllers/PermissionController.php
+    'permission_created' => '权限创建成功。',
+    'permission_updated' => '权限更新成功。',
+    'permission_deleted' => '权限删除成功。',
+
+    //cpresearchV2/resources/views/departments/index.blade.php
+    'departments' => '部門',
+    'department_name' => '姓名',
+    'department_new' => '新部門',
+
+    //cpresearchV2/app/Http/Controllers/DepartmentController.php
+    'department_created' => '部门创建成功。',
+    'department_updated' => '部门更新成功。',
+    'department_deleted' => '部门删除成功。',
+
+    //cpresearchV2/resources/views/programs/index.blade.php
+    'programs' => '程式',
+    'program_name' => '姓名',
+    'program_degree' => '程度',
+
+    //cpresearchV2/app/Http/Controllers/ProgramController.php
+    'program_created' => '课程创建成功。',
+    'program_updated' => '课程数据已成功更新。',
+    'program_deleted' => '课程已成功删除。',
+
+    //cpresearchV2/resources/views/expertise/index.blade.php
+    'expertise' => '專業知識',
+    'expertise_name' => '姓名',
+    'expertise_teacher_name' => '老師姓名',
+
+    //cpresearchV2/app/Http/Controllers/ExpertiseController.php
+    'expertise_created' => '成功创建专长条目。',
+    'expertise_updated' => '专长数据更新成功。',
+    'expertise_deleted' => '专长已成功删除。',
+
+        //cpresearchV2/resources/views/researchers.blade.php
+        'researchers' => '研究人员',
+        'researcher_role_teacher' => '教师',
+        'researcher_role_undergrad_student' => '本科生',
+        'researcher_role_master_student' => '硕士生',
+        'researcher_role_doctoral_student' => '博士生',
+        'placeholder_research' => '研究兴趣',
+
 ];

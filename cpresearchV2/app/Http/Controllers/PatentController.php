@@ -95,7 +95,7 @@ class PatentController extends Controller
 
         $x = 1;
         //return (isset($input['fname']));
-        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))){
+        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
             //return (!empty($input['fname']));
             $length = count($request->input('fname'));
             foreach ($request->input('fname') as $key => $value) {
@@ -118,9 +118,9 @@ class PatentController extends Controller
                         $acw->author()->attach($author, ['author_type' => 2]);
                     }
                 } else {
-                    
+
                     $author = Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first();
-                    
+
                     $authorid = $author->id;
                     if ($x === 1) {
                         $acw->author()->attach($authorid, ['author_type' => 1]);
@@ -134,7 +134,7 @@ class PatentController extends Controller
             }
         }
 
-        return redirect()->route('patents.index')->with('success', 'patent created successfully.');
+        return redirect()->route('patents.index')->with('success', trans('message.patent_created'));
     }
 
     /**
@@ -215,7 +215,7 @@ class PatentController extends Controller
 
         $patent->author()->detach();
         $x = 1;
-        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))){
+        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
 
             $length = count($request->input('fname'));
             foreach ($request->input('fname') as $key => $value) {
@@ -236,7 +236,7 @@ class PatentController extends Controller
                         $acw->author()->attach($author, ['author_type' => 2]);
                     }
                 } else {
-                    $author = Author::where([['author_fname', '=', $data['fname']],['author_lname', '=', $data['lname']]])->first();
+                    $author = Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first();
                     $authorid = $author->id;
                     if ($x === 1) {
                         $acw->author()->attach($authorid, ['author_type' => 1]);
@@ -250,8 +250,7 @@ class PatentController extends Controller
             }
         }
 
-        return redirect()->route('patents.index')
-            ->with('success', 'Patent updated successfully');
+        return redirect()->route('patents.index')->with('success', trans('message.patent_updated'));
     }
 
     /**
@@ -266,7 +265,6 @@ class PatentController extends Controller
         $this->authorize('delete', $patent);
         $patent->delete();
 
-        return redirect()->route('patents.index')
-            ->with('success', 'Product deleted successfully');
+        return redirect()->route('patents.index')->with('success', trans('message.patent_deleted'));
     }
 }
