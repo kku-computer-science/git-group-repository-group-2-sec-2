@@ -30,8 +30,8 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">{{trans('message.programs')}}</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> {{trans('message.add')}}</a>
+            <h4 class="card-title" style="text-align: center;">{{trans('message.Course')}}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend">{{trans('message.Add_Course')}}</i>  </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
@@ -104,18 +104,23 @@
                     @csrf
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+    <strong>{{ trans('message.Education_Level') }}:</strong>
+    <div class="col-sm-8">
+        <select id="degree" class="custom-select my-select" name="degree">
+            @foreach($degree as $d)
+                @php
+                    $locale = app()->getLocale();
+                    $degree_name = ($locale === 'th') ? $d->degree_name_th : $d->degree_name_en;
+                @endphp
+                <option value="{{ $d->id }}">{{ $degree_name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
                             <div class="form-group">
-                                <strong>ระดับการศึกษา:</strong>
-                                <div class="col-sm-8">
-                                    <select id="degree" class="custom-select my-select" name="degree">
-                                        @foreach($degree as $d)
-                                        <option value="{{$d->id}}">{{$d->degree_name_th}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <strong>สาขาวิชา:</strong>
+                                <strong>{{trans('message.Academic_Program')}}:</strong>
                                 <div class="col-sm-8">
                                     <select id="department" class="custom-select my-select" name="department">
                                         @foreach($department as $d)
@@ -125,11 +130,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong>Name TH:</strong>
+                                <strong>{{trans('message.Name_TH')}}:</strong>
                                 <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
                             </div>
                             <div class="form-group">
-                                <strong>Name EH:</strong>
+                                <strong>{{trans('message.Name_EN')}}:</strong>
                                 <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program_name_en" onchange="validate()">
                             </div>
                             <!-- <div class="form-group">
@@ -140,8 +145,8 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
-                            <a href="{{ route('programs.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{trans('message.Submit')}}</button>
+                            <a href="{{ route('programs.index') }}" class="btn btn-danger">{{trans('message.Cancle')}}</a>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>
@@ -179,7 +184,7 @@
         $('#new-program').click(function() {
             $('#btn-save').val("create-program");
             $('#program').trigger("reset");
-            $('#programCrudModal').html("Add New program");
+            $('#programCrudModal').html("{{trans('message.Add_New_Program')}}");
             $('#crud-modal').modal('show');
         });
 

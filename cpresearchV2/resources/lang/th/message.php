@@ -318,4 +318,87 @@ return [
     'researcher_role_doctoral_student' => 'นักศึกษาปริญญาเอก',
     'placeholder_research' => 'ความเชี่ยวชาญที่สนใจ',
 
+
+    //=========================Mean==============================
+
+
+// cpresearchV2/resources/views/research_g.blade.php
+'Research_Group' => 'กลุ่มวิจัย',
+'Laboratory_Supervisor' => 'หัวหน้าห้องปฏิบัติการ',
+'Add_Expertise' => 'เพิ่มความเชี่ยวชาญ',
+
+
+// 'Course' => 'หลักสูตร',
+//'Add_Course' => 'เพิ่มหลักสูตร',
+// 'Expertise' => 'ความเชี่ยวชาญ',
+
+
+// cpresearchV2/resources/views/programs/index.blade.php
+'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
+'Education_Level' => 'ระดับการศึกษา',
+'Academic_Program' => 'สาขาวิชา',
+'Name_TH' => 'ชื่อ (ไทย)',
+'Name_EN' => 'ชื่อ (อังกฤษ)',
+'Submit' => 'ยืนยัน',
+'Cancle' => 'ยกเลิก',
+
+//cpresearchV2/resources/views/dashboards/users/layouts/user-dash-layout.blade.php
+'Research_Information_Management_System' => 'ระบบจัดการข้อมูลวิจัย',
+
+
+
+// cpresearchV2/resources/views/dashboards/users/profile.blade.php
+'Name' => 'ชื่อ',
+'Expert_Name' => 'ชื่อผู้เชี่ยวชาญ',
+
+// cpresearchV2/resources/views/departments/create.blade.php
+'Department_Name_TH' => 'ชื่อหน่วยงาน (ไทย)',
+'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
+'Create_Department' => 'สร้างหน่วยงาน',
+'Departments' => 'หน่วยงาน',
+
+// cpresearchV2/resources/views/books/create.blade.php
+'Add_Book' => 'เพิ่มหนังสือ',
+'Book_Name' => 'ชื่อหนังสือ',
+'Enter_Book_Details' => 'กรอกรายละเอียดหนังสือ',
+'Place_Of_Publication' => 'สถานที่ตีพิมพ์',
+'Year_(A.D.)' => 'ปี (ค.ศ.)',
+'Number_Of_Pages' => 'จำนวนหน้า',
+
+// cpresearchV2/resources/views/research_groups/create.blade.php
+'Create_Research_Group' => 'สร้างกลุ่มวิจัย',
+'Edit_Research_Group_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย',
+'Research_Group_Name_TH' => 'ชื่อกลุ่มวิจัย (ภาษาไทย)',
+'Research_Group_Name_EN' => 'ชื่อกลุ่มวิจัย (ภาษาอังกฤษ)',
+'Research_Group_Description_TH' => 'คำอธิบายกลุ่มวิจัย (ภาษาไทย)',
+'Research_Group_Description_EN' => 'คำอธิบายกลุ่มวิจัย (ภาษาอังกฤษ)',
+'Image' => 'รูปภาพ',
+'Research_Group_Leader' => 'หัวหน้ากลุ่มวิจัย',
+'Research_Group_Members' => 'สมาชิกกลุ่มวิจัย',
+'Back' => 'ย้อนกลับ',
+
+
+// 'cpresearchV2/resources/views/users/create.blade.php
+'Add_User' => 'เพิ่มผู้ใช้',
+'Add_User_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน',
+'First_Name_TH' => 'ชื่อผู้ใช้ (ภาษาไทย)',
+'Last_Name_TH' => 'นามสกุลผู้ใช้ (ภาษาไทย)',
+'First_Name_EN' => 'ชื่อผู้ใช้ (ภาษาอังกฤษ)',
+'Last_Name_EN' => 'นามสกุลผู้ใช้ (ภาษาอังกฤษ)',
+'Email' => 'อีเมล',
+'Password' => 'รหัสผ่าน',
+'Confirm_Password' => 'ยืนยันรหัสผ่าน',
+'Role' => 'บทบาท',
+'Department' => 'หน่วยงาน',
+'Program' => 'สาขาวิชา',
+'Select_Subcategory' => 'เลือกหมวดหมู่ย่อย',
+'Scholar_ID_(Optional)' => 'รหัสนักวิจัย (ไม่บังคับ)',
+
+// cpresearchV2/resources/views/users/import.blade.php
+'Import' => 'นำเข้าไฟล์ Excel , CSV',
+'Choose_File' => 'เลือกไฟล์',
+
+//=========================Mean==============================
+
 ];
+
