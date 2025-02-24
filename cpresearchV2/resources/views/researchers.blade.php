@@ -62,9 +62,14 @@
                             $locale = app()->getLocale();
                             $fname = $r->{'fname_' . ($locale == 'th' ? 'th' : 'en')};
                             $lname = $r->{'lname_' . ($locale == 'th' ? 'th' : 'en')};
-                            $academic_rank = $r->{'academic_ranks_' . ($locale == 'th' ? 'th' : 'en')};
                             $position = $r->{'position_' . ($locale == 'th' ? 'th' : 'en')};
-                            $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? 'Ph.D.' : '';
+
+                            // แปลงยศให้ใช้ `_` แทนช่องว่าง (รองรับ trans())
+                            $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
+                            $academic_rank = trans('message.' . $academic_rank_key);
+
+                            // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
+                            $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
                             @endphp
 
                             @if($locale == 'en' || $locale == 'zh')
@@ -77,6 +82,9 @@
                                 {{ $position }} {{ $fname }} {{ $lname }}
                             </h5>
                             @endif
+
+
+
 
                             <p class="card-text-1">{{ trans('message.expertise') }}</p>
                             <div class="card-expertise">
