@@ -15,8 +15,9 @@ return [
     'publications'                  => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
     'reference'                     => 'อ้างอิง',
     'before'                        => 'ก่อนหน้า',
-    // 'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
-    // 'number'                     => 'หมายเลข',
+    /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
+    'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
+    'number'                     => 'จำนวน',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research' => 'โครงการบริการวิชาการ/ โครงการวิจัย',

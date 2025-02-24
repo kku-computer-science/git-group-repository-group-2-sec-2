@@ -101,8 +101,9 @@ return [
     'publications'                  => 'Publications (In the Last 5 Years)',
     'reference'                     => 'Reference',
     'before'                        => 'Before',
-    // 'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
-    // 'number'                     => 'Number',
+    /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
+    'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
+    'number'                     => 'Number',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'   => 'Academic Service/ Research Project',

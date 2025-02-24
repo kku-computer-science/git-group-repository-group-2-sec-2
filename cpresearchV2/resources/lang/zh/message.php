@@ -15,8 +15,11 @@ return [
     'publications'                 => '近 5 年出版物',
     'reference'                    => '参考',
     'before'                       => '之前',
-    // 'report_total_articles'     => '报告文章总数（5年：累计）',
-    // 'number'                    => '编号',
+    /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
+    'report_total_articles'     => '报告文章总数（5年：累计）',
+    'number'                    => '编号',
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง--ยังไม่มี*/
+    'SUMMARY'                      => '摘要',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'  => '学术服务/研究项目',
