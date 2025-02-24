@@ -53,6 +53,13 @@ return [
     // 'Course' => '课程',
     'Research_Information_Management_System' => '研究信息管理系统',
     // 'Add_Course' => '添加课程',
+    'Research_Group' => '研究小组',
+    'Laboratory_Supervisor' => '实验室主管',
+    'details' => '详细信息',
+
+    // 研究小组描述
+    'group_desc_agt' => '本实验室致力于研究高性能计算的智能技术，该技术模仿自然启发的行为。',
+    'group_desc_asc' => '本研究实验室汇集了多个跨学科研究领域，如数据科学与数据分析、数据挖掘、文本挖掘、观点挖掘、商业智能、ERP 系统、IT 管理、语义网、情感分析、图像处理、泛在学习、混合学习以及生物信息学。',
 
     // cpresearchV2/resources/views/programs/index.blade.php
     'Add_New_Program' => '添加新课程',
