@@ -1,6 +1,6 @@
 <?php
 return [
-// cpresearchV2\resources\views\layouts\layout.blade.php
+    // cpresearchV2\resources\views\layouts\layout.blade.php
     'Home'                         => '首页',
     'Researchers'                  => '研究人员',
     'ResearchProj'                 => '研究项目',
@@ -11,14 +11,14 @@ return [
     'publications2'                => '出版物',
     'login'                        => '登录',
 
-// cpresearchV2\resources\views\home.blade.php
+    // cpresearchV2\resources\views\home.blade.php
     'publications'                 => '近 5 年出版物',
     'reference'                    => '参考',
     'before'                       => '之前',
     // 'report_total_articles'     => '报告文章总数（5年：累计）',
     // 'number'                    => '编号',
 
-// cpresearchV2\resources\views\research_proj.blade.php
+    // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'  => '学术服务/研究项目',
     'order'                        => '序号',
     'year'                         => '年',
@@ -35,9 +35,10 @@ return [
     'closed'                       => '已关闭',
     'currency'                     => '泰铢',
 
-// cpresearchV2\resources\views\welcome.blade.php
+    // cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
-// cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
+    'search' => '搜索',
     'logout' => '登出',
     'header' => '研究信息管理系统',
     'dashboard' => '仪表板',
@@ -59,7 +60,8 @@ return [
     'expertise_menu' => '管理专长',
     'api'  => '研究 API',
 
-//cpresearchV2\resources\views\auth\login.blade.php
+    //cpresearchV2\resources\views\auth\login.blade.php
+    'login_failed' => '登录失败！请检查您的用户名和密码。',
     'account_login' => '账户登录',
     'username'      => '用户名',
     'password'      => '密码',
@@ -69,10 +71,53 @@ return [
     联系管理员。',
     'username_login' => '对于用户名，请使用 KKU-Mail 登录。',
     'username_student' => '首次登录的学生，请使用学号登录。',
-// cpresearchV2\resources\views\report.blade.php
+    // cpresearchV2\resources\views\report.blade.php
     'stat_5years' => '过去 5 年文章总数统计',
     'stat_citation' => '引用文章统计',
-    
-// cpresearchV2\resources\views\dashboards\users\index.blade.php
-'greeting' => '你好,:position :fname :lname!',
+
+    // cpresearchV2\resources\views\dashboards\users\index.blade.php
+    'greeting' => '你好,:position :fname :lname!',
+
+    // cpresearchV2\resources\views\dashboards\users\profile.blade.php
+    'change_pic' => '更改图片',
+    'account' => '账户',
+    'password' => '密码',
+    'expertise' => '专长',
+    'education' => '教育',
+    'profile_setting' => '个人资料设置',
+    'academic_rank' => '学术职称',
+    'professor' => '教授',
+    'associate_professor' => '副教授',
+    'assistant_professor' => '助理教授',
+    'lecturer' => '讲师',
+    'name_title' => '姓名标题',
+    'mr' => 'Mr.',
+    'mrs' => 'Mrs.',
+    'miss' => 'Miss',
+    'fname_th'=> '名字（泰语）',
+    'lname_th'=> '姓氏（泰语）',
+    'addition_profile' => '对于没有博士学位的讲师，请指定。',
+    'update' => '更新',
+    'password_setting' => '密码设置',
+    'old_password' => '旧密码',
+    'enter_current_password' => '输入您的当前密码',
+    'enter_new_password' => '输入您的新密码',
+    'enter_confirm_password' => '输入您的确认密码',
+    'new_password' => '新密码',
+    'renew_password' => '重新输入新密码',
+    'confirm_password' => '确认新密码',
+    'add_expertise' => '添加专长',
+    'name_expertise' => '专长名称',
+    'expertise_holder' => '输入您的专长',
+    'submit_button' => '提交',
+    'cancel_button' => '取消',
+    'delete_title' => '你确定吗？',
+    'delete_text' => '您将无法恢复此数据！',
+    'education_background' => '教育背景',
+    'bachelor_degree' => '学士学位',
+    'master_degree' => '硕士学位',
+    'doctoral_degree' => '博士学位',
+    'university_name' => '大学名称',
+    'academic_degree' => '学位',
+    'year_of_graduation' => '毕业年份',
 ];

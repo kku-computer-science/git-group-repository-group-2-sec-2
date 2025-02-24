@@ -108,7 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="search" class="form-control" placeholder="{{ trans('message.search') }}" title="Search here">
                         </form>
                     </li>
                     <!-- <li class="nav-item dropdown">
