@@ -17,7 +17,7 @@
             <div class="card" style="padding: 16px;">
                 <div class="card-body">
                     <h4 class="card-title mb-5">{{ trans('message.Create User') }}</h4>
-                    <p class="card-description">{{ trans('message.Fiil in the form below to create a new user') }}</p>
+                    <p class="card-description">{{ trans('message.Fill in the form below to create a new user') }}</p>
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="form-group row">
                         <div class="col-sm-6">
