@@ -439,9 +439,9 @@
                 },
                 function(isConfirm) {
                     if (isConfirm) {
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     } else {
-                        swal("Cancle", "Account is not updated", "error");
+                        swal("{{trans('message.update_error')}}", "{{trans('message.update_error_text')}}", "error");
                     }
                 });
         }
@@ -473,7 +473,7 @@
                                 'input[name="name"]')).val());
                         });
                         console.log(data.msg);
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     }
                 }
             });

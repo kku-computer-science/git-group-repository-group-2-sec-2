@@ -45,5 +45,19 @@ return [
         ],
     ],
 
+    'password' => [
+        'old_password_incorrect' => '旧密码不正确',
+        'enter_current_password' => '请输入您的当前密码',
+        'enter_new_password' => '请输入您的新密码',
+        'reEnter_password' => '请再次输入新密码',
+        'enter_new_password' => '请输入您的新密码',
+        'oldpass_min' => '旧密码必须至少有8个字符',
+        'oldpass_max' => '旧密码不能超过30个字符',
+        'newpass_min' => '新密码必须至少有8个字符',
+        'newpass_max' => '新密码不能超过30个字符',
+        'cnewpass_required' => '请确认新密码',
+        'newpass_same' => '新密码和确认密码不匹配',
+    ],
+
     'attributes' => [],
 ];

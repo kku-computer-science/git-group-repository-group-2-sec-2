@@ -67,7 +67,7 @@ class ProfileuserController extends Controller
             // $doctoral = '';
             $pos_eng = '';
             $pos_thai = '';
-            if (Auth::user()->hasRole('admin') or Auth::user()->hasRole('student') ) {
+            if (Auth::user()->hasRole('admin') or Auth::user()->hasRole('student')) {
                 $request->academic_ranks_en = null;
                 $request->academic_ranks_th = null;
                 $pos_eng = null;
@@ -173,9 +173,10 @@ class ProfileuserController extends Controller
         //Validate form
         $validator = \Validator::make($request->all(), [
             'oldpassword' => [
-                'required', function ($attribute, $value, $fail) {
+                'required',
+                function ($attribute, $value, $fail) {
                     if (!\Hash::check($value, Auth::user()->password)) {
-                        return $fail(__('The current password is incorrect'));
+                        return $fail(__('validation.password.old_password_incorrect'));
                     }
                 },
                 'min:8',
@@ -184,14 +185,14 @@ class ProfileuserController extends Controller
             'newpassword' => 'required|min:8|max:30',
             'cnewpassword' => 'required|same:newpassword'
         ], [
-            'oldpassword.required' => 'Enter your current password',
-            'oldpassword.min' => 'Old password must have atleast 8 characters',
-            'oldpassword.max' => 'Old password must not be greater than 30 characters',
-            'newpassword.required' => 'Enter new password',
-            'newpassword.min' => 'New password must have atleast 8 characters',
-            'newpassword.max' => 'New password must not be greater than 30 characters',
-            'cnewpassword.required' => 'ReEnter your new password',
-            'cnewpassword.same' => 'New password and Confirm new password must match'
+            'oldpassword.required' => trans('validation.password.enter_current_password'),
+            'oldpassword.min' => trans('validation.password.oldpass_min'),
+            'oldpassword.max' => trans('validation.password.oldpass_max'),
+            'newpassword.required' => trans('validation.password.enter_new_password'),
+            'newpassword.min' => trans('validation.password.newpass_min'),
+            'newpassword.max' => trans('validation.password.newpass_max'),
+            'cnewpassword.required' => trans('validation.password.cnewpass_required'),
+            'cnewpassword.same' => trans('validation.password.newpass_same')
         ]);
 
         if (!$validator->passes()) {
