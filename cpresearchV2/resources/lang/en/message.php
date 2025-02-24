@@ -101,8 +101,9 @@ return [
     'publications'                  => 'Publications (In the Last 5 Years)',
     'reference'                     => 'Reference',
     'before'                        => 'Before',
-    // 'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
-    // 'number'                     => 'Number',
+    /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
+    'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
+    'number'                     => 'Number',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'   => 'Academic Service/ Research Project',
@@ -193,7 +194,7 @@ return [
 
     // http://127.0.0.1:8000/users/create
     'Create User' => 'Create User',
-    'Fiil in the form below to create a new user' => 'Fiil in the form below to create a new user',
+    'Fill in the form below to create a new user' => 'Fill in the form below to create a new user',
     'First Name (Thai)' => 'First Name (Thai)',
     'Last Name (Thai)' => 'Last Name (Thai)',
     'First Name (English)' => 'First Name (English)',
@@ -245,7 +246,7 @@ return [
 
     'Support Resource' => 'Support Resource',
 
-    //
+    // http://127.0.0.1:8000/funds/create
     'Add Academic Work' => 'Add Academic Work',
     'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
     'Academic Work Name' => 'Academic Work Name',
@@ -282,6 +283,86 @@ return [
     'Cancel' => 'Cancel',
     'Whoops' => 'Whoops',
     'There were some problems with your input' => 'There were some problems with your input',
+
+    // http://
+    'Please specify the source' => 'Please specify the source',
+    'Add Paper' => 'Add Paper',
+    'Fill in the form below to add a new paper' => 'Fill in the form below to add a new paper',
+    'Keyword' => 'Keyword',
+    'Keyword Instruction' => 'Please enter keywords separated by commas.',
+    'Paper Type' => 'Paper Type',
+    'Please specify the type' => 'Please specify the type',
+    'Journal' => 'Journal',
+    'Abstract' => 'Abstract',
+    'Conference Proceeding' => 'Conference Proceeding',
+    'Book Series' => 'Book Series',
+    'Book' => 'Book',
+    'Paper Subtype' => 'Paper Subtype',
+    'Please specify the subtype' => 'Please specify the subtype',
+    'Article' => 'Article',
+    'Conference Paper' => 'Conference Paper',
+    'Editorial' => 'Editorial',
+    'Book Chapter' => 'Book Chapter',
+    'Erratum' => 'Erratum',
+    'Review' => 'Review',
+    'Publication' => 'Publication',
+    'Please specify the publication' => 'Please specify the publication',
+    'International Journal' => 'International Journal',
+    'International Book' => 'International Book',
+    'International Conference' => 'International Conference',
+    'National Conference' => 'National Conference',
+    'National Journal' => 'National Journal',
+    'National Book' => 'National Book',
+    'National Magazine' => 'National Magazine',
+    'Source Title' => 'Source Title',
+    'Year Published' => 'Year Published',
+    'Funder' => 'Funder',
+    'URL' => 'URL',
+    'First Author' => 'First Author',
+    'Co-Author' => 'Co-Author',
+    'Corresponding Author' => 'Corresponding Author',
+    'Issue Number' => 'Issue Number',
+    'Citation' => 'Citation',
+    'Volume' => 'Volume',
+    'Submit' => 'Submit',
+    'Cancel' => 'Cancel',
+
+    // http://127.0.0.1:8000/researchProjects/create
+    'Whoops' => 'Whoops',
+    'There were some problems with your input' => 'There were some problems with your input',
+    'Add Research Project' => 'Add Research Project',
+    'Fill in the form below to add a new research project' => 'Fill in the form below to add a new research project',
+    'Project Name' => 'Project Name',
+    'Start Date' => 'Start Date',
+    'End Date' => 'End Date',
+    'Select Fund' => 'Select Fund',
+    'Project Year' => 'Project Year',
+    'Budget' => 'Budget',
+    'Responsible Department' => 'Responsible Department',
+    'Select Department' => 'Select Department',
+    'Project Details' => 'Project Details',
+    'Note' => 'Note',
+    'Status' => 'Status',
+    'Select Status' => 'Select Status',
+    'Submitted' => 'Submitted',
+    'In Progress' => 'In Progress',
+    'Closed' => 'Closed',
+    'Project Leader' => 'Project Leader',
+    'Select User'   => 'Select User',
+    'Internal Co-Leader' => 'Internal Co-Leader',
+    'External Co-Leader' => 'External Co-Leader',
+    'Title' => 'Title',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Add More Person' => 'Add More Person',
+    'Record Inserted Successfully' => 'Record Inserted Successfully',
+    'Sorry! Cannot remove first row!' => 'Sorry! Cannot remove first row!',
+    'Invalid Date Range' => 'Invalid Date Range',
+
+
+
+
+
 
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
@@ -630,29 +711,5 @@ return [
     'university_name' => 'University Name',
     'academic_degree' => 'Academic Degree',
     'year_of_graduation' => 'Year of Graduation',
-
-    // cpresearchv2\resources\views\users\edit.blade.php
-    'edit_user' => 'Edit User',
-    'edit_user_details' => 'Fill in the information to edit user details',
-    'edit_user_status' => 'Status',
-    'edit_user_studying' => 'Studying',
-    'edit_user_graduated' => 'Graduated',
-    'edit_user_schorlarID_holder' => 'Enter Scholar ID',
-
-    // cpresearchv2\resources\views\funds\edit.blade.php
-    'edit_fund' => 'Edit Fund',
-    'edit_fund_details' => 'Fill in the information to edit fund details',
-
-    // cpresearchv2\resources\views\research_groups\edit.blade.php
-    'edit_research_group' => 'Edit Research Group',
-    'edit_research_group_details' => 'Fill in the information to edit research group details',
-    'research_group_description_th' => 'Research Group Description (TH)',
-    'research_group_description_en' => 'Research Group Description (EN)',
-    'research_group_detail_th' => 'Research Group Detail (TH)',
-    'research_group_detail_en' => 'Research Group Detail (EN)',
-    'Whoops' => 'Whoops!',
-    'There were some problems with your input' => 'There were some problems with your input.',
-    'research_group_leader' => 'Choose Research Group Leader',
-
 
 ];

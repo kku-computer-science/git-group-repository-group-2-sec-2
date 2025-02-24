@@ -15,8 +15,9 @@ return [
     'publications'                  => 'ผลงานตีพิมพ์ (5 ปี ย้อนหลัง)',
     'reference'                     => 'อ้างอิง',
     'before'                        => 'ก่อนหน้า',
-    // 'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
-    // 'number'                     => 'หมายเลข',
+    /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
+    'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
+    'number'                     => 'จำนวน',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research' => 'โครงการบริการวิชาการ/ โครงการวิจัย',
@@ -79,7 +80,7 @@ return [
 
     // http://127.0.0.1:8000/users/create
     'Create User' => 'สร้างผู้ใช้',
-    'Fiil in the form below to create a new user' => 'กรอกแบบฟอร์มด้านล่างเพื่อสร้างผู้ใช้ใหม่',
+    'Fill in the form below to create a new user' => 'กรอกแบบฟอร์มด้านล่างเพื่อสร้างผู้ใช้ใหม่',
     'First Name (Thai)' => 'ชื่อ (ภาษาไทย)',
     'Last Name (Thai)' => 'นามสกุล (ภาษาไทย)',
     'First Name (English)' => 'ชื่อ (ภาษาอังกฤษ)',
@@ -164,6 +165,80 @@ return [
     'Cancel' => 'ยกเลิก',
     'Whoops' => 'ขออภัย',
     'There were some problems with your input' => 'มีปัญหาบางอย่างกับข้อมูลที่คุณป้อน',
+
+    // http://127.0.0.1:8000/papers/create
+    'Please specify the source' => 'กรุณาระบุแหล่งที่มา',
+    'Add Paper' => 'เพิ่มงานวิจัย',
+    'Fill in the form below to add a new paper' => 'กรอกแบบฟอร์มด้านล่างเพื่อเพิ่มเอกสารใหม่',
+    'Keyword' => 'คำสำคัญ',
+    'Keyword Instruction' => 'กรุณาใส่คำสำคัญคั่นด้วยเครื่องหมายจุลภาค',
+    'Paper Type' => 'ประเภทเอกสาร',
+    'Please specify the type' => 'กรุณาระบุประเภท',
+    'Journal' => 'วารสาร',
+    'Abstract' => 'บทคัดย่อ',
+    'Conference Proceeding' => 'เอกสารการประชุม',
+    'Book Series' => 'หนังสือชุด',
+    'Book' => 'หนังสือ',
+    'Paper Subtype' => 'ประเภทเอกสารย่อย',
+    'Please specify the subtype' => 'กรุณาระบุประเภทเอกสารย่อย',
+    'Article' => 'บทความ',
+    'Conference Paper' => 'เอกสารการประชุม',
+    'Editorial' => 'บรรณาธิการ',
+    'Book Chapter' => 'บทหนังสือ',
+    'Erratum' => 'ข้อผิดพลาด',
+    'Review' => 'บทวิจารณ์',
+    'Publication' => 'การตีพิมพ์',
+    'Please specify the publication' => 'กรุณาระบุการตีพิมพ์',
+    'International Journal' => 'วารสารนานาชาติ',
+    'International Book' => 'หนังสือนานาชาติ',
+    'International Conference' => 'การประชุมนานาชาติ',
+    'National Conference' => 'การประชุมระดับชาติ',
+    'National Journal' => 'วารสารระดับชาติ',
+    'National Book' => 'หนังสือระดับชาติ',
+    'National Magazine' => 'นิตยสารระดับชาติ',
+    'Source Title' => 'ชื่อแหล่งที่มา',
+    'Year Published' => 'ปีที่ตีพิมพ์',
+    'Funder' => 'ผู้สนับสนุน',
+    'URL' => 'URL',
+    'First Author' => 'ผู้วิจัยหลัก',
+    'Co-Author' => 'ผู้วิจัยร่วม',
+    'Corresponding Author' => 'ผู้วิจัยที่รับผิดชอบการติดต่อ',
+    'Issue Number' => 'เลขที่ฉบับ',
+    'Citation' => 'อ้างอิง',
+    'Volume' => 'เล่ม',
+    'Cancel' => 'ยกเลิก',
+
+    // http://127.0.0.1:8000/researchProjects/create
+    'Whoops' => 'อุ๊ปส์!',
+    'There were some problems with your input' => 'มีปัญหาบางอย่างกับข้อมูลที่คุณป้อน',
+    'Add Research Project' => 'เพิ่มโครงการวิจัย',
+    'Fill in the form below to add a new research project' => 'กรอกแบบฟอร์มด้านล่างเพื่อเพิ่มโครงการวิจัยใหม่',
+    'Project Name' => 'ชื่อโครงการ',
+    'Start Date' => 'วันที่เริ่มต้น',
+    'End Date' => 'วันที่สิ้นสุด',
+    'Select Fund' => 'เลือกทุน',
+    'Project Year' => 'ปีของโครงการ',
+    'Budget' => 'งบประมาณ',
+    'Responsible Department' => 'หน่วยงานที่รับผิดชอบ',
+    'Select Department' => 'เลือกหน่วยงาน',
+    'Project Details' => 'รายละเอียดโครงการ',
+    'Note' => 'หมายเหตุ',
+    'Status' => 'สถานะ',
+    'Select Status' => 'เลือกสถานะ',
+    'Submitted' => 'ส่งแล้ว',
+    'In Progress' => 'กำลังดำเนินการ',
+    'Closed' => 'ปิดโครงการ',
+    'Project Leader' => 'หัวหน้าโครงการ',
+    'Select User' => 'เลือกผู้ใช้',
+    'Internal Co-Leader' => 'ผู้ร่วมโครงการภายใน',
+    'External Co-Leader' => 'ผู้ร่วมโครงการภายนอก',
+    'Title' => 'คำนำหน้า',
+    'First Name' => 'ชื่อ',
+    'Last Name' => 'นามสกุล',
+    'Add More Person' => 'เพิ่มบุคคลเพิ่มเติม',
+    'Record Inserted Successfully' => 'บันทึกข้อมูลสำเร็จ',
+    'Sorry! Cannot remove first row!' => 'ขออภัย! ไม่สามารถลบแถวแรกได้!',
+    'Invalid Date Range' => 'ช่วงวันที่ไม่ถูกต้อง',
 
 
     //cpresearchV2/resources/views/funds/index.blade.php
@@ -648,5 +723,85 @@ return [
 
 
 
+    // cpresearchV2\resources\views\books\edit.blade.php
+    "edit_book_details" => "แก้ไขรายละเอียดหนังสือ",
+    "enter_book_details" => "กรอกข้อมูลรายละเอียดหนังสือ",
+    "book_title" => "ชื่อหนังสือ",
+    "book_publisher" => "สถานที่ตีพิมพ์",
+    "publication_year" => "ปีที่เผยแพร่ (พ.ศ.)",
+    "number_of_pages" => "จำนวนหน้า (Page)",
+    "submit" => "ยืนยัน",
+    "cancel" => "ยกเลิก",
 
+    // cpresearchV2\resources\views\patents\edit.blade.php
+    "patents_edit_details" => "แก้ไขรายละเอียด",
+    "patents_enter_details" => "กรอกข้อมูลรายละเอียดลิขสิทธิ์",
+    "patents_name" => "ชื่อ",
+    "patents_type" => "ประเภท",
+    "date_of_rights" => "วันที่ได้รับสิทธิ์",
+    "registration_number" => "เลขทะเบียน",
+    "internal_professors" => "อาจารย์ในสาขา",
+    "add_professor" => "เพิ่มอาจารย์",
+    "select_user" => "เลือกผู้ใช้",
+    "external_persons" => "บุคคลภายนอก",
+    "add_person" => "เพิ่มบุคคล",
+    "first_name" => "ชื่อ",
+    "last_name" => "นามสกุล",
+    "enter_name" => "กรอกชื่อของคุณ",
+    "remove" => "ลบ",
+
+    //  cpresearchV2\resources\views\roles\edit.blade.php
+    'edit_role' => "แก้ไขบทบาท",
+    'role_name' => "ชื่อบทบาท",
+    'permission' => "สิทธิ์การเข้าถึง",
+    'back' => "กลับ",
+
+    // cpresearchV2\resources\views\permissions\edit.blade.php
+    'edit_permission' => "แก้ไขสิทธิ์",
+    'permission_name' => "ชื่อสิทธิ์",
+
+    // cpresearchV2\resources\views\users\edit.blade.php
+    'edit_user_data' => "แก้ไขข้อมูลผู้ใช้งาน",
+    'edit_user_details' => "กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน",
+    'first_name_th' => "ชื่อ (ภาษาไทย)",
+    'last_name_th' => "นามสกุล (ภาษาไทย)",
+    'first_name_en' => "ชื่อ (English)",
+    'last_name_en' => "นามสกุล (English)",
+    'email' => "อีเมล",
+    'password' => "รหัสผ่าน",
+    'confirm_password' => "ยืนยันรหัสผ่าน",
+    'role' => "บทบาท",
+    'status' => "สถานะ",
+    'department' => "หน่วยงาน",
+    'program' => "หลักสูตร",
+    'scholar_id' => "Scholar ID",
+
+    // API Status Page
+    'api_status' => 'สถานะ API',
+    'api_name' => 'ชื่อ API',
+    'status' => 'สถานะ',
+    'last_checked' => 'ตรวจสอบล่าสุด',
+    'message' => 'ข้อความ',
+    'active' => 'ใช้งานอยู่',
+    'inactive' => 'ไม่ได้ใช้งาน',
+
+
+    // Highlight Page
+    'highlight' => 'ไฮไลท์',
+    'welcome_higlight' => 'ยินดีต้อนรับสู่หน้ารายการไฮไลท์ กรุณาสร้างไฮไลท์ที่คุณภาคภูมิใจ.',
+
+    // Assistant Researcher Page
+    'assistant_researcher' => 'ผู้ช่วยนักวิจัย',
+    'assistant_wanted' => 'ต้องการผู้ช่วยวิจัย',
+    'assistant_welcome' => 'ยินดีต้อนรับสู่หน้าประกาศรับสมัครผู้ช่วยวิจัย หน้านี้มีไว้เพื่อช่วยให้หัวหน้าโครงการค้นหาผู้ช่วยสำหรับงานที่เกี่ยวข้องกับการวิจัย.',
+
+    //Certificate Form Page
+    'certificate_form' => 'แบบฟอร์มใบรับรอง',
+    'welcome_certificate' => 'ยินดีต้อนรับสู่หน้าแบบฟอร์มใบรับรอง กรุณาดำเนินการส่งข้อมูลของคุณ',
+
+    // Navbar
+    'for_student' => 'สำหรับนักศึกษา',
+    'for_head' => 'สำหรับหัวหน้าโครงการ',
+    'for_staff' => 'สำหรับเจ้าหน้าที่',
+    'research_API' => 'API การวิจัย',
 ];
