@@ -70,7 +70,7 @@
                             <input type="text" name="paper_name" class="form-control" placeholder="ชื่อเรื่อง">
                         </div>
                     </div>
-                    
+
                     <!-- <div class="form-group row">
                         <label for="exampleInputpaper_type" class="col-sm-3 col-form-label"><b>ประเภทของเอกสาร</b></label>
                         <div class="col-sm-9">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="exampleInputpublicatione" class="col-sm-3 col-form-label"><b>Publication
-                                </b></label>
+                            </b></label>
                         <div class="col-sm-9">
                             <select id='publication' class="custom-select my-select" style='width: 200px;' name="publication">
                                 <option value="" disabled selected> โปรดระบุประเภท </option>
@@ -148,7 +148,7 @@
                             <input type="text" name="paper_sourcetitle" class="form-control" placeholder="sourcetitle">
                         </div>
                     </div>
-            
+
                     <div class="form-group row">
                         <label for="exampleInputpaper_yearpub" class="col-sm-3 col-form-label"><b>ปีที่ตีพิมพ์</b></label>
                         <div class="col-sm-4">
@@ -206,9 +206,27 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamicAddRemove">
                                     <tr>
-                                        <td><select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
-                                                <option value=''>Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}
-                                                </option>@endforeach
+                                        <td>
+                                            @php
+                                            // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                                            $userRole = DB::table('model_has_roles')
+                                            ->where('model_id', Auth::user()->id)
+                                            ->value('role_id');
+                                            @endphp
+
+                                            <select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
+                                                @if($userRole == 1) {{-- ถ้าเป็น admin --}}
+                                                <option value=''>Select User</option>
+                                                @foreach($users as $user)
+                                                <option value="{{ $user->id }}">
+                                                    {{ $user->fname_th }} {{ $user->lname_th }}
+                                                </option>
+                                                @endforeach
+                                                @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
+                                                <option value="{{ Auth::user()->id }}" selected>
+                                                    {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                                                </option>
+                                                @endif
                                             </select>
                                         </td>
                                         <td><select id='pos' class="custom-select my-select" style='width: 200px;' name="pos[]">
@@ -241,7 +259,6 @@
                                             </select>
                                         </td>
                                         <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
-                                        
                                     </tr>
                                 </table>
                                 <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
@@ -335,6 +352,37 @@
                 $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
             });
         }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function updateUserSelection() {
+            let firstAuthorSelected = false;
+
+            document.querySelectorAll(".pos-select").forEach((select, index) => {
+                if (select.value === "1") { // ตรวจสอบ First Author
+                    firstAuthorSelected = true;
+                }
+
+                let userSelect = document.querySelector(`#selUser${index}`);
+                if (userSelect) {
+                    if (firstAuthorSelected) {
+                        userSelect.disabled = false; // เปิดให้เลือก user ในช่องที่เป็น First Author
+                    } else if (userSelect.value !== "{{ Auth::user()->id }}") {
+                        userSelect.disabled = true; // ปิดการเลือก user อื่นสำหรับ Co-Author และ Corresponding
+                    }
+                }
+            });
+        }
+
+        // ตรวจจับการเปลี่ยนค่า First Author
+        document.addEventListener("change", function(event) {
+            if (event.target.classList.contains("pos-select")) {
+                updateUserSelection();
+            }
+        });
+
+        updateUserSelection();
     });
 </script>
 @endsection

@@ -96,6 +96,11 @@
                             <div class="count" id='tci_sum'>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="count" id='scholar_sum'>
+                        </div>
+                        </div>
+
 
                     </div>
                     <br>
@@ -147,6 +152,9 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">Scholar</button>
         </li>
     </ul>
     <br>
@@ -453,7 +461,58 @@
             </table>
         </div>
 
+        <div class="tab-pane fade" id="scholar" role="tabpanel" aria-labelledby="scholar-tab">
+    <table id="example7" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Year</th>
+                <th>Paper Name</th>
+                <th>Author</th>
+                <th>Document Type</th>
+                <th>Page</th>
+                <th>Journals/Transactions</th>
+                <th>Citations</th>
+                <th>Doi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($papers_scholar as $n => $paper)
+            <tr>
+                <td> {{$n+1}}</td>
+                <td>{{ $paper->paper_yearpub }}</td>
+                <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
+                <td>
+                    @foreach ($paper->author as $author)
+                    <span>
+                        <a>{{$author->author_fname}} {{$author->author_lname}}</a>
+                    </span>
+                    @endforeach
+                    @foreach ($paper->teacher as $author)
+                    <span>
+                        <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                            <teacher>{{$author->fname_en}} {{$author->lname_en}}</teacher>
+                        </a>
+                    </span>
+                    @endforeach
+                </td>
+                <td>{{$paper->paper_type}}</td>
+                <td>{{$paper->paper_page}}</td>
+                <td>{{$paper->paper_sourcetitle}}</td>
+                <td>{{$paper->paper_citation}}</td>
+                <td>{{$paper->paper_doi}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+
+
     </div>
+    
+
+    
 </div>
 <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.js"></script> -->
@@ -485,6 +544,9 @@
         var table6 = $('#example6').DataTable({
             responsive: true,
         });
+        var table7 = $('#example7').DataTable({
+    responsive: true,
+        });
 
 
         $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
@@ -504,6 +566,10 @@
             if (tabID === '#patent') {
                 table6.columns.adjust().draw()
             }
+            if (tabID === '#scholar') {
+                table7.columns.adjust().draw()
+            }
+
 
         });
 
@@ -636,12 +702,15 @@
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
+    var paper_scholar_s = <?php echo $paper_scholar_s; ?>;
+
     //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
     let sumwos = 0;
     let sumbook = 0;
     let sumpatent = 0;
+    let sumscholar = 0;
     (function($) {
         for (let i = 0; i < paper_scopus_s.length; i++) {
             sumsco += paper_scopus_s[i];
@@ -658,7 +727,10 @@
         for (let i = 0; i < paper_patent_s.length; i++) {
             sumpatent += paper_patent_s[i];
         }
-        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent;
+        for (let i = 0; i < paper_scholar_s.length; i++) {
+            sumscholar += paper_scholar_s[i];
+        }
+        let sum = sumsco + sumtci + sumwos + sumbook + sumpatent + sumscholar;
 
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
@@ -676,6 +748,10 @@
         document.getElementById("tci_sum").innerHTML += `  
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
+        
+        document.getElementById("scholar_sum").innerHTML += `  
+                <h2 class="timer count-title count-number" data-to="${sumscholar}" data-speed="1500"></h2>
+                <p class="count-text ">Google Scholar</p>`
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');

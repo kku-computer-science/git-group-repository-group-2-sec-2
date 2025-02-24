@@ -43,16 +43,33 @@
                 aria-label="Slide 3"></button> -->
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
-                </div>
+                @if(App::getLocale() == 'zh')  {{-- ถ้าเป็นภาษาจีน --}}
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/Banner1_zh.png') }}" class="d-block w-100" alt="Banner in Chinese">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/Banner2_zh.png') }}" class="d-block w-100" alt="Banner in Chinese">
+                    </div>
+                @elseif(App::getLocale() == 'en')  {{-- ถ้าเป็นภาษาอังกฤษ --}}
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/Banner1_en.png') }}" class="d-block w-100" alt="Banner in English">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/Banner2_en.png') }}" class="d-block w-100" alt="Banner in English">
+                    </div>
+                @else {{-- ค่าเริ่มต้น (ภาษาไทยหรือภาษาอื่น ๆ) --}}
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/Banner1.png') }}" class="d-block w-100" alt="Banner in Default Language">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/Banner2.png') }}" class="d-block w-100" alt="Banner in Default Language">
+                    </div>
+                @endif
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
             </div> -->
             </div>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -140,7 +157,7 @@
                         @if (!$loop->last)
                         {{$n}}
                         @else
-                        Before {{$n}}
+                        {{trans('message.before')}} {{$n}}
                         @endif
 
                     </button>
@@ -161,7 +178,7 @@
                                     <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[อ้างอิง]</button>
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[{{trans('message.reference')}}]</button>
                                 </p>
                             </div>
                         </div>
@@ -253,7 +270,23 @@
         responsive: true,
         maintainAspectRatio: false,
         datasetFill: false,
+        /*P'France_new*/
         scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: @json(__('message.number'))
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: @json(__('message.year'))
+                }
+            }]
+        },
+
+        /*scales: {
             yAxes: [{
                 formatter: function() {
                     return Math.abs(this.value);
@@ -274,14 +307,21 @@
                     labelString: 'Year'
                 }
             }]
-        },
+        },*/
 
+        /* P'france edit
         title: {
             display: true,
             text: 'Report the total number of articles ( 5 years : cumulative)',
             fontSize: 20
+        }*/
+        /*P'France_new*/
+        title: {
+            display: true,
+            text: @json(__('message.report_total_articles')),
+            fontSize: 20
         }
-
+        /*P'France_new*/
 
     }
 
