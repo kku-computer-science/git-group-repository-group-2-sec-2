@@ -170,7 +170,7 @@ return [
 'Cancel' => 'Cancel',
 'Whoops' => 'Whoops',
 'There were some problems with your input' => 'There were some problems with your input',
-];
+
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
     'no_dot' => 'No.',
