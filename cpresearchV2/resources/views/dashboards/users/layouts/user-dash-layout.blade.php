@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body>
     <div class=" container-scroller sidebar-dark">
-        <!-- navbar ข้างบน 
+        <!-- navbar ข้างบน
     -->
         <nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -94,30 +94,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             @endforeach
                         </div>
                     </li>
-                    
+
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
                             <input type="search" class="form-control" placeholder="Search Here" title="Search here">
                         </form>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <span
-                                class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
-                            {{ Config::get('languages')[App::getLocale()]['display'] }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach (Config::get('languages') as $lang => $language)
-                            @if ($lang != App::getLocale())
-                            <a class="dropdown-item" href="{{ route('langswitch', $lang) }}"><span
-                                    class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
-                                {{$language['display']}}</a>
-                            @endif
-                            @endforeach
-                        </div>
-                    </li>
+
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -153,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a> -->
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById ('logout-form').submit();"> {{ __('Logout') }} <i class="mdi mdi-logout"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
