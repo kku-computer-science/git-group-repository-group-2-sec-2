@@ -173,11 +173,11 @@
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
                                     </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
@@ -190,7 +190,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top"><i class="mdi mdi-delete"></i></button>
                                     </li>
                                     @endcan
                                 </form>
