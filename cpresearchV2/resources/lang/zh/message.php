@@ -54,6 +54,12 @@ return [
     'of' => '的',
     'previous' => '以前的',
     'next' => '下一個',
+    'empty_table' => '表中没有可用数据',
+    'zero_record' => '未找到匹配的记录',
+    'from' => '從',
+    'filtered' => '已過濾',
+    'total' => '總',
+
 
     //cpresearchV2/app/Http/Controllers/FundController.php
     'fund_created' => '基金创建成功。',

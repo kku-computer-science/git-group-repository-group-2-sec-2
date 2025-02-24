@@ -270,6 +270,11 @@ return [
     'of' => 'of',
     'previous' => 'Previous',
     'next' => 'Next',
+    'empty_table' => 'No data available in table',
+    'zero_record' => 'No matching records found',
+    'from' => 'from',
+    'filtered' => 'filtered',
+    'total' => 'total',
 
     //cpresearchV2/app/Http/Controllers/FundController.php
     'fund_created' => 'Fund created successfully.',

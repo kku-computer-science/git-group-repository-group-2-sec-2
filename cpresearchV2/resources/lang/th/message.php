@@ -182,6 +182,11 @@ return [
     'of' => 'จาก',
     'previous' => 'ก่อนหน้า',
     'next' => 'ถัดไป',
+    'empty_table' => 'ไม่มีข้อมูลในตาราง',
+    'zero_record' => 'ไม่พบข้อมูลที่ตรงกัน',
+    'from' => 'จาก',
+    'filtered' => 'กรองจากทั้งหมด',
+    'total' => 'ทั้งหมด',
 
     //cpresearchV2/app/Http/Controllers/FundController.php
     'fund_created' => 'สร้างทุนวิจัยสำเร็จ',

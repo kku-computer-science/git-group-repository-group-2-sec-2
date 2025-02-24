@@ -34,8 +34,51 @@
 
                             <td>{{ $i+1 }}</td>
                             <td>{{ Str::limit($fund->fund_name,80) }}</td>
-                            <td>{{ $fund->fund_type }}</td>
-                            <td>{{ $fund->fund_level }}</td>
+                            <td>
+                                @php
+                                $locale = app()->getLocale();
+                                $fundType = $fund->fund_type;
+
+                                if ($locale == 'en') {
+                                $translations = [
+                                'ทุนภายใน' => 'Internal Fund',
+                                'ทุนภายนอก' => 'External Fund',
+                                ];
+                                $fundType = $translations[$fundType] ?? $fundType;
+                                } elseif ($locale == 'zh') {
+                                $translations = [
+                                'ทุนภายใน' => '内部资金',
+                                'ทุนภายนอก' => '外部资金',
+                                ];
+                                $fundType = $translations[$fundType] ?? $fundType;
+                                }
+                                @endphp
+                                {{ $fundType }}
+                            </td>
+
+                            <td>
+                                @php
+                                $locale = app()->getLocale();
+                                $fundLevel = $fund->fund_level; // ค่าจาก database
+
+                                if ($locale == 'en') {
+                                $translations = [
+                                'สูง' => 'High',
+                                'กลาง' => 'Medium',
+                                'ต่ำ' => 'Low',
+                                ];
+                                $fundLevel = $translations[$fundLevel] ?? $fundLevel;
+                                } elseif ($locale == 'zh') {
+                                $translations = [
+                                'สูง' => '高',
+                                'กลาง' => '中',
+                                'ต่ำ' => '低',
+                                ];
+                                $fundLevel = $translations[$fundLevel] ?? $fundLevel;
+                                }
+                                @endphp
+                                {{ $fundLevel }}
+                            </td>
                             <!-- <td>{{ $fund->user->fname_en }} {{ $fund->user->lname_en }}</td> -->
 
                             <td>
@@ -77,23 +120,26 @@
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
-$(document).ready(function() {
-    var table = $('#example1').DataTable({
-        fixedHeader: true,
-        searching: true,
-        lengthChange: true, 
-        language: {
-            search: `{{trans('message.search')}}:`,
-            lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
-            info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
-            paginate: {
-                next: `{{trans('message.next')}}`,
-                previous: `{{trans('message.previous')}}`
+    $(document).ready(function() {
+        var table = $('#example1').DataTable({
+            fixedHeader: true,
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                },
+                emptyTable: `{{trans('message.empty_table')}}`,
+                zeroRecords: `{{trans('message.zero_record')}}`,
+                infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,
             }
-        }
+        });
     });
-});
-
 </script>
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
