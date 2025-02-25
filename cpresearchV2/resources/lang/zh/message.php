@@ -118,6 +118,11 @@ return [
     'Department' => '系',
     'Program' => '课程',
     'Select_Subcategory' => '选择子类别',
+    'Role_Admin' => '管理员',
+    'Role_HeadProject' => '项目负责人',
+    'Role_Staff' => '职员',
+    'Role_Student' => '学生',
+    'Role_Teacher' => '教师',
     'Scholar_ID_(Optional)' => '学者编号 (可选)',
 
     // cpresearchV2/resources/views/users/import.blade.php

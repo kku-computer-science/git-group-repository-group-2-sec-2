@@ -115,6 +115,11 @@ return [
 'Department' => 'หน่วยงาน',
 'Program' => 'สาขาวิชา',
 'Select_Subcategory' => 'เลือกหมวดหมู่ย่อย',
+'Role_Admin' => 'ผู้ดูแลระบบ',
+'Role_HeadProject' => 'หัวหน้าโครงการ',
+'Role_Staff' => 'เจ้าหน้าที่',
+'Role_Student' => 'นักศึกษา',
+'Role_Teacher' => 'อาจารย์',
 'Scholar_ID_(Optional)' => 'รหัสนักวิจัย (ไม่บังคับ)',
 
 // cpresearchV2/resources/views/users/import.blade.php

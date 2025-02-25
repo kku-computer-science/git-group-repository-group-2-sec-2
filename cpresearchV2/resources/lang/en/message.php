@@ -80,6 +80,11 @@ return [
 'Department' => 'Department',
 'Program' => 'Program',
 'Select_Subcategory' => 'Select Subcategory',
+'Role_Admin' => 'Admin',
+'Role_HeadProject' => 'Head of Project',
+'Role_Staff' => 'Staff',
+'Role_Student' => 'Student',
+'Role_Teacher' => 'Teacher',
 'Scholar_ID_(Optional)' => 'Scholar ID (Optional)',
 
 // cpresearchV2/resources/views/users/import.blade.php

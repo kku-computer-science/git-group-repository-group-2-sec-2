@@ -61,37 +61,46 @@
                         </div>
                     </div>
                     <div class="form-group col-sm-8">
-                        <p><b>{{trans('message.Role')}}:</b></p>
-                        <div class="col-sm-8">
-
-                            {!! Form::select('roles[]', $roles,[], array('class' => 'selectpicker','multiple')) !!}
-                        </div>
+                    <p><b>{{ trans('message.Role') }}:</b></p>
+    <div class="col-sm-8">
+        <select class="selectpicker" name="roles[]" multiple title="{{ trans('message.Select_Subcategory') }}">
+            <option value="admin">{{ trans('message.Role_Admin') }}</option>
+            <option value="headproject">{{ trans('message.Role_HeadProject') }}</option>
+            <option value="staff">{{ trans('message.Role_Staff') }}</option>
+            <option value="student">{{ trans('message.Role_Student') }}</option>
+            <option value="teacher">{{ trans('message.Role_Teacher') }}</option>
+        </select>
+    </div>
                     </div>
                     <div class="form-group">
-                        <div class="row">
-                        <div class="col-md-4">
-                        <h6 for="category">{{ trans('message.Department') }} <span class="text-danger">*</span></h6>
-    <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
-        <option>{{ trans('message.Select_Subcategory') }}</option>
-        @foreach ($departments as $cat)
-            @php
-                $locale = app()->getLocale();
-                $department_name = ($locale === 'th') ? $cat->department_name_th : $cat->department_name_en;
-            @endphp
-            <option value="{{ $cat->id }}">{{ $department_name }}</option>
-        @endforeach
-    </select>
+    <div class="row">
+        <div class="col-md-4">
+            <h6 for="category">{{ trans('message.Department') }} <span class="text-danger">*</span></h6>
+            <select class="form-control" name="cat" id="cat" style="width: 100%;" required
+                oninvalid="this.setCustomValidity(getValidationMessage())"
+                oninput="this.setCustomValidity('')">
+                <option value="">{{ trans('message.Select_Subcategory') }}</option>
+                @foreach ($departments as $cat)
+                    @php
+                        $locale = app()->getLocale();
+                        $department_name = ($locale === 'th') ? $cat->department_name_th : $cat->department_name_en;
+                    @endphp
+                    <option value="{{ $cat->id }}">{{ $department_name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <h6 for="subcat">{{ trans('message.Program') }} <span class="text-danger">*</span></h6>
+            <select class="form-control select2" name="sub_cat" id="subcat" required
+                oninvalid="this.setCustomValidity(getValidationMessage())"
+                oninput="this.setCustomValidity('')">
+                <option value="">{{ trans('message.Select_Subcategory') }}</option>
+            </select>
+        </div>
+    </div>
 </div>
 
-                            <div class="col-md-4">
-                                <h6 for="subcat">{{trans('message.Program')}} <span class="text-danger">*</span></h6>
-                                <select class="form-control select2" name="sub_cat" id="subcat" required>
-                                    <option value="">{{trans('message.Select_Subcategory')}}</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <p><b>{{trans('message.Scholar_ID_(Optional)')}}</b></p>
@@ -122,6 +131,16 @@
             });
         });
     });
+
+    function getValidationMessage() {
+        let locale = "{{ app()->getLocale() }}"; // ดึงภาษาปัจจุบัน
+        let messages = {
+            en: "Please select an item in the list.",
+            th: "กรุณาเลือกข้อมูลจากรายการ",
+            zh: "请选择列表中的项目"
+        };
+        return messages[locale] || messages['en']; // ถ้าไม่เจอภาษาที่รองรับ ให้ใช้ภาษาอังกฤษ
+    }
 </script>
 
 @endsection
