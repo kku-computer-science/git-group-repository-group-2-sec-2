@@ -72,16 +72,14 @@ class ResearchProjectController extends Controller
                 'budget' => 'required|numeric',
                 'project_year' => 'required',
                 'fund' => 'required',
-                //'note' => 'required',
                 'head' => 'required'
             ],
-
             [
-                'project_name.required' => 'ต้องใส่ข้อมูล ชื่อโครงการวิจัย',
-                'budget.required' => 'ต้องใส่ข้อมูล งบประมาณ',
-                'project_year.required' => 'ต้องใส่ข้อมูล ปีที่ปีที่ยื่นขอ',
-                'fund.required' => 'ต้องใส่ข้อมูล ทุนวิจัย',
-                'head.required' => 'ต้องใส่ข้อมูล ผู้รับผิดชอบโครงการ',
+                'project_name.required' => __('validation.required', ['attribute' => __('validation.attributes.project_name')]),
+                'budget.required' => __('validation.required', ['attribute' => __('validation.attributes.budget')]),
+                'project_year.required' => __('validation.required', ['attribute' => __('validation.attributes.project_year')]),
+                'fund.required' => __('validation.required', ['attribute' => __('validation.attributes.fund')]),
+                'head.required' => __('validation.required', ['attribute' => __('validation.attributes.head')]),
             ]
         );
         //return $request->fund;

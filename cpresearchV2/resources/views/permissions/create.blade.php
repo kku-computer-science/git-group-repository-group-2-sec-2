@@ -4,7 +4,7 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+            <strong>{{ trans('message.Oops') }}</strong> {{ trans('message.Something went wrong, please check below errors') }}.<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

@@ -72,4 +72,37 @@ return [
 
     'required_field' => '此字段是必填的',
     'attributes' => [],
+
+    // create funds
+    'required' => ':attribute 字段是必填的。',
+    'attributes' => [
+        'fund_name' => '基金名称',
+        'support_resource' => '支持资源',
+    ],
+
+    // create research project
+    'required' => '必须填写 :attribute。',
+    'attributes' => [
+        'project_name' => '研究项目名称',
+        'budget' => '预算',
+        'project_year' => '申请年份',
+        'fund' => '研究基金',
+        'head' => '项目负责人',
+    ],
+
+    // create roles
+    'required' => ':attribute 是必填字段。',
+
+    'attributes' => [
+        'name' => '名称',
+        'permission' => '权限',
+    ],
+
+    //create permissions
+    'required' => '请输入:attribute。',
+
+    'attributes' => [
+        'name' => '名称',
+        'permission' => '权限',
+    ],
 ];

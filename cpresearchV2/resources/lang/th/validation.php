@@ -88,4 +88,37 @@ return [
     'required_field' => 'กรุณากรอกช่องนี้',
 
     'attributes' => [],
+
+    // create funds
+    'required' => 'ต้องระบุช่อง :attribute',
+    'attributes' => [
+        'fund_name' => 'ชื่อกองทุน',
+        'support_resource' => 'แหล่งสนับสนุน',
+    ],
+    
+    // create research project
+    'required' => 'ต้องใส่ข้อมูล :attribute',
+    'attributes' => [
+        'project_name' => 'ชื่อโครงการวิจัย',
+        'budget' => 'งบประมาณ',
+        'project_year' => 'ปีที่ยื่นขอ',
+        'fund' => 'ทุนวิจัย',
+        'head' => 'ผู้รับผิดชอบโครงการ',
+    ],
+
+    // create roles
+    'required' => 'ต้องใส่ข้อมูล :attribute',
+
+    'attributes' => [
+        'name' => 'ชื่อ',
+        'permission' => 'สิทธิ์การใช้งาน',
+    ],
+    
+    // create permissions
+    'required' => 'กรุณากรอก :attribute.',
+
+    'attributes' => [
+        'name' => 'ชื่อ',
+        'permission' => 'สิทธิ์การใช้งาน',
+    ],
 ];
