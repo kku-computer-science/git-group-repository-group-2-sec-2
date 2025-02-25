@@ -1,4 +1,5 @@
 @extends('dashboards.users.layouts.user-dash-layout')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 @section('content')
 <style type="text/css">
     .dropdown-toggle .filter-option {
@@ -238,10 +239,33 @@
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
+                                    @if(isset($paperExternalAuthors) && count($paperExternalAuthors) > 0)
+                                    @foreach($paperExternalAuthors as $index => $author)
+                                    <tr id="row{{ $index }}">
+                                        <td><input type="text" name="fname[]" value="{{ $author->fname }}" placeholder="{{ trans('message.First Name') }}" class="form-control name_list" /></td>
+                                        <td><input type="text" name="lname[]" value="{{ $author->lname }}" placeholder="{{ trans('message.Last Name') }}" class="form-control name_list" /></td>
+                                        <td>
+                                            <select class="custom-select my-select" style='width: 200px;' name="pos2[]">
+                                                <option value="1" {{ $author->position == 1 ? 'selected' : '' }}>{{ trans('message.First Author') }}</option>
+                                                <option value="2" {{ $author->position == 2 ? 'selected' : '' }}>{{ trans('message.Co-Author') }}</option>
+                                                <option value="3" {{ $author->position == 3 ? 'selected' : '' }}>{{ trans('message.Corresponding Author') }}</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            @if($index > 0)
+                                            <button type="button" name="remove" id="{{ $index }}" class="btn btn-danger btn-sm btn_remove">X</button>
+                                            @else
+                                            <button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    @else
                                     <tr>
                                         <td><input type="text" name="fname[]" placeholder="{{ trans('message.First Name') }}" class="form-control name_list" /></td>
                                         <td><input type="text" name="lname[]" placeholder="{{ trans('message.Last Name') }}" class="form-control name_list" /></td>
-                                        <td><select id='pos2' class="custom-select my-select" style='width: 200px;' name="pos2[]">
+                                        <td>
+                                            <select id='pos2' class="custom-select my-select" style='width: 200px;' name="pos2[]">
                                                 <option value="1">{{ trans('message.First Author') }}</option>
                                                 <option value="2">{{ trans('message.Co-Author') }}</option>
                                                 <option value="3">{{ trans('message.Corresponding Author') }}</option>
@@ -249,8 +273,8 @@
                                         </td>
                                         <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
                                     </tr>
+                                    @endif
                                 </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
                             </div>
                         </div>
                     </div>
@@ -266,9 +290,9 @@
 <script>
     $(document).ready(function() {
 
-        $("#head0").select2()
-        $("#fund").select2()
-        //$("#selUser0").select2()
+        $("#head0").select2();
+        $("#fund").select2();
+        //$("#selUser0").select2();
         var papers = <?php echo $paper['teacher']; ?>;
         var i = 0;
         console.log(papers);
@@ -277,26 +301,20 @@
             //console.log(obj.pivot.author_type)
 
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2" >Co-Author</option><option value="3" >Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2" >{{ trans("message.Co-Author") }}</option><option value="3" >{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             document.getElementById("selUser" + i).value = obj.id;
             document.getElementById("pos" + i).value = obj.pivot.author_type;
-            $("#selUser" + i).select2()
-
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
+            $("#selUser" + i).select2();
         }
 
-
         $("#add-btn2").click(function() {
-
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{ trans("message.Select User") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2">{{ trans("message.Co-Author") }}</option><option value="3">{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
-            $("#selUser" + i).select2()
+            $("#selUser" + i).select2();
         });
-
 
         $(document).on('click', '.remove-tr', function() {
             $(this).parents('tr').remove();
@@ -305,48 +323,61 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-        var patent = <?php echo $paper->author; ?>;
+    document.addEventListener("DOMContentLoaded", function() {
+        function updateUserSelection() {
+            let firstAuthorSelected = false;
 
-        var postURL = "<?php echo url('addmore'); ?>";
-        var i = 0;
-        //console.log(patent)
+            document.querySelectorAll(".pos-select").forEach((select, index) => {
+                if (select.value === "1") { // ตรวจสอบ First Author
+                    firstAuthorSelected = true;
+                }
 
-        for (i = 0; i < patent.length; i++) {
-            //console.log(patent);
-            var obj2 = patent[i];
-            console.log(obj2.pivot.author_type)
-            $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" value="' + obj2.author_fname + '" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" value="' + obj2.author_lname + '" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="poss' + i + '" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
-            //document.getElementById("selUser" + i).value = obj.id;
-            //console.log(obj.author_fname)
-            // let doc=document.getElementById("row" + i)
-            // doc.setAttribute('fname','aaa');
-            // doc.setAttribute('lname','bbb');
-            //document.getElementById("row" + i).value = obj.author_lname;
-            //document.getAttribute("lname").value = obj.author_lname;
-            //$("#selUser" + i).select2()
-            document.getElementById("poss" + i).value = obj2.pivot.author_type;
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
+                let userSelect = document.querySelector(`#selUser${index}`);
+                if (userSelect) {
+                    if (firstAuthorSelected) {
+                        userSelect.disabled = false; // เปิดให้เลือก user ในช่องที่เป็น First Author
+                    } else if (userSelect.value !== "{{ Auth::user()->id }}") {
+                        userSelect.disabled = true; // ปิดการเลือก user อื่นสำหรับ Co-Author และ Corresponding
+                    }
+                }
+            });
         }
+
+        // ตรวจจับการเปลี่ยนค่า First Author
+        document.addEventListener("change", function(event) {
+            if (event.target.classList.contains("pos-select")) {
+                updateUserSelection();
+            }
+        });
+
+        updateUserSelection();
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var i = 1;
 
         $('#add').click(function() {
             i++;
-            $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="poss' + i + '"class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
+            $('#dynamic_field').append('<tr id="row' + i + '" class="dynamic-added">' +
+                '<td><input type="text" name="fname[]" placeholder="{{ trans("message.First Name") }}" class="form-control name_list" /></td>' +
+                '<td><input type="text" name="lname[]" placeholder="{{ trans("message.Last Name") }}" class="form-control name_list" /></td>' +
+                '<td><select class="custom-select my-select" style="width: 200px;" name="pos2[]">' +
+                '<option value="1">{{ trans("message.First Author") }}</option>' +
+                '<option value="2">{{ trans("message.Co-Author") }}</option>' +
+                '<option value="3">{{ trans("message.Corresponding Author") }}</option>' +
+                '</select></td>' +
+                '<td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn-sm btn_remove">X</button></td>' +
+                '</tr>');
         });
 
         $(document).on('click', '.btn_remove', function() {
             var button_id = $(this).attr("id");
-            $('#row' + button_id + '').remove();
+            $('#row' + button_id).remove();
         });
-
     });
 </script>
-
 @endsection
 <!-- <form action="{{ route('papers.update',$paper->id) }}" method="POST">
         @csrf
