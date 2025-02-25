@@ -31,7 +31,7 @@
                         @endforeach
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-5">{{trans('message.submit')}}</button>
+                <button type="submit" class="btn btn-primary mt-5">{{trans('message.Submit')}}</button>
                 <a class="btn btn-light mt-5" href="{{ route('roles.index') }}">{{trans('message.back')}}</a>
                 {!! Form::close() !!}
 

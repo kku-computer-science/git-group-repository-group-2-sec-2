@@ -220,6 +220,7 @@ return [
 
     // http://127.0.0.1:8000/roles/create
     'Create Role' => 'Create Role',
+    'edit_role' => 'Edit Role',
     'Role Name' => 'Role Name',
     'Roles' => 'Roles',
     'Role' => 'Role',
