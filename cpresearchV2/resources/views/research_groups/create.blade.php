@@ -66,6 +66,9 @@
                         <input type="file" name="group_image" class="form-control" value="{{ old('group_image') }}">
                     </div>
                 </div>
+                @php
+    $locale = app()->getLocale(); // ดึงภาษาปัจจุบันของระบบ
+@endphp
                 <div class="form-group row">
                     <p class="col-sm-3"><b>{{trans('message.Research_Group_Leader')}}</b></p>
                     <div class="col-sm-8">

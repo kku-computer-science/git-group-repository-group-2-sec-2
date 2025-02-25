@@ -15,6 +15,15 @@
             $group_name = $rg->{'group_name_' . $locale} ?? 'N/A';
             $group_desc = $rg->{'group_desc_' . $locale} ?? 'N/A';
         }
+
+        // แมปตำแหน่งอาจารย์จากภาษาอังกฤษเป็นภาษาจีน
+        $positionMap = [
+            'Assoc. Prof. Dr.' => '副教授 博士',
+            'Prof. Dr.'        => '教授 博士',
+            'Asst. Prof. Dr.'  => '助理教授 博士',
+            'Asst. Prof.'      => '助理教授',
+            'Lecturer'         => '讲师',
+        ];
     @endphp
     <div class="card mb-4">
         <div class="row g-0">
@@ -29,7 +38,7 @@
                             @php
                                 $fname = ($locale === 'zh') ? ($r->fname_en ?? 'N/A') : ($r->{'fname_' . $locale} ?? 'N/A');
                                 $lname = ($locale === 'zh') ? ($r->lname_en ?? 'N/A') : ($r->{'lname_' . $locale} ?? 'N/A');
-                                $position = ($locale === 'zh') ? '教授' : ($r->{'position_' . $locale} ?? $r->position_en ?? 'N/A');
+                                $position = ($locale === 'zh') ? ($positionMap[$r->position_en] ?? $r->position_en) : ($r->{'position_' . $locale} ?? $r->position_en ?? 'N/A');
                             @endphp
                             {{ $position }} {{ $fname }} {{ $lname }}
                             <br>
