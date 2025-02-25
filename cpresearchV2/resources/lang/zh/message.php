@@ -245,9 +245,8 @@ return [
 'Record Inserted Successfully' => '记录插入成功',
 'Sorry! Cannot remove first row!' => '对不起！无法删除第一行！',
 'Invalid Date Range' => '无效的日期范围',
-];
 
-    // cpresearchV2\resources\views\welcome.blade.php
+// cpresearchV2\resources\views\welcome.blade.php
     'welcome_message' => '欢迎来到计算机科学系的研究数据管理系统',
 
     //cpresearchV2/resources/views/funds/index.blade.php
