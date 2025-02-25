@@ -69,19 +69,25 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
-                                <h6 for="category">{{trans('message.Department')}} <span class="text-danger">*</span></h6>
-                                <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
-                                    <option>{{trans('message.Select_Subcategory')}}</option>
-                                    @foreach ($departments as $cat)
-                                    <option value="{{$cat->id}}">{{ $cat->department_name_en }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-md-4">
+                        <h6 for="category">{{ trans('message.Department') }} <span class="text-danger">*</span></h6>
+    <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
+        <option>{{ trans('message.Select_Subcategory') }}</option>
+        @foreach ($departments as $cat)
+            @php
+                $locale = app()->getLocale();
+                $department_name = ($locale === 'th') ? $cat->department_name_th : $cat->department_name_en;
+            @endphp
+            <option value="{{ $cat->id }}">{{ $department_name }}</option>
+        @endforeach
+    </select>
+</div>
+
                             <div class="col-md-4">
                                 <h6 for="subcat">{{trans('message.Program')}} <span class="text-danger">*</span></h6>
                                 <select class="form-control select2" name="sub_cat" id="subcat" required>
                                     <option value="">{{trans('message.Select_Subcategory')}}</option>
+                                    
                                 </select>
                             </div>
                         </div>

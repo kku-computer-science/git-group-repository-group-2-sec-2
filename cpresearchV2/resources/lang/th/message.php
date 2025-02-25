@@ -75,6 +75,8 @@ return [
 'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
 'Create_Department' => 'สร้างหน่วยงาน',
 'Departments' => 'หน่วยงาน',
+'error_title' => 'อุ๊ปส์!',
+'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง',
 
 // cpresearchV2/resources/views/books/create.blade.php
 'Add_Book' => 'เพิ่มหนังสือ',
@@ -91,11 +93,13 @@ return [
 'Research_Group_Name_EN' => 'ชื่อกลุ่มวิจัย (ภาษาอังกฤษ)',
 'Research_Group_Description_TH' => 'คำอธิบายกลุ่มวิจัย (ภาษาไทย)',
 'Research_Group_Description_EN' => 'คำอธิบายกลุ่มวิจัย (ภาษาอังกฤษ)',
+'Research_Group_Detail_TH' => 'รายละเอียดกลุ่มวิจัย (ภาษาไทย)',
+'Research_Group_Detail_EN' => 'รายละเอียดกลุ่มวิจัย (ภาษาอังกฤษ)',
 'Image' => 'รูปภาพ',
 'Research_Group_Leader' => 'หัวหน้ากลุ่มวิจัย',
 'Research_Group_Members' => 'สมาชิกกลุ่มวิจัย',
 'Back' => 'ย้อนกลับ',
-
+'Select_User' => 'เลือกผู้ใช้',
 
 // 'cpresearchV2/resources/views/users/create.blade.php
 'Add_User' => 'เพิ่มผู้ใช้',

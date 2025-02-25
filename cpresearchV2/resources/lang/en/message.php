@@ -40,6 +40,8 @@ return [
 'Department_Name_EN' => 'Department Name (EN)',
 'Create_Department' => 'Create Department',
 'Departments' => 'Departments',
+'error_title' => 'Oops!',
+'error_message' => 'Something went wrong, please check the errors below.',
 
 // cpresearchV2/resources/views/books/create.blade.php
 'Add_Book' => 'Add Book',
@@ -56,10 +58,13 @@ return [
 'Research_Group_Name_EN' => 'Research Group Name (EN)',
 'Research_Group_Description_TH' => 'Research Group Description (TH)',
 'Research_Group_Description_EN' => 'Research Group Description (EN)',
+'Research_Group_Detail_TH' => 'Research Group Detail (TH)',
+'Research_Group_Detail_EN' => 'Research Group Detail (EN)',
 'Image' => 'Image',
 'Research_Group_Leader' => 'Research Group Leader',
 'Research_Group_Members' => 'Research Group Members',
 'Back' => 'Back',
+'Select_User' => 'Select User',
 
 // cpresearchV2/resources/views/users/create.blade.php
 'Add_User' => 'Add User',
