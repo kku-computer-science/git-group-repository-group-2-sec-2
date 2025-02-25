@@ -864,7 +864,17 @@ if ($locale === 'zh') {
                             @endforeach
                             @foreach ($paper->user as $author)
                             <span>
-                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                            <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
                             </span>
                             @endforeach
                         </td>

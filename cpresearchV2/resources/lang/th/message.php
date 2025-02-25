@@ -128,7 +128,7 @@ return [
 'Supporting Agency / Research Project' => 'หน่วยงานสนับสนุน / โครงการวิจัย',
 'Support Resource' => 'ทรัพยากรสนับสนุน',
 
-//
+// http://127.0.0.1:8000/patents/create
 'Add Academic Work' => 'เพิ่มผลงานวิชาการด้านอื่นๆ',
 'Fill in the form below to add a new academic work' => 'กรอกข้อมูลรายละเอียดผลงานวิชาการด้านอื่นๆ',
 'Academic Work Name' => 'ชื่อ (สิทธิบัตร,อนุสิทธิบัตร, ลิขสิทธิ์)',

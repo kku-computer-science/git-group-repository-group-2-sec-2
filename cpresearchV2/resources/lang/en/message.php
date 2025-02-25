@@ -133,7 +133,7 @@ return [
 
 'Support Resource' => 'Support Resource',
 
-// http://127.0.0.1:8000/funds/create
+// http://127.0.0.1:8000/patents/create
 'Add Academic Work' => 'Add Academic Work',
 'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
 'Academic Work Name' => 'Academic Work Name',
@@ -171,7 +171,7 @@ return [
 'Whoops' => 'Whoops',
 'There were some problems with your input' => 'There were some problems with your input',
 
-// http://
+// http://127.0.0.1:8000/papers/create
     'Please specify the source' => 'Please specify the source',
     'Add Paper' => 'Add Paper',
     'Fill in the form below to add a new paper' => 'Fill in the form below to add a new paper',
