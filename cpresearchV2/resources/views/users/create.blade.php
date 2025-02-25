@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h6 for="subcat">{{ trans('message.Program') }} <span class="text-danger">*</span></h6>
-                                <select class="form-control select2" name="sub_cat" id="subcat" required>
+                                <select class="form-control select2" name="sub_cat" id="subcat" required oninvalid="this.setCustomValidity('{{trans('message.Program')}}')" oninput="setCustomValidity('')" >
                                     <option value="">{{ trans('message.Select') }}</option>
                                 </select>
                             </div>
