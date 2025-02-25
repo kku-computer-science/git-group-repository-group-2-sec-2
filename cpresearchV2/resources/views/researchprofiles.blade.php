@@ -53,14 +53,276 @@
                         @else
                         <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>
                             @endif</h6>
-                        <h6 class="card-text1"><b>{{$res->academic_ranks_en}}</b></h6>
+                            <h6 class="card-text1"><b>{{$res->{'academic_ranks_' . app()->getLocale()} }}</b></h6>
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
                         <h6 class="card-text1">E-mail: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
+                        @php
+
+$edu_qua_en = [
+    'วท.บ. (สถิติ)' => 'B.Sc. (Statistics)',
+    'พบ.ม (สถิติประยุกต์)' => 'M.Sc. (Applied Statistics)',
+    'วท.ด. (วิทยาการคอมพิวเตอร์)' => 'Sc.D. (Computer Science)',
+    'วท.บ. (คณิตศาสตร์)' => 'B.Sc. (Mathematics)',
+    'วท.ม. (วิทยาศาสตร์คอมพิวเตอร์)' => 'M.Sc. (Computer Science)',
+    'ปร.ด. (วิทยาการคอมพิวเตอร์)' => 'Ph.D. (Computer Science)',
+    'วท.บ. (ฟิสิกส์)' => 'B.Sc. (Physics)',
+    'วท.ม. (วิทยาการคอมพิวเตอร์)' => 'M.Sc. (Computer Science)',
+    'Ph.D. (Interdisciplinary Intelligent Systems Engineering)' => 'Ph.D. (Interdisciplinary Intelligent Systems Engineering)',
+    'พบ.ม. (สถิติประยุกต์)' => 'M.Sc. (Applied Statistics)',
+    'D.Tech.Sc. (Computer Science)' => 'D.Tech.Sc. (Computer Science)',
+    'สถ.บ. (สถาปัตยกรรม)' => 'B.Arch. (Architecture)',
+    'วท.ม.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => 'M.Sc. (Remote Sensing and Geographic Information Systems)',
+    'วศ.ด. (วิศวกรรมสำรวจ)' => 'Ph.D. (Survey Engineering)',
+    'พบ.ม. สถิติประยุกต์ (สาขาวิทยาการคอมพิวเตอร์)' => 'M.Sc. (Applied Statistics, Computer Science)',
+    'วท.บ. (เคมีเทคนิค/เคมีวิศวกรรม)' => 'B.Sc. (Chemical Technology/Chemical Engineering)',
+    'วศ.บ. (วิศวกรรมคอมพิวเตอร์)' => 'B.Eng. (Computer Engineering)',
+    'MA.Sc. (Electronic Systems  Engineering)' => 'MA.Sc. (Electronic Systems Engineering)',
+    'Ph.D. (Electronic Systems Engineering)' => 'Ph.D. (Electronic Systems Engineering)',
+    'วท.บ. (ภูมิศาสตร์)' => 'B.Sc. (Geography)',
+    'วท.บ. (วิทยาการคอมพิวเตอร์)' => 'B.Sc. (Computer Science)',
+    'M.Sc. (Computer Science)' => 'M.Sc. (Computer Science)',
+    '-' => '-',
+    'วท.ม.  (สถิติประยุกต์และเทคโนโลยีสารสนเทศ)' => 'M.Sc. (Applied Statistics and Information Technology)',
+    'Ph.D. (Business Information  Systems)' => 'Ph.D. (Business Information Systems)',
+    'อส.บ. (เทคโนโลยีไฟฟ้าอุตสาหกรรม)' => 'B.Eng. (Industrial Electrical Technology)',
+    'M.Sc. (Agricultural Engineering)' => 'M.Sc. (Agricultural Engineering)',
+    'Ph.D. (Agricultural Engineering)' => 'Ph.D. (Agricultural Engineering)',
+    'วศ.ม. (วิศวกรรมคอมพิวเตอร์)' => 'M.Eng. (Computer Engineering)',
+    'วศ.ด. (วิศวกรรมคอมพิวเตอร์)' => 'Ph.D. (Computer Engineering)',
+    'วท.ม. (สถิติประยุกต์)' => 'M.Sc. (Applied Statistics)',
+    'วศ.ด. (วิศวกรรมไฟฟ้า)' => 'Ph.D. (Electrical Engineering)',
+    'ปร.ด. (วิธีการเรียนรู้ทางอิเล็กทรอนิกส์)' => 'Ph.D. (Electronic Learning Methods)',
+    'วท.บ. (วิทยาศาสตร์สิ่งแวดล้อม)' => 'B.Sc. (Environmental Science)',
+    'ปร.ด.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => 'Ph.D. (Remote Sensing and Geographic Information Systems)',
+    'วท.บ. (ศาสตร์คอมพิวเตอร์)' => 'B.Sc. (Computer Science)',
+    'M.Eng. (Information and Communication Technology for Embedded Systems)' => 'M.Eng. (Information and Communication Technology for Embedded Systems)',
+    'Ph.D. (Information Engineering)' => 'Ph.D. (Information Engineering)',
+    'ปร.ด. (สารสนเทศศึกษา)' => 'Ph.D. (Information Studies)',
+    'Ph.D. (Remote Sensing and Geographic Information Systems)' => 'Ph.D. (Remote Sensing and Geographic Information Systems)',
+    'B.S. (Computer Science)' => 'B.S. (Computer Science)',
+    'MGIS (Geographic Information  Science)' => 'MGIS (Geographic Information Science)',
+    'วท.บ. (ธรณีวิทยา)' => 'B.Sc. (Geology)',
+    'M.Sc. (Rural and Land Ecology  Survey)' => 'M.Sc. (Rural and Land Ecology Survey)',
+    'วท.ด. (ปฐพีศาสตร์)' => 'Sc.D. (Earth Science)',
+    'วศ.ม (วิศวกรรมคอมพิวเตอร์)' => 'M.Eng. (Computer Engineering)',
+    'Ph.D. (Information Systems and  Technology)' => 'Ph.D. (Information Systems and Technology)',
+];
+
+$edu_qua_th = [
+    'วท.บ. (สถิติ)' => 'วท.บ. (สถิติ)',
+    'พบ.ม (สถิติประยุกต์)' => 'พบ.ม (สถิติประยุกต์)',
+    'วท.ด. (วิทยาการคอมพิวเตอร์)' => 'วท.ด. (วิทยาการคอมพิวเตอร์)',
+    'วท.บ. (คณิตศาสตร์)' => 'วท.บ. (คณิตศาสตร์)',
+    'วท.ม. (วิทยาศาสตร์คอมพิวเตอร์)' => 'วท.ม. (วิทยาศาสตร์คอมพิวเตอร์)',
+    'ปร.ด. (วิทยาการคอมพิวเตอร์)' => 'ปร.ด. (วิทยาการคอมพิวเตอร์)',
+    'วท.บ. (ฟิสิกส์)' => 'วท.บ. (ฟิสิกส์)',
+    'วท.ม. (วิทยาการคอมพิวเตอร์)' => 'วท.ม. (วิทยาการคอมพิวเตอร์)',
+    'Ph.D. (Interdisciplinary Intelligent Systems Engineering)' => 'Ph.D. (Interdisciplinary Intelligent Systems Engineering)',
+    'พบ.ม. (สถิติประยุกต์)' => 'พบ.ม. (สถิติประยุกต์)',
+    'D.Tech.Sc. (Computer Science)' => 'D.Tech.Sc. (Computer Science)',
+    'สถ.บ. (สถาปัตยกรรม)' => 'สถ.บ. (สถาปัตยกรรม)',
+    'วท.ม.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => 'วท.ม.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)',
+    'วศ.ด. (วิศวกรรมสำรวจ)' => 'วศ.ด. (วิศวกรรมสำรวจ)',
+    'พบ.ม. สถิติประยุกต์ (สาขาวิทยาการคอมพิวเตอร์)' => 'พบ.ม. สถิติประยุกต์ (สาขาวิทยาการคอมพิวเตอร์)',
+    'วท.บ. (เคมีเทคนิค/เคมีวิศวกรรม)' => 'วท.บ. (เคมีเทคนิค/เคมีวิศวกรรม)',
+    'วศ.บ. (วิศวกรรมคอมพิวเตอร์)' => 'วศ.บ. (วิศวกรรมคอมพิวเตอร์)',
+    'MA.Sc. (Electronic Systems  Engineering)' => 'MA.Sc. (Electronic Systems  Engineering)',
+    'Ph.D. (Electronic Systems Engineering)' => 'Ph.D. (Electronic Systems Engineering)',
+    'วท.บ. (ภูมิศาสตร์)' => 'วท.บ. (ภูมิศาสตร์)',
+    'วท.บ. (วิทยาการคอมพิวเตอร์)' => 'วท.บ. (วิทยาการคอมพิวเตอร์)',
+    'M.Sc. (Computer Science)' => 'M.Sc. (Computer Science)',
+    '-' => '-',
+    'วท.ม.  (สถิติประยุกต์และเทคโนโลยีสารสนเทศ)' => 'วท.ม.  (สถิติประยุกต์และเทคโนโลยีสารสนเทศ)',
+    'Ph.D. (Business Information  Systems)' => 'Ph.D. (Business Information  Systems)',
+    'อส.บ. (เทคโนโลยีไฟฟ้าอุตสาหกรรม)' => 'อส.บ. (เทคโนโลยีไฟฟ้าอุตสาหกรรม)',
+    'M.Sc. (Agricultural Engineering)' => 'M.Sc. (Agricultural Engineering)',
+    'Ph.D. (Agricultural Engineering)' => 'Ph.D. (Agricultural Engineering)',
+    'วศ.ม. (วิศวกรรมคอมพิวเตอร์)' => 'วศ.ม. (วิศวกรรมคอมพิวเตอร์)',
+    'วศ.ด. (วิศวกรรมคอมพิวเตอร์)' => 'วศ.ด. (วิศวกรรมคอมพิวเตอร์)',
+    'วท.ม. (สถิติประยุกต์)' => 'วท.ม. (สถิติประยุกต์)',
+    'วศ.ด. (วิศวกรรมไฟฟ้า)' => 'วศ.ด. (วิศวกรรมไฟฟ้า)',
+    'ปร.ด. (วิธีการเรียนรู้ทางอิเล็กทรอนิกส์)' => 'ปร.ด. (วิธีการเรียนรู้ทางอิเล็กทรอนิกส์)',
+    'วท.บ. (วิทยาศาสตร์สิ่งแวดล้อม)' => 'วท.บ. (วิทยาศาสตร์สิ่งแวดล้อม)',
+    'ปร.ด.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => 'ปร.ด.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)',
+    'วท.บ. (ศาสตร์คอมพิวเตอร์)' => 'วท.บ. (ศาสตร์คอมพิวเตอร์)',
+    'M.Eng. (Information and Communication Technology for Embedded Systems)' => 'M.Eng. (Information and Communication Technology for Embedded Systems)',
+    'Ph.D. (Information Engineering)' => 'Ph.D. (Information Engineering)',
+    'ปร.ด. (สารสนเทศศึกษา)' => 'ปร.ด. (สารสนเทศศึกษา)',
+    'Ph.D. (Remote Sensing and Geographic Information Systems)' => 'Ph.D. (Remote Sensing and Geographic Information Systems)',
+    'B.S. (Computer Science)' => 'B.S. (Computer Science)',
+    'MGIS (Geographic Information  Science)' => 'MGIS (Geographic Information  Science)',
+    'วท.บ. (ธรณีวิทยา)' => 'วท.บ. (ธรณีวิทยา)',
+    'M.Sc. (Rural and Land Ecology  Survey)' => 'M.Sc. (Rural and Land Ecology  Survey)',
+    'วท.ด. (ปฐพีศาสตร์)' => 'วท.ด. (ปฐพีศาสตร์)',
+    'วศ.ม (วิศวกรรมคอมพิวเตอร์)' => 'วศ.ม (วิศวกรรมคอมพิวเตอร์)',
+    'Ph.D. (Information Systems and  Technology)' => 'Ph.D. (Information Systems and  Technology)',
+];
+
+$edu_qua_zh = [
+    'วท.บ. (สถิติ)' => '理学学士（统计学）',
+    'พบ.ม (สถิติประยุกต์)' => '理学硕士（应用统计学）',
+    'วท.ด. (วิทยาการคอมพิวเตอร์)' => '理学博士（计算机科学）',
+    'วท.บ. (คณิตศาสตร์)' => '理学学士（数学）',
+    'วท.ม. (วิทยาศาสตร์คอมพิวเตอร์)' => '理学硕士（计算机科学）',
+    'ปร.ด. (วิทยาการคอมพิวเตอร์)' => '博士（计算机科学）',
+    'วท.บ. (ฟิสิกส์)' => '理学学士（物理学）',
+    'วท.ม. (วิทยาการคอมพิวเตอร์)' => '理学硕士（计算机科学）',
+    'Ph.D. (Interdisciplinary Intelligent Systems Engineering)' => '博士（跨学科智能系统工程）',
+    'พบ.ม. (สถิติประยุกต์)' => '理学硕士（应用统计学）',
+    'D.Tech.Sc. (Computer Science)' => '工学博士（计算机科学）',
+    'สถ.บ. (สถาปัตยกรรม)' => '建筑学学士（建筑学）',
+    'วท.ม.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => '理学硕士（遥感与地理信息系统）',
+    'วศ.ด. (วิศวกรรมสำรวจ)' => '博士（测量工程）',
+    'พบ.ม. สถิติประยุกต์ (สาขาวิทยาการคอมพิวเตอร์)' => '理学硕士（应用统计学，计算机科学）',
+    'วท.บ. (เคมีเทคนิค/เคมีวิศวกรรม)' => '理学学士（化学技术/化学工程）',
+    'วศ.บ. (วิศวกรรมคอมพิวเตอร์)' => '工学学士（计算机工程）',
+    'MA.Sc. (Electronic Systems  Engineering)' => '理学硕士（电子系统工程）',
+    'Ph.D. (Electronic Systems Engineering)' => '博士（电子系统工程）',
+    'วท.บ. (ภูมิศาสตร์)' => '理学学士（地理学）',
+    'วท.บ. (วิทยาการคอมพิวเตอร์)' => '理学学士（计算机科学）',
+    'M.Sc. (Computer Science)' => '理学硕士（计算机科学）',
+    '-' => '-',
+    'วท.ม.  (สถิติประยุกต์และเทคโนโลยีสารสนเทศ)' => '理学硕士（应用统计与信息技术）',
+    'Ph.D. (Business Information  Systems)' => '博士（商业信息系统）',
+    'อส.บ. (เทคโนโลยีไฟฟ้าอุตสาหกรรม)' => '工学学士（工业电气技术）',
+    'M.Sc. (Agricultural Engineering)' => '理学硕士（农业工程）',
+    'Ph.D. (Agricultural Engineering)' => '博士（农业工程）',
+    'วศ.ม. (วิศวกรรมคอมพิวเตอร์)' => '工学硕士（计算机工程）',
+    'วศ.ด. (วิศวกรรมคอมพิวเตอร์)' => '博士（计算机工程）',
+    'วท.ม. (สถิติประยุกต์)' => '理学硕士（应用统计学）',
+    'วศ.ด. (วิศวกรรมไฟฟ้า)' => '博士（电气工程）',
+    'ปร.ด. (วิธีการเรียนรู้ทางอิเล็กทรอนิกส์)' => '博士（电子学习方法）',
+    'วท.บ. (วิทยาศาสตร์สิ่งแวดล้อม)' => '理学学士（环境科学）',
+    'ปร.ด.  (การรับรู้จากระยะไกลและระบบสารสนเทศภูมิศาสตร์)' => '博士（遥感与地理信息系统）',
+    'วท.บ. (ศาสตร์คอมพิวเตอร์)' => '理学学士（计算机科学）',
+    'M.Eng. (Information and Communication Technology for Embedded Systems)' => '工学硕士（嵌入式系统信息与通信技术）',
+    'Ph.D. (Information Engineering)' => '博士（信息工程）',
+    'ปร.ด. (สารสนเทศศึกษา)' => '博士（信息学）',
+    'Ph.D. (Remote Sensing and Geographic Information Systems)' => '博士（遥感与地理信息系统）',
+    'B.S. (Computer Science)' => '理学学士（计算机科学）',
+    'MGIS (Geographic Information  Science)' => 'MGIS（地理信息科学）',
+    'วท.บ. (ธรณีวิทยา)' => '理学学士（地质学）',
+    'M.Sc. (Rural and Land Ecology  Survey)' => '理学硕士（乡村与土地生态调查）',
+    'วท.ด. (ปฐพีศาสตร์)' => '理学博士（地球科学）',
+    'วศ.ม (วิศวกรรมคอมพิวเตอร์)' => '工学硕士（计算机工程）',
+    'Ph.D. (Information Systems and  Technology)' => '博士（信息系统与技术）',
+];
+
+$locale = app()->getLocale();
+
+if ($locale === 'zh') {
+    $edu_qua_map = $edu_qua_zh;
+} elseif ($locale === 'en') {
+    $edu_qua_map = $edu_qua_en;
+} else {
+    $edu_qua_map = $edu_qua_th;
+}
+@endphp
+
+
+@php
+// Mapping สำหรับชื่อมหาวิทยาลัยในแต่ละภาษา
+
+$uni_en = [
+    "มหาวิทยาลัยเกษตรศาสตร์" => "Kasetsart University",
+    "สถาบันบัณฑิตพัฒนบริหารศาสตร์" => "National Institute of Development Administration",
+    "จุฬาลงกรณ์มหาวิทยาลัย" => "Chulalongkorn University",
+    "มหาวิทยาลัยขอนแก่น" => "Khon Kaen University",
+    "University of the Ryukyus, Japan" => "University of the Ryukyus, Japan",
+    "Asian Institute of Technology,  Thailand" => "Asian Institute of Technology, Thailand",
+    "สถาบันเทคโนโลยีพระจอมเกล้า เจ้าคุณทหารลาดกระบัง" => "King Mongkut's Institute of Technology Ladkrabang",
+    "University of Regina, Canada" => "University of Regina, Canada",
+    "มหาวิทยาลัยนเรศวร" => "Naresuan University",
+    "University of Southern California, USA" => "University of Southern California, USA",
+    "-" => "-",
+    "Auckland University of Technology, New Zealand" => "Auckland University of Technology, New Zealand",
+    "มหาวิทยาลัยเทคโนโลยี พระจอมเกล้าพระนครเหนือ" => "King Mongkut's University of Technology North Bangkok",
+    "Iowa State University, Iowa,  USA" => "Iowa State University, USA",
+    "มหาวิทยาลัยมหาสารคาม" => "Mahasarakham University",
+    "มหาวิทยาลัยอัสสัมชัญ" => "Assumption University",
+    "มหาวิทยาลัยธรรมศาสตร์" => "Thammasat University",
+    "Hiroshima University, Japan" => "Hiroshima University, Japan",
+    "Asian Institute of Technology, Thailand" => "Asian Institute of Technology, Thailand",
+    "University of Minnesota (Twin  Cities), USA" => "University of Minnesota (Twin Cities), USA",
+    "University of Minnesota (Twin Cities), USA" => "University of Minnesota (Twin Cities), USA",
+    "University of Southern California (USC), USA" => "University of Southern California (USC), USA",
+    "มหาวิทยาลัยเชียงใหม่" => "Chiang Mai University",
+    "International Institute for Aerospace Survey and Earth Sciences (ITC)" => "International Institute for Aerospace Survey and Earth Sciences (ITC)",
+    "Claremont Graduate University, USA" => "Claremont Graduate University, USA",
+];
+
+$uni_th = [
+    "มหาวิทยาลัยเกษตรศาสตร์" => "มหาวิทยาลัยเกษตรศาสตร์",
+    "สถาบันบัณฑิตพัฒนบริหารศาสตร์" => "สถาบันบัณฑิตพัฒนบริหารศาสตร์",
+    "จุฬาลงกรณ์มหาวิทยาลัย" => "จุฬาลงกรณ์มหาวิทยาลัย",
+    "มหาวิทยาลัยขอนแก่น" => "มหาวิทยาลัยขอนแก่น",
+    "University of the Ryukyus, Japan" => "University of the Ryukyus, Japan",
+    "Asian Institute of Technology,  Thailand" => "Asian Institute of Technology,  Thailand",
+    "สถาบันเทคโนโลยีพระจอมเกล้า เจ้าคุณทหารลาดกระบัง" => "สถาบันเทคโนโลยีพระจอมเกล้า เจ้าคุณทหารลาดกระบัง",
+    "University of Regina, Canada" => "University of Regina, Canada",
+    "มหาวิทยาลัยนเรศวร" => "มหาวิทยาลัยนเรศวร",
+    "University of Southern California, USA" => "University of Southern California, USA",
+    "-" => "-",
+    "Auckland University of Technology, New Zealand" => "Auckland University of Technology, New Zealand",
+    "มหาวิทยาลัยเทคโนโลยี พระจอมเกล้าพระนครเหนือ" => "มหาวิทยาลัยเทคโนโลยี พระจอมเกล้าพระนครเหนือ",
+    "Iowa State University, Iowa,  USA" => "Iowa State University, Iowa,  USA",
+    "มหาวิทยาลัยมหาสารคาม" => "มหาวิทยาลัยมหาสารคาม",
+    "มหาวิทยาลัยอัสสัมชัญ" => "มหาวิทยาลัยอัสสัมชัญ",
+    "มหาวิทยาลัยธรรมศาสตร์" => "มหาวิทยาลัยธรรมศาสตร์",
+    "Hiroshima University, Japan" => "Hiroshima University, Japan",
+    "Asian Institute of Technology, Thailand" => "Asian Institute of Technology, Thailand",
+    "University of Minnesota (Twin  Cities), USA" => "University of Minnesota (Twin  Cities), USA",
+    "University of Minnesota (Twin Cities), USA" => "University of Minnesota (Twin Cities), USA",
+    "University of Southern California (USC), USA" => "University of Southern California (USC), USA",
+    "มหาวิทยาลัยเชียงใหม่" => "มหาวิทยาลัยเชียงใหม่",
+    "International Institute for Aerospace Survey and Earth Sciences (ITC)" => "International Institute for Aerospace Survey and Earth Sciences (ITC)",
+    "Claremont Graduate University, USA" => "Claremont Graduate University, USA",
+];
+
+$uni_zh = [
+    "มหาวิทยาลัยเกษตรศาสตร์" => "卡农业大学",
+    "สถาบันบัณฑิตพัฒนบริหารศาสตร์" => "国家发展管理学院",
+    "จุฬาลงกรณ์มหาวิทยาลัย" => "朱拉隆功大学",
+    "มหาวิทยาลัยขอนแก่น" => "孔敬大学",
+    "University of the Ryukyus, Japan" => "琉球大学，日本",
+    "Asian Institute of Technology,  Thailand" => "亚洲理工学院，泰国",
+    "สถาบันเทคโนโลยีพระจอมเกล้า เจ้าคุณทหารลาดกระบัง" => "国王蒙库特理工大学（拉差班）",
+    "University of Regina, Canada" => "瑞吉纳大学，加拿大",
+    "มหาวิทยาลัยนเรศวร" => "那烈素安大学",
+    "University of Southern California, USA" => "南加州大学，美国",
+    "-" => "-",
+    "Auckland University of Technology, New Zealand" => "奥克兰理工大学，新西兰",
+    "มหาวิทยาลัยเทคโนโลยี พระจอมเกล้าพระนครเหนือ" => "国王蒙库特北曼谷理工大学",
+    "Iowa State University, Iowa,  USA" => "爱荷华州立大学",
+    "มหาวิทยาลัยมหาสารคาม" => "马哈沙拉坎大学",
+    "มหาวิทยาลัยอัสสัมชัญ" => "阿萨普申大学",
+    "มหาวิทยาลัยธรรมศาสตร์" => "法政大学",
+    "Hiroshima University, Japan" => "广岛大学，日本",
+    "Asian Institute of Technology, Thailand" => "亚洲理工学院，泰国",
+    "University of Minnesota (Twin  Cities), USA" => "明尼苏达大学（双城），美国",
+    "University of Minnesota (Twin Cities), USA" => "明尼苏达大学（双城），美国",
+    "University of Southern California (USC), USA" => "南加州大学（USC），美国",
+    "มหาวิทยาลัยเชียงใหม่" => "清迈大学",
+    "International Institute for Aerospace Survey and Earth Sciences (ITC)" => "国际航空测量与地球科学研究院 (ITC)",
+    "Claremont Graduate University, USA" => "克莱蒙特研究生大学，美国",
+];
+
+$locale = app()->getLocale();
+
+if ($locale === 'zh') {
+    $uni_map = $uni_zh;
+} elseif ($locale === 'en') {
+    $uni_map = $uni_en;
+} else {
+    $uni_map = $uni_th;
+}
+@endphp
+
                         @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu->qua_name}} {{$edu->uname}}</h6>
+                        <h6 class="card-text2 col-sm-10"> {{$edu->year}} {{$edu_qua_map[$edu->qua_name] ?? $edu->qua_name}} {{$uni_map[$edu->uname] ?? $edu->uname}}</h6>
                         @endforeach
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
@@ -136,7 +398,7 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{ trans('message.Summary') }}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scopus-tab" data-bs-toggle="tab" data-bs-target="#scopus" type="button" role="tab" aria-controls="scopus" aria-selected="false">SCOPUS</button>
@@ -148,10 +410,10 @@
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
+            <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">{{ trans('message.Book') }}</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">ผลงานวิชาการด้านอื่นๆ</button>
+            <button class="nav-link" id="patent-tab" data-bs-toggle="tab" data-bs-target="#patent" type="button" role="tab" aria-controls="patent" aria-selected="false">{{ trans('message.Others') }}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="scholar-tab" data-bs-toggle="tab" data-bs-target="#scholar" type="button" role="tab" aria-controls="scholar" aria-selected="false">Scholar</button>
@@ -162,7 +424,7 @@
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="tab-content" style="padding-bottom: 20px;">
-                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">Export To Excel</a>
+                <a class="btn btn-success" href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">{{ trans('message.Export to Excel')}}</a>
             </div>
             <table id="example1" class="table table-striped" style="width:100%">
                 <thead>
@@ -170,16 +432,16 @@
                         <th><a href="{{ route('excel', ['id' => $res->id]) }}" target="_blank">#Export</a></td>
                     </tr> -->
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th>Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th>Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
-                        <th>Source</th>
+                        <th>{{ trans('message.No.') }}</th>
+                        <th>{{ trans('message.Year') }}</th>
+                        <th>{{ trans('message.Paper Name') }}</th>
+                        <th>{{ trans('message.Author') }}</th>
+                        <th>{{ trans('message.Document Type') }}</th>
+                        <th>{{ trans('message.Page') }}</th>
+                        <th>{{ trans('message.Journals/Transactions') }}</th>
+                        <th>{{ trans('message.Citations') }}</th>
+                        <th>{{ trans('message.Doi') }}</th>
+                        <th>{{ trans('message.Source') }}</th>
                     </tr>
                 </thead>
 
@@ -199,11 +461,61 @@
                             @foreach ($paper->teacher as $author)
                             <span >
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>@php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                @endphp
+
+                                @if ($locale == 'th')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                วารสาร
+                                @break
+                                @case('Conference Proceeding')
+                                เอกสารการประชุม
+                                @break
+                                @case('Book Series')
+                                หนังสือชุด
+                                @break
+                                @case('Book')
+                                หนังสือ
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @elseif ($locale == 'zh')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                期刊
+                                @break
+                                @case('Conference Proceeding')
+                                会议论文
+                                @break
+                                @case('Book Series')
+                                丛书
+                                @break
+                                @case('Book')
+                                书籍
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @else
+                                {{ $paper->paper_type }}
+                                @endif</td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -228,15 +540,15 @@
             <table id="example2" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                        <th>{{ trans('message.No.') }}</th>
+                        <th>{{ trans('message.Year') }}</th>
+                        <th style="width:90%">{{ trans('message.Paper Name') }}</th>
+                        <th>{{ trans('message.Author') }}</th>
+                        <th>{{ trans('message.Document Type') }}</th>
+                        <th style="width:100%">{{ trans('message.Page') }}</th>
+                        <th>{{ trans('message.Journals/Transactions') }}</th>
+                        <th>{{ trans('message.Citations') }}</th>
+                        <th>{{ trans('message.Doi') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -255,11 +567,61 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher>
+                                </a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>@php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                @endphp
+
+                                @if ($locale == 'th')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                วารสาร
+                                @break
+                                @case('Conference Proceeding')
+                                เอกสารการประชุม
+                                @break
+                                @case('Book Series')
+                                หนังสือชุด
+                                @break
+                                @case('Book')
+                                หนังสือ
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @elseif ($locale == 'zh')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                期刊
+                                @break
+                                @case('Conference Proceeding')
+                                会议论文
+                                @break
+                                @case('Book Series')
+                                丛书
+                                @break
+                                @case('Book')
+                                书籍
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @else
+                                {{ $paper->paper_type }}
+                                @endif</td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -279,15 +641,15 @@
             <table id="example3" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                    <th>{{ trans('message.No.') }}</th>
+                        <th>{{ trans('message.Year') }}</th>
+                        <th style="width:90%">{{ trans('message.Paper Name') }}</th>
+                        <th>{{ trans('message.Author') }}</th>
+                        <th>{{ trans('message.Document Type') }}</th>
+                        <th style="width:100%">{{ trans('message.Page') }}</th>
+                        <th>{{ trans('message.Journals/Transactions') }}</th>
+                        <th>{{ trans('message.Citations') }}</th>
+                        <th>{{ trans('message.Doi') }}</th>
                     </tr>
                 </thead>
 
@@ -307,11 +669,60 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>@php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                @endphp
+
+                                @if ($locale == 'th')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                วารสาร
+                                @break
+                                @case('Conference Proceeding')
+                                เอกสารการประชุม
+                                @break
+                                @case('Book Series')
+                                หนังสือชุด
+                                @break
+                                @case('Book')
+                                หนังสือ
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @elseif ($locale == 'zh')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                期刊
+                                @break
+                                @case('Conference Proceeding')
+                                会议论文
+                                @break
+                                @case('Book Series')
+                                丛书
+                                @break
+                                @case('Book')
+                                书籍
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @else
+                                {{ $paper->paper_type }}
+                                @endif</td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -331,15 +742,15 @@
             <table id="example4" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Year</th>
-                        <th style="width:90%;">Paper Name</th>
-                        <th>Author</th>
-                        <th>Document Type</th>
-                        <th style="width:100%;">Page</th>
-                        <th>Journals/Transactions</th>
-                        <th>Ciations</th>
-                        <th>Doi</th>
+                    <th>{{ trans('message.No.') }}</th>
+                        <th>{{ trans('message.Year') }}</th>
+                        <th style="width:90%">{{ trans('message.Paper Name') }}</th>
+                        <th>{{ trans('message.Author') }}</th>
+                        <th>{{ trans('message.Document Type') }}</th>
+                        <th style="width:100%">{{ trans('message.Page') }}</th>
+                        <th>{{ trans('message.Journals/Transactions') }}</th>
+                        <th>{{ trans('message.Citations') }}</th>
+                        <th>{{ trans('message.Doi') }}</th>
                     </tr>
                 </thead>
 
@@ -359,11 +770,60 @@
                             @foreach ($paper->teacher as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->paper_type}}</td>
+                        <td>@php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                @endphp
+
+                                @if ($locale == 'th')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                วารสาร
+                                @break
+                                @case('Conference Proceeding')
+                                เอกสารการประชุม
+                                @break
+                                @case('Book Series')
+                                หนังสือชุด
+                                @break
+                                @case('Book')
+                                หนังสือ
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @elseif ($locale == 'zh')
+                                @switch($paper->paper_type)
+                                @case('Journal')
+                                期刊
+                                @break
+                                @case('Conference Proceeding')
+                                会议论文
+                                @break
+                                @case('Book Series')
+                                丛书
+                                @break
+                                @case('Book')
+                                书籍
+                                @break
+                                @default
+                                {{ $paper->paper_type }}
+                                @endswitch
+                                @else
+                                {{ $paper->paper_type }}
+                                @endif</td>
                         <td style="width:100%;">{{$paper->paper_page}}</td>
                         <td>{{$paper->paper_sourcetitle}}</td>
                         <td>{{$paper->paper_citation}}</td>
@@ -379,12 +839,12 @@
             <table id="example5" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">สถานที่พิมพ์</th>
-                        <th scope="col">Page</th>
+                        <th scope="col">{{ trans('message.No.') }}</th>
+                        <th scope="col">{{ trans('message.Year') }}</th>
+                        <th scope="col">{{ trans('message.BookName') }}</th>
+                        <th scope="col">{{ trans('message.Author') }}</th>
+                        <th scope="col">{{ trans('message.Publication Place') }}</th>
+                        <th scope="col">{{ trans('message.Page') }}</th>
 
                     </tr>
                 </thead>
@@ -404,7 +864,17 @@
                             @endforeach
                             @foreach ($paper->user as $author)
                             <span>
-                                <a> {{$author -> fname_en}} {{$author -> lname_en}}</a>
+                            <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
                             </span>
                             @endforeach
                         </td>
@@ -421,12 +891,12 @@
             <table id="example6" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">ประเภท</th>
-                        <th scope="col">หมายเลขทะเบียน</th>
-                        <th scope="col">วันที่จดทะเบียน</th>
+                        <th scope="col">{{ trans('message.No.') }}</th>
+                        <th scope="col">{{ trans('message.Name') }}</th>
+                        <th scope="col">{{ trans('message.Author') }}</th>
+                        <th scope="col">{{ trans('message.Type') }}</th>
+                        <th scope="col">{{ trans('message.Registration Number')}}</th>
+                        <th scope="col">{{ trans('message.Registration Date')}}</th>
 
                     </tr>
                 </thead>
@@ -446,12 +916,129 @@
                             @foreach ($paper->user as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher></a>
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
 
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->ac_type}}</td>
+                        <td>
+                                @php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                @endphp
+
+                                @if ($locale == 'th')
+                                {{ $paper->ac_type }} {{-- แสดงค่าตาม Database ถ้าเป็นภาษาไทย --}}
+                                @elseif ($locale == 'zh')
+                                @switch($paper->ac_type)
+                                @case('สิทธิบัตร')
+                                专利
+                                @break
+                                @case('สิทธิบัตร (การประดิษฐ์)')
+                                发明专利
+                                @break
+                                @case('สิทธิบัตร (การออกแบบผลิตภัณฑ์)')
+                                设计专利
+                                @break
+                                @case('อนุสิทธิบัตร')
+                                实用新型
+                                @break
+                                @case('ลิขสิทธิ์')
+                                版权
+                                @break
+                                @case('ลิขสิทธิ์ (วรรณกรรม)')
+                                文学版权
+                                @break
+                                @case('ลิขสิทธิ์ (ตนตรีกรรม)')
+                                音乐版权
+                                @break
+                                @case('ลิขสิทธิ์ (ภาพยนตร์)')
+                                电影版权
+                                @break
+                                @case('ลิขสิทธิ์ (ศิลปกรรม)')
+                                艺术版权
+                                @break
+                                @case('ลิขสิทธิ์ (งานแพร่เสี่ยงแพร่ภาพ)')
+                                广播版权
+                                @break
+                                @case('ลิขสิทธิ์ (โสตทัศนวัสดุ)')
+                                视听资料版权
+                                @break
+                                @case('ลิขสิทธิ์ (งานอื่นใดในแผนกวรรณคดี/วิทยาศาสตร์/ศิลปะ)')
+                                其他文学/科学/艺术版权
+                                @break
+                                @case('ลิขสิทธิ์ (สิ่งบันทึกเสียง)')
+                                录音版权
+                                @break
+                                @case('ความลับทางการค้า')
+                                商业机密
+                                @break
+                                @case('เครื่องหมายการค้า')
+                                商标
+                                @break
+                                @default
+                                {{ $paper->ac_type }}
+                                @endswitch
+                                @else {{-- ภาษาอังกฤษ --}}
+                                @switch($paper->ac_type)
+                                @case('สิทธิบัตร')
+                                Patent
+                                @break
+                                @case('สิทธิบัตร (การประดิษฐ์)')
+                                Invention Patent
+                                @break
+                                @case('สิทธิบัตร (การออกแบบผลิตภัณฑ์)')
+                                Design Patent
+                                @break
+                                @case('อนุสิทธิบัตร')
+                                Utility Model
+                                @break
+                                @case('ลิขสิทธิ์')
+                                Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (วรรณกรรม)')
+                                Literary Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (ตนตรีกรรม)')
+                                Musical Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (ภาพยนตร์)')
+                                Film Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (ศิลปกรรม)')
+                                Artistic Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (งานแพร่เสี่ยงแพร่ภาพ)')
+                                Broadcast Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (โสตทัศนวัสดุ)')
+                                Audiovisual Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (งานอื่นใดในแผนกวรรณคดี/วิทยาศาสตร์/ศิลปะ)')
+                                Other Literary/Scientific/Artistic Copyright
+                                @break
+                                @case('ลิขสิทธิ์ (สิ่งบันทึกเสียง)')
+                                Sound Recording Copyright
+                                @break
+                                @case('ความลับทางการค้า')
+                                Trade Secret
+                                @break
+                                @case('เครื่องหมายการค้า')
+                                Trademark
+                                @break
+                                @default
+                                {{ $paper->ac_type }}
+                                @endswitch
+                                @endif
+                            </td>
                         <td>{{$paper->ac_refnumber }}</td>
                         <td>{{$paper->ac_year}}</td>
 
@@ -465,15 +1052,14 @@
     <table id="example7" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>No.</th>
-                <th>Year</th>
-                <th>Paper Name</th>
-                <th>Author</th>
-                <th>Document Type</th>
-                <th>Page</th>
-                <th>Journals/Transactions</th>
-                <th>Citations</th>
-                <th>Doi</th>
+                <th>{{ trans('message.Year') }}</th>
+                        <th style="width:90%">{{ trans('message.Paper Name') }}</th>
+                        <th>{{ trans('message.Author') }}</th>
+                        <th>{{ trans('message.Document Type') }}</th>
+                        <th style="width:100%">{{ trans('message.Page') }}</th>
+                        <th>{{ trans('message.Journals/Transactions') }}</th>
+                        <th>{{ trans('message.Citations') }}</th>
+                        <th>{{ trans('message.Doi') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -491,8 +1077,16 @@
                     @foreach ($paper->teacher as $author)
                     <span>
                         <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                            <teacher>{{$author->fname_en}} {{$author->lname_en}}</teacher>
-                        </a>
+                                    <teacher>@php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+        $fname = $author->{'fname_' . $locale} ?? $author->fname_en;
+        $lname = $author->{'lname_' . $locale} ?? $author->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $author->fname_en;
+            $lname = $author->lname_en;
+        }
+    @endphp
+    {{ $fname }} {{ $lname }}</teacher></a>
                     </span>
                     @endforeach
                 </td>
@@ -525,28 +1119,29 @@
 <script>
     $(document).ready(function() {
 
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-        });
+        var MultiLang = {
+            "sProcessing": "{{ trans('message.Processing...') }}",
+            "sLengthMenu": "{{ trans('message.Showing') }} _MENU_ {{ trans('message.entries') }}",
+            "sZeroRecords": "{{ trans('message.No data available in table') }}",
+            "sInfo": "{{ trans('message.Showing') }} _START_ {{ trans('message.to') }} _END_ {{ trans('message.of') }} _TOTAL_ {{ trans('message.entries') }}",
+            "sInfoEmpty": "{{ trans('message.Showing') }} 0 {{ trans('message.to') }} 0 {{ trans('message.of') }} 0 {{ trans('message.entries') }}",
+            "sInfoFiltered": "({{ trans('message.filtered from') }} _MAX_ {{ trans('message.entries') }})",
+            "sSearch": "{{ trans('message.Search') }}:",
+            "oPaginate": {
+                "sFirst": "{{ trans('message.First Page') }}",
+                "sPrevious": "{{ trans('message.Previous Page') }}",
+                "sNext": "{{ trans('message.Next Page') }}",
+                "sLast": "{{ trans('message.Last Page') }}"
+            }
+        };
 
-        var table2 = $('#example2').DataTable({
-            responsive: true,
-        });
-        var table3 = $('#example3').DataTable({
-            responsive: true,
-        });
-        var table4 = $('#example4').DataTable({
-            responsive: true,
-        });
-        var table5 = $('#example5').DataTable({
-            responsive: true,
-        });
-        var table6 = $('#example6').DataTable({
-            responsive: true,
-        });
-        var table7 = $('#example7').DataTable({
-    responsive: true,
-        });
+        var table1 = $('#example1').DataTable({ responsive: true, language: MultiLang });
+        var table2 = $('#example2').DataTable({ responsive: true, language: MultiLang });
+        var table3 = $('#example3').DataTable({ responsive: true, language: MultiLang });
+        var table4 = $('#example4').DataTable({ responsive: true, language: MultiLang });
+        var table5 = $('#example5').DataTable({ responsive: true, language: MultiLang });
+        var table6 = $('#example6').DataTable({ responsive: true, language: MultiLang });
+        var table7 = $('#example7').DataTable({ responsive: true, language: MultiLang });
 
 
         $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(event) {
@@ -735,7 +1330,7 @@
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text ">{{ trans('message.Summary') }}</p>`
 
         document.getElementById("scopus_sum").innerHTML += `   
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>
@@ -853,15 +1448,5 @@
         }
     });
 </script>
-<!-- <script>
-    // get the p element
-    $(document).ready(function() {
-    const a = document.getElementById('authtd');
-    console.log(a.text)
-    const myArray =  a.text.toString().split(" ");
-    console.log(myArray)
-    document.getElementById("authtd").innerHTML = "name :"+ myArray;
-    
-});
-</script> -->
+
 @endsection

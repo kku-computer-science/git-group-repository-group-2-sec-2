@@ -121,7 +121,7 @@ class ResearchGroupController extends Controller
     {
         #$researchGroup=ResearchGroup::find($researchGroup->id);
         //dd($researchGroup->id);
-        //$data=ResearchGroup::find($researchGroup->id)->get(); 
+        //$data=ResearchGroup::find($researchGroup->id)->get();
 
         //return $data;
         return view('research_groups.show', compact('researchGroup'));
@@ -183,7 +183,7 @@ class ResearchGroupController extends Controller
             }
         }
         return redirect()->route('researchGroups.index')
-            ->with('success', 'researchGroups updated successfully');
+            ->with('success', trans('message.research_group_updated'));
     }
 
     /**
@@ -197,6 +197,6 @@ class ResearchGroupController extends Controller
         $this->authorize('delete', $researchGroup);
         $researchGroup->delete();
         return redirect()->route('researchGroups.index')
-            ->with('success', 'researchGroups deleted successfully');
+            ->with('success', trans('message.research_group_deleted'));
     }
 }

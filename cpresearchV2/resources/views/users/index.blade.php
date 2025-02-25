@@ -99,9 +99,9 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
+            <h4 class="card-title">{{trans('message.users')}}</h4>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{trans('message.user_new_user')}}</a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{trans('message.user_import_new_user')}}</a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -113,12 +113,12 @@
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th>{{trans('message.no_dot')}}</th>
+                            <th>{{trans('message.user_name')}}</th>
+                            <th>{{trans('message.user_department')}}</th>
+                            <th>{{trans('message.user_email')}}</th>
+                            <th>{{trans('message.user_role')}}</th>
+                            <th width="280px">{{trans('message.action')}}</th>
                         </tr>
                     </thead>
 
@@ -126,24 +126,58 @@
                         @foreach ($data as $key => $user)
                         <tr>
                             <td>{{ $key++ }}</td>
-                            <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                {{ $user->fname_th }} {{ $user->lname_th }}
+                                @else
+                                {{ $user->fname_en ?? $user->fname_th }} {{ $user->lname_en ?? $user->lname_th }}
+                                @endif
+                            </td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                {{ Str::limit($user->program->program_name_th, 20) }}
+                                @else
+                                {{ Str::limit($user->program->program_name_en, 20) }}
+                                @endif
+                            </td>
+
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
                                 @foreach($user->getRoleNames() as $val)
+                                @php
+                                $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+                                $roleTranslations = [
+                                'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
+                                'teacher' => ['th' => 'อาจารย์', 'zh' => '教师'],
+                                'student' => ['th' => 'นักศึกษา', 'zh' => '学生'],
+                                'staff' => ['th' => 'เจ้าหน้าที่', 'zh' => '职员'],
+                                'headproject' => ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
+                                'Undergrad Student' => ['th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
+                                'Master Student' => ['th' => 'นักศึกษาปริญญาโท', 'zh' => '研究生'],
+                                'Doctoral Student' => ['th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
+                                ];
+                                @endphp
+
+                                @if($locale == 'en')
                                 <label class="badge badge-dark">{{ $val }}</label>
+                                @else
+                                <label class="badge badge-dark">
+                                    {{ $roleTranslations[$val][$locale] ?? $val }}
+                                </label>
+                                @endif
                                 @endforeach
                                 @endif
                             </td>
+
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
-                                </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
+                                    </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
@@ -156,7 +190,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top"><i class="mdi mdi-delete"></i></button>
                                     </li>
                                     @endcan
                                 </form>
@@ -165,7 +199,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>
@@ -177,7 +211,22 @@
 <script>
     $(document).ready(function() {
         var table = $('#example1').DataTable({
-            fixedHeader: true
+            fixedHeader: true,
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                },
+                emptyTable: `{{trans('message.empty_table')}}`,
+                zeroRecords: `{{trans('message.zero_record')}}`,
+                infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,
+            }
         });
     });
 </script>

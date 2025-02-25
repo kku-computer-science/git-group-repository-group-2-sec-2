@@ -33,17 +33,17 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
+            <h4 class="card-title" style="text-align: center;">{{trans('message.expertise')}}</h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>{{trans('message.no_dot')}}</th>
                         @if(Auth::user()->hasRole('admin'))
-                        <th>Teacher Name</th>
+                        <th>{{trans('message.expertise_teacher_name')}}</th>
                         @endif
-                        <th>Name</th>
+                        <th>{{trans('message.expertise_name')}}</th>
 
-                        <th>Action</th>
+                        <th>{{trans('message.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,14 @@
                     <tr id="expert_id_{{ $expert->id }}">
                         <td>{{ $i+1 }}</td>
                         @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{ $expert->user->fname_th }} {{ $expert->user->lname_th }}
+                            @else
+                            {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
+                            @endif
+                        </td>
+
                         @endif
                         <td>{{ $expert->expert_name }}</td>
 
@@ -87,7 +94,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="expertiseCrudModal"></h4>
+                <h4 class="modal-title" id="expertiseCrudModal">{{trans('message.edit_expertise')}}</h4>
             </div>
             <div class="modal-body">
                 <form name="expForm" action="{{ route('experts.store') }}" method="POST">
@@ -96,14 +103,14 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>{{trans('message.name_expertise')}}:</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder='{{trans('message.expertise_holder')}}' onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>Submit</button>
-                            <a href="{{ route('experts.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>{{trans('message.submit_button')}}</button>
+                            <a href="{{ route('experts.index') }}" class="btn btn-danger">{{trans('message.cancel_button')}}</a>
                         </div>
                     </div>
                 </form>
@@ -118,13 +125,28 @@
 <script src="https://cdn.datatables.net/rowgroup/1.2.0/js/dataTables.rowGroup.min.js" defer></script>
 <script>
     $(document).ready(function() {
-        var table1 = $('#example1').DataTable({
+        var table1 = $(' #example1').DataTable({
 
             order: [
                 [1, 'asc']
             ],
             rowGroup: {
                 dataSrc: 1
+            },
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                },
+                emptyTable: `{{trans('message.empty_table')}}`,
+                zeroRecords: `{{trans('message.zero_record')}}`,
+                infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,a
             }
         });
     });
@@ -140,7 +162,9 @@
         $('#new-expertise').click(function() {
             $('#btn-save').val("create-expertise");
             $('#expertise').trigger("reset");
-            $('#expertiseCrudModal').html("Add New Expertise");
+            $('#expertiseCrudModal').html(
+                "Add New Expertise"
+            );
             $('#crud-modal').modal('show');
         });
 
@@ -148,7 +172,7 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("{{trans('message.edit_expertise')}}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
@@ -162,7 +186,7 @@
         /* Delete expertise */
         $('body').on('click', '#delete-expertise', function(e) {
             var expert_id = $(this).data("id");
-            
+
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
             //confirm("Are You sure want to delete !");
@@ -197,7 +221,7 @@
 
                 }
 
-                });
+            });
         });
     });
 </script>

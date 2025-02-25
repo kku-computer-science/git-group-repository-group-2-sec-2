@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
+    'ChrisKonnertz\\DeepLy' => array($vendorDir . '/chriskonnertz/deeply/src'),
 );

@@ -40,7 +40,7 @@ class DepartmentController extends Controller
         return view('departments.create');
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -89,7 +89,7 @@ class DepartmentController extends Controller
     public function edit(Department $department)
     {
         $department=Department::find($department->id);
-       
+
         return view('departments.edit',compact('department'));
     }
 
@@ -104,7 +104,7 @@ class DepartmentController extends Controller
     {
         $department->update($request->all());
         return redirect()->route('departments.index')
-                        ->with('success','Department updated successfully');
+                        ->with('success',trans('message.department_updated'));
     }
 
     /**
@@ -117,6 +117,6 @@ class DepartmentController extends Controller
     {
         $department->delete();
         return redirect()->route('departments.index')
-                        ->with('success','Department delete successfully');
+                        ->with('success',trans('message.department_deleted'));
     }
 }

@@ -1,17 +1,34 @@
 @extends('layouts.layout')
 @section('content')
 <div class="container card-2">
-    <p class="title"> Researchers </p>
+    <p class="title"> {{trans('message.researchers')}} </p>
     @foreach($request as $res)
     <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon> {{$res->name}}
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon>
+        @switch($res->name)
+        @case('teacher')
+        {{ trans('message.researcher_role_teacher') }}
+        @break
+        @case('Undergrad Student')
+        {{ trans('message.researcher_role_undergrad_student') }}
+        @break
+        @case('Master Student')
+        {{ trans('message.researcher_role_master_student') }}
+        @break
+        @case('Doctoral Student')
+        {{ trans('message.researcher_role_doctoral_student') }}
+        @break
+        @default
+        {{ $res->name }}
+        @endswitch
+
     </span>
     <div class="d-flex">
         <div class="ml-auto">
             <form class="row row-cols-lg-auto g-3" method="GET" action="{{ route('searchresearchers',['id'=>$res->id])}}">
                 <div class="col-md-8">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="textsearch" placeholder="Research interests">
+                        <input type="text" class="form-control" name="textsearch" placeholder="{{ trans('message.placeholder_research') }}">
                     </div>
                 </div>
                 <!-- <div class="col-12">
@@ -24,7 +41,7 @@
                         </select>
                     </div> -->
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                    <button type="submit" class="btn btn-outline-primary"> {{ trans('message.search') }}</button>
                 </div>
             </form>
         </div>
@@ -41,28 +58,53 @@
                     </div>
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; @if(app()->getLocale() == 'en') max-height: 220px; @else max-height: 210px;@endif">
                         <div class="card-body">
-                            @if(app()->getLocale() == 'en')
+                        @php
+    $locale = app()->getLocale();
 
-                                @if($r->doctoral_degree == 'Ph.D.')
-                                <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, {{$r->doctoral_degree}}
-                                @else
-                                <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</h5>
-                                @endif
+    // ถ้าเลือกภาษาไทยให้แสดงชื่อภาษาไทยก่อน
+    if ($locale == 'th') {
+        $fname = $r->fname_th;
+        $lname = $r->lname_th;
+        $position = $r->position_th;
+    } else {
+        // ถ้าไม่ใช่ภาษาไทย ใช้ภาษาอังกฤษก่อน ถ้าไม่มี fallback เป็นภาษาไทย
+        $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
+        $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
+        $position = !empty($r->position_en) ? $r->position_en : $r->position_th;
+    }
+
+    // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
+    $academic_rank = '';
+    if (!empty($r->academic_ranks_en)) {
+        $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
+        $academic_rank = trans('message.' . $academic_rank_key);
+    }
+
+    // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
+    $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
+@endphp
 
 
-                                <!-- <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</h5> -->
-                                <h5 class="card-title-2">{{ $r->{'academic_ranks_'.app()->getLocale()} }}</h5>
-                                @else
-                                <h5 class="card-title">{{ $r->{'position_'.app()->getLocale()} }}
-                                    {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                                </h5>
-                                @endif
-                                <p class="card-text-1">{{ trans('message.expertise') }}</p>
-                                <div class="card-expertise">
-                                    @foreach($r->expertise->sortBy('expert_name') as $exper)
-                                    <p class="card-text"> {{$exper->expert_name}}</p>
-                                    @endforeach
-                                </div>
+@if($locale == 'en' || $locale == 'zh')
+    <h5 class="card-title">
+        {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
+    </h5>
+    @if(!empty($academic_rank))
+        <h5 class="card-title-2">{{ $academic_rank }}</h5>
+    @endif
+@else
+    <h5 class="card-title">
+        {{ $position }} {{ $fname }} {{ $lname }}
+    </h5>
+@endif
+
+
+                            <p class="card-text-1">{{ trans('message.expertise') }}</p>
+                            <div class="card-expertise">
+                                @foreach($r->expertise->sortBy('expert_name') as $exper)
+                                <p class="card-text">{{ $exper->expert_name }}</p>
+                                @endforeach
+                            </div>
                         </div>
                     </diV>
                 </div>

@@ -33,53 +33,49 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Description_TH')}}</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Name_TH')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_th" value="{{ old('group_desc_th') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Description_EN')}}</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Name_EN')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_desc_en" value="{{ old('group_desc_en') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Detail_TH')}}</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Description_TH')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_en" value="{{ old('group_detail_th') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Detail_EN')}}</b></p>
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Description_EN')}}</b></p>
                     <div class="col-sm-8">
                         <textarea name="group_detail_th" value="{{ old('group_detail_en') }}" class="form-control"
                             style="height:90px"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                <p class="col-sm-3"><b>{{ trans('message.Image') }}</b></p>
-    <div class="col-sm-8">
-        <input type="file" id="fileInput" name="group_image" class="form-control">
-        <label for="fileInput" id="fileLabel" class="custom-file-label">
-            {{ trans('message.Choose_File') }}
-        </label>
-    </div>
+                    <p class="col-sm-3"><b>{{trans('message.Image')}}</b></p>
+                    <div class="col-sm-8">
+                        <input type="file" name="group_image" class="form-control" value="{{ old('group_image') }}">
+                    </div>
                 </div>
                 <div class="form-group row">
-    <p class="col-sm-3"><b>{{trans('message.Research_Group_Leader')}}</b></p>
-    <div class="col-sm-8">
-        <select id='head0' name="head">
-            @php
-                // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
-                $userRole = DB::table('model_has_roles')
-                    ->where('model_id', Auth::user()->id)
-                    ->value('role_id');
-                $locale = app()->getLocale(); // ตรวจสอบภาษาที่เลือก
-            @endphp
+                    <p class="col-sm-3"><b>{{trans('message.Research_Group_Leader')}}</b></p>
+                    <div class="col-sm-8">
+                        <select id='head0' name="head">
+                            @php
+                            // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+                            $userRole = DB::table('model_has_roles')
+                            ->where('model_id', Auth::user()->id)
+                            ->value('role_id');
+                            @endphp
 
             @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
             <option value="">{{trans('message.Select_User')}}</option>
@@ -157,23 +153,25 @@ $("body").on("click",".upload",function(e){
         $("#head0").select2();
 
         function updateAvailableOptions() {
-            let headUserId = $("#head0").val();
+            let headUserId = $("#head0").val(); // ดึงค่า ID ของหัวหน้ากลุ่มวิจัย
             let selectedUsers = new Set();
 
+            // เก็บค่าผู้ใช้ที่ถูกเลือกไปแล้ว
             $("select[name^='moreFields']").each(function() {
                 let val = $(this).val();
                 if (val) selectedUsers.add(val);
             });
 
+            // ปิดการเลือกชื่อที่ถูกเลือกไปแล้ว และหัวหน้ากลุ่ม
             $("select[name^='moreFields']").each(function() {
                 let currentValue = $(this).val();
                 $(this).find("option").each(function() {
                     let optionValue = $(this).val();
 
                     if (optionValue && (selectedUsers.has(optionValue) && optionValue !== currentValue || optionValue === headUserId)) {
-                        $(this).prop("disabled", true);
+                        $(this).prop("disabled", true); // ปิดการเลือก
                     } else {
-                        $(this).prop("disabled", false);
+                        $(this).prop("disabled", false); // เปิดให้เลือก
                     }
                 });
             });
@@ -189,13 +187,9 @@ $("body").on("click",".upload",function(e){
             var newRow = `<tr>
                         <td>
                             <select id="selUser${i}" name="moreFields[${i}][userid]" class="form-control selectUser" style="width: 200px;">
-                                <option value="">{{trans('message.Select_User')}}</option>
+                                <option value="">Select User</option>
                                 @foreach($users as $user)
-                                    @php
-                                        $fname = $locale === 'th' ? $user->fname_th : ($locale === 'zh' ? $user->fname_en : $user->fname_en);
-                                        $lname = $locale === 'th' ? $user->lname_th : ($locale === 'zh' ? $user->lname_en : $user->lname_en);
-                                    @endphp
-                                    <option value="{{ $user->id }}">{{ $fname }} {{ $lname }}</option>
+                                    <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -222,34 +216,4 @@ $("body").on("click",".upload",function(e){
 
         updateAvailableOptions();
     });
-    document.addEventListener("DOMContentLoaded", function () {
-        let fileInput = document.getElementById("fileInput");
-        let fileLabel = document.getElementById("fileLabel");
-
-        // ตรวจสอบภาษา
-        let locale = "{{ app()->getLocale() }}"; 
-        let defaultText = {
-            en: "Choose File",
-            th: "เลือกไฟล์",
-            zh: "选择文件"
-        };
-        let noFileText = {
-            en: "No file chosen",
-            th: "ยังไม่ได้เลือกไฟล์",
-            zh: "未选择文件"
-        };
-
-        // กำหนดข้อความเริ่มต้นตามภาษา
-        fileLabel.innerText = defaultText[locale];
-
-        // เปลี่ยนข้อความเมื่อเลือกไฟล์
-        fileInput.addEventListener("change", function () {
-            if (fileInput.files.length > 0) {
-                fileLabel.innerText = fileInput.files[0].name;
-            } else {
-                fileLabel.innerText = defaultText[locale] + " - " + noFileText[locale];
-            }
-        });
-    });
 </script>
-@stop

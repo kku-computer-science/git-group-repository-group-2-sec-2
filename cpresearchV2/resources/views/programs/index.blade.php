@@ -30,25 +30,40 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">{{trans('message.Course')}}</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend">{{trans('message.Add_Course')}}</i>  </a>
+            <h4 class="card-title" style="text-align: center;">{{trans('message.programs')}}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.add')}}</a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>Name (ไทย)</th>
+                        <th>{{trans('message.no_dot')}}</th>
+                        <th>{{trans('message.program_name')}}</th>
                         <!-- <th>Name (Eng)</th> -->
-                        <th>Degree</th>
-                        <th>Action</th>
+                        <th>{{trans('message.program_degree')}}</th>
+                        <th>{{trans('message.action')}}
+                            </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{ $program->program_name_th }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{ $program->program_name_th }}
+                            @else
+                            {{ $program->program_name_en }}
+                            @endif
+                        </td>
+
                         <!-- <td>{{ $program->program_name_en }}</td> -->
-                        <td>{{ $program->degree->degree_name_en}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{ $program->degree->degree_name_th }}
+                            @else
+                            {{ $program->degree->degree_name_en }}
+                            @endif
+                        </td>
+
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->
@@ -153,6 +168,21 @@
     $(document).ready(function() {
         var table1 = $('#example1').DataTable({
             responsive: true,
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                },
+                emptyTable: `{{trans('message.empty_table')}}`,
+                zeroRecords: `{{trans('message.zero_record')}}`,
+                infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,
+            }
         });
     });
 </script>

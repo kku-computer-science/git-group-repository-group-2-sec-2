@@ -28,27 +28,27 @@
                     </div>
                     <h4 class="text-center p-2">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</h4>
                     <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
-                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>Change picture</b></a>
+                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>{{trans('message.change_pic')}}</b></a>
                 </div>
 
             </div>
             <div class="nav flex-column nav-pills-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link " id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
                     <i class="mdi mdi-account-card-details"></i>
-                    <span class="menu-title"> Account </span>
+                    <span class="menu-title">{{trans('message.account')}}</span>
                 </a>
                 <a class="nav-link " id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
                     <i class="mdi mdi-key-variant"></i>
-                    <span class="menu-title"> Password </span>
+                    <span class="menu-title">{{trans('message.password')}} </span>
                 </a>
                 @if(Auth::user()->hasRole('teacher'))
                 <a class="nav-link {{old('tab') == 'expertise' ? ' active' : null}}" id="expertise-tab" data-toggle="pill" href="#expertise" role="tab" aria-controls="expertise" aria-selected="false">
                     <i class="mdi mdi-account-star"></i>
-                    <span class="menu-title"> Expertise </span>
+                    <span class="menu-title"> {{trans('message.expertise')}} </span>
                 </a>
                 <a class="nav-link" id="education-tab" data-toggle="pill" href="#education" role="tab" aria-controls="education" aria-selected="false">
                     <i class="mdi mdi-school"></i>
-                    <span class="menu-title"> Education </span>
+                    <span class="menu-title">{{trans('message.education')}}</span>
                 </a>
                 @endif
             </div>
@@ -56,7 +56,7 @@
         <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
             <!-- <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"> -->
             <div class="tab-pane " id="account" role="tabpanel" aria-labelledby="account-tab">
-                <h3 class="mb-4">Profile Settings</h3>
+                <h3 class="mb-4">{{ trans('message.profile_setting') }}</h3>
                 <form class="form-horizontal" method="POST" action="{{ route('adminUpdateInfo') }}" id="AdminInfoForm">
                     <div class="row">
                         <div class="col-md-6">
@@ -72,82 +72,82 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ตำแหน่งทางวิชาการ</label>
-                                <select name="academic_ranks_th" id="subcategory" class="custom-select my-select">
+                                <label>{{trans('message.academic_rank')}}</label>
+                                <select name="academic_ranks_th" id="subcategory" class="custom-select my-select" disabled>
                                     <optgroup id="Professor" label="Professor">
-                                        <option value="ศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : '' }}>ศาสตราจารย์</option>
+                                        <option value="ศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : '' }}>{{trans('message.professor')}}</option>
                                     </optgroup>
                                     <optgroup id="Associate Professor" label="Associate Professor">
-                                        <option value="รองศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : '' }}>รองศาสตราจารย์</option>
+                                        <option value="รองศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : '' }}>{{trans('message.associate_professor')}}</option>
                                     </optgroup>
                                     <optgroup id="Assistant Professor" label="Assistant Professor">
-                                        <option value="ผู้ช่วยศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : '' }}>ผู้ช่วยศาสตราจารย์</option>
+                                        <option value="ผู้ช่วยศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : '' }}>{{trans('message.assistant_professor')}}</option>
                                     </optgroup>
                                     <optgroup id="Lecturer" label="Lecturer">
-                                        <option value="อาจารย์" {{ Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : '' }}>อาจารย์</option>
+                                        <option value="อาจารย์" {{ Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : '' }}>{{trans('message.lecturer')}}</option>
                                     </optgroup>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group col-sm-4">
-                                <label>Name title</label>
+                                <label>{{ trans('message.name_title') }}</label>
                                 <select class="custom-select my-select " name="title_name_en">
-                                    <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>Mr.</option>
-                                    <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>Miss</option>
-                                    <option value="Mrs." {{ Auth::user()->title_name_en == 'Mrs.' ? 'selected' : '' }}>Mrs.</option>
+                                    <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>{{trans('message.mr')}}</option>
+                                    <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>{{ trans('message.mrs') }}</option>
+                                    <option value="Mrs." {{ Auth::user()->title_name_en == 'Mrs.' ? 'selected' : '' }}>{{ trans('message.miss') }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>First name (English)</label>
+                                <label>{{trans('message.fname_en')}}</label>
                                 <input type="text" class="form-control" id="inputfNameEN" placeholder="Name" value="{{ Auth::user()->fname_en }}" name="fname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Last name (English)</label>
+                                <label>{{trans('message.lname_en')}}</label>
                                 <input type="text" class="form-control" id="inputlNameEN" placeholder="Name" value="{{ Auth::user()->lname_en }}" name="lname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ชื่อ (ภาษาไทย)</label>
+                                <label>{{ trans('message.fname_th') }}</label>
                                 <input type="text" class="form-control" id="inputfNameTH" placeholder="Name" value="{{ Auth::user()->fname_th }}" name="fname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>นามสกุล (ภาษาไทย)</label>
+                                <label>{{ trans('message.lname_th') }}</label>
                                 <input type="text" class="form-control" id="inputlNameTH" placeholder="Name" value="{{ Auth::user()->lname_th }}" name="lname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>{{trans('message.email')}}</label>
                                 <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="{{ Auth::user()->email }}" name="email">
                                 <span class="text-danger error-text email_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-    <div class="form-group">
-        <label>Scholar ID</label>
-        <input type="text" class="form-control" id="inputScholarID" placeholder="Enter Scholar ID"
-               value="{{ Auth::user()->scholar_id }}" name="scholar_id">
-        <span class="text-danger error-text scholar_id_error"></span>
-    </div>
-</div>
+                            <div class="form-group">
+                                <label>Scholar ID</label>
+                                <input type="text" class="form-control" id="inputScholarID" placeholder="Enter Scholar ID"
+                                    value="{{ Auth::user()->scholar_id }}" name="scholar_id">
+                                <span class="text-danger error-text scholar_id_error"></span>
+                            </div>
+                        </div>
 
                         @if(Auth::user()->hasRole('teacher'))
                         <div class="col-md-4">
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label><input name="pos" type="checkbox" value="check2" />สำหรับอ.ผู้ที่ไม่มีคุณวุฒิปริญญาเอก โปรดระบุ</label>
+                                    <label><input name="pos" type="checkbox" value="check2" />{{ trans('message.addition_profile') }}</label>
                                 </div>
 
                             </div>
@@ -155,7 +155,7 @@
                         @endif
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">{{ trans('message.update') }}</button>
                     </div>
                 </form>
             </div>
@@ -163,12 +163,12 @@
 
             <div class="tab-pane fade " id="password" role="tabpanel" aria-labelledby="password-tab">
                 <form class="form-horizontal" action="{{ route('adminChangePassword') }}" method="POST" id="changePasswordAdminForm">
-                    <h3 class="mb-4">Password Settings</h3>
+                    <h3 class="mb-4">{{trans('message.password_setting')}}</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Old password</label>
-                                <input type="password" class="form-control" id="inputpassword" placeholder="Enter current password" name="oldpassword">
+                                <label>{{ trans('message.old_password') }}</label>
+                                <input type="password" class="form-control" id="inputpassword" placeholder="{{ trans('message.enter_current_password') }}" name="oldpassword">
                                 <span class="text-danger error-text oldpassword_error"></span>
                             </div>
                         </div>
@@ -176,21 +176,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>New password</label>
-                                <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
+                                <label>{{ trans('message.new_password') }}</label>
+                                <input type="password" class="form-control" id="newpassword" placeholder="{{ trans('message.enter_new_password') }}" name="newpassword">
                                 <span class="text-danger error-text newpassword_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Confirm new password</label>
-                                <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
+                                <label>{{ trans('message.confirm_password') }}</label>
+                                <input type="password" class="form-control" id="cnewpassword" placeholder="{{ trans('message.enter_confirm_password') }}" name="cnewpassword">
                                 <span class="text-danger error-text cnewpassword_error"></span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update!!</button>
+                        <button class="btn btn-primary">{{ trans('message.update') }}</button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -198,12 +198,12 @@
             </div>
             <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                 <form class="form-horizontal" method="POST" action="{{ route('updateEdInfo') }}" id="EdInfoForm">
-                    <h3 class="mb-4">ประวัติการศึกษา</h3>
+                    <h3 class="mb-4">{{ trans('message.education_background') }}</h3>
                     <div class="row">
-                        <label>ปริญญาตรี</label>
+                        <label>{{ trans('message.bachelor_degree') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{trans('message.university_name')}}</label>
                                 @if (empty(Auth::user()->education[0]->uname))
                                 <input type="text" class="form-control" id="inputlBUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="b_uname">
                                 @else
@@ -214,7 +214,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans('message.academic_degree') }}</label>
                                 @if (empty(Auth::user()->education[0]->qua_name))
                                 <input type="text" class="form-control" id="inputlBQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="b_qua_name">
                                 @else
@@ -225,7 +225,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('message.year_of_graduation') }}</label>
                                 @if (empty(Auth::user()->education[0]->year))
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="b_year">
                                 @else
@@ -236,10 +236,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาโท</label>
+                        <label>{{ trans('message.master_degree') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{trans('message.university_name')}}</label>
                                 @if (empty(Auth::user()->education[1]->uname))
                                 <input type="text" class="form-control" id="inputlMUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="m_uname">
                                 @else
@@ -250,7 +250,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans(key: 'message.academic_degree') }}</label>
                                 @if (empty(Auth::user()->education[1]->qua_name))
                                 <input type="text" class="form-control" id="inputlMQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="m_qua_name">
                                 @else
@@ -261,7 +261,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('message.year_of_graduation') }}</label>
                                 @if (empty(Auth::user()->education[1]->year))
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="m_year">
                                 @else
@@ -272,10 +272,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาเอก</label>
+                        <label>{{ trans('message.doctoral_degree') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{trans('message.university_name')}}</label>
                                 @if (empty(Auth::user()->education[2]->uname))
                                 <input type="text" class="form-control" id="inputlDUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="d_uname">
                                 @else
@@ -286,7 +286,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans(key: 'message.academic_degree') }}</label>
                                 @if (empty(Auth::user()->education[2]->qua_name))
                                 <input type="text" class="form-control" id="inputlDQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="d_qua_name">
                                 @else
@@ -297,7 +297,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('message.year_of_graduation') }}</label>
                                 @if (empty(Auth::user()->education[2]->year))
                                 <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="d_year">
                                 @else
@@ -309,7 +309,7 @@
                     </div>
 
                     <div>
-                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary">{{ trans('message.update') }}</button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -317,13 +317,13 @@
 
             </div>
             <div class="tab-pane fade show{{old('tab') == 'expertise' ? ' active' : null}}" id="expertise" role="tabpanel" aria-labelledby="expertise-tab">
-                <h3 class="mb-4">{{trans('message.Expertise')}}</h3>
+                <h3 class="mb-4">{{ trans('message.expertise') }}</h3>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
                             <!-- <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">Add Expertise</a> -->
                             <button type="button" class="btn btn-primary btn-menu1 btn-icon-text btn-sm mb-3" data-toggle="modal" data-target="#crud-modal">
-                                <i class="mdi mdi-plus btn-icon-prepend"></i>{{trans('message.Add_Expertise')}}
+                                <i class="mdi mdi-plus btn-icon-prepend"></i>{{ trans('message.add_expertise') }}
                             </button>
                         </div>
                     </div>
@@ -338,7 +338,7 @@
 
                 <table class="table table-striped table-hover">
                     <tr>
-                        <th colspan="2">{{trans('message.Expertise')}}</th>
+                        <th colspan="2">{{ trans('message.expertise') }}</th>
 
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
@@ -381,15 +381,15 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>{{trans('message.Name')}}:</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="{{trans('message.Expert_Name')}}" onchange="validate()">
+                                <strong>{{ trans('message.name_expertise') }}:</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="{{ trans('message.expertise_holder') }}" onchange="validate()">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{trans('message.Submit')}}</button>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{ trans('message.submit_button') }}</button>
                             <!-- <a  href="{{ URL::previous() }}"class="btn btn-danger">Cancel</a>-->
-                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal">{{trans('message.Cancle')}}</button>
+                            <button class="btn btn-danger" id="btnCancel" data-dismiss="modal">{{ trans('message.cancel_button') }}</button>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>
@@ -439,9 +439,9 @@
                 },
                 function(isConfirm) {
                     if (isConfirm) {
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     } else {
-                        swal("Cancle", "Account is not updated", "error");
+                        swal("{{trans('message.update_error')}}", "{{trans('message.update_error_text')}}", "error");
                     }
                 });
         }
@@ -473,7 +473,7 @@
                                 'input[name="name"]')).val());
                         });
                         console.log(data.msg);
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     }
                 }
             });
@@ -535,7 +535,7 @@
                                 'input[name="name"]')).val());
                         });
                         console.log(data.msg)
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{trans('message.update_info')}}", "{{trans('message.update_success')}}", "success");
                     }
                 }
             });
@@ -555,7 +555,7 @@
             onSuccess: function(message, element, status) {
                 //swal("Congrats!", message , "success");
                 //alert(message);
-                swal("Update Profile Picture", "Your account is updated!", "success");
+                swal("{{trans('message.update_picutre')}}", "{{trans('message.update_picutre_success')}}", "success");
             },
             onError: function(message, element, status) {
                 alert(message);
@@ -582,7 +582,7 @@
                     } else {
                         $('#changePasswordAdminForm')[0].reset();
                         //alert(data.msg);
-                        swal("Update Password", "Your account is Password updated!", "success");
+                        swal("{{trans('message.update_password')}}", "{{trans('message.update_password_success')}}", "success");
                     }
                 }
             });
@@ -605,7 +605,7 @@
         $('body').on('click', '#edit-expertise', function() {
             var expert_id = $(this).data('id');
             $.get('experts/' + expert_id + '/edit', function(data) {
-                $('#expertiseCrudModal').html("Edit Expertise");
+                $('#expertiseCrudModal').html("{{trans('message.edit_expertise')}}");
 
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
@@ -629,41 +629,46 @@
             var expert_id = $(this).data("id");
             var token = $("meta[name='csrf-token']").attr("content");
 
-
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: "{{ trans('message.delete_title') }}",
+                text: "{{ trans('message.delete_text') }}",
                 type: "warning",
-                buttons: true,
+                buttons: {
+                    cancel: {
+                        text: "{{ trans('message.cancel_button') }}",
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "{{ trans('message.submit_button') }}",
+                        visible: true,
+                        className: "btn btn-primary",
+                        closeModal: false,
+                    }
+                },
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        $.ajax({
-                            type: "DELETE",
-                            url: "experts/" + expert_id,
-                            data: {
-                                "id": expert_id,
-                                "_token": token,
-                            },
-
-                            success: function() {
-                                $("#expert_id_" + expert_id).remove();
-                                //swal("Done!", "It was succesfully deleted!", "success");
-
-                                // $('#v-pills-tab.a.active').removeClass("active");
-                                // $(this).addClass("active");
-                            },
-                            error: function(xhr, ajaxOptions, thrownError) {
-                                swal("Error deleting!", "Please try again", "error");
-                            }
-                        });
-
+                    $.ajax({
+                        type: "DELETE",
+                        url: "experts/" + expert_id,
+                        data: {
+                            "id": expert_id,
+                            "_token": token,
+                        },
+                        success: function() {
+                            $("#expert_id_" + expert_id).remove();
+                            swal("{{ trans('message.delete_success') }}", {
+                                icon: "success",
+                            }).then(function() {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            swal("{{ trans('message.delete_error') }}", "{{ trans('message.try_again') }}", "error");
+                        }
                     });
-
                 }
             });
         });

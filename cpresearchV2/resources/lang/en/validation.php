@@ -139,6 +139,21 @@ return [
         ],
     ],
 
+    'password' => [
+        'old_password_incorrect' => 'The current password is incorrect',
+        'enter_current_password' => 'Please enter your current password',
+        'enter_new_password' => 'Please enter your new password',
+        'reEnter_password' => 'Please re-enter your new password',
+        'enter_new_password' => 'Please enter your new password',
+        'oldpass_min' => 'Old password must have atleast 8 characters',
+        'oldpass_max' => 'Old password must not be greater than 30 characters',
+        'newpass_min' => 'New password must have atleast 8 characters',
+        'newpass_max' => 'New password must not be greater than 30 characters',
+        'cnewpass_required' => 'Please confirm your new password',
+        'newpass_same' => 'New password and Confirm new password must match',
+    ],
+    'required_field' => 'This field is required',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

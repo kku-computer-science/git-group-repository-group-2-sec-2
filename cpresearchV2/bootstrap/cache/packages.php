@@ -10,6 +10,17 @@
       0 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
   ),
+  'chriskonnertz/deeply' => 
+  array (
+    'aliases' => 
+    array (
+      'DeepLy' => 'ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyFacade',
+    ),
+    'providers' => 
+    array (
+      0 => 'ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'aliases' => 
@@ -33,6 +44,24 @@
     'providers' => 
     array (
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
+    ),
+  ),
+  'justraviga/laravel-deepl' => 
+  array (
+    'aliases' => 
+    array (
+      'Deepl' => 'JustRaviga\\Deepl\\Facades\\Deepl',
+    ),
+    'providers' => 
+    array (
+      0 => 'JustRaviga\\Deepl\\DeeplServiceProvider',
+    ),
+  ),
+  'justraviga/laravel-langman' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Themsaid\\Langman\\LangmanServiceProvider',
     ),
   ),
   'laravel/sail' => 

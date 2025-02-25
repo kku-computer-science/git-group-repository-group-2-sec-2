@@ -38,7 +38,12 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
+// new
 use App\Http\Controllers\APIstatusController;
+use App\Http\Controllers\CertificateFormController;
+use App\Http\Controllers\HighlightController;
+use App\Http\Controllers\AssistantResearcherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -146,6 +151,12 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/ajax-get-subcat', [UserController::class, 'getCategory']);
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
+    Route::middleware(['auth'])->group(function () {
+    Route::get('/certificateform', [CertificateFormController::class, 'index'])->name('certificate_form.index');
+    Route::get('/highlight', [HighlightController::class, 'index'])->name('highlight.index');
+    Route::get('/assistant-researcher', [AssistantResearcherController::class, 'index'])->name('assistant_researcher.index');
+    
+    });
 
 
 });

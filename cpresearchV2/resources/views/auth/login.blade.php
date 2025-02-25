@@ -319,6 +319,9 @@
 			font-size: 12px;
 		}
 	</style>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
@@ -375,49 +378,80 @@
 		</div>
 	</div> -->
 
+
 	<div class="form">
 		<div class="form-toggle"></div>
 		<div class="form-panel one">
+			<div class="d-flex justify-content-end">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<span
+							class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+						{{ Config::get('languages')[App::getLocale()]['display'] }}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						@foreach (Config::get('languages') as $lang => $language)
+						@if ($lang != App::getLocale())
+						<a class="dropdown-item" href="{{ route('langswitch', $lang) }}"><span
+								class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+							{{$language['display']}}</a>
+						@endif
+						@endforeach
+					</div>
+				</li>
+			</div>
 			<div class="form-header">
-				<h1>Account Login</h1>
+				<h1>{{trans('message.account_login') }}</h1>
 			</div>
 			<div class="form-content">
 				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
 					@csrf
 					@if($errors->any())
-					<div class=" alert alert-danger alert-block ">
-						<button type=" button" class="close" data-dismiss="alert"></button>
+					<div class="alert alert-danger alert-block">
+						<button type="button" class="close" data-dismiss="alert"></button>
 						<strong><a>{{$errors->first()}}</a></strong>
 					</div>
 					@endif
 					<!-- <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz"> -->
 					<div class="form-group validate-input">
-						<label for="email">Username</label>
-						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
-						@error('username')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-						@enderror
-					</div>
+    <label for="username">{{ trans('message.username') }}</label>
+    <input id="username" 
+           type="text" 
+           class="form-control @error('username') is-invalid @enderror" 
+           name="username" 
+           value="{{ old('username') }}" 
+           required 
+           autofocus 
+           data-error-message="{{ trans('validation.required_field') }}"
+           oninvalid="this.setCustomValidity(this.dataset.errorMessage)" 
+           oninput="this.setCustomValidity('')" />
+</div>
 					<div class="form-group validate-input" data-validate="Password is required">
-						<label for="password">Password</label>
-						<input id="password" class="input" type="password" name="password" required="required" />
+						<label for="password">{{ trans('message.password') }}</label>
+						<input id="password" 
+							   type="password" 
+							   class="form-control @error('password') is-invalid @enderror" 
+							   name="password" 
+							   required 
+							   data-error-message="{{ trans('validation.required_field') }}"
+							   oninvalid="this.setCustomValidity(this.dataset.errorMessage)" 
+							   oninput="this.setCustomValidity('')" />
 					</div>
 					<div class="form-group">
 						<label class="form-remember">
-							<input id="ckb1" name="remember" type="checkbox" />Remember Me
+							<input id="ckb1" name="remember" type="checkbox" />{{trans('message.remember_me')}}
 						</label>
 					</div>
 					<div class="form-group">
-						<button type="submit">Log In</button>
+						<button type="submit">{{trans('message.login')}}</button>
 					</div>
 					<div class="form-remember pb-3">
-							<p style="color: red; text-align: right;"> *** หากลืมรหัสผ่าน ให้ติดต่อผู้ดูแลระบบ</p>
+						<p style="color: red; text-align: right;"> *** {{trans('message.forgot_password')}}</p>
 					</div>
 					<ul>
-						<li>สำหรับ Username ใช้ KKU-Mail ในการเข้าสู่ระบบ</li>
-						<li>สำหรับนักศึกษาที่เข้าระบบเป็นครั้งแรกให้เข้าสู่ระด้วยรหัสนักศึกษา</li>
+						<li>{{trans('message.username_login')}}</li>
+						<li>{{trans('message.username_student')}}</li>
 					</ul>
 				</form>
 			</div>
