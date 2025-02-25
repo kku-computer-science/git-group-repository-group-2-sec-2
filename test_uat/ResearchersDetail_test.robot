@@ -27,3 +27,39 @@ Click Researchers Menu and Browse Profiles
 
     # รอให้หน้าโปรไฟล์โหลด
     Sleep    3s
+    # วนลูปกดปุ่มแท็บทุกอันใน nav-tabs
+    ${tabs}=    Get WebElements    xpath=//ul[@class='nav nav-tabs']/li/button
+    FOR    ${tab}    IN    @{tabs}
+        Scroll Element Into View    ${tab}
+        Click Element    ${tab}
+        Sleep    2s  # รอให้เนื้อหาโหลด
+        # Capture Page Screenshot
+    END
+    # คลิกปุ่มเปลี่ยนภาษา (Dropdown)
+    Click Element    xpath=//a[@id='navbarDropdownMenuLink']
+    Sleep    2s  # รอ dropdown แสดง
+    # คลิกที่ "ไทย"
+    Click Element    xpath=//a[@href='http://127.0.0.1:8000/lang/th']
+    Sleep    3s  # รอหน้าเปลี่ยนภาษา
+    # วนลูปกดปุ่มแท็บทุกอันใน nav-tabs
+    ${tabs}=    Get WebElements    xpath=//ul[@class='nav nav-tabs']/li/button
+    FOR    ${tab}    IN    @{tabs}
+        Scroll Element Into View    ${tab}
+        Click Element    ${tab}
+        Sleep    2s  # รอให้เนื้อหาโหลด
+        #Capture Page Screenshot
+    END
+    # คลิกปุ่มเปลี่ยนภาษา (Dropdown)
+    Click Element    xpath=//a[@id='navbarDropdownMenuLink']
+    Sleep    2s  # รอ dropdown แสดง
+    # คลิกที่ "中文"
+    Click Element    xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
+    Sleep    3s  # รอหน้าเปลี่ยนภาษา
+    # วนลูปกดปุ่มแท็บทุกอันใน nav-tabs
+    ${tabs}=    Get WebElements    xpath=//ul[@class='nav nav-tabs']/li/button
+    FOR    ${tab}    IN    @{tabs}
+        Scroll Element Into View    ${tab}
+        Click Element    ${tab}
+        Sleep    2s  # รอให้เนื้อหาโหลด
+        #Capture Page Screenshot
+    END
