@@ -49,8 +49,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary me-2">{{trans('message.submit')}}</button>
-                    <a class="btn btn-light" href="{{ route('books.index') }}" >{{trans('message.cancel')}}</a>
+                    <button type="submit" class="btn btn-primary me-2">{{trans('message.Submit')}}</button>
+                    <a class="btn btn-light" href="{{ route('books.index') }}" >{{trans('message.Cancel')}}</a>
                 </form>
             </div>
         </div>

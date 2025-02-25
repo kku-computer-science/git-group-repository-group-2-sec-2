@@ -657,6 +657,16 @@ return [
     'prepared_by'               => 'Prepared By',
     'prepared_by_co'            => 'Co-Prepared By',
     'number'                    => 'Number',
+    
+    // cpresearchV2\resources\views\patents\edit.blade.php
+    'Patents_edit_details'               => 'Edit Patent Details',
+    'patents_enter_details'          => 'Edit Patent Details Information',
+    'patents_name'=> 'Patent Name',
+    'patents_type'=> 'Patent Type',
+    'date_of_rights'=> 'Date of Rights',
+    'internal_professors'=> 'Internal Professor',
+    'external_persons'=> 'External Persons',
+
 
     // cpresearchV2\resources\views\research_projects\show.blade.php
     'research_projects_detail'       => 'Research Projects Detail',
@@ -697,6 +707,9 @@ return [
     // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                => 'Permission',
     'name'                      => 'Name',
+
+    // cpresearchV2\resources\views\permissions\show.blade.php
+    'edit_permission'                => 'Edit Permission',
 
 
     //cpresearchV2\resources\views\researchgroupdetail.blade.php
@@ -804,6 +817,11 @@ return [
     //cpresearchv2\resources\views\papers\edit.blade.php
     'edit_paper' => 'Edit Paper',
     'edit_paper_details' => 'Fill in the information to edit paper details',
+
+    //cpresearchv2\resources\views\books\edit.blade.php
+    'edit_book_details' => 'Edit Book Detail',
+    'enter_book_details' => 'Fill in the information to edit book details',
+    'number_of_pages' => 'Number of Pages',
 
     //cpresearchv2\resources\views\research_projects\edit.blade.php
     'edit_research_project' => 'Edit Research Project',

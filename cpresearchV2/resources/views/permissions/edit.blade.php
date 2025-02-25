@@ -24,7 +24,7 @@
                         <strong>{{trans('message.permission_name')}}:</strong>
                         {!! Form::text('name', null, array('placeholder' => trans('message.name'),'class' => 'form-control')) !!}
                     </div>
-                    <button type="submit" class="btn btn-primary">{{trans('message.submit')}}</button>
+                    <button type="submit" class="btn btn-primary">{{trans('message.Submit')}}</button>
                 {!! Form::close() !!}
             </div>
         </div>
