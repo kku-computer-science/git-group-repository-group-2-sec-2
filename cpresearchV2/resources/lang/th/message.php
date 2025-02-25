@@ -54,6 +54,7 @@ return [
 
 // cpresearchV2/resources/views/programs/index.blade.php
 'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
+'Edit_Program' => 'แก้ไขหลักสูตร',
 'Education_Level' => 'ระดับการศึกษา',
 'Academic_Program' => 'สาขาวิชา',
 'Name_TH' => 'ชื่อ (ไทย)',

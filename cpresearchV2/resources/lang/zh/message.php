@@ -63,6 +63,7 @@ return [
 
     // cpresearchV2/resources/views/programs/index.blade.php
     'Add_New_Program' => '添加新课程',
+    'Edit_Program' => '编辑课程',
     'Education_Level' => '教育水平',
     'Academic_Program' => '学术课程',
     'Name_TH' => '名称 (泰文)',
