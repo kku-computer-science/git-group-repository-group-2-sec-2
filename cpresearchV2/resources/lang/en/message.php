@@ -425,6 +425,43 @@ return [
 
 
 
+    // http://127.0.0.1:8000/researchProjects/create
+    'Whoops' => 'Whoops',
+    'There were some problems with your input' => 'There were some problems with your input',
+    'Add Research Project' => 'Add Research Project',
+    'Fill in the form below to add a new research project' => 'Fill in the form below to add a new research project',
+    'Project Name' => 'Project Name',
+    'Start Date' => 'Start Date',
+    'End Date' => 'End Date',
+    'Select Fund' => 'Select Fund',
+    'Project Year' => 'Project Year',
+    'Budget' => 'Budget',
+    'Responsible Department' => 'Responsible Department',
+    'Select Department' => 'Select Department',
+    'Project Details' => 'Project Details',
+    'Note' => 'Note',
+    'Status' => 'Status',
+    'Select Status' => 'Select Status',
+    'Submitted' => 'Submitted',
+    'In Progress' => 'In Progress',
+    'Closed' => 'Closed',
+    'Project Leader' => 'Project Leader',
+    'Select User'   => 'Select User',
+    'Internal Co-Leader' => 'Internal Co-Leader',
+    'External Co-Leader' => 'External Co-Leader',
+    'Title' => 'Title',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Add More Person' => 'Add More Person',
+    'Record Inserted Successfully' => 'Record Inserted Successfully',
+    'Sorry! Cannot remove first row!' => 'Sorry! Cannot remove first row!',
+    'Invalid Date Range' => 'Invalid Date Range',
+
+
+
+
+
+
     //cpresearchV2/resources/views/funds/index.blade.php
     'fund' => 'fund',
     'no_dot' => 'No.',
@@ -801,6 +838,137 @@ return [
     'There were some problems with your input' => 'There were some problems with your input.',
     'research_group_leader' => 'Choose Research Group Leader',
 
+
+// cpresearchV2\resources\views\apistatus\index.blade.php
+    'api_status' => 'API Status',
+    'api_name' => 'API Name',
+    'status' => 'Status',
+    'last_checked' => 'Last Checked',
+    'message' => 'Message',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+
+// cpresearchV2\resources\views\highlight\index.blade.php
+    'highlight' => 'Highlight',
+    'welcome_higlight' => 'Welcome to the Highlight page. Please create your highlight of our proud.',
+
+// cpresearchV2\resources\views\assistant_researcher\index.blade.php
+    'assistant_researcher' => 'Assistant Researcher',
+    'assistant_wanted' => 'Assistant Wanted',
+    'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
+
+// cpresearchV2\resources\views\certificate-form\index.blade.php
+    'certificate_form' => 'Certificate Form',
+    'welcome_certificate' => 'Welcome to the Certificate Form page. Please proceed with your submission.',
+
+     // Navbar
+     'for_student' => 'For Student',
+     'for_head' => 'For Head Project',
+     'for_staff' => 'For Staff',
+     'research_API' => 'Research API',
+
+     // cpresearchV2\resources\views\research_proj.blade.php
+    'research_proj_head' => 'Academic service projects/ Research projects',
+    'proj_name' => 'Project Name',
+    'desc' => 'Description',
+    'proj_lead' => 'Project Leader',
+    'proj_duration' => 'Project Duration',
+    'proj_type' => 'Project Type',
+    'fund_agency' => 'Funding Agency',
+    'res_agency' => 'Responsible Department',
+    'alloc_budget' => 'Allocated Budget',
+    'proj_closed' => 'Closed Project',
+    'proj_req' => 'Request',
+    'proj_op' => 'Operating',
+
+
+    //
+    'big_data_analytics' => 'Big Data Analytics',
+    'computer_vision' => 'Computer Vision',
+    'cellular_automata' => 'Cellular Automata',
+    'natural_language_speech_processing' => 'Natural Language and Speech Processing',
+    'machine_learning_intelligent_systems' => 'Machine Learning and Intelligent Systems',
+    'database_information_integration_systems' => 'Database and Information Integration Systems',
+    'data_science_ai' => 'Data Science and Artificial Intelligence',
+    'computational_intelligence' => 'Computational Intelligence',
+    'nature_optimization_algorithm' => 'Nature-Inspired Optimization Algorithm',
+    'artificial_neural_network' => 'Artificial Neural Network',
+    'soft_computing' => 'Soft Computing',
+    'object_oriented_programming' => 'Object-Oriented Programming Languages',
+    'software_engineering' => 'Software Engineering',
+    'ubiquitous_blended_learning' => 'Ubiquitous Learning, Blended Learning',
+    'bioinformatics' => 'Bioinformatics',
+    'user_experience_design' => 'User Experience Design',
+    'mobile_computing' => 'Mobile Computing',
+    'cloud_computing' => 'Cloud Computing',
+    'iot_smart_technology' => 'Internet of Things and Smart Technology',
+    'wireless_sensor_networks' => 'Wireless Sensor Networks',
+    'wireless_cellular_networks' => 'Wireless and Cellular Networks',
+    'computer_network_security' => 'Computer and Network Security',
+    'network_protocol_optimization' => 'Network, Protocol, Optimization, and Intelligent Systems',
+    'routing_protocols_internetworking' => 'Routing Protocols and Internetworking',
+    'mobile_ad_hoc_networks' => 'Mobile Ad Hoc Networks',
+    'evolutionary_algorithms' => 'Evolutionary Algorithms',
+    'software_process' => 'Software Process',
+    'code_smells_software_quality' => 'Code Smells and Software Quality',
+    'secure_software_engineering' => 'Secure Software Engineering',
+    'mobile_agent_multi_agent_systems' => 'Mobile Agent and Multi-Agent Systems',
+    'information_extraction_integration' => 'Information Extraction and Integration',
+    'internet_web_information_systems' => 'Internet and Web Information Systems',
+    'temporal_causality_analysis' => 'Temporal Causality Analysis',
+    'information_theory' => 'Information Theory',
+    'social_network_analysis' => 'Social Network Analysis',
+    'deep_learning' => 'Deep Learning',
+    'semantic_web_ontology_engineering' => 'Semantic Web and Ontology Engineering',
+    'ontology_data_integration' => 'Ontology-based Data Integration',
+    'semantic_sentiment_analysis' => 'Semantic Sentiment Analysis',
+    'parallel_distributed_cloud_computing' => 'Parallel/Distributed Systems and Cloud Computing',
+    'intelligent_systems' => 'Intelligent Systems',
+    'smart_x' => 'Smart X: Smart Farm, Home, Health-care, Car, Building',
+    'data_mining' => 'Data Mining',
+    'ensemble_learning_model' => 'Ensemble Learning Model',
+    'metaheuristic_algorithms' => 'Metaheuristic Algorithms',
+    'business_intelligence_analytics' => 'Business Intelligence and Analytics',
+    'enterprise_systems_erp' => 'Enterprise Systems, ERP systems',
+    'it_strategy_planning_management' => 'IT Strategy, IT Strategic Planning, IT Management',
+    'image_processing' => 'Image Processing',
+    'search_protocol' => 'Search Protocol',
+    'ontology' => 'Ontology',
+    'database' => 'Database',
+    'wireless_mobile_communications' => 'Wireless Mobile Communications (OFDM Systems)',
+    'digital_signal_processing' => 'Digital Signal Processing (Image, Speech, Sound, Ultrasound)',
+    '3d_stereoscopic' => '3D Stereoscopic',
+    'intrusion_detection_prevention' => 'Intrusion Detection and Prevention Systems',
+    'speech_analysis_synthesis' => 'Speech Analysis and Synthesis',
+    'robotics' => 'Robotics',
+    'wireless_network' => 'Wireless Network',
+    'network_simulation' => 'Network Simulation',
+    'system_engineer' => 'System Engineer',
+    'text_mining' => 'Text Mining',
+    'opinion_mining' => 'Opinion Mining',
+    'learning_engineering' => 'Learning Engineering',
+    'formal_method' => 'Formal Method',
+    'ai_formal_verification' => 'AI for Formal Verification',
+    'database_programming' => 'Database Programming',
+    'hydrologic_modeling_gis' => 'Hydrologic Modeling with GIS',
+    'internet_gis_health_gis' => 'Internet GIS, Health GIS',
+    'remote_sensing_gis_geology' => 'Remote Sensing and GIS in Geology',
+    'hydrology' => 'Hydrology',
+    'urban_remote_sensing' => 'Urban Remote Sensing',
+    'spatial_analysis' => 'Spatial Analysis',
+    'spatial_database' => 'Spatial Database',
+    'web_mapping' => 'Web Mapping',
+    'uav' => 'UAV',
+    'satellite_image_classification' => 'Satellite Image Classification',
+    'human_computer_interaction' => 'Human Computer Interaction',
+    'ai_healthcare' => 'Artificial Intelligence in Healthcare',
+
+    //Expertise
+    'smart_x' => 'Smart X: Smart Farm, Home, Health-care, Car, Building, Device, etc.',
+
+
+    //Title Web
+    'title_web' => 'Research Information System, College of Computing',
 
 // cpresearchV2\resources\views\apistatus\index.blade.php
     'api_status' => 'API Status',
