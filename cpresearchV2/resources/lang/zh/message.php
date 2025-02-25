@@ -448,6 +448,8 @@ return [
     'Department_Name_EN' => '系名称 (英文)',
     'Create_Department' => '创建系',
     'Departments' => '系',
+    'error_title' => '糟糕!',
+    'error_message' => '出现错误，请检查下面的错误。',
 
     // cpresearchV2/resources/views/books/create.blade.php
     'Add_Book' => '添加书籍',
@@ -464,11 +466,13 @@ return [
     'Research_Group_Name_EN' => '研究小组名称 (英文)',
     'Research_Group_Description_TH' => '研究小组描述 (泰文)',
     'Research_Group_Description_EN' => '研究小组描述 (英文)',
+    'Research_Group_Detail_TH' => '研究小组详情 (泰文)',
+    'Research_Group_Detail_EN' => '研究小组详情 (英文)',
     'Image' => '图片',
     'Research_Group_Leader' => '研究小组负责人',
     'Research_Group_Members' => '研究小组成员',
     'Back' => '返回',
-
+    'Select_User' => '选择用户',
     // cpresearchV2/resources/views/users/create.blade.php
     'Add_User' => '添加用户',
     'Add_User_Details' => '编辑用户详情',
@@ -483,7 +487,14 @@ return [
     'Department' => '系',
     'Program' => '课程',
     'Select_Subcategory' => '选择子类别',
+    'Role_Admin' => '管理员',
+    'Role_HeadProject' => '项目负责人',
+    'Role_Staff' => '职员',
+    'Role_Student' => '学生',
+    'Role_Teacher' => '教师',
     'Scholar_ID_(Optional)' => '学者编号 (可选)',
+    'error_title' => '错误!',
+    'error_message' => '发生了一些错误，请检查以下错误。',
 
     // cpresearchV2/resources/views/users/import.blade.php
     'Import' => '导入 Excel, CSV 文件',
