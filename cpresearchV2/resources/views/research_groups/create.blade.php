@@ -77,33 +77,41 @@
                             ->value('role_id');
                             @endphp
 
-                            @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
-                            <option value="">{{trans('message.research_group_leader')}}</option>
-                            @foreach($users as $user)
-                            <option value="{{ $user->id }}"
-                                {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
-                                {{ $user->fname_th }} {{ $user->lname_th }}
-                            </option>
-                            @endforeach
-                            @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
-                            <option value="{{ Auth::user()->id }}" selected>
-                                {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
-                            </option>
-                            @endif
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <p class="col-sm-3 pt-4"><b>{{trans('message.Research_Group_Members')}}</b></p>
-                    <div class="col-sm-8">
-                        <table class="table" id="dynamicAddRemove">
-                            <tr>
-                                <th><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"><i
-                                            class="mdi mdi-plus"></i></button></th>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+            <option value="">{{trans('message.Select_User')}}</option>
+            @foreach($users as $user)
+                @php
+                    // เลือกแสดงชื่อให้ตรงกับภาษา
+                    $fname = $locale === 'th' ? $user->fname_th : ($locale === 'zh' ? $user->fname_en : $user->fname_en);
+                    $lname = $locale === 'th' ? $user->lname_th : ($locale === 'zh' ? $user->lname_en : $user->lname_en);
+                @endphp
+                <option value="{{ $user->id }}" {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
+                    {{ $fname }} {{ $lname }}
+                </option>
+            @endforeach
+            @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อตัวเอง --}}
+            @php
+                $fname = $locale === 'th' ? Auth::user()->fname_th : ($locale === 'zh' ? Auth::user()->fname_en : Auth::user()->fname_en);
+                $lname = $locale === 'th' ? Auth::user()->lname_th : ($locale === 'zh' ? Auth::user()->lname_en : Auth::user()->lname_en);
+            @endphp
+            <option value="{{ Auth::user()->id }}" selected>
+                {{ $fname }} {{ $lname }}
+            </option>
+            @endif
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <p class="col-sm-3 pt-4"><b>{{trans('message.Research_Group_Members')}}</b></p>
+    <div class="col-sm-8">
+        <table class="table" id="dynamicAddRemove">
+            <tr>
+                <th><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"><i
+                            class="mdi mdi-plus"></i></button></th>
+            </tr>
+        </table>
+    </div>
+</div>
                 <button type="submit" class="btn btn-primary upload mt-5">{{trans('message.Submit')}}</button>
                 <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}">{{trans('message.Back')}}</a>
             </form>
@@ -209,4 +217,3 @@ $("body").on("click",".upload",function(e){
         updateAvailableOptions();
     });
 </script>
-@stop
