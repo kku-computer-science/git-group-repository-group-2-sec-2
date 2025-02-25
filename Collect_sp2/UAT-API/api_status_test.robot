@@ -3,41 +3,32 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${URL}         http://127.0.0.1:8000/login
+${URL_PROFILE}    http://127.0.0.1:8000/profile
 ${BROWSER}     chrome
 ${USERNAME_ADMIN}    admin@gmail.com
 ${PASSWORD_ADMIN}    12345678
 ${DELAY}       0.2
 ${TIMEOUT}     10s
 
+# XPaths ของปุ่มเปลี่ยนภาษา
+${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
+${LANG_THAI}      xpath=//a[@href='http://127.0.0.1:8000/lang/th']
+${LANG_CHINESE}   xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
+${LANG_ENGLISH}   xpath=//a[@href='http://127.0.0.1:8000/lang/en']
+
 *** Test Cases ***
-Call Paper
+Test Switch Language For API status
     [Documentation]    Test Switch Language For API status
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     Login As Admin
+    Navigate To User Profile
     Go To Research API
     Set Selenium Speed    0.3s
-
-    Change Language To Thai
-    Reload Page  # ✅ เพิ่ม Reload Page หลังเปลี่ยนภาษา
-    ${text} =    Get Text    ${LANG_DROPDOWN}
-    Log  Current language: ${text}
-    Capture Page Screenshot  th_page.png
-
-    Change Language To English
-    Reload Page
-    ${text} =    Get Text    ${LANG_DROPDOWN}
-    Log  Current language: ${text}
-    Capture Page Screenshot  en_page.png
-
-    Change Language To Chinese
-    Reload Page
-    ${text} =    Get Text    ${LANG_DROPDOWN}
-    Log  Current language: ${text}
-    Capture Page Screenshot  ch_page.png
-
+    Change Language  ${LANG_THAI}
+    Change Language  ${LANG_CHINESE}
+    Change Language  ${LANG_ENGLISH}
     Close Browser
-
 
 *** Keywords ***
 Login As Admin
@@ -48,31 +39,23 @@ Login As Admin
     Set Selenium Speed    ${DELAY}
 
 Go To Research API
-    Wait Until Element Is Visible    xpath=//*[@id="sidebar"]/ul/li[17]/a    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    xpath=//*[@id="sidebar"]/ul/li[17]/a   timeout=${TIMEOUT}
     Click Element    xpath=//*[@id="sidebar"]/ul/li[17]/a
     Sleep    5s
     Set Selenium Speed    ${DELAY}
 
-Change Language To Thai
-    Mouse Over    ${LANG_DROPDOWN}
-    Sleep    1s
-    Click Element    ${LANG_DROPDOWN}
-    Wait Until Element Is Visible    ${TH_BUTTON}    timeout=5s
-    Click Element    ${TH_BUTTON}
-    Sleep    3s
+Change Language
+    [Arguments]  ${LANG_OPTION}
+    Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s
+    Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();
+    Click Element  ${LANG_DROPDOWN}
+    Sleep  2s
+    Wait Until Element Is Visible  ${LANG_OPTION}  timeout=5s
+    Click Element  ${LANG_OPTION}
+    Sleep  2s
+    Capture Page Screenshot
 
-Change Language To English
-    Mouse Over    ${LANG_DROPDOWN}
-    Sleep    1s
-    Click Element    ${LANG_DROPDOWN}
-    Wait Until Element Is Visible    ${EN_BUTTON}    timeout=5s
-    Click Element    ${EN_BUTTON}
-    Sleep    3s
-
-Change Language To Chinese
-    Mouse Over    ${LANG_DROPDOWN}
-    Sleep    1s
-    Click Element    ${LANG_DROPDOWN}
-    Wait Until Element Is Visible    ${CH_BUTTON}    timeout=5s
-    Click Element    ${CH_BUTTON}
-    Sleep    3s
+Navigate To User Profile
+    Go To  ${URL_PROFILE}
+    Sleep  2s
+    Capture Page Screenshot
