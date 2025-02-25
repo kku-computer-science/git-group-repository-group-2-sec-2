@@ -7,21 +7,11 @@
     @php
         $locale = app()->getLocale();
 
-        // คำอธิบายภาษาจีนเฉพาะของแต่ละกลุ่ม
-        $descriptions_zh = [
-            '在互联网、地理信息系统 (GIS)、健康 GIS 以及 GIS 水文建模领域开展研究并提供学术服务。',
-            '本实验室致力于研究高性能计算的智能技术，该技术模仿自然启发的行为。',
-            '本研究实验室汇集了多个跨学科研究领域，如数据科学与数据分析、数据挖掘、文本挖掘、观点挖掘、商业智能、ERP 系统、IT 管理、语义网、情感分析、图像处理、泛在学习、混合学习以及生物信息学。',
-            '该项目的主要目的是开展研究并构建有关机器学习和智能系统及其应用的新知识。',
-            '该项目的主要目标是研究计算机系统中的自然语言和语音处理、机器翻译系统、语音合成与语音识别计算机系统、字符识别与信息检索，以及构建和开发用于整合自然语言和语音的工作系统。',
-        ];
-
-        // ตรวจสอบภาษา ถ้าเป็น zh ให้ดึงจาก `$descriptions_zh` ตามลำดับของกลุ่ม
+        // ถ้าเลือกภาษาจีน (zh) → ใช้คำอธิบายภาษาอังกฤษจากฐานข้อมูล
         if ($locale === 'zh') {
             $group_name = $rg->group_name_en ?? 'N/A';
-            $group_desc = $descriptions_zh[$loop->index] ?? 'N/A';
+            $group_desc = $rg->group_desc_en ?? 'N/A'; // ใช้คำอธิบายภาษาอังกฤษจากฐานข้อมูลแทน
         } else {
-            // ใช้ค่าเดิมจากฐานข้อมูล
             $group_name = $rg->{'group_name_' . $locale} ?? 'N/A';
             $group_desc = $rg->{'group_desc_' . $locale} ?? 'N/A';
         }
@@ -51,7 +41,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">{{ $group_name }}</h5>
-                    <h3 class="card-text">
+                    <h3 class="card-text" id="group_desc_{{ $index }}">
                         {{ $group_desc }}
                     </h3>
                 </div>
@@ -65,4 +55,36 @@
     </div>
     @endforeach
 </div>
+
+<!-- Script แปลเฉพาะคำอธิบาย (group_desc) -->
+@php 
+$locale = app()->getLocale();
+@endphp
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    @if ($locale == 'zh')
+        @foreach ($resg as $index => $rg)
+            translateGroupDesc('group_desc_{{ $index }}', 'zh-CN');
+        @endforeach
+    @endif
+});
+
+// ฟังก์ชันแปลคำอธิบายของกลุ่มวิจัย (group_desc)
+function translateGroupDesc(elementId, lang) {
+    let textElement = document.getElementById(elementId);
+    if (!textElement) return;
+
+    let text = textElement.innerText;
+    let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&q=` + encodeURIComponent(text);
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let translatedText = data[0].map(item => item[0]).join('');
+            textElement.innerText = translatedText;
+        })
+        .catch(error => console.error('Error:', error));
+}
+</script>
 @stop
