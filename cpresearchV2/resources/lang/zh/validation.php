@@ -51,9 +51,22 @@ return [
         'field' => [
             'required' => ':attribute 字段是必填的。',
         ],
+        //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+        'group_name_th' => ['required' => '请输入研究小组名称（泰语）。'],
+        'group_name_en' => ['required' => '请输入研究小组名称（英语）。'],
+        'group_desc_th' => ['required' => '请输入研究小组描述（泰语）。'],
+        'group_desc_en' => ['required' => '请输入研究小组描述（英语）。'],
+        'group_detail_th' => ['required' => '请输入研究小组详细信息（泰语）。'],
+        'group_detail_en' => ['required' => '请输入研究小组详细信息（英语）。'],
+        'head' => ['required' => '请选择研究小组负责人。'],
+        'group_image' => [
+            'mimes' => '图片必须是以下格式: png, jpg, jpeg。',
+            'max' => '图片大小不得超过 2MB。',
+        ],
     ],
     'email' => [
         'required' => '必须填写电子邮件地址。',
         'unique' => '此电子邮件已被使用。',
     ],
+    
 ];

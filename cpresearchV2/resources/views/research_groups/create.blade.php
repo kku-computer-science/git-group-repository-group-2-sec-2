@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    @if ($errors->any())
+@if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ trans('message.error_title') }}</strong> {{ trans('message.error_message') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <li>{{ trans($error) }}</li>
             @endforeach
         </ul>
     </div>
