@@ -582,6 +582,13 @@ return [
     'researcher_role_doctoral_student' => 'Doctoral Student',
     'placeholder_research' => 'Research interests',
 
+//cpresearchV2\resources\views\funds\index.blade.php
+    'Are_You_Sure' => 'Are you sure?',
+    'Delete_Warning' => 'If you delete this, it will be gone forever.',
+    'Delete_Success' => 'Delete Successfully',
+    'OK' => 'OK',
+    'Cancel' => 'Cancel'
+
 
 
 

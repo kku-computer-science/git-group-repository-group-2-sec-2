@@ -889,4 +889,12 @@ return [
     'proj_req' => 'ยื่นขอ',
     'proj_op' => 'กำลังดำเนินการ',
 
+//cpresearchV2\resources\views\funds\index.blade.php
+'Are_You_Sure' => 'คุณแน่ใจหรือไม่?',
+'Delete_Warning' => 'หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก',
+'Delete_Success' => 'ลบสำเร็จ',
+'OK' => 'ตกลง',
+'Cancel' => 'ยกเลิก'
+
+
 ];
