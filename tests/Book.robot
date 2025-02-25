@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${SERVER}         127.0.0.1:8000
+${SERVER}         soften2sec267.cpkkuhost.com
 ${DELAY}          1
 ${BROWSER}        Chrome
 ${USERNAME}       pusadee@kku.ac.th

@@ -514,6 +514,14 @@ return [
 
 
     //=========================Mean==============================
+//cpresearchV2\resources\views\funds\index.blade.php
+'Are_You_Sure' => '你确定吗?',
+'Delete_Warning' => '如果你删除此项，它将永远消失。',
+'Delete_Success' => '删除成功',
+'OK' => '确定',
+'Cancel' => '取消',
+
+
 
 
 
@@ -1030,4 +1038,8 @@ return [
         'smart_x' => '智能X：智能农场、家居、医疗、汽车、建筑、设备等。',
 
     ],
+
+
+    //Title Web
+    'title_web' => '计算机学院研究信息系统',
 ];

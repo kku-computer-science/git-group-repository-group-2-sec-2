@@ -57,7 +57,7 @@
                         <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
                         <!-- <h6 class="card-text1">College of Computing</h6>
                     <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">E-mail: {{$res->email}}</h6>
+                        <h6 class="card-text1">{{ trans('message.Email')}}: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
                         @php
 

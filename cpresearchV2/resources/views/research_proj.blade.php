@@ -82,7 +82,7 @@
             $fund_agency_map = $fund_agency_th;
             $currencyText = 'บาท';
         }
-
+        
 
     @endphp
 
@@ -215,6 +215,21 @@
                                         <div style="padding-bottom: 10px;">
                                             <span>
                                                 @foreach($re->user as $user)
+                                                @php
+                                                // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
+                                                $doctoral_degree = $user->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
+                                                $positionMap = [];
+                                                if ($locale === 'zh') {
+                                                    $positionMap = [
+                                                        'Assoc. Prof. Dr.' => '副教授 博士',
+                                                        'Prof. Dr.'        => '教授 博士',
+                                                        'Asst. Prof. Dr.'  => '助理教授 博士',
+                                                        'Asst. Prof.'      => '助理教授',
+
+                                                    ];
+                                                }
+                                                @endphp
+                                                
                                                     @if($locale === 'th')
                                                         @if($user->position_en !== 'Lecturer')
                                                             {{$user->position_th}} {{$user->fname_th}} {{$user->lname_th}}<br>
@@ -225,13 +240,13 @@
                                                         @if($user->position_en !== 'Lecturer')
                                                             {{$user->position_en}} {{$user->fname_en}} {{$user->lname_en}}<br>
                                                         @else
-                                                            {{$user->fname_en}} {{$user->lname_en}}, {{$user->doctoral_degree}} <br>
+                                                            {{$user->fname_en}} {{$user->lname_en}}, {{$doctoral_degree}} <br>
                                                         @endif
                                                     @else
                                                         @if($user->position_en !== 'Lecturer')
-                                                            {{$user->position_en}} {{$user->fname_en}} {{$user->lname_en}}<br>
+                                                            {{$positionMap[$user->position_en]}} {{$user->fname_en}} {{$user->lname_en}}<br>
                                                         @else
-                                                            {{$user->fname_en}} {{$user->lname_en}}, {{$user->doctoral_degree}}<br>
+                                                            {{$user->fname_en}} {{$user->lname_en}}, {{$doctoral_degree}}<br>
                                                         @endif
                                                     @endif
                                                 @endforeach

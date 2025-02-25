@@ -402,15 +402,15 @@ return [
     //=========================Mean==============================
 
 
-// cpresearchV2/resources/views/programs/index.blade.php
-'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
-'Edit_Program' => 'แก้ไขหลักสูตร',
-'Education_Level' => 'ระดับการศึกษา',
-'Academic_Program' => 'สาขาวิชา',
-'Name_TH' => 'ชื่อ (ไทย)',
-'Name_EN' => 'ชื่อ (อังกฤษ)',
-'Submit' => 'ยืนยัน',
-'Cancle' => 'ยกเลิก',
+    // cpresearchV2/resources/views/programs/index.blade.php
+    'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
+    'Edit_Program' => 'แก้ไขหลักสูตร',
+    'Education_Level' => 'ระดับการศึกษา',
+    'Academic_Program' => 'สาขาวิชา',
+    'Name_TH' => 'ชื่อ (ไทย)',
+    'Name_EN' => 'ชื่อ (อังกฤษ)',
+    'Submit' => 'ยืนยัน',
+    'Cancle' => 'ยกเลิก',
 
 
     // 'Course' => 'หลักสูตร',
@@ -437,13 +437,13 @@ return [
     'Name' => 'ชื่อ',
     'Expert_Name' => 'ชื่อผู้เชี่ยวชาญ',
 
-// cpresearchV2/resources/views/departments/create.blade.php
-'Department_Name_TH' => 'ชื่อหน่วยงาน (ไทย)',
-'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
-'Create_Department' => 'สร้างหน่วยงาน',
-'Departments' => 'หน่วยงาน',
-'error_title' => 'อุ๊ปส์!',
-'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง',
+    // cpresearchV2/resources/views/departments/create.blade.php
+    'Department_Name_TH' => 'ชื่อหน่วยงาน (ไทย)',
+    'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
+    'Create_Department' => 'สร้างหน่วยงาน',
+    'Departments' => 'หน่วยงาน',
+    'error_title' => 'อุ๊ปส์!',
+    'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง',
 
     // cpresearchV2/resources/views/books/create.blade.php
     'Add_Book' => 'เพิ่มหนังสือ',
@@ -453,43 +453,43 @@ return [
     'Year_(A.D.)' => 'ปี (ค.ศ.)',
     'Number_Of_Pages' => 'จำนวนหน้า (Page)',
 
-// cpresearchV2/resources/views/research_groups/create.blade.php
-'Create_Research_Group' => 'สร้างกลุ่มวิจัย',
-'Edit_Research_Group_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย',
-'Research_Group_Name_TH' => 'ชื่อกลุ่มวิจัย (ภาษาไทย)',
-'Research_Group_Name_EN' => 'ชื่อกลุ่มวิจัย (ภาษาอังกฤษ)',
-'Research_Group_Description_TH' => 'คำอธิบายกลุ่มวิจัย (ภาษาไทย)',
-'Research_Group_Description_EN' => 'คำอธิบายกลุ่มวิจัย (ภาษาอังกฤษ)',
-'Research_Group_Detail_TH' => 'รายละเอียดกลุ่มวิจัย (ภาษาไทย)',
-'Research_Group_Detail_EN' => 'รายละเอียดกลุ่มวิจัย (ภาษาอังกฤษ)',
-'Image' => 'รูปภาพ',
-'Research_Group_Leader' => 'หัวหน้ากลุ่มวิจัย',
-'Research_Group_Members' => 'สมาชิกกลุ่มวิจัย',
-'Back' => 'ย้อนกลับ',
-'Select_User' => 'เลือกผู้ใช้',
+    // cpresearchV2/resources/views/research_groups/create.blade.php
+    'Create_Research_Group' => 'สร้างกลุ่มวิจัย',
+    'Edit_Research_Group_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย',
+    'Research_Group_Name_TH' => 'ชื่อกลุ่มวิจัย (ภาษาไทย)',
+    'Research_Group_Name_EN' => 'ชื่อกลุ่มวิจัย (ภาษาอังกฤษ)',
+    'Research_Group_Description_TH' => 'คำอธิบายกลุ่มวิจัย (ภาษาไทย)',
+    'Research_Group_Description_EN' => 'คำอธิบายกลุ่มวิจัย (ภาษาอังกฤษ)',
+    'Research_Group_Detail_TH' => 'รายละเอียดกลุ่มวิจัย (ภาษาไทย)',
+    'Research_Group_Detail_EN' => 'รายละเอียดกลุ่มวิจัย (ภาษาอังกฤษ)',
+    'Image' => 'รูปภาพ',
+    'Research_Group_Leader' => 'หัวหน้ากลุ่มวิจัย',
+    'Research_Group_Members' => 'สมาชิกกลุ่มวิจัย',
+    'Back' => 'ย้อนกลับ',
+    'Select_User' => 'เลือกผู้ใช้',
 
-// 'cpresearchV2/resources/views/users/create.blade.php
-'Add_User' => 'เพิ่มผู้ใช้',
-'Add_User_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน',
-'First_Name_TH' => 'ชื่อผู้ใช้ (ภาษาไทย)',
-'Last_Name_TH' => 'นามสกุลผู้ใช้ (ภาษาไทย)',
-'First_Name_EN' => 'ชื่อผู้ใช้ (ภาษาอังกฤษ)',
-'Last_Name_EN' => 'นามสกุลผู้ใช้ (ภาษาอังกฤษ)',
-'Email' => 'อีเมล',
-'Password' => 'รหัสผ่าน',
-'Confirm_Password' => 'ยืนยันรหัสผ่าน',
-'Role' => 'บทบาท',
-'Department' => 'หน่วยงาน',
-'Program' => 'สาขาวิชา',
-'Select_Subcategory' => 'เลือกหมวดหมู่ย่อย',
-'Role_Admin' => 'ผู้ดูแลระบบ',
-'Role_HeadProject' => 'หัวหน้าโครงการ',
-'Role_Staff' => 'เจ้าหน้าที่',
-'Role_Student' => 'นักศึกษา',
-'Role_Teacher' => 'อาจารย์',
-'Scholar_ID_(Optional)' => 'รหัสนักวิจัย (ไม่บังคับ)',
-'error_title' => 'ข้อผิดพลาด!',
-'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง.',
+    // 'cpresearchV2/resources/views/users/create.blade.php
+    'Add_User' => 'เพิ่มผู้ใช้',
+    'Add_User_Details' => 'กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน',
+    'First_Name_TH' => 'ชื่อผู้ใช้ (ภาษาไทย)',
+    'Last_Name_TH' => 'นามสกุลผู้ใช้ (ภาษาไทย)',
+    'First_Name_EN' => 'ชื่อผู้ใช้ (ภาษาอังกฤษ)',
+    'Last_Name_EN' => 'นามสกุลผู้ใช้ (ภาษาอังกฤษ)',
+    'Email' => 'อีเมล',
+    'Password' => 'รหัสผ่าน',
+    'Confirm_Password' => 'ยืนยันรหัสผ่าน',
+    'Role' => 'บทบาท',
+    'Department' => 'หน่วยงาน',
+    'Program' => 'สาขาวิชา',
+    'Select_Subcategory' => 'เลือกหมวดหมู่ย่อย',
+    'Role_Admin' => 'ผู้ดูแลระบบ',
+    'Role_HeadProject' => 'หัวหน้าโครงการ',
+    'Role_Staff' => 'เจ้าหน้าที่',
+    'Role_Student' => 'นักศึกษา',
+    'Role_Teacher' => 'อาจารย์',
+    'Scholar_ID_(Optional)' => 'รหัสนักวิจัย (ไม่บังคับ)',
+    'error_title' => 'ข้อผิดพลาด!',
+    'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง.',
 
     // cpresearchV2/resources/views/users/import.blade.php
     'Import' => 'นำเข้าไฟล์ Excel , CSV',
@@ -611,7 +611,7 @@ return [
     'laboratory_supervisor' => 'ผู้ควบคุมห้องปฏิบัติการ',
     'student' => 'นักศึกษา',
 
-    // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php 
+    // cpresearchV2\resources\views\dashboards\users\layouts\user-dash-layout.blade.php
     'search' => 'ค้นหาที่นี่',
     'logout' => 'ออกจากระบบ',
     'header' => 'ระบบจัดการข้อมูลวิจัย',
@@ -634,16 +634,16 @@ return [
     'expertise_menu' => 'จัดการความเชี่ยวชาญ',
     'api' => 'สถานะ API ของงานวิจัย',
 
-//cpresearchV2/resources/views/dashboards/users/index.blade.php
-'Hello' => 'สวัสดี',
-'Role_admin' => 'ผู้ดูแลระบบ',
-'Role_teacher' => 'ครู',
-'Role_student' => 'นักศึกษา',
-'Role_staff' => 'พนักงาน',
-'Role_headproject' => 'หัวหน้าโครงการ',
+    //cpresearchV2/resources/views/dashboards/users/index.blade.php
+    'Hello' => 'สวัสดี',
+    'Role_admin' => 'ผู้ดูแลระบบ',
+    'Role_teacher' => 'ครู',
+    'Role_student' => 'นักศึกษา',
+    'Role_staff' => 'พนักงาน',
+    'Role_headproject' => 'หัวหน้าโครงการ',
 
 
-//=========================Mean==============================
+    //=========================Mean==============================
 
 
 
@@ -888,5 +888,18 @@ return [
     'proj_closed' => 'ปิดโครงการ',
     'proj_req' => 'ยื่นขอ',
     'proj_op' => 'กำลังดำเนินการ',
+
+    //cpresearchV2\resources\views\funds\index.blade.php
+    'Are_You_Sure' => 'คุณแน่ใจหรือไม่?',
+    'Delete_Warning' => 'หากคุณลบสิ่งนี้ จะไม่สามารถกู้คืนได้อีก',
+    'Delete_Success' => 'ลบสำเร็จ',
+    'OK' => 'ตกลง',
+    'Cancel' => 'ยกเลิก',
+
+    //Expertise
+
+    //Title Web
+    'title_web' => 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์',
+
 
 ];
