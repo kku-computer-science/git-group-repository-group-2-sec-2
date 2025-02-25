@@ -16,8 +16,14 @@ return [
     'reference' => 'อ้างอิง',
     'before' => 'ก่อนหน้า',
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
-    'report_total_articles' => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
-    'number' => 'จำนวน',
+    'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
+    'number'                     => 'จำนวน',
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง*/
+    'SUMMARY'                      => 'จำนวนทั้งหมด',
+
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนอ้างอิง*/
+    'referenceapa'                  => 'การอ้างอิง (รูปแบบ APA)',
+    'close'                         => 'ปิด',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research' => 'โครงการบริการวิชาการ/ โครงการวิจัย',
