@@ -33,17 +33,17 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">ความเชี่ยวชาญของอาจารย์</h4>
+            <h4 class="card-title" style="text-align: center;">{{trans('message.expertise')}}</h4>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>{{trans('message.no_dot')}}</th>
                         @if(Auth::user()->hasRole('admin'))
-                        <th>Teacher Name</th>
+                        <th>{{trans('message.expertise_teacher_name')}}</th>
                         @endif
-                        <th>Name</th>
+                        <th>{{trans('message.expertise_name')}}</th>
 
-                        <th>Action</th>
+                        <th>{{trans('message.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,14 @@
                     <tr id="expert_id_{{ $expert->id }}">
                         <td>{{ $i+1 }}</td>
                         @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
+                        <td>
+                            @if(app()->getLocale() == 'th')
+                            {{ $expert->user->fname_th }} {{ $expert->user->lname_th }}
+                            @else
+                            {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
+                            @endif
+                        </td>
+
                         @endif
                         <td>{{ $expert->expert_name }}</td>
 
@@ -125,6 +132,17 @@
             ],
             rowGroup: {
                 dataSrc: 1
+            },
+            searching: true,
+            lengthChange: true,
+            language: {
+                search: `{{trans('message.search')}}:`,
+                lengthMenu: `{{trans('message.show')}} _MENU_ {{trans('message.entries')}}`,
+                info: `{{trans('message.showing')}} _START_ {{trans('message.to')}} _END_ {{trans('message.of')}} _TOTAL_ {{trans('message.entries')}}`,
+                paginate: {
+                    next: `{{trans('message.next')}}`,
+                    previous: `{{trans('message.previous')}}`
+                }
             }
         });
     });
@@ -162,7 +180,7 @@
         /* Delete expertise */
         $('body').on('click', '#delete-expertise', function(e) {
             var expert_id = $(this).data("id");
-            
+
             var token = $("meta[name='csrf-token']").attr("content");
             e.preventDefault();
             //confirm("Are You sure want to delete !");
@@ -197,7 +215,7 @@
 
                 }
 
-                });
+            });
         });
     });
 </script>

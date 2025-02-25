@@ -2,14 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h2>API Status</h2>
+    <h2>{{trans('message.api_status')}}</h2>
     <table class="table">
         <thead>
             <tr>
-                <th>API Name</th>
-                <th>Status</th>
-                <th>Last Checked</th>
-                <th>Message</th>
+                <th>{{trans('message.api_name')}}</th>
+                <th>{{trans('message.status')}}</th>
+                <th>{{trans('message.last_checked')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -18,13 +17,12 @@
                     <td>{{ $status->api_name }}</td>
                     <td>
                         @if ($status->status == 'active')
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge bg-success">{{trans('message.active')}}</span>
                         @else
-                            <span class="badge bg-danger">Inactive</span>
+                            <span class="badge bg-danger">{{trans('message.inactive')}}</span>
                         @endif
                     </td>
                     <td>{{ $status->last_checked }}</td>
-                    <td>{{ $status->message ?? 'No issues' }}</td>
                 </tr>
             @endforeach
         </tbody>

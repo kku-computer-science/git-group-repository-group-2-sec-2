@@ -31,42 +31,42 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">เพิ่มหนังสือ</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดหนังสือ</p>
+                <h4 class="card-title">{{trans('message.Add_Book')}}</h4>
+                <p class="card-description">{{trans('message.Enter_Book_Details')}}</p>
                 <form class="forms-sample" action="{{ route('books.store') }}" method="POST">
                     @csrf
                     
 
                     <div class="form-group row">
-                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">ชื่อหนังสือ</label>
+                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{trans('message.Book_Name')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_name" class="form-control" placeholder="name">
+                            <input type="text" name="ac_name" class="form-control" placeholder="{{trans('message.Book_Name')}}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">สถานที่ตีพิมพ์</label>
+                        <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">{{trans('message.Place_Of_Publication')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_sourcetitle" class="form-control" placeholder="สถานที่ตีพิมพ์">
+                            <input type="text" name="ac_sourcetitle" class="form-control" placeholder="{{trans('message.Place_Of_Publication')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">ปี (ค.ศ.)</label>
+                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{trans('message.Year_(A.D.)')}}</label>
                         <div class="col-sm-9">
                             <input type="date" name="ac_year" class="form-control" placeholder="ปี (พ.ศ.)">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="exampleInputac_page" class="col-sm-3 col-form-label">จำนวนหน้า (Page)</label>
+                        <label for="exampleInputac_page" class="col-sm-3 col-form-label">{{trans('message.Number_Of_Pages')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_page" class="form-control" placeholder="จำนวนหน้า (Page)">
+                            <input type="text" name="ac_page" class="form-control" placeholder="{{trans('message.Number_Of_Pages')}}">
                         </div>
                     </div>
                     
                     
-                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" href="{{ route('books.index')}}">Cancel</a>
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary me-2">{{trans('message.Submit')}}</button>
+                    <a class="btn btn-light" href="{{ route('books.index')}}">{{trans('message.Cancle')}}</a>
                 </form>
             </div>
         </div>
