@@ -57,28 +57,38 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{ app()->getLocale() == 'zh' ? $rg->group_name_en : $rg->{'group_name_'.app()->getLocale()} }}
-                    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ app()->getLocale() == 'zh' ? $rg->group_name_en : $rg->{'group_name_'.app()->getLocale()} }}
+        </h5>
 
-                    @php 
-                    $locale = app()->getLocale();
-                    @endphp
+        @php 
+        $locale = app()->getLocale();
+        @endphp
 
-                    <h3 class="card-text" id="group_detail_text">
-                        {{ $rg->{'group_detail_th'} ?? '' }}
-                    </h3>
+        <h3 class="card-text" id="group_detail_text">
+            @if ($locale == 'zh')
+                {{ $rg->{'group_detail_th'} ?? '' }}
+            @elseif ($locale == 'en')
+                {{ $rg->group_detail_en ?? '' }}
+            @else
+                {{ $rg->{'group_detail_'.$locale} ?? '' }}
+            @endif
+        </h3>
 
-                    @if ($locale == 'zh')
-                    <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        translateAbstract('zh-CN');
-                    });
-                    </script>
-                    @endif
+        @if ($locale == 'zh')
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            translateAbstract('zh-CN');
+        });
+        </script>
+        @endif
 
-                </div>
+    </div>
+</div>
+
+</div>
+
             </div>
             @endforeach
         </div>
