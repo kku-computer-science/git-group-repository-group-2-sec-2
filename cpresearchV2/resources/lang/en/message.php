@@ -104,6 +104,7 @@ return [
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
     'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
     'number'                     => 'Number',
+    'SUMMARY'                    => 'SUMMARY',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'   => 'Academic Service/ Research Project',
