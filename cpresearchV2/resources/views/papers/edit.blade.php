@@ -31,7 +31,7 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ trans('message.Whoops') }}</strong> {{ trans('message.There were some problems with your input') }}.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -48,29 +48,29 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <p class="col-sm-3"><b>แหล่งเผยแพร่งานวิจัย</b></p>
+                        <p class="col-sm-3"><b>{{ trans('message.Source') }}</b></p>
                         <div class="col-sm-8">
                             {!! Form::select('sources[]', $sources, $paperSource, array('class' => 'selectpicker','multiple data-live-search'=>"true")) !!}
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label">ชื่องานวิจัย</label>
+                        <label for="exampleInputpaper_name" class="col-sm-3 col-form-label">{{ trans('message.Paper Name') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_name" value="{{ $paper->paper_name }}" class="form-control" placeholder="ชื่อเรื่อง">
+                            <input type="text" name="paper_name" value="{{ $paper->paper_name }}" class="form-control" placeholder="{{ trans('message.Paper Name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputabstract" class="col-sm-3 col-form-label">บทคัดย่อ</label>
+                        <label for="exampleInputabstract" class="col-sm-3 col-form-label">{{ trans('message.Abstract') }}</label>
                         <div class="col-sm-9">
                             <textarea type="text" name="abstract" placeholder="abstract" class="form-control form-control-lg" style="height:150px" >{{ $paper->abstract }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label">Keyword</label>
+                        <label for="exampleInputkeyword" class="col-sm-3 col-form-label">{{ trans('message.Keyword') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="keyword" value="{{ $paper->keyword }}" class="form-control" placeholder="keyword">
-                            <p class="text-danger">***แต่ละคําต้องคั่นด้วยเครื่องหมายเซมิโคลอน (;) แล้วเว้นวรรคหนึ่งครั้ง</p>
+                            <input type="text" name="keyword" value="{{ $paper->keyword }}" class="form-control" placeholder="{{ trans('message.Keyword') }}">
+                            <p class="text-danger">{{ trans('message.Keyword Instruction') }}</p>
                         </div>
                     </div>
                     <div class="form-group row">

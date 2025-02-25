@@ -59,5 +59,6 @@ return [
         'newpass_same' => '新密码和确认密码不匹配',
     ],
 
+    'required_field' => '此字段是必填的',
     'attributes' => [],
 ];
