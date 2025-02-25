@@ -2,8 +2,7 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}         http://127.0.0.1:8000/login
-${URL_PROFILE}    http://127.0.0.1:8000/profile
+${URL}         https://soften2sec267.cpkkuhost.com/login
 ${BROWSER}     firefox
 ${USERNAME}    punhor1@kku.ac.th
 ${PASSWORD}    123456789
@@ -12,9 +11,9 @@ ${TIMEOUT}     10s
 
 # XPaths ของปุ่มเปลี่ยนภาษา
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
-${LANG_THAI}      xpath=//a[@href='http://127.0.0.1:8000/lang/th']
-${LANG_CHINESE}   xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
-${LANG_ENGLISH}   xpath=//a[@href='http://127.0.0.1:8000/lang/en']
+${LANG_THAI}      xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/th']
+${LANG_CHINESE}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/zh']
+${LANG_ENGLISH}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/en']
 
 *** Test Cases ***
 Test Switch Language For Researcher Assistant
@@ -44,7 +43,7 @@ Login To website
 Click Target Menu
     Wait Until Element Is Visible  xpath=//a[contains(@href, '/assistant-researcher')]  timeout=10s 
 Go To Assistant Researcher Page
-    Go To    http://127.0.0.1:8000/assistant-researcher
+    Go To    https://soften2sec267.cpkkuhost.com/assistant-researcher
     Capture Page Screenshot
     Log    Navigated to API Status Page
 
