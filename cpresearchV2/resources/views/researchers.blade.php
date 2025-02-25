@@ -58,38 +58,46 @@
                     </div>
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; @if(app()->getLocale() == 'en') max-height: 220px; @else max-height: 210px;@endif">
                         <div class="card-body">
-                            @php
-                            $locale = app()->getLocale();
+                        @php
+    $locale = app()->getLocale();
 
-                            // ใช้ชื่อภาษาอังกฤษก่อน ถ้าไม่มีให้ใช้ภาษาไทยแทน
-                            $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
-                            $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
+    // ถ้าเลือกภาษาไทยให้แสดงชื่อภาษาไทยก่อน
+    if ($locale == 'th') {
+        $fname = $r->fname_th;
+        $lname = $r->lname_th;
+        $position = $r->position_th;
+    } else {
+        // ถ้าไม่ใช่ภาษาไทย ใช้ภาษาอังกฤษก่อน ถ้าไม่มี fallback เป็นภาษาไทย
+        $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
+        $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
+        $position = !empty($r->position_en) ? $r->position_en : $r->position_th;
+    }
 
-                            // ถ้า locale เป็นภาษาไทย ให้ใช้ชื่อตำแหน่งภาษาไทย
-                            $position = !empty($r->{'position_' . $locale}) ? $r->{'position_' . $locale} : '';
+    // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
+    $academic_rank = '';
+    if (!empty($r->academic_ranks_en)) {
+        $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
+        $academic_rank = trans('message.' . $academic_rank_key);
+    }
 
-                            // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
-                            $academic_rank = '';
-                            if (!empty($r->academic_ranks_en)) {
-                            $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
-                            $academic_rank = trans('message.' . $academic_rank_key);
-                            }
-
-                            // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
-                            $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
-                            @endphp
+    // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
+    $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
+@endphp
 
 
-                            @if($locale == 'en' || $locale == 'zh')
-                            <h5 class="card-title">
-                                {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
-                            </h5>
-                            <h5 class="card-title-2">{{ $academic_rank }}</h5>
-                            @else
-                            <h5 class="card-title">
-                                {{ $position }} {{ $fname }} {{ $lname }}
-                            </h5>
-                            @endif
+@if($locale == 'en' || $locale == 'zh')
+    <h5 class="card-title">
+        {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
+    </h5>
+    @if(!empty($academic_rank))
+        <h5 class="card-title-2">{{ $academic_rank }}</h5>
+    @endif
+@else
+    <h5 class="card-title">
+        {{ $position }} {{ $fname }} {{ $lname }}
+    </h5>
+@endif
+
 
                             <p class="card-text-1">{{ trans('message.expertise') }}</p>
                             <div class="card-expertise">
