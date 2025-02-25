@@ -60,29 +60,29 @@
                         </td>
 
                         @endif
-                        <td>
-                        @php
-    $locale = app()->getLocale();
-    $expert_name = trim($expert->expert_name); // ตัดช่องว่างออก
-    $expert_name_key = 'message.expertise_translation.' . $expert_name;
+                            @php
+                            $locale = app()->getLocale();
+                            $expert_name = trim($expert->expert_name); // ตัดช่องว่างออก
+                            $expert_name_key = 'message.expertise_translation.' . $expert_name;
+                            $translated_expert_name = null;
 
-    // ตรวจจับเฉพาะ Smart X แล้วใช้ key ใหม่
-    if ($expert_name === 'Smart X: Smart Farm, Home, Health-care, Car, Building, Device, etc.') {
-        $translated_expert_name = trans('message.expertise_translation.smart_x');
-    } else {
-        $translated_expert_name = trans($expert_name_key);
-    }
+                            // ตรวจจับเฉพาะ Smart X แล้วใช้ key พิเศษ
+                            if ($expert_name === 'Smart X: Smart Farm, Home, Health-care, Car, Building, Device, etc.') {
+                            if ($locale == 'th') {
+                            $translated_expert_name = trans('message.expertise_translation.smart_x');
+                            } elseif ($locale == 'zh') {
+                            $translated_expert_name = trans('message.expertise_translation.smart_x');
+                            } else {
+                            $translated_expert_name = trans('message.smart_x');
+                            }
+                            } else {
+                            $translated_expert_name = trans($expert_name_key);
+                            }
 
-    // ใช้ค่าที่แปล ถ้าภาษาที่เลือกคือจีน และมีค่าแปลอยู่
-    $display_expert_name = ($locale == 'zh' && $translated_expert_name !== $expert_name_key)
-        ? $translated_expert_name
-        : $expert_name;
-@endphp
-
-<td>{{ $display_expert_name }}</td>
-
-
-
+                            // ถ้าไม่มีคำแปล ให้ใช้ค่าจาก Database
+                            $display_expert_name = ($translated_expert_name !== $expert_name_key) ? $translated_expert_name : $expert_name;
+                            @endphp
+                        <td>{{ $display_expert_name }}</td>
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
@@ -167,7 +167,8 @@
                 emptyTable: `{{trans('message.empty_table')}}`,
                 zeroRecords: `{{trans('message.zero_record')}}`,
                 infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
-                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,a
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,
+                a
             }
         });
     });
@@ -233,11 +234,11 @@
                     swal(`{{trans('message.Delete_Warning')}}`, {
                         icon: "success",
                         buttons: {
-                        confirm: {
-                            text: `{{trans('message.OK')}}`,
-                            className: "btn btn-info"
-                        }
-                    },
+                            confirm: {
+                                text: `{{trans('message.OK')}}`,
+                                className: "btn btn-info"
+                            }
+                        },
                     }).then(function() {
                         location.reload();
                         $.ajax({
