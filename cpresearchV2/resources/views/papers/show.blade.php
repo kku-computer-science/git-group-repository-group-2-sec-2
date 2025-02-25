@@ -25,7 +25,30 @@
             </div>
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('message.journal_type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_type }}</p>
+                @php
+    $locale = app()->getLocale();
+    $paperTypeMap = [];
+    if ($locale == 'th') {
+        $paperTypeMap = [
+            'Journal' => 'วารสาร',
+            'Conference Proceeding' => 'บทความการประชุม',
+            'Book Series' => 'ชุดหนังสือ',
+            'Book' => 'หนังสือ',
+        ];
+    } elseif ($locale == 'zh') {
+        $paperTypeMap = [
+            'Journal' => '期刊',
+            'Conference Proceeding' => '会议论文集',
+            'Book Series' => '丛书',
+            'Book' => '书籍',
+        ];
+    }
+@endphp
+
+<p class="card-text col-sm-9">
+    {{ isset($paperTypeMap[$paper->paper_type]) ? $paperTypeMap[$paper->paper_type] : $paper->paper_type }}
+</p>
+
             </div>
 
             <div class="row mt-2">
