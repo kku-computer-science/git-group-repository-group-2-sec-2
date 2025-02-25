@@ -49,16 +49,24 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        // ตรวจสอบข้อมูลด้วย Laravel Validation
+        $request->validate([
             'department_name_th' => 'required',
-            'department_name_th' => 'required',
+            'department_name_en' => 'required',
+        ], [
+            'department_name_th.required' => trans('validation.custom.department_name_th.required'),
+            'department_name_en.required' => trans('validation.custom.department_name_en.required'),
         ]);
+
+        // ดึงข้อมูลจาก request ยกเว้น _token
         $input = $request->except(['_token']);
 
+        // บันทึกข้อมูลลงในฐานข้อมูล
         Department::create($input);
 
+        // ส่งกลับไปยังหน้า departments.index พร้อมข้อความสำเร็จที่รองรับหลายภาษา
         return redirect()->route('departments.index')
-            ->with('success',trans('message.department_created'));
+            ->with('success', trans('message.department_created_successfully'));
     }
 
     /**

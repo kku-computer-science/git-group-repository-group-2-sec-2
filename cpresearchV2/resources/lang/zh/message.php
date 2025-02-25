@@ -432,6 +432,7 @@ return [
 
     // cpresearchV2/resources/views/programs/index.blade.php
     'Add_New_Program' => '添加新课程',
+    'Edit_Program' => '编辑课程',
     'Education_Level' => '教育水平',
     'Academic_Program' => '学术课程',
     'Name_TH' => '名称 (泰文)',
@@ -500,6 +501,14 @@ return [
     'Import' => '导入 Excel, CSV 文件',
     'Choose_File' => '选择文件',
 
+
+    //cpresearchV2/resources/views/dashboards/users/index.blade.php
+    'Hello' => '你好',
+    'Role_admin' => '管理员',
+    'Role_teacher' => '老师',
+    'Role_student' => '学生',
+    'Role_staff' => '职员',
+    'Role_headproject' => '项目负责人',
 
 
 

@@ -170,6 +170,9 @@ return [
 'required' => 'The :attribute field is required.',
     'custom' => [
         'department_name_th' => [
+            'required' => 'The department name (TH) field is required.',
+        ],
+        'department_name_en' => [
             'required' => 'The department name (EN) field is required.',
         ],
         'ac_name' => [
@@ -203,6 +206,7 @@ return [
         ],
         'email' => [
             'required' => 'The email field is required.',
+            'unique' => 'The email has already been taken.',
         ],
         'password' => [
             'required' => 'The password field is required.',
@@ -210,6 +214,27 @@ return [
         'roles' => [
             'required' => 'The roles field is required.',
         ],
+        'field' => [
+            'required' => 'The :attribute field is required.',
+        ],
+        //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+        'group_name_th' => ['required' => 'The research group name (TH) field is required.'],
+        'group_name_en' => ['required' => 'The research group name (EN) field is required.'],
+        'group_desc_th' => ['required' => 'The research group description (TH) field is required.'],
+        'group_desc_en' => ['required' => 'The research group description (EN) field is required.'],
+        'group_detail_th' => ['required' => 'The research group detail (TH) field is required.'],
+        'group_detail_en' => ['required' => 'The research group detail (EN) field is required.'],
+        'head' => ['required' => 'The research group leader field is required.'],
+        'group_image' => [
+            'mimes' => 'The image must be a file of type: png, jpg, jpeg.',
+            'max' => 'The image may not be greater than 2MB.',
+        ],
+    ],
+    'email' => [
+        'required' => 'The email field is required.',
+        'unique' => 'The email has already been taken.',
     ],
 
+    //cpresearchV2/app/Http/Controllers/ResearchGroupController.php
+    
 ];

@@ -94,7 +94,16 @@ return [
     'Import' => 'Import Excel, CSV File',
     'Choose_File' => 'Choose File',
 
-    //=========================Mean==============================
+
+//cpresearchV2/resources/views/dashboards/users/index.blade.php
+'Hello' => 'Hello',
+'Role_admin' => 'Administrator',
+'Role_teacher' => 'Teacher',
+'Role_student' => 'Student',
+'Role_staff' => 'Staff',
+'Role_headproject' => 'Project Leader',
+
+//=========================Mean==============================
 
     // cpresearchV2\resources\views\layouts\layout.blade.php
     // http://127.0.0.1:8000/#

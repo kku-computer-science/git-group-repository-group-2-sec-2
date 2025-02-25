@@ -59,34 +59,56 @@ class ResearchGroupController extends Controller
      */
     public function store(Request $request)
     {
+        // 🔹 Validate ข้อมูล พร้อมรองรับการแสดงผลหลายภาษา
         $request->validate([
             'group_name_th' => 'required',
             'group_name_en' => 'required',
+            'group_desc_th' => 'required',
+            'group_desc_en' => 'required',
+            'group_detail_th' => 'required',
+            'group_detail_en' => 'required',
             'head' => 'required',
-            //'group_image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'group_image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+        ], [
+            'group_name_th.required' => trans('validation.custom.group_name_th.required'),
+            'group_name_en.required' => trans('validation.custom.group_name_en.required'),
+            'group_desc_th.required' => trans('validation.custom.group_desc_th.required'),
+            'group_desc_en.required' => trans('validation.custom.group_desc_en.required'),
+            'group_detail_th.required' => trans('validation.custom.group_detail_th.required'),
+            'group_detail_en.required' => trans('validation.custom.group_detail_en.required'),
+            'head.required' => trans('validation.custom.head.required'),
+            'group_image.mimes' => trans('validation.custom.group_image.mimes'),
+            'group_image.max' => trans('validation.custom.group_image.max'),
         ]);
+
+        // 🔹 รับค่าข้อมูลทั้งหมด
         $input = $request->all();
-        if ($request->group_image) {
+
+        // 🔹 จัดการไฟล์รูปภาพ
+        if ($request->hasFile('group_image')) {
             $input['group_image'] = time() . '.' . $request->group_image->extension();
             $request->group_image->move(public_path('img'), $input['group_image']);
         }
-        // $input['group_image'] = time().'.'.$request->group_image->extension();
-        // $request->group_image->move(public_path('img'), $input['group_image']);
-        //return $input['group_image'];
+
+        // 🔹 บันทึกข้อมูลลงฐานข้อมูล
         $researchGroup = ResearchGroup::create($input);
+
+        // 🔹 กำหนดหัวหน้ากลุ่มวิจัย (Role = 1)
         $head = $request->head;
-        $fund = $request->fund;
         $researchGroup->user()->attach($head, ['role' => 1]);
+
+        // 🔹 เพิ่มสมาชิกเพิ่มเติม (Role = 2)
         if ($request->moreFields) {
             foreach ($request->moreFields as $key => $value) {
-
-                if ($value['userid'] != null) {
-                    $researchGroup->user()->attach($value, ['role' => 2]);
+                if (!empty($value['userid'])) {
+                    $researchGroup->user()->attach($value['userid'], ['role' => 2]);
                 }
             }
         }
+
+        // 🔹 ส่งกลับไปยังหน้าแสดงรายการ พร้อมข้อความสำเร็จ
         return redirect()->route('researchGroups.index')
-            ->with('success', trans('message.research_group_created'));
+            ->with('success', trans('message.research_group_created_successfully'));
     }
 
     /**

@@ -402,10 +402,15 @@ return [
     //=========================Mean==============================
 
 
-    // cpresearchV2/resources/views/research_g.blade.php
-    'Research_Group' => 'กลุ่มวิจัย',
-    'Laboratory_Supervisor' => 'หัวหน้าห้องปฏิบัติการ',
-    'Add_Expertise' => 'เพิ่มความเชี่ยวชาญ',
+// cpresearchV2/resources/views/programs/index.blade.php
+'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
+'Edit_Program' => 'แก้ไขหลักสูตร',
+'Education_Level' => 'ระดับการศึกษา',
+'Academic_Program' => 'สาขาวิชา',
+'Name_TH' => 'ชื่อ (ไทย)',
+'Name_EN' => 'ชื่อ (อังกฤษ)',
+'Submit' => 'ยืนยัน',
+'Cancle' => 'ยกเลิก',
 
 
     // 'Course' => 'หลักสูตร',
@@ -628,6 +633,17 @@ return [
     'manage_program' => 'จัดการหลักสูตร',
     'expertise_menu' => 'จัดการความเชี่ยวชาญ',
     'api' => 'สถานะ API ของงานวิจัย',
+
+//cpresearchV2/resources/views/dashboards/users/index.blade.php
+'Hello' => 'สวัสดี',
+'Role_admin' => 'ผู้ดูแลระบบ',
+'Role_teacher' => 'ครู',
+'Role_student' => 'นักศึกษา',
+'Role_staff' => 'พนักงาน',
+'Role_headproject' => 'หัวหน้าโครงการ',
+
+
+//=========================Mean==============================
 
 
 
