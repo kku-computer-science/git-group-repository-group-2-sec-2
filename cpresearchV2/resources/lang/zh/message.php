@@ -1039,7 +1039,6 @@ return [
 
     ],
 
-
     //Title Web
     'title_web' => '计算机学院研究信息系统',
 ];

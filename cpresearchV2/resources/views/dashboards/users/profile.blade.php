@@ -343,7 +343,39 @@
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
                     <tr id="expert_id_{{ $expert->id }}">
-                        <td>{{ $expert->expert_name }}</td>
+                        <td>
+                            @php
+                            $locale = app()->getLocale();
+                            $expert_name = trim($expert->expert_name); // ตัดช่องว่างออก
+                            $expert_name_key = 'message.expertise_translation.' . $expert_name;
+                            $translated_expert_name = null;
+
+                            if ($locale == 'zh' || $locale == 'th') {
+                            // ใช้ค่าจากการแปล ถ้าเป็นภาษาไทยหรือภาษาจีน
+                            $translated_expert_name = trans($expert_name_key);
+                            }
+
+                            // ตรวจจับเฉพาะ Smart X แล้วใช้ key พิเศษ
+                            if ($expert_name === 'Smart X: Smart Farm, Home, Health-care, Car, Building, Device, etc.') {
+                            if ($locale == 'th') {
+                            $translated_expert_name = trans('message.expertise_translation.smart_x');
+                            } elseif ($locale == 'zh') {
+                            $translated_expert_name = trans('message.expertise_translation.smart_x');
+                            } else {
+                            $translated_expert_name = $expert_name; // ภาษาอังกฤษดึงจาก DB
+                            }
+                            }
+
+                            // ถ้าเป็นภาษาอังกฤษ ให้ดึงจาก Database เลย
+                            if ($locale == 'en') {
+                            $display_expert_name = $expert_name;
+                            } else {
+                            // ถ้ามีคำแปล ใช้ค่าที่แปลได้, ถ้าไม่มีให้ใช้ค่าจาก Database
+                            $display_expert_name = ($translated_expert_name !== $expert_name_key) ? $translated_expert_name : $expert_name;
+                            }
+                            @endphp
+                            {{ $display_expert_name }}
+                        </td>
                         <td width="180px">
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->

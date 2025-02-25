@@ -58,58 +58,72 @@
                     </div>
                     <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; @if(app()->getLocale() == 'en') max-height: 220px; @else max-height: 210px;@endif">
                         <div class="card-body">
-                        @php
-    $locale = app()->getLocale();
+                            @php
+                            $locale = app()->getLocale();
 
-    // ถ้าเลือกภาษาไทยให้แสดงชื่อภาษาไทยก่อน
-    if ($locale == 'th') {
-        $fname = $r->fname_th;
-        $lname = $r->lname_th;
-        $position = $r->position_th;
-    } else {
-        // ถ้าไม่ใช่ภาษาไทย ใช้ภาษาอังกฤษก่อน ถ้าไม่มี fallback เป็นภาษาไทย
-        $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
-        $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
-        $position = !empty($r->position_en) ? $r->position_en : $r->position_th;
-    }
+                            // ถ้าเลือกภาษาไทยให้แสดงชื่อภาษาไทยก่อน
+                            if ($locale == 'th') {
+                            $fname = $r->fname_th;
+                            $lname = $r->lname_th;
+                            $position = $r->position_th;
+                            } else {
+                            // ถ้าไม่ใช่ภาษาไทย ใช้ภาษาอังกฤษก่อน ถ้าไม่มี fallback เป็นภาษาไทย
+                            $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
+                            $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
+                            $position = !empty($r->position_en) ? $r->position_en : $r->position_th;
+                            }
 
-    // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
-    $academic_rank = '';
-    if (!empty($r->academic_ranks_en)) {
-        $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
-        $academic_rank = trans('message.' . $academic_rank_key);
-    }
+                            // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
+                            $academic_rank = '';
+                            if (!empty($r->academic_ranks_en)) {
+                            $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
+                            $academic_rank = trans('message.' . $academic_rank_key);
+                            }
 
-    // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
-    $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
-@endphp
+                            // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
+                            $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
+                            @endphp
 
 
-@if($locale == 'en' || $locale == 'zh')
-    <h5 class="card-title">
-        {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
-    </h5>
-    @if(!empty($academic_rank))
-        <h5 class="card-title-2">{{ $academic_rank }}</h5>
-    @endif
-@else
-    <h5 class="card-title">
-        {{ $position }} {{ $fname }} {{ $lname }}
-    </h5>
-@endif
+                            @if($locale == 'en' || $locale == 'zh')
+                            <h5 class="card-title">
+                                {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
+                            </h5>
+                            @if(!empty($academic_rank))
+                            <h5 class="card-title-2">{{ $academic_rank }}</h5>
+                            @endif
+                            @else
+                            <h5 class="card-title">
+                                {{ $position }} {{ $fname }} {{ $lname }}
+                            </h5>
+                            @endif
 
-<p class="card-text-1">{{ trans('message.expertise') }}</p>
-<div class="card-expertise">
-    @foreach($r->expertise->sortBy('expert_name') as $exper)
-        @php
-            // ใช้ trans() ดึงค่าจากไฟล์ message.php ถ้ามีแปลเป็นภาษาจีนก็ใช้ ถ้าไม่มีใช้ค่าเดิม
-            $expert_name = ($locale == 'zh' && trans('message.expertise_translation.' . $exper->expert_name) != 'message.expertise_translation.' . $exper->expert_name)
-                ? trans('message.expertise_translation.' . $exper->expert_name)
-                : $exper->expert_name;
-        @endphp
-        <p class="card-text">{{ $expert_name }}</p>
-    @endforeach
-</div>
+                            <p class="card-text-1">{{ trans('message.expertise') }}</p>
+                            <div class="card-expertise">
+                                @foreach($r->expertise->sortBy('expert_name') as $exper)
+                                @php
+                                $locale = app()->getLocale();
+                                $expert_name = trim($exper->expert_name); // ตัดช่องว่างออก
+                                $expert_name_key = 'message.expertise_translation.' . $expert_name;
+                                $translated_expert_name = null;
+
+                                if ($locale == 'zh' || $locale == 'th') {
+                                // ใช้ค่าจากการแปล ถ้าเป็นภาษาจีนหรือภาษาไทย
+                                $translated_expert_name = trans($expert_name_key);
+                                }
+
+                                // ถ้าเป็นภาษาอังกฤษ ใช้ค่าจาก Database
+                                if ($locale == 'en') {
+                                $display_expert_name = $expert_name;
+                                } else {
+                                // ถ้ามีคำแปล ใช้ค่าที่แปลได้, ถ้าไม่มีให้ใช้ค่าจาก Database
+                                $display_expert_name = ($translated_expert_name !== $expert_name_key) ? $translated_expert_name : $expert_name;
+                                }
+                                @endphp
+                                <p class="card-text">{{ $display_expert_name }}</p>
+                                @endforeach
+                            </div>
+
 
                             <!-- <div class="card-expertise">
                                 @foreach($r->expertise->sortBy('expert_name') as $exper)
