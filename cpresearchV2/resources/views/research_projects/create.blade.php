@@ -72,9 +72,19 @@
                     <div class="form-group row mt-2">
                         <label for="exampleInputresponsible_department" class="col-sm-2 ">{{ trans('message.Responsible Department') }}</label>
                         <div class="col-sm-9">
-                            <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
-                                <option value='' disabled selected>{{ trans('message.Select Department') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
-                            </select>
+                        <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
+                            <option value='' disabled selected>{{ trans('message.Select Department') }}</option>
+                            @foreach($deps as $dep)
+                                @php
+                                    $locale = app()->getLocale();
+                                    $department_name = $dep->{'department_name_' . $locale} ?? $dep->department_name_en;
+                                    if ($locale != 'th' && $locale != 'en') {
+                                        $department_name = $dep->department_name_en;
+                                    }
+                                @endphp
+                                <option value="{{ $department_name }}">{{ $department_name }}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row mt-2">
@@ -109,26 +119,43 @@
                         <label for="exampleInputfund_details" class="col-sm-2">{{ trans('message.Project Leader') }}</label>
                         <div class="col-sm-9">
                             <select id="head0" style="width: 200px;" name="head">
-                                @php
-                                // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
-                                $userRole = DB::table('model_has_roles')
-                                ->where('model_id', Auth::user()->id)
-                                ->value('role_id');
-                                @endphp
+    @php
+    // ดึง role ของผู้ใช้ที่ล็อกอินจากตาราง model_has_roles
+    $userRole = DB::table('model_has_roles')
+    ->where('model_id', Auth::user()->id)
+    ->value('role_id');
+    $locale = app()->getLocale();
+    @endphp
 
-                                @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
-                                <option value="">{{ trans('message.Select User') }}</option>
-                                @foreach($users as $user)
-                                <option value="{{ $user->id }}" {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
-                                    {{ $user->fname_th }} {{ $user->lname_th }}
-                                </option>
-                                @endforeach
-                                @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อของตัวเอง --}}
-                                <option value="{{ Auth::user()->id }}" selected>
-                                    {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
-                                </option>
-                                @endif
-                            </select>
+    @if($userRole == 1) {{-- ถ้า role_id เป็น 1 แสดงว่าเป็น admin --}}
+    <option value="">{{ trans('message.Select User') }}</option>
+    @foreach($users as $user)
+    @php
+        $fname = $user->{'fname_' . $locale} ?? $user->fname_en;
+        $lname = $user->{'lname_' . $locale} ?? $user->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = $user->fname_en;
+            $lname = $user->lname_en;
+        }
+    @endphp
+    <option value="{{ $user->id }}" {{ Auth::user()->id == $user->id ? 'selected' : '' }}>
+        {{ $fname }} {{ $lname }}
+    </option>
+    @endforeach
+    @else {{-- ถ้าไม่ใช่ admin ให้แสดงเฉพาะชื่อของตัวเอง --}}
+    @php
+        $fname = Auth::user()->{'fname_' . $locale} ?? Auth::user()->fname_en;
+        $lname = Auth::user()->{'lname_' . $locale} ?? Auth::user()->lname_en;
+        if ($locale != 'th' && $locale != 'en') {
+            $fname = Auth::user()->fname_en;
+            $lname = Auth::user()->lname_en;
+        }
+    @endphp
+    <option value="{{ Auth::user()->id }}" selected>
+        {{ $fname }} {{ $lname }}
+    </option>
+    @endif
+</select>
                         </div>
                     </div>
 
@@ -146,7 +173,16 @@
                                             <option value=''>{{ trans('message.Select User') }}</option>
                                             @foreach($users as $user)
                                             @if($user->id != old('head', Auth::user()->id)) {{-- ตรวจสอบว่า user ไม่ใช่ผู้รับผิดชอบหลัก --}}
-                                            <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                                @php
+                                                    $locale = app()->getLocale();
+                                                    $fname = $user->{'fname_' . $locale} ?? $user->fname_en;
+                                                    $lname = $user->{'lname_' . $locale} ?? $user->lname_en;
+                                                    if ($locale != 'th' && $locale != 'en') {
+                                                        $fname = $user->fname_en;
+                                                        $lname = $user->lname_en;
+                                                    }
+                                                @endphp
+                                                <option value="{{ $user->id }}">{{ $fname }} {{ $lname }}</option>
                                             @endif
                                             @endforeach
                                         </select>

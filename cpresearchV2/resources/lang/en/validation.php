@@ -152,4 +152,14 @@ return [
 
     'attributes' => [],
 
+    // create research project
+    'required' => 'Please enter :attribute.',
+    'attributes' => [
+        'project_name' => 'the research project name',
+        'budget' => 'the budget',
+        'project_year' => 'the requested year',
+        'fund' => 'the research fund',
+        'head' => 'the project manager',
+    ],
+
 ];
