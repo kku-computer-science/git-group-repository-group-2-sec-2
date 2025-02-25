@@ -133,6 +133,14 @@ return [
     'Choose_File' => '选择文件',
 
 
+    //cpresearchV2/resources/views/dashboards/users/index.blade.php
+    'Hello' => '你好',
+    'Role_admin' => '管理员',
+    'Role_teacher' => '老师',
+    'Role_student' => '学生',
+    'Role_staff' => '职员',
+    'Role_headproject' => '项目负责人',
+
 
 
 

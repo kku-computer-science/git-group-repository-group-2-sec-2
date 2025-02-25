@@ -129,6 +129,16 @@ return [
 'Import' => 'นำเข้าไฟล์ Excel , CSV',
 'Choose_File' => 'เลือกไฟล์',
 
+
+//cpresearchV2/resources/views/dashboards/users/index.blade.php
+'Hello' => 'สวัสดี',
+'Role_admin' => 'ผู้ดูแลระบบ',
+'Role_teacher' => 'ครู',
+'Role_student' => 'นักศึกษา',
+'Role_staff' => 'พนักงาน',
+'Role_headproject' => 'หัวหน้าโครงการ',
+
+
 //=========================Mean==============================
 
 
