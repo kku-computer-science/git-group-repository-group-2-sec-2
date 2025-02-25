@@ -34,7 +34,7 @@
                     <div class="form-group row">
                         <label for="exampleInputfund_type" class="col-sm-2 ">{{ trans('message.Research Fund Type') }}</label>
                         <div class="col-sm-4">
-                            <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required>
+                            <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required oninvalid="this.setCustomValidity('{{trans('message.Please specify the type of fund')}}')" oninput="setCustomValidity('')">
                                 <option value="" disabled selected>{{ trans('message.Please specify the type of fund') }}</option>
                                 <option value="ทุนภายใน">{{ trans('message.Internal Fund') }}</option>
                                 <option value="ทุนภายนอก">{{ trans('message.External Fund') }}</option>
@@ -45,7 +45,7 @@
                         <div class="form-group row">
                             <label for="exampleInputfund_level" class="col-sm-2 ">{{ trans('message.Funding Level') }}</label>
                             <div class="col-sm-4">
-                                <select name="fund_level" class="custom-select my-select">
+                                <select name="fund_level" class="custom-select my-select" required oninvalid="this.setCustomValidity('{{trans('message.Please specify the level of fund')}}')" oninput="setCustomValidity('')">
                                     <option value="" disabled selected>{{ trans('message.Please specify the level of fund') }}</option>
                                     <option value="">{{ trans('message.Not Specified') }}</option>
                                     <option value="สูง">{{ trans('message.High') }}</option>

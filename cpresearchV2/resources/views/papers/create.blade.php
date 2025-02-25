@@ -55,7 +55,7 @@
                     <div class="form-group row">
                         <label for="exampleInputpaper_name" class="col-sm-3 col-form-label"><b>{{ trans('message.Source') }}</b></label>
                         <div class="col-sm-9">
-                        <select class="selectpicker" multiple data-live-search="true" name="cat[]" data-none-selected-text="{{ trans('message.Please specify the source') }}">
+                        <select class="selectpicker" multiple data-live-search="true" name="cat[]" data-none-selected-text="{{ trans('message.Please specify the source') }}" required oninvalid="this.setCustomValidity('{{trans('message.Please specify the source')}}')" oninput="setCustomValidity('')">
                             @foreach( $source as $s)
                             <option value='{{ $s->id }}'>{{ $s->source_name }}</option>
                             @endforeach
