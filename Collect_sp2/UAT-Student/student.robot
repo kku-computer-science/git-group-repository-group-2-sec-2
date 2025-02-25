@@ -2,7 +2,7 @@
 Library  SeleniumLibrary  # ใช้ SeleniumLibrary สำหรับควบคุมเบราว์เซอร์
 
 *** Variables ***
-${SERVER}         127.0.0.1:8000  # กำหนดเซิร์ฟเวอร์ที่ใช้ทดสอบ
+${SERVER}         soften2sec267.cpkkuhost.com  # กำหนดเซิร์ฟเวอร์ที่ใช้ทดสอบ
 ${DELAY}          1  # ระยะเวลารอโดยเริ่มต้น
 ${BROWSER}        Chrome  # เบราว์เซอร์ที่ใช้ในการทดสอบ
 ${USERNAME}       605020077-3  # ชื่อผู้ใช้สำหรับล็อกอิน
