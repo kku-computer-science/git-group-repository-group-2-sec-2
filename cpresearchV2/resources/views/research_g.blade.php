@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container card-3 ">
-    <p>{{ trans('message.Research_Group') }}</p>
+    <p>{{ trans('message.research_group') }}</p>
     @foreach ($resg as $index => $rg)
     @php
         $locale = app()->getLocale();
