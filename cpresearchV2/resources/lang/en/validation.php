@@ -157,6 +157,9 @@ return [
 'required' => 'The :attribute field is required.',
     'custom' => [
         'department_name_th' => [
+            'required' => 'The department name (TH) field is required.',
+        ],
+        'department_name_en' => [
             'required' => 'The department name (EN) field is required.',
         ],
         'ac_name' => [

@@ -6,6 +6,9 @@ return [
         'department_name_th' => [
             'required' => 'กรุณากรอกชื่อหน่วยงาน (ภาษาไทย)',
         ],
+        'department_name_en' => [
+            'required' => 'กรุณากรอกชื่อหน่วยงาน (ภาษาอังกฤษ)',
+        ],
         'ac_name' => [
             'required' => 'กรุณากรอกชื่อหนังสือ',
         ],

@@ -3,7 +3,10 @@ return [
     'required' => 'The :attribute field is required.',
     'custom' => [
         'department_name_th' => [
-            'required' => '请输入部门名称',
+            'required' => '请输入部门名称（泰语）。',
+        ],
+        'department_name_en' => [
+            'required' => '请输入部门名称（英语）。',
         ],
         'ac_name' => [
             'required' => '请输入书名。',
