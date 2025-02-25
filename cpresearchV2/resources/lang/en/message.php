@@ -587,7 +587,7 @@ return [
     'Delete_Warning' => 'If you delete this, it will be gone forever.',
     'Delete_Success' => 'Delete Successfully',
     'OK' => 'OK',
-    'Cancel' => 'Cancel'
+    'Cancel' => 'Cancel',
 
 
 

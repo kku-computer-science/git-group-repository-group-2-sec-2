@@ -519,7 +519,7 @@ return [
 'Delete_Warning' => '如果你删除此项，它将永远消失。',
 'Delete_Success' => '删除成功',
 'OK' => '确定',
-'Cancel' => '取消'
+'Cancel' => '取消',
 
 
 
