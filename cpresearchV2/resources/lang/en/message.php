@@ -24,6 +24,7 @@ return [
 
 // cpresearchV2/resources/views/programs/index.blade.php
 'Add_New_Program' => 'Add New Program',
+'Edit_Program' => 'Edit Program',
 'Education_Level' => 'Education Level',
 'Academic_Program' => 'Academic Program',
 'Name_TH' => 'Name (TH)',

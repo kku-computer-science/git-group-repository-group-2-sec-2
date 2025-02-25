@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-25T16:04:45.789962" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Status Test" source="C:\Users\User\Desktop\Work2568\ProjectSoften\git-group-repository-group-2-sec-2\Collect_sp2\UAT-API\api_status_test.robot">
+<test id="s1-t1" name="Call Paper" line="13">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:45.930357" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-25T16:04:45.930357" elapsed="1.677681"/>
+</kw>
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.608038" elapsed="0.006999"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:47.615037" level="INFO">Executing JavaScript:
+window.localStorage.clear();
+Without any arguments.</msg>
+<arg>window.localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.615037" elapsed="0.005999"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:47.621036" level="INFO">Executing JavaScript:
+window.sessionStorage.clear();
+Without any arguments.</msg>
+<arg>window.sessionStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.621036" elapsed="0.002999"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.624035" elapsed="0.028486"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.653520" elapsed="0.000000"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.653520" elapsed="0.302422"/>
+</kw>
+<kw name="Login As Admin">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T16:04:47.955942" elapsed="0.618384"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:48.575351" level="INFO">Typing text 'admin@gmail.com' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${USERNAME_ADMIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T16:04:48.574326" elapsed="0.972307"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:49.548660" level="INFO">Typing text '12345678' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${PASSWORD_ADMIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T16:04:49.547663" elapsed="0.973650"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:50.521313" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T16:04:50.521313" elapsed="1.763603"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T16:04:52.284916" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-25T16:04:47.955942" elapsed="4.330002"/>
+</kw>
+<kw name="Go To Research API">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-25T16:04:59.319399" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88DDC]
+	(No symbol) [0x00007FF7D6BCF17F]
+	(No symbol) [0x00007FF7D6C07112]
+	(No symbol) [0x00007FF7D6C01AA9]
+	(No symbol) [0x00007FF7D6C00B59]
+	(No symbol) [0x00007FF7D6B55595]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6B541AE]
+	GetHandleVerifier [0x00007FF7D715ED78+4058872]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</msg>
+<msg time="2025-02-25T16:04:59.321398" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88FAA]
+	(No symbol) [0x00007FF7D6B74DA5]
+	(No symbol) [0x00007FF7D6B9973A]
+	(No symbol) [0x00007FF7D6C0EFDF]
+	(No symbol) [0x00007FF7D6C2EFE2]
+	(No symbol) [0x00007FF7D6C07023]
+	(No symbol) [0x00007FF7D6BCFF5E]
+	(No symbol) [0x00007FF7D6BD11E3]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6CF95E4]
+	(No symbol) [0x00007FF7D6CF9786]
+	(No symbol) [0x00007FF7D6CE8CB9]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</msg>
+<arg>xpath=//*[@id="sidebar"]/ul/li[17]/a</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-25T16:04:52.286944" elapsed="7.112958">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88FAA]
+	(No symbol) [0x00007FF7D6B74DA5]
+	(No symbol) [0x00007FF7D6B9973A]
+	(No symbol) [0x00007FF7D6C0EFDF]
+	(No symbol) [0x00007FF7D6C2EFE2]
+	(No symbol) [0x00007FF7D6C07023]
+	(No symbol) [0x00007FF7D6BCFF5E]
+	(No symbol) [0x00007FF7D6BD11E3]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6CF95E4]
+	(No symbol) [0x00007FF7D6CF9786]
+	(No symbol) [0x00007FF7D6CE8CB9]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="sidebar"]/ul/li[17]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.400901" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.400901" elapsed="0.000000"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.400901" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-25T16:04:52.285944" elapsed="7.114957">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88FAA]
+	(No symbol) [0x00007FF7D6B74DA5]
+	(No symbol) [0x00007FF7D6B9973A]
+	(No symbol) [0x00007FF7D6C0EFDF]
+	(No symbol) [0x00007FF7D6C2EFE2]
+	(No symbol) [0x00007FF7D6C07023]
+	(No symbol) [0x00007FF7D6BCFF5E]
+	(No symbol) [0x00007FF7D6BD11E3]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6CF95E4]
+	(No symbol) [0x00007FF7D6CF9786]
+	(No symbol) [0x00007FF7D6CE8CB9]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</status>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.400901" elapsed="0.000000"/>
+</kw>
+<kw name="Change Language To Thai">
+<status status="NOT RUN" start="2025-02-25T16:04:59.401902" elapsed="0.000000"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.401902" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.401902" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.401902" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>th_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Change Language To English">
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>en_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Change Language To Chinese">
+<status status="NOT RUN" start="2025-02-25T16:04:59.402387" elapsed="0.000000"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.403391" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.403391" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.403391" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ch_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.403391" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-25T16:04:59.403391" elapsed="0.000000"/>
+</kw>
+<doc>Test Switch Language For API status</doc>
+<status status="FAIL" start="2025-02-25T16:04:45.929300" elapsed="13.474091">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88FAA]
+	(No symbol) [0x00007FF7D6B74DA5]
+	(No symbol) [0x00007FF7D6B9973A]
+	(No symbol) [0x00007FF7D6C0EFDF]
+	(No symbol) [0x00007FF7D6C2EFE2]
+	(No symbol) [0x00007FF7D6C07023]
+	(No symbol) [0x00007FF7D6BCFF5E]
+	(No symbol) [0x00007FF7D6BD11E3]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6CF95E4]
+	(No symbol) [0x00007FF7D6CF9786]
+	(No symbol) [0x00007FF7D6CE8CB9]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</status>
+</test>
+<status status="FAIL" start="2025-02-25T16:04:45.790966" elapsed="13.614429"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Api Status Test">Api Status Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-25T16:04:59.319399" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF7D6D86EE5+28773]
+	(No symbol) [0x00007FF7D6CF25D0]
+	(No symbol) [0x00007FF7D6B88DDC]
+	(No symbol) [0x00007FF7D6BCF17F]
+	(No symbol) [0x00007FF7D6C07112]
+	(No symbol) [0x00007FF7D6C01AA9]
+	(No symbol) [0x00007FF7D6C00B59]
+	(No symbol) [0x00007FF7D6B55595]
+	GetHandleVerifier [0x00007FF7D70D422D+3490733]
+	GetHandleVerifier [0x00007FF7D70EBA13+3586963]
+	GetHandleVerifier [0x00007FF7D70E144D+3544525]
+	GetHandleVerifier [0x00007FF7D6E4C9AA+838442]
+	(No symbol) [0x00007FF7D6CFD01F]
+	(No symbol) [0x00007FF7D6B541AE]
+	GetHandleVerifier [0x00007FF7D715ED78+4058872]
+	BaseThreadInitThunk [0x00007FFCEA7E259D+29]
+	RtlUserThreadStart [0x00007FFCEBDEAF38+40]
+</msg>
+</errors>
+</robot>

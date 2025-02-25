@@ -170,6 +170,7 @@ return [
     'programs' => '程式',
     'program_name' => '姓名',
     'program_degree' => '程度',
+    'Edit_Program' => '編輯程式',
 
     //cpresearchV2/app/Http/Controllers/ProgramController.php
     'program_created' => '课程创建成功。',
