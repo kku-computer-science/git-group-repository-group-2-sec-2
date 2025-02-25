@@ -8,7 +8,7 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{trans('message.Whoops!')}}</strong> {{trans('message.There were some problems with your input.')}}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -27,25 +27,25 @@
                     <div class="form-group row">
                         <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{trans('message.book_title')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_name" value="{{ $book->ac_name }}" class="form-control" placeholder="name">
+                            <input type="text" name="ac_name" value="{{ $book->ac_name }}" class="form-control" placeholder={{trans('message.book_title')}}>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleInputac_sourcetitle" class="col-sm-3 col-form-label">{{trans('message.book_publisher')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_sourcetitle" value="{{ $book->ac_sourcetitle }}" class="form-control" placeholder="สถานที่ตีพิมพ์">
+                            <input type="text" name="ac_sourcetitle" value="{{ $book->ac_sourcetitle }}" class="form-control" placeholder={{trans('message.book_publisher')}}>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{trans('message.publication_year')}}</label>
+                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{trans('message.Year_(A.D.)')}}</label>
                         <div class="col-sm-9">
-                            <input type="date" name="ac_year" value="{{ $book->ac_year }}" class="form-control" placeholder="ปีที่เผยแพร่ (พ.ศ.)">
+                            <input type="date" name="ac_year" value="{{ $book->ac_year }}" class="form-control" placeholder={{trans('message.Year_(A.D.)')}}>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleInputac_page" class="col-sm-3 col-form-label">{{trans('message.number_of_pages')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_page" value="{{ $book->ac_page }}" class="form-control" placeholder="จำนวนหน้า (Page)">
+                            <input type="text" name="ac_page" value="{{ $book->ac_page }}" class="form-control" placeholder={{trans('message.number_of_pages')}}>
                         </div>
                     </div>
 

@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard</title>
+    <title>{{trans('message.dashboard')}}</title>
     <base href="{{ \URL::to('/') }}">
     <link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon" />
     <!-- Font Awesome Icons -->

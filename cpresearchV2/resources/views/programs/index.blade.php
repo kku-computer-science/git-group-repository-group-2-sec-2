@@ -172,7 +172,11 @@
                 paginate: {
                     next: `{{trans('message.next')}}`,
                     previous: `{{trans('message.previous')}}`
-                }
+                },
+                emptyTable: `{{trans('message.empty_table')}}`,
+                zeroRecords: `{{trans('message.zero_record')}}`,
+                infoEmpty: `{{trans('message.showing')}} 0 {{trans('message.to')}} 0 {{trans('message.of')}} 0 {{trans('message.entries')}}`,
+                infoFiltered: `({{trans('message.filtered')}} {{trans('message.from')}} _MAX_ {{trans('message.entries')}})`,
             }
         });
     });
@@ -192,7 +196,7 @@
         $('body').on('click', '#edit-program', function() {
             var program_id = $(this).data('id');
             $.get('programs/' + program_id + '/edit', function(data) {
-                $('#programCrudModal').html("Edit program");
+                $('#programCrudModal').html("{{trans('message.Edit_Program')}}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
