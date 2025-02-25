@@ -165,4 +165,51 @@ return [
 
     'attributes' => [],
 
+
+//cpresearchV2/resources/views/departments/create.blade.php
+'required' => 'The :attribute field is required.',
+    'custom' => [
+        'department_name_th' => [
+            'required' => 'The department name (EN) field is required.',
+        ],
+        'ac_name' => [
+            'required' => 'The book name field is required.',
+        ],
+        'ac_year' => [
+            'required' => 'The book year field is required.',
+        ],
+        'group_name_th' => [
+            'required' => 'The group name (TH) field is required.',
+        ],
+        'group_name_en' => [
+            'required' => 'The group name (EN) field is required.',
+        ],
+        'head' => [
+            'required' => 'The head field is required.',
+        ],
+        //cpresearchV2/resources/views/users/create.blade.php
+
+        'fname_en' => [
+            'required' => 'The first name (EN) field is required.',
+        ],
+        'lname_en' => [
+            'required' => 'The last name (EN) field is required.',
+        ],
+        'fname_th' => [
+            'required' => 'The first name (TH) field is required.',
+        ],
+        'lname_th' => [
+            'required' => 'The last name (TH) field is required.',
+        ],
+        'email' => [
+            'required' => 'The email field is required.',
+        ],
+        'password' => [
+            'required' => 'The password field is required.',
+        ],
+        'roles' => [
+            'required' => 'The roles field is required.',
+        ],
+    ],
+
 ];

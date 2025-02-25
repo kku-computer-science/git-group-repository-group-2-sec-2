@@ -119,16 +119,21 @@
     </div>
 </div>
 
-                            <div class="form-group">
-                                <strong>{{trans('message.Academic_Program')}}:</strong>
-                                <div class="col-sm-8">
-                                    <select id="department" class="custom-select my-select" name="department">
-                                        @foreach($department as $d)
-                                        <option value="{{$d->id}}">{{$d->department_name_th}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+<div class="form-group">
+    <strong>{{ trans('message.Academic_Program') }}:</strong>
+    <div class="col-sm-8">
+        <select id="department" class="custom-select my-select" name="department">
+            @foreach($department as $d)
+                @php
+                    $locale = app()->getLocale();
+                    $department_name = ($locale === 'th') ? $d->department_name_th : $d->department_name_en;
+                @endphp
+                <option value="{{ $d->id }}">{{ $department_name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
                             <div class="form-group">
                                 <strong>{{trans('message.Name_TH')}}:</strong>
                                 <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
