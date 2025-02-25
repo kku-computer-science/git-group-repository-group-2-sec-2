@@ -538,6 +538,10 @@ return [
     'There were some problems with your input' => '您的输入有一些问题。',
     'research_group_leader' => '编辑研究小组负责人',
 
+    //cpresearchv2\resources\views\papers\edit.blade.php
+    'edit_paper' => '编辑论文',
+    'edit_paper_details' => '编辑论文详细信息',
+
     // cpresearchV2\resources\views\books\edit.blade.php
     "edit_book_details" => "编辑书籍详情",
     "enter_book_details" => "输入书籍详细信息",

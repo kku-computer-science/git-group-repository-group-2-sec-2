@@ -776,6 +776,10 @@ return [
     'program' => "หลักสูตร",
     'scholar_id' => "Scholar ID",
 
+    //cpresearchv2\resources\views\papers\edit.blade.php
+    'edit_paper' => 'แก้ไขข้อมูลงานวิจัย',
+    'edit_paper_details' => 'กรอกข้อมูลแก้ไขรายละเอียดงานวิจัย',
+
     // API Status Page
     'api_status' => 'สถานะ API',
     'api_name' => 'ชื่อ API',

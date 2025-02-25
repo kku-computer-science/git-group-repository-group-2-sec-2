@@ -735,5 +735,10 @@ return [
     'There were some problems with your input' => 'There were some problems with your input.',
     'research_group_leader' => 'Choose Research Group Leader',
 
+    //cpresearchv2\resources\views\papers\edit.blade.php
+    'edit_paper' => 'Edit Paper',
+    'edit_paper_details' => 'Fill in the information to edit paper details',
+
+
 
 ];
