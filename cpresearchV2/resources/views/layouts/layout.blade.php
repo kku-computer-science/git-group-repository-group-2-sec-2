@@ -76,7 +76,7 @@
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
                         <a class="nav-link" href="/">{{ trans('message.Home') }}</a>
                     </li>
-                    <li
+                    <lifp
                         class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -93,7 +93,7 @@
 
                             @endforeach
                         </ul>
-                    </li>
+                    </lifp>
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
                         <a class="nav-link" href="/researchproject">{{ trans('message.ResearchProj') }}</a>
                     </li>

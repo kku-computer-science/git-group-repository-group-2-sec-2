@@ -98,13 +98,24 @@
     </h5>
 @endif
 
+<p class="card-text-1">{{ trans('message.expertise') }}</p>
+<div class="card-expertise">
+    @foreach($r->expertise->sortBy('expert_name') as $exper)
+        @php
+            // ใช้ trans() ดึงค่าจากไฟล์ message.php ถ้ามีแปลเป็นภาษาจีนก็ใช้ ถ้าไม่มีใช้ค่าเดิม
+            $expert_name = ($locale == 'zh' && trans('message.expertise_translation.' . $exper->expert_name) != 'message.expertise_translation.' . $exper->expert_name)
+                ? trans('message.expertise_translation.' . $exper->expert_name)
+                : $exper->expert_name;
+        @endphp
+        <p class="card-text">{{ $expert_name }}</p>
+    @endforeach
+</div>
 
-                            <p class="card-text-1">{{ trans('message.expertise') }}</p>
-                            <div class="card-expertise">
+                            <!-- <div class="card-expertise">
                                 @foreach($r->expertise->sortBy('expert_name') as $exper)
                                 <p class="card-text">{{ $exper->expert_name }}</p>
                                 @endforeach
-                            </div>
+                            </div> -->
                         </div>
                     </diV>
                 </div>

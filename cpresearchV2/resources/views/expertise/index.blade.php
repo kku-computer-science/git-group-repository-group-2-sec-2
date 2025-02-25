@@ -60,7 +60,28 @@
                         </td>
 
                         @endif
-                        <td>{{ $expert->expert_name }}</td>
+                        <td>
+                        @php
+    $locale = app()->getLocale();
+    $expert_name = trim($expert->expert_name); // ตัดช่องว่างออก
+    $expert_name_key = 'message.expertise_translation.' . $expert_name;
+
+    // ตรวจจับเฉพาะ Smart X แล้วใช้ key ใหม่
+    if ($expert_name === 'Smart X: Smart Farm, Home, Health-care, Car, Building, Device, etc.') {
+        $translated_expert_name = trans('message.expertise_translation.smart_x');
+    } else {
+        $translated_expert_name = trans($expert_name_key);
+    }
+
+    // ใช้ค่าที่แปล ถ้าภาษาที่เลือกคือจีน และมีค่าแปลอยู่
+    $display_expert_name = ($locale == 'zh' && $translated_expert_name !== $expert_name_key)
+        ? $translated_expert_name
+        : $expert_name;
+@endphp
+
+<td>{{ $display_expert_name }}</td>
+
+
 
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
