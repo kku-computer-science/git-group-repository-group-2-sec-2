@@ -37,6 +37,7 @@ return [
         ],
         'email' => [
             'required' => '必须填写电子邮件地址。',
+            'unique' => '此电子邮件已被使用。',
         ],
         'password' => [
             'required' => '必须填写密码。',
@@ -44,5 +45,12 @@ return [
         'roles' => [
             'required' => '必须选择用户角色。',
         ],
+        'field' => [
+            'required' => ':attribute 字段是必填的。',
+        ],
+    ],
+    'email' => [
+        'required' => '必须填写电子邮件地址。',
+        'unique' => '此电子邮件已被使用。',
     ],
 ];

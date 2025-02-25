@@ -190,6 +190,7 @@ return [
         ],
         'email' => [
             'required' => 'The email field is required.',
+            'unique' => 'The email has already been taken.',
         ],
         'password' => [
             'required' => 'The password field is required.',
@@ -197,6 +198,13 @@ return [
         'roles' => [
             'required' => 'The roles field is required.',
         ],
+        'field' => [
+            'required' => 'The :attribute field is required.',
+        ],
+    ],
+    'email' => [
+        'required' => 'The email field is required.',
+        'unique' => 'The email has already been taken.',
     ],
 
 ];
