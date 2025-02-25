@@ -60,17 +60,25 @@
                         <div class="card-body">
                             @php
                             $locale = app()->getLocale();
-                            $fname = $r->{'fname_' . ($locale == 'th' ? 'th' : 'en')};
-                            $lname = $r->{'lname_' . ($locale == 'th' ? 'th' : 'en')};
-                            $position = $r->{'position_' . ($locale == 'th' ? 'th' : 'en')};
 
-                            // แปลงยศให้ใช้ `_` แทนช่องว่าง (รองรับ trans())
+                            // ใช้ชื่อภาษาอังกฤษก่อน ถ้าไม่มีให้ใช้ภาษาไทยแทน
+                            $fname = !empty($r->fname_en) ? $r->fname_en : $r->fname_th;
+                            $lname = !empty($r->lname_en) ? $r->lname_en : $r->lname_th;
+
+                            // ถ้า locale เป็นภาษาไทย ให้ใช้ชื่อตำแหน่งภาษาไทย
+                            $position = !empty($r->{'position_' . $locale}) ? $r->{'position_' . $locale} : '';
+
+                            // ตรวจสอบว่ามี academic rank หรือไม่ ถ้าไม่มีให้เป็นค่าว่าง
+                            $academic_rank = '';
+                            if (!empty($r->academic_ranks_en)) {
                             $academic_rank_key = strtolower(str_replace(' ', '_', $r->academic_ranks_en));
                             $academic_rank = trans('message.' . $academic_rank_key);
+                            }
 
                             // แปลง Ph.D. เป็น 博士 ถ้าเป็นภาษาจีน
                             $doctoral_degree = $r->doctoral_degree == 'Ph.D.' ? ($locale == 'zh' ? '博士' : 'Ph.D.') : '';
                             @endphp
+
 
                             @if($locale == 'en' || $locale == 'zh')
                             <h5 class="card-title">
@@ -82,9 +90,6 @@
                                 {{ $position }} {{ $fname }} {{ $lname }}
                             </h5>
                             @endif
-
-
-
 
                             <p class="card-text-1">{{ trans('message.expertise') }}</p>
                             <div class="card-expertise">
