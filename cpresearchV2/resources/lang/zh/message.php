@@ -124,6 +124,8 @@ return [
     'Role_Student' => '学生',
     'Role_Teacher' => '教师',
     'Scholar_ID_(Optional)' => '学者编号 (可选)',
+    'error_title' => '错误!',
+    'error_message' => '发生了一些错误，请检查以下错误。',
 
     // cpresearchV2/resources/views/users/import.blade.php
     'Import' => '导入 Excel, CSV 文件',

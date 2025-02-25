@@ -86,6 +86,8 @@ return [
 'Role_Student' => 'Student',
 'Role_Teacher' => 'Teacher',
 'Scholar_ID_(Optional)' => 'Scholar ID (Optional)',
+'error_title' => 'Oops!',
+'error_message' => 'Something went wrong, please check the errors below.',
 
 // cpresearchV2/resources/views/users/import.blade.php
 'Import' => 'Import Excel, CSV File',

@@ -121,6 +121,8 @@ return [
 'Role_Student' => 'นักศึกษา',
 'Role_Teacher' => 'อาจารย์',
 'Scholar_ID_(Optional)' => 'รหัสนักวิจัย (ไม่บังคับ)',
+'error_title' => 'ข้อผิดพลาด!',
+'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง.',
 
 // cpresearchV2/resources/views/users/import.blade.php
 'Import' => 'นำเข้าไฟล์ Excel , CSV',

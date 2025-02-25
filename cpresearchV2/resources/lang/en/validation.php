@@ -174,6 +174,29 @@ return [
         'head' => [
             'required' => 'The head field is required.',
         ],
+        //cpresearchV2/resources/views/users/create.blade.php
+
+        'fname_en' => [
+            'required' => 'The first name (EN) field is required.',
+        ],
+        'lname_en' => [
+            'required' => 'The last name (EN) field is required.',
+        ],
+        'fname_th' => [
+            'required' => 'The first name (TH) field is required.',
+        ],
+        'lname_th' => [
+            'required' => 'The last name (TH) field is required.',
+        ],
+        'email' => [
+            'required' => 'The email field is required.',
+        ],
+        'password' => [
+            'required' => 'The password field is required.',
+        ],
+        'roles' => [
+            'required' => 'The roles field is required.',
+        ],
     ],
 
 ];

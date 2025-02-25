@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center">
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>{{ trans('validation.required', ['attribute' => 'field']) }}</strong><br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ trans($error) }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card" style="padding: 16px;">
                 <div class="card-body">
@@ -91,12 +91,12 @@
         </div>
 
         <div class="col-md-4">
-            <h6 for="subcat">{{ trans('message.Program') }} <span class="text-danger">*</span></h6>
-            <select class="form-control select2" name="sub_cat" id="subcat" required
-                oninvalid="this.setCustomValidity(getValidationMessage())"
-                oninput="this.setCustomValidity('')">
-                <option value="">{{ trans('message.Select_Subcategory') }}</option>
-            </select>
+        <h6 for="subcat">{{ trans('message.Program') }} <span class="text-danger">*</span></h6>
+    <select class="form-control select2" name="sub_cat" id="subcat" required
+        oninvalid="this.setCustomValidity(getValidationMessage())"
+        oninput="this.setCustomValidity('')">
+        <option value="">{{ trans('message.Select_Subcategory') }}</option>
+    </select>
         </div>
     </div>
 </div>
@@ -121,16 +121,19 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 <script>
-    $('#cat').on('change', function(e) {
-        var cat_id = e.target.value;
-        $.get('/ajax-get-subcat?cat_id=' + cat_id, function(data) {
-            $('#subcat').empty();
-            $.each(data, function(index, areaObj) {
-                //console.log(areaObj)
-                $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en + ' in ' + areaObj.program_name_en + '</option>');
-            });
+    $('#cat').on('change', function (e) {
+    var cat_id = e.target.value;
+    var locale = "{{ app()->getLocale() }}"; // ดึงค่าภาษาปัจจุบัน
+
+    $.get('/ajax-get-subcat?cat_id=' + cat_id, function (data) {
+        $('#subcat').empty();
+        $.each(data, function (index, areaObj) {
+            var program_name = (locale === 'th') ? areaObj.program_name_th : areaObj.program_name_en;
+            $('#subcat').append('<option value="' + areaObj.id + '">' + areaObj.degree.title_en + ' in ' + program_name + '</option>');
         });
     });
+});
+
 
     function getValidationMessage() {
         let locale = "{{ app()->getLocale() }}"; // ดึงภาษาปัจจุบัน
