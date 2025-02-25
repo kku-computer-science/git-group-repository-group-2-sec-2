@@ -60,10 +60,12 @@
             <!--a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></+a-->
             <!--P'France_Edit-->
             <a class="navbar-brand logo-image" href="#">
-                @if(App::getLocale() == 'zh') {{-- ถ้าเป็นภาษาจีนให้ใช้โลโก้ logo3_zh.png --}}
-                <img src="{{ asset('img/logo3_zh.png') }}" alt="Logo in Chinese">
+                @if(App::getLocale() == 'zh') {{-- ถ้าเป็นภาษาจีน --}}
+                    <img src="{{ asset('img/logo3_ZH.png') }}" alt="Logo for Chinese">
+                @elseif(App::getLocale() == 'th') {{-- ถ้าเป็นภาษาไทย --}}
+                    <img src="{{ asset('img/logo1_TH.png') }}" alt="Logo for Thai">
                 @else {{-- ค่าเริ่มต้น (ภาษาอังกฤษหรือภาษาอื่น ๆ) --}}
-                <img src="{{ asset('img/logo2.png') }}" alt="Default Logo">
+                    <img src="{{ asset('img/logo2_EN.png') }}" alt="Logo for English or Default">
                 @endif
             </a>
             <!--P'France_Edit-->
