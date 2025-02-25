@@ -301,7 +301,7 @@
             //console.log(obj.pivot.author_type)
 
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2" >{{ trans("message.Co-Author") }}</option><option value="3" >{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ app()->getLocale() == "th" ? $user->fname_th . " " . $user->lname_th : $user->fname_en . " " . $user->lname_en }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2" >{{ trans("message.Co-Author") }}</option><option value="3" >{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             document.getElementById("selUser" + i).value = obj.id;
             document.getElementById("pos" + i).value = obj.pivot.author_type;
@@ -311,7 +311,7 @@
         $("#add-btn2").click(function() {
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">{{ trans("message.Select User") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2">{{ trans("message.Co-Author") }}</option><option value="3">{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{ trans("message.Select User") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ app()->getLocale() == "th" ? $user->fname_th . " " . $user->lname_th : $user->fname_en . " " . $user->lname_en }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans("message.First Author") }}</option><option value="2">{{ trans("message.Co-Author") }}</option><option value="3">{{ trans("message.Corresponding Author") }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             $("#selUser" + i).select2();
         });
