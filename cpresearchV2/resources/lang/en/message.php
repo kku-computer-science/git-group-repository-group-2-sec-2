@@ -22,14 +22,15 @@ return [
     'Research_Information_Management_System' => 'Research Information Management System',
     // 'Add_Course' => 'Add Course',
 
-    // cpresearchV2/resources/views/programs/index.blade.php
-    'Add_New_Program' => 'Add New Program',
-    'Education_Level' => 'Education Level',
-    'Academic_Program' => 'Academic Program',
-    'Name_TH' => 'Name (TH)',
-    'Name_EN' => 'Name (EN)',
-    'Submit' => 'Submit',
-    'Cancle' => 'Cancel',
+// cpresearchV2/resources/views/programs/index.blade.php
+'Add_New_Program' => 'Add New Program',
+'Edit_Program' => 'Edit Program',
+'Education_Level' => 'Education Level',
+'Academic_Program' => 'Academic Program',
+'Name_TH' => 'Name (TH)',
+'Name_EN' => 'Name (EN)',
+'Submit' => 'Submit',
+'Cancle' => 'Cancel',
 
     // cpresearchV2/resources/views/dashboards/users/profile.blade.php
     'Name' => 'Name',
@@ -779,4 +780,45 @@ return [
     'research_group_leader' => 'Choose Research Group Leader',
 
 
+// cpresearchV2\resources\views\apistatus\index.blade.php
+    'api_status' => 'API Status',
+    'api_name' => 'API Name',
+    'status' => 'Status',
+    'last_checked' => 'Last Checked',
+    'message' => 'Message',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+
+// cpresearchV2\resources\views\highlight\index.blade.php
+    'highlight' => 'Highlight',
+    'welcome_higlight' => 'Welcome to the Highlight page. Please create your highlight of our proud.',
+
+// cpresearchV2\resources\views\assistant_researcher\index.blade.php
+    'assistant_researcher' => 'Assistant Researcher',
+    'assistant_wanted' => 'Assistant Wanted',
+    'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
+
+// cpresearchV2\resources\views\certificate-form\index.blade.php
+    'certificate_form' => 'Certificate Form',
+    'welcome_certificate' => 'Welcome to the Certificate Form page. Please proceed with your submission.',
+
+     // Navbar
+     'for_student' => 'For Student',
+     'for_head' => 'For Head Project',
+     'for_staff' => 'For Staff',
+     'research_API' => 'Research API',
+
+     // cpresearchV2\resources\views\research_proj.blade.php
+    'research_proj_head' => 'Academic service projects/ Research projects',
+    'proj_name' => 'Project Name',
+    'desc' => 'Description',
+    'proj_lead' => 'Project Leader',
+    'proj_duration' => 'Project Duration',
+    'proj_type' => 'Project Type',
+    'fund_agency' => 'Funding Agency',
+    'res_agency' => 'Responsible Department',
+    'alloc_budget' => 'Allocated Budget',
+    'proj_closed' => 'Closed Project',
+    'proj_req' => 'Request',
+    'proj_op' => 'Operating',
 ];

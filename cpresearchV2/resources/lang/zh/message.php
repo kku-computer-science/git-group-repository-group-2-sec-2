@@ -384,6 +384,7 @@ return [
     'programs' => '程式',
     'program_name' => '姓名',
     'program_degree' => '程度',
+    'Edit_Program' => '編輯程式',
 
     //cpresearchV2/app/Http/Controllers/ProgramController.php
     'program_created' => '课程创建成功。',
@@ -833,4 +834,18 @@ return [
     'for_head' => '适用于项目负责人',
     'for_staff' => '适用于工作人员',
     'research_API' => '研究 API',
+
+    // cpresearchV2\resources\views\research_proj.blade.php
+    'research_proj_head' => '学术服务项目/ 研究项目',
+    'proj_name' => '项目名称',
+    'desc' => '描述',
+    'proj_lead' => '项目负责人',
+    'proj_duration' => '项目周期',
+    'proj_type' => '项目类型',
+    'fund_agency' => '资助机构',
+    'res_agency' => '负责机构',
+    'alloc_budget' => '分配预算',
+    'proj_closed' => '已结项目',
+    'proj_req' => '请求',
+    'proj_op' => '运行中',
 ];
