@@ -22,15 +22,15 @@ return [
     'Research_Information_Management_System' => 'Research Information Management System',
     // 'Add_Course' => 'Add Course',
 
-// cpresearchV2/resources/views/programs/index.blade.php
-'Add_New_Program' => 'Add New Program',
-'Edit_Program' => 'Edit Program',
-'Education_Level' => 'Education Level',
-'Academic_Program' => 'Academic Program',
-'Name_TH' => 'Name (TH)',
-'Name_EN' => 'Name (EN)',
-'Submit' => 'Submit',
-'Cancle' => 'Cancel',
+    // cpresearchV2/resources/views/programs/index.blade.php
+    'Add_New_Program' => 'Add New Program',
+    'Edit_Program' => 'Edit Program',
+    'Education_Level' => 'Education Level',
+    'Academic_Program' => 'Academic Program',
+    'Name_TH' => 'Name (TH)',
+    'Name_EN' => 'Name (EN)',
+    'Submit' => 'Submit',
+    'Cancle' => 'Cancel',
 
     // cpresearchV2/resources/views/dashboards/users/profile.blade.php
     'Name' => 'Name',
@@ -249,45 +249,45 @@ return [
 
     'Support Resource' => 'Support Resource',
 
-// http://127.0.0.1:8000/patents/create
-'Add Academic Work' => 'Add Academic Work',
-'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
-'Academic Work Name' => 'Academic Work Name',
-'Name' => 'Name',
-'Type' => 'Type',
-'Please specify the type' => 'Please specify the type',
-'Patent' => 'Patent',
-'Patent (Invention)' => 'Patent (Invention)',
-'Patent (Design)' => 'Patent (Design)',
-'Petty Patent' => 'Petty Patent',
-'Copyright' => 'Copyright',
-'Copyright (Literature)' => 'Copyright (Literature)',
-'Copyright (Music)' => 'Copyright (Music)',
-'Copyright (Film)' => 'Copyright (Film)',
-'Copyright (Art)' => 'Copyright (Art)',
-'Copyright (Broadcast)' => 'Copyright (Broadcast)',
-'Copyright (Audiovisual)' => 'Copyright (Audiovisual)',
-'Copyright (Other)' => 'Copyright (Other)',
-'Copyright (Sound Recording)' => 'Copyright (Sound Recording)',
-'Other' => 'Other',
-'Trade Secret' => 'Trade Secret',
-'Trademark' => 'Trademark',
-'Copyright Date' => 'Copyright Date',
-'Registration Number' => 'Registration Number',
-'Internal Authors' => 'Internal Authors',
-'External Authors' => 'External Authors',
-'First Name' => 'First Name',
-'Last Name' => 'Last Name',
-'Add More Person' => 'Add More Person',
-'Sorry! Can\'t remove first row!' => 'Sorry! Cannot remove first row!',
-'Enter your Name' => 'Enter your Name',
-'Select User' => 'Select User',
-'Submit' => 'Submit',
-'Cancel' => 'Cancel',
-'Whoops' => 'Whoops',
-'There were some problems with your input' => 'There were some problems with your input',
+    // http://127.0.0.1:8000/patents/create
+    'Add Academic Work' => 'Add Academic Work',
+    'Fill in the form below to add a new academic work' => 'Fill in the form below to add a new academic work',
+    'Academic Work Name' => 'Academic Work Name',
+    'Name' => 'Name',
+    'Type' => 'Type',
+    'Please specify the type' => 'Please specify the type',
+    'Patent' => 'Patent',
+    'Patent (Invention)' => 'Patent (Invention)',
+    'Patent (Design)' => 'Patent (Design)',
+    'Petty Patent' => 'Petty Patent',
+    'Copyright' => 'Copyright',
+    'Copyright (Literature)' => 'Copyright (Literature)',
+    'Copyright (Music)' => 'Copyright (Music)',
+    'Copyright (Film)' => 'Copyright (Film)',
+    'Copyright (Art)' => 'Copyright (Art)',
+    'Copyright (Broadcast)' => 'Copyright (Broadcast)',
+    'Copyright (Audiovisual)' => 'Copyright (Audiovisual)',
+    'Copyright (Other)' => 'Copyright (Other)',
+    'Copyright (Sound Recording)' => 'Copyright (Sound Recording)',
+    'Other' => 'Other',
+    'Trade Secret' => 'Trade Secret',
+    'Trademark' => 'Trademark',
+    'Copyright Date' => 'Copyright Date',
+    'Registration Number' => 'Registration Number',
+    'Internal Authors' => 'Internal Authors',
+    'External Authors' => 'External Authors',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Add More Person' => 'Add More Person',
+    'Sorry! Can\'t remove first row!' => 'Sorry! Cannot remove first row!',
+    'Enter your Name' => 'Enter your Name',
+    'Select User' => 'Select User',
+    'Submit' => 'Submit',
+    'Cancel' => 'Cancel',
+    'Whoops' => 'Whoops',
+    'There were some problems with your input' => 'There were some problems with your input',
 
-// http://127.0.0.1:8000/papers/create
+    // http://127.0.0.1:8000/papers/create
     'Please specify the source' => 'Please specify the source',
     'Add Paper' => 'Add Paper',
     'Fill in the form below to add a new paper' => 'Fill in the form below to add a new paper',
@@ -330,7 +330,7 @@ return [
     'Submit' => 'Submit',
     'Cancel' => 'Cancel',
 
-// http://127.0.0.1:8000/researchProjects/create
+    // http://127.0.0.1:8000/researchProjects/create
     'Whoops' => 'Whoops',
     'There were some problems with your input' => 'There were some problems with your input',
     'Add Research Project' => 'Add Research Project',
@@ -784,9 +784,14 @@ return [
     'edit_paper' => 'Edit Paper',
     'edit_paper_details' => 'Fill in the information to edit paper details',
 
+    //cpresearchv2\resources\views\research_projects\edit.blade.php
+    'edit_research_project' => 'Edit Research Project',
+    'edit_research_project_details' => 'Fill in the information to edit research project details',
 
 
-// cpresearchV2\resources\views\apistatus\index.blade.php
+
+
+    // cpresearchV2\resources\views\apistatus\index.blade.php
     'api_status' => 'API Status',
     'api_name' => 'API Name',
     'status' => 'Status',
@@ -795,26 +800,26 @@ return [
     'active' => 'Active',
     'inactive' => 'Inactive',
 
-// cpresearchV2\resources\views\highlight\index.blade.php
+    // cpresearchV2\resources\views\highlight\index.blade.php
     'highlight' => 'Highlight',
     'welcome_higlight' => 'Welcome to the Highlight page. Please create your highlight of our proud.',
 
-// cpresearchV2\resources\views\assistant_researcher\index.blade.php
+    // cpresearchV2\resources\views\assistant_researcher\index.blade.php
     'assistant_researcher' => 'Assistant Researcher',
     'assistant_wanted' => 'Assistant Wanted',
     'assistant_welcome' => 'Welcome to the Research Assistant Wanted page. This page is dedicated to helping the project head find an assistant for research-related tasks.',
 
-// cpresearchV2\resources\views\certificate-form\index.blade.php
+    // cpresearchV2\resources\views\certificate-form\index.blade.php
     'certificate_form' => 'Certificate Form',
     'welcome_certificate' => 'Welcome to the Certificate Form page. Please proceed with your submission.',
 
-     // Navbar
-     'for_student' => 'For Student',
-     'for_head' => 'For Head Project',
-     'for_staff' => 'For Staff',
-     'research_API' => 'Research API',
+    // Navbar
+    'for_student' => 'For Student',
+    'for_head' => 'For Head Project',
+    'for_staff' => 'For Staff',
+    'research_API' => 'Research API',
 
-     // cpresearchV2\resources\views\research_proj.blade.php
+    // cpresearchV2\resources\views\research_proj.blade.php
     'research_proj_head' => 'Academic service projects/ Research projects',
     'proj_name' => 'Project Name',
     'desc' => 'Description',
