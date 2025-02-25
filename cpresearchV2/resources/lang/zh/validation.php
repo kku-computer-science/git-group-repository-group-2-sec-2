@@ -68,5 +68,8 @@ return [
         'required' => '必须填写电子邮件地址。',
         'unique' => '此电子邮件已被使用。',
     ],
-    
+
+
+    'required_field' => '此字段是必填的',
+    'attributes' => [],
 ];

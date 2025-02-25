@@ -152,6 +152,8 @@ return [
         'cnewpass_required' => 'Please confirm your new password',
         'newpass_same' => 'New password and Confirm new password must match',
     ],
+    'required_field' => 'This field is required',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

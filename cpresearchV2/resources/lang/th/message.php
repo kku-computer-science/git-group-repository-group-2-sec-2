@@ -742,6 +742,10 @@ return [
     'edit_fund' => 'แก้ไขข้อมูลทุนวิจัย',
     'edit_fund_details' => 'กรอกข้อมูลแก้ไขรายละเอียดทุนวิจัย',
 
+    //cpresearchv2\resources\views\research_projects\edit.blade.php
+    'edit_research_project' => 'แก้ไขข้อมูลโครงการวิจัย',
+    'edit_research_project_details' => 'กรอกข้อมูลแก้ไขรายละเอียดโครงการวิจัย',
+
     // cpresearchv2\resources\views\research_groups\edit.blade.php
     'edit_research_group' => 'แก้ไขข้อมูลกลุ่มวิจัย',
     'edit_research_group_details' => 'กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย',
@@ -809,6 +813,10 @@ return [
     'program' => "หลักสูตร",
     'scholar_id' => "Scholar ID",
 
+    //cpresearchv2\resources\views\papers\edit.blade.php
+    'edit_paper' => 'แก้ไขข้อมูลงานวิจัย',
+    'edit_paper_details' => 'กรอกข้อมูลแก้ไขรายละเอียดงานวิจัย',
+
     // API Status Page
     'api_status' => 'สถานะ API',
     'api_name' => 'ชื่อ API',
@@ -836,7 +844,7 @@ return [
     'for_student' => 'สำหรับนักศึกษา',
     'for_head' => 'สำหรับหัวหน้าโครงการ',
     'for_staff' => 'สำหรับเจ้าหน้าที่',
-    'research_API' => 'API การวิจัย',// http://127.0.0.1:8000/researchProjects/create
+    'research_API' => 'API การวิจัย', // http://127.0.0.1:8000/researchProjects/create
     'Whoops' => 'อุ๊ปส์!',
     'There were some problems with your input' => 'มีปัญหาบางอย่างกับข้อมูลที่คุณป้อน',
     'Add Research Project' => 'เพิ่มโครงการวิจัย',
