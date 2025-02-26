@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-25T01:03:45.343499" rpa="false" schemaversion="5">
+<suite id="s1" name="tran-Book" source="E:\git-group-repository-group-2-sec-2\test-translate-mhinz\tran-Book.robot">
+<test id="s1-t1" name="User Can Change Language To English" line="42">
+<kw name="Open Browser And Login">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:03:45.785435" level="INFO">Opening browser 'Firefox' to base url 'http://localhost:8000/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-25T01:03:45.784882" elapsed="10.543759"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-25T01:03:56.329661" elapsed="0.005011"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T01:03:56.335036" elapsed="0.053593"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:03:56.389091" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T01:03:56.388834" elapsed="0.108114"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:03:56.497535" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T01:03:56.497200" elapsed="0.035892"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:03:56.533761" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T01:03:56.533373" elapsed="3.002412"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-25T01:03:59.536011" elapsed="0.009028"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:03:59.587399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T01:03:59.545241" elapsed="0.042285"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T01:04:00.588361" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T01:03:59.587785" elapsed="1.000691"/>
+</kw>
+<status status="PASS" start="2025-02-25T01:03:45.783179" elapsed="14.805425"/>
+</kw>
+<kw name="Click Language Switch Button">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-25T01:04:05.750073" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-25T01:04:05.750259" level="FAIL">Element '//button[@id="language-toggle"]' not visible after 5 seconds.</msg>
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-25T01:04:00.602998" elapsed="5.161495">Element '//button[@id="language-toggle"]' not visible after 5 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-25T01:04:05.764710" elapsed="0.000039"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-25T01:04:05.764868" elapsed="0.000033"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-25T01:04:05.765014" elapsed="0.000029"/>
+</kw>
+<doc>คลิกปุ่มเปลี่ยนภาษา</doc>
+<status status="FAIL" start="2025-02-25T01:04:00.602596" elapsed="5.162585">Element '//button[@id="language-toggle"]' not visible after 5 seconds.</status>
+</kw>
+<kw name="Verify Language Changed To English">
+<doc>ตรวจสอบว่าภาษาเปลี่ยนเป็นอังกฤษ</doc>
+<status status="NOT RUN" start="2025-02-25T01:04:05.765574" elapsed="0.000043"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-25T01:04:05.765833" elapsed="0.000033"/>
+</kw>
+<status status="FAIL" start="2025-02-25T01:03:45.782167" elapsed="19.983999">Element '//button[@id="language-toggle"]' not visible after 5 seconds.</status>
+</test>
+<status status="FAIL" start="2025-02-25T01:03:45.345149" elapsed="20.422252"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="tran-Book">tran-Book</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

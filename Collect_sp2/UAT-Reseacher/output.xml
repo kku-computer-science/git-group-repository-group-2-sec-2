@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-02-26T11:50:15.843495" rpa="false" schemaversion="5">
+<suite id="s1" name="Researcher Test" source="/Users/miw/Movies/Testsoften/researcher_test.robot">
+<test id="s1-t1" name="Test Change Language And Search By Name" line="97">
+<kw name="Navigate To Researchers Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:15.975348" level="INFO">Opening browser 'Chrome' to base url 'https://soften2sec267.cpkkuhost.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-26T11:50:15.975153" elapsed="7.132212"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-26T11:50:23.109871" elapsed="0.335059"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:25.449684" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:23.445865" elapsed="2.004067"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RESEARCHERS_MENU}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:25.450224" elapsed="0.026832"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:25.477512" level="INFO">Simulating Mouse Over on element '//a[@id='navbarDropdown']'.</msg>
+<arg>${RESEARCHERS_MENU}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:25.477237" elapsed="0.275297"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:25.753641" level="INFO">Clicking element '//a[@id='navbarDropdown']'.</msg>
+<arg>${RESEARCHERS_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:25.753076" elapsed="0.069288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:26.823395" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:25.822594" elapsed="1.001053"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RESEARCHERS_LIST}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:26.823993" elapsed="0.020684"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:26.845039" level="INFO">Clicking element '//ul[contains(@class, 'dropdown-menu')]//a[contains(text(),'Lecturer')]'.</msg>
+<arg>${RESEARCHER_ROLE_EN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:26.844840" elapsed="1.373757"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:30.221083" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:28.219140" elapsed="2.002450"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${EXPECTED_URL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.222194" elapsed="0.007851"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:30.543461" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="after_click_lecturer.png"&gt;&lt;img src="after_click_lecturer.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>after_click_lecturer.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.230363" elapsed="0.313188"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CHECK_EN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.543684" elapsed="0.008639"/>
+</kw>
+<doc>เปิดเบราว์เซอร์และไปที่หน้าผู้วิจัย (Researchers)</doc>
+<status status="PASS" start="2025-02-26T11:50:15.974582" elapsed="14.577892"/>
+</kw>
+<kw name="Change Language And Search">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_MENU}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.554418" elapsed="0.014264"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:30.569040" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.568835" elapsed="0.067729"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:31.638122" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:30.636743" elapsed="1.001516"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Scroll Element Into View</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.638492" elapsed="0.002982"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.641578" elapsed="0.000122"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:31.642119" level="INFO">Clicking element '//a[normalize-space()='English']'.</msg>
+<arg>${LANG_EN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.641945" elapsed="0.036222"/>
+</kw>
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.641777" elapsed="0.036480"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.678380" elapsed="0.000209"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:33.679622" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:31.678669" elapsed="2.001774"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${check_language}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.681376" elapsed="0.013454"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${position_check}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.695885" elapsed="0.013810"/>
+</kw>
+<arg>'${language}' != 'TH'</arg>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${position_check}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.695105" elapsed="0.014686"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expertise_label}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.709923" elapsed="0.011005"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BOX}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.721171" elapsed="0.013207"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:33.734775" level="INFO">Typing text 'Sartra' into text field '//input[@name='textsearch']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.734560" elapsed="0.220758"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:33.955770" level="INFO">Clicking element '//button[contains(text(),'Search')]'.</msg>
+<arg>${search_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:33.955549" elapsed="0.447635"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:36.405226" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:34.403499" elapsed="2.002201"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expected_result}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:36.406311" elapsed="0.012887"/>
+</kw>
+<arg>EN</arg>
+<arg>${SEARCH_BTN_EN}</arg>
+<arg>${RESULT_EN}</arg>
+<arg>${CHECK_EN}</arg>
+<arg>${POSITION_EN}</arg>
+<arg>${EXPERTISE_LABEL_EN}</arg>
+<arg>${SEARCH_NAME_EN}</arg>
+<doc>ทดสอบการเปลี่ยนภาษาเป็น ${language} และค้นหาชื่ออาจารย์</doc>
+<status status="PASS" start="2025-02-26T11:50:30.554003" elapsed="5.865479"/>
+</kw>
+<kw name="Change Language And Search">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_MENU}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:36.422748" elapsed="0.014808"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:36.438028" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:36.437770" elapsed="0.043459"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:37.483519" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:36.481418" elapsed="1.002196"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Scroll Element Into View</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:37.483795" elapsed="0.000294"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:37.484461" level="INFO">Clicking element '//a[normalize-space()='ไทย']'.</msg>
+<arg>${LANG_TH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:37.484325" elapsed="1.566848"/>
+</kw>
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:37.484175" elapsed="1.567482"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:39.052231" elapsed="0.000575"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:39.052966" elapsed="0.000366"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:41.055386" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:39.053538" elapsed="2.002637"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${check_language}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.057174" elapsed="0.020981"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' != 'TH'</arg>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${position_check}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.078393" elapsed="0.000265"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expertise_label}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.078790" elapsed="0.011410"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BOX}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.090340" elapsed="0.011416"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:41.102163" level="INFO">Typing text 'ศาสตรา' into text field '//input[@name='textsearch']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.101950" elapsed="0.050592"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:41.152892" level="INFO">Clicking element '//button[contains(text(),'ค้นหา')]'.</msg>
+<arg>${search_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.152701" elapsed="0.418280"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:43.571729" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:41.571134" elapsed="2.000773"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expected_result}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:43.572139" elapsed="0.008971"/>
+</kw>
+<arg>TH</arg>
+<arg>${SEARCH_BTN_TH}</arg>
+<arg>${RESULT_TH}</arg>
+<arg>${CHECK_TH}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EXPERTISE_LABEL_TH}</arg>
+<arg>${SEARCH_NAME_TH}</arg>
+<doc>ทดสอบการเปลี่ยนภาษาเป็น ${language} และค้นหาชื่ออาจารย์</doc>
+<status status="PASS" start="2025-02-26T11:50:36.421650" elapsed="7.159673"/>
+</kw>
+<kw name="Change Language And Search">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_MENU}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:43.583265" elapsed="0.010907"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:43.594520" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:43.594332" elapsed="0.040889"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:44.635888" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:43.635637" elapsed="1.000399"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${LANG_CN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.636550" elapsed="0.273988"/>
+</kw>
+<arg>'${language}' == 'CN'</arg>
+<arg>Scroll Element Into View</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.636256" elapsed="0.274651"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.911480" elapsed="0.000781"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.912574" elapsed="0.000644"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:44.914395" level="INFO">Clicking element '//a[normalize-space()='中文']'.</msg>
+<arg>${LANG_CN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.914044" elapsed="1.208069"/>
+</kw>
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:44.913552" elapsed="1.208746"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:48.123537" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:46.122513" elapsed="2.001465"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${check_language}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.124615" elapsed="0.018098"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${position_check}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.143358" elapsed="0.011831"/>
+</kw>
+<arg>'${language}' != 'TH'</arg>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${position_check}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.142991" elapsed="0.012281"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expertise_label}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.155396" elapsed="0.009884"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BOX}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.165415" elapsed="0.010092"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:48.175798" level="INFO">Typing text 'Sartra' into text field '//input[@name='textsearch']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.175627" elapsed="0.045154"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T11:50:48.221091" level="INFO">Clicking element '//button[normalize-space()='搜索']'.</msg>
+<arg>${search_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.220924" elapsed="0.434335"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T11:50:50.657218" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T11:50:48.655411" elapsed="2.002428"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${expected_result}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-26T11:50:50.658706" elapsed="0.013848"/>
+</kw>
+<arg>CN</arg>
+<arg>${SEARCH_BTN_CN}</arg>
+<arg>${RESULT_CN}</arg>
+<arg>${CHECK_CN}</arg>
+<arg>${POSITION_CN}</arg>
+<arg>${EXPERTISE_LABEL_CN}</arg>
+<arg>${SEARCH_NAME_CN}</arg>
+<doc>ทดสอบการเปลี่ยนภาษาเป็น ${language} และค้นหาชื่ออาจารย์</doc>
+<status status="PASS" start="2025-02-26T11:50:43.582776" elapsed="7.089977"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-26T11:50:50.673083" elapsed="0.139897"/>
+</kw>
+<doc>ทดสอบเปลี่ยนภาษาและค้นหาชื่ออาจารย์แทน "Big Data Analytics"</doc>
+<status status="PASS" start="2025-02-26T11:50:15.973014" elapsed="34.840476"/>
+</test>
+<status status="PASS" start="2025-02-26T11:50:15.844343" elapsed="34.970025"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Researcher Test">Researcher Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

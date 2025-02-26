@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-25T20:59:32.309360" rpa="false" schemaversion="5">
+<suite id="s1" name="Language Switch Test" source="C:\Users\franc\Desktop\se_67\git_sp2\git-group-repository-group-2-sec-2\Collect_sp2\UAT-001\language_switch_test.robot">
+<test id="s1-t1" name="Test Switching Between All Languages" line="14">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:32.633751" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-25T20:59:32.633531" elapsed="3.083751"/>
+</kw>
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2025-02-25T20:59:35.717669" elapsed="0.042888"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:35.761658" level="INFO">Executing JavaScript:
+window.localStorage.clear();
+Without any arguments.</msg>
+<arg>window.localStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T20:59:35.761256" elapsed="0.005520"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:35.767563" level="INFO">Executing JavaScript:
+window.sessionStorage.clear();
+Without any arguments.</msg>
+<arg>window.sessionStorage.clear();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T20:59:35.767144" elapsed="0.005232"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-02-25T20:59:35.772648" elapsed="0.509033"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-25T20:59:36.282080" elapsed="0.051739"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T20:59:36.334138" elapsed="0.000240"/>
+</kw>
+<kw name="Change Language To Thai">
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:36.335446" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:36.334974" elapsed="0.884505"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T20:59:38.220475" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:37.219707" elapsed="1.000874"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:38.220943" level="INFO">Clicking element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:38.220738" elapsed="0.654425"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T20:59:38.875345" elapsed="0.675230"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:39.550957" level="INFO">Clicking element 'xpath=//div[@class='dropdown-menu show']//a[contains(text(), 'ไทย')]'.</msg>
+<arg>${TH_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:39.550763" elapsed="1.287222"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T20:59:43.838733" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:40.838176" elapsed="3.000659"/>
+</kw>
+<status status="PASS" start="2025-02-25T20:59:36.334702" elapsed="7.504233"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-02-25T20:59:43.839236" elapsed="0.778179"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:45.237929" level="INFO">${text} = ไทย</msg>
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:44.617935" elapsed="0.620042"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-25T20:59:45.238595" level="INFO">Current language: ไทย</msg>
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-25T20:59:45.238358" elapsed="0.000284"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:45.679866" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="th_page.png"&gt;&lt;img src="th_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>th_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T20:59:45.238832" elapsed="0.441133"/>
+</kw>
+<kw name="Change Language To English">
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:45.680680" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:45.680537" elapsed="0.878604"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T20:59:47.560050" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:46.559339" elapsed="1.000815"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:47.560498" level="INFO">Clicking element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:47.560311" elapsed="0.641972"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EN_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T20:59:48.202466" elapsed="0.617294"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:48.820161" level="INFO">Clicking element 'xpath=//div[@class='dropdown-menu show']//a[contains(text(), 'English')]'.</msg>
+<arg>${EN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:48.819954" elapsed="1.237732"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T20:59:53.058361" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:50.057881" elapsed="3.000584"/>
+</kw>
+<status status="PASS" start="2025-02-25T20:59:45.680308" elapsed="7.378257"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-02-25T20:59:53.058895" elapsed="0.761048"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:54.434787" level="INFO">${text} = ENGLISH</msg>
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:53.820242" elapsed="0.614589"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-25T20:59:54.435418" level="INFO">Current language: ENGLISH</msg>
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-25T20:59:54.435249" elapsed="0.000378"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:54.855379" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="en_page.png"&gt;&lt;img src="en_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>en_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T20:59:54.435829" elapsed="0.419674"/>
+</kw>
+<kw name="Change Language To Chinese">
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:54.856420" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:54.856284" elapsed="0.874095"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T20:59:56.730930" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:55.730550" elapsed="1.000489"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:56.731395" level="INFO">Clicking element 'xpath=//*[@id="navbarDropdownMenuLink"]'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:56.731193" elapsed="0.638622"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T20:59:57.370000" elapsed="0.615522"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T20:59:57.985901" level="INFO">Clicking element 'xpath=//div[@class='dropdown-menu show']//a[contains(text(), '中文')]'.</msg>
+<arg>${CH_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T20:59:57.985699" elapsed="1.246069"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T21:00:02.232240" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T20:59:59.231957" elapsed="3.000386"/>
+</kw>
+<status status="PASS" start="2025-02-25T20:59:54.856079" elapsed="7.376349"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-02-25T21:00:02.232666" elapsed="0.771746"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T21:00:03.618145" level="INFO">${text} = 中文</msg>
+<var>${text}</var>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T21:00:03.004691" elapsed="0.613506"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-25T21:00:03.618639" level="INFO">Current language: 中文</msg>
+<arg>Current language: ${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-25T21:00:03.618487" elapsed="0.000190"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T21:00:04.041936" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ch_page.png"&gt;&lt;img src="ch_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>ch_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T21:00:03.618816" elapsed="0.423255"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-25T21:00:04.042388" elapsed="2.411667"/>
+</kw>
+<status status="PASS" start="2025-02-25T20:59:32.632771" elapsed="33.821594"/>
+</test>
+<status status="PASS" start="2025-02-25T20:59:32.310673" elapsed="34.144349"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Language Switch Test">Language Switch Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
