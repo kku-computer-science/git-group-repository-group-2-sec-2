@@ -22,26 +22,24 @@
                 <p class="card-text col-sm-3"><b>{{ trans('message.fund_type') }}</b></p>
                 @php
     $locale = app()->getLocale();
-    $fundTypeMap = [];
-    if ($locale == 'zh') {
-        $fundTypeMap = [
-            'ทุนภายใน' => '内部资助',
-            'ทุนภายนอก' => '外部资助',
-        ];
-    } elseif ($locale == 'en') {
-        $fundTypeMap = [
-            'ทุนภายใน' => 'Internal Funding',
-            'ทุนภายนอก' => 'External Funding',
-        ];
-    }
+    $fundTypeMap = [
+        'ทุนภายใน' => [
+            'th' => 'ทุนภายใน',
+            'en' => 'Internal Funding',
+            'zh' => '内部资助',
+        ],
+        'ทุนภายนอก' => [
+            'th' => 'ทุนภายนอก',
+            'en' => 'External Funding',
+            'zh' => '外部资助',
+        ],
+    ];
 @endphp
 
-
-
-
 <p class="card-text col-sm-9">
-    {{ ($locale == 'zh' && isset($fundTypeMap[$fund->fund_type])) ? $fundTypeMap[$fund->fund_type] : $fund->fund_type }}
-</p>            
+    {{ $fundTypeMap[$fund->fund_type][$locale] ?? $fund->fund_type }}
+</p>
+            
 </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.fund_level') }}</b></p>
