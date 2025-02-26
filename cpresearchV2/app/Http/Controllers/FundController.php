@@ -53,7 +53,11 @@ class FundController extends Controller
         $request->validate([
             'fund_name' => 'required',
             'fund_type' => 'required',
-            'support_resource'=> 'required',
+            'support_resource' => 'required',
+        ], [
+            'fund_name.required' => __('validation.fund_name_required'),
+            'fund_type.required' => __('validation.fund_type_required'),
+            'support_resource.required' => __('validation.support_resource_required'),
         ]);
     //return $request->all();
         //Fund::create($request->all());

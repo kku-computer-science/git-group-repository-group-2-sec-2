@@ -95,15 +95,21 @@ return [
         'fund_name' => 'ชื่อกองทุน',
         'support_resource' => 'แหล่งสนับสนุน',
     ],
+
+    'required' => 'ต้องระบุข้อมูล :attribute',
+    'fund_name_required' => 'กรุณากรอกชื่อกองทุนวิจัย',
+    'fund_type_required' => 'กรุณาระบุประเภทกองทุน',
+    'support_resource_required' => 'กรุณากรอกแหล่งสนับสนุน',
     
     // create research project
-    'required' => 'ต้องใส่ข้อมูล :attribute',
+    'required' => 'กรุณากรอกข้อมูล :attribute',
+
     'attributes' => [
-        'project_name' => 'ชื่อโครงการวิจัย',
+        'project_name' => 'ชื่อโครงการ',
         'budget' => 'งบประมาณ',
-        'project_year' => 'ปีที่ยื่นขอ',
-        'fund' => 'ทุนวิจัย',
-        'head' => 'ผู้รับผิดชอบโครงการ',
+        'project_year' => 'ปีของโครงการ',
+        'fund' => 'กองทุน',
+        'head' => 'หัวหน้าโครงการ',
     ],
 
     // create roles
