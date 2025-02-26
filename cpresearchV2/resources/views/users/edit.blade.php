@@ -70,30 +70,43 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <p for="category"><b>{{trans('message.Department')}}<span class="text-danger">*</span></b></p>
-                        <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
-                            <option>Select Category</option>
-                            @foreach ($departments as $cat)
-                            <option value="{{$cat->id}}" {{$user->program->department_id == $cat->id  ? 'selected' : ''}}>
-                                {{ $cat->department_name_en }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <p for="category"><b>{{trans('message.Program')}} <span class="text-danger">*</span></b></p>
-                        <select class="form-control select2" name="sub_cat" id="subcat" required>
-                            <option>Select Category</option>
-                            @foreach ($programs as $cat)
-                            <option value="{{$cat->id}}" {{$user->program->id == $cat->id  ? 'selected' : ''}}>
-                                {{ $cat->program_name_en }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                @php
+    $locale = app()->getLocale();
+@endphp
+
+<div class="form-group row">
+    <div class="col-md-6">
+        <p for="category"><b>{{ trans('message.Department') }} <span class="text-danger">*</span></b></p>
+        <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
+            <option value="">{{ trans('message.Select Category') }}</option>
+            @foreach ($departments as $cat)
+                @php
+                    // เลือกชื่อแสดงผลตามภาษา
+                    $department_name = ($locale == 'th') ? $cat->department_name_th : $cat->department_name_en;
+                @endphp
+                <option value="{{$cat->id}}" {{$user->program->department_id == $cat->id  ? 'selected' : ''}}>
+                    {{ $department_name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-md-6">
+        <p for="category"><b>{{ trans('message.Program') }} <span class="text-danger">*</span></b></p>
+        <select class="form-control select2" name="sub_cat" id="subcat" required>
+            <option value="">{{ trans('message.Select Category') }}</option>
+            @foreach ($programs as $cat)
+                @php
+                    // เลือกชื่อแสดงผลตามภาษา
+                    $program_name = ($locale == 'th') ? $cat->program_name_th : $cat->program_name_en;
+                @endphp
+                <option value="{{$cat->id}}" {{$user->program->id == $cat->id  ? 'selected' : ''}}>
+                    {{ $program_name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
                 <div class="form-group row">
                     <p class="col-sm-3"><b>Scholar ID</b></p>
                     <div class="col-sm-8">
@@ -121,4 +134,18 @@
         });
     });
 </script>
+<script>
+    $('#cat').on('change', function(e) {
+        var cat_id = e.target.value;
+        $.get('/ajax-get-subcat?cat_id=' + cat_id, function(data) {
+            $('#subcat').empty();
+            $.each(data, function(index, areaObj) {
+                var locale = "{{ app()->getLocale() }}"; // ดึงค่าภาษาปัจจุบัน
+                var programName = (locale === 'th') ? areaObj.program_name_th : areaObj.program_name_en;
+                $('#subcat').append('<option value="' + areaObj.id + '">' + programName + '</option>');
+            });
+        });
+    });
+</script>
+
 @endsection

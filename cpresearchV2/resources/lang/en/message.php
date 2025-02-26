@@ -1214,4 +1214,8 @@ return [
     'proj_closed' => 'Closed Project',
     'proj_req' => 'Request',
     'proj_op' => 'Operating',
+
+
+//cpresearchV2/resources/views/users/edit.blade.php
+'Select Category' => 'Select Category',
 ];
