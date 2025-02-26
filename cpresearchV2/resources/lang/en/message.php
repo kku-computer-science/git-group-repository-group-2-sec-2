@@ -127,6 +127,9 @@ return [
     'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
     'number'                     => 'Number',
     'SUMMARY'                    => 'SUMMARY',
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนอ้างอิง*/
+    'referenceapa'                  => 'Referenceapa (APA)',
+    'close'                         => 'close',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'   => 'Academic Service/ Research Project',

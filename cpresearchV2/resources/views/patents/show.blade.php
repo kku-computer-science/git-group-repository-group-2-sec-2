@@ -12,7 +12,115 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $patent->ac_type }}</p>
+                <p class="card-text col-sm-9">
+    @php
+        $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
+    @endphp
+
+    @if ($locale == 'th')
+        {{ $patent->ac_type }} {{-- แสดงค่าตาม Database ถ้าเป็นภาษาไทย --}}
+    @elseif ($locale == 'zh')
+        @switch($patent->ac_type)
+            @case('สิทธิบัตร')
+                专利
+                @break
+            @case('สิทธิบัตร (การประดิษฐ์)')
+                发明专利
+                @break
+            @case('สิทธิบัตร (การออกแบบผลิตภัณฑ์)')
+                设计专利
+                @break
+            @case('อนุสิทธิบัตร')
+                实用新型
+                @break
+            @case('ลิขสิทธิ์')
+                版权
+                @break
+            @case('ลิขสิทธิ์ (วรรณกรรม)')
+                文学版权
+                @break
+            @case('ลิขสิทธิ์ (ตนตรีกรรม)')
+                音乐版权
+                @break
+            @case('ลิขสิทธิ์ (ภาพยนตร์)')
+                电影版权
+                @break
+            @case('ลิขสิทธิ์ (ศิลปกรรม)')
+                艺术版权
+                @break
+            @case('ลิขสิทธิ์ (งานแพร่เสี่ยงแพร่ภาพ)')
+                广播版权
+                @break
+            @case('ลิขสิทธิ์ (โสตทัศนวัสดุ)')
+                视听资料版权
+                @break
+            @case('ลิขสิทธิ์ (งานอื่นใดในแผนกวรรณคดี/วิทยาศาสตร์/ศิลปะ)')
+                其他文学/科学/艺术版权
+                @break
+            @case('ลิขสิทธิ์ (สิ่งบันทึกเสียง)')
+                录音版权
+                @break
+            @case('ความลับทางการค้า')
+                商业机密
+                @break
+            @case('เครื่องหมายการค้า')
+                商标
+                @break
+            @default
+                {{ $patent->ac_type }}
+        @endswitch
+    @else {{-- ภาษาอังกฤษ --}}
+        @switch($patent->ac_type)
+            @case('สิทธิบัตร')
+                Patent
+                @break
+            @case('สิทธิบัตร (การประดิษฐ์)')
+                Invention Patent
+                @break
+            @case('สิทธิบัตร (การออกแบบผลิตภัณฑ์)')
+                Design Patent
+                @break
+            @case('อนุสิทธิบัตร')
+                Utility Model
+                @break
+            @case('ลิขสิทธิ์')
+                Copyright
+                @break
+            @case('ลิขสิทธิ์ (วรรณกรรม)')
+                Literary Copyright
+                @break
+            @case('ลิขสิทธิ์ (ตนตรีกรรม)')
+                Musical Copyright
+                @break
+            @case('ลิขสิทธิ์ (ภาพยนตร์)')
+                Film Copyright
+                @break
+            @case('ลิขสิทธิ์ (ศิลปกรรม)')
+                Artistic Copyright
+                @break
+            @case('ลิขสิทธิ์ (งานแพร่เสี่ยงแพร่ภาพ)')
+                Broadcast Copyright
+                @break
+            @case('ลิขสิทธิ์ (โสตทัศนวัสดุ)')
+                Audiovisual Copyright
+                @break
+            @case('ลิขสิทธิ์ (งานอื่นใดในแผนกวรรณคดี/วิทยาศาสตร์/ศิลปะ)')
+                Other Literary/Scientific/Artistic Copyright
+                @break
+            @case('ลิขสิทธิ์ (สิ่งบันทึกเสียง)')
+                Sound Recording Copyright
+                @break
+            @case('ความลับทางการค้า')
+                Trade Secret
+                @break
+            @case('เครื่องหมายการค้า')
+                Trademark
+                @break
+            @default
+                {{ $patent->ac_type }}
+        @endswitch
+    @endif
+</p>
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('message.registration_date') }}</b></p>

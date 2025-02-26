@@ -18,8 +18,12 @@ return [
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
     'report_total_articles'     => '报告文章总数（5年：累计）',
     'number'                    => '编号',
-    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง--ยังไม่มี*/
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง*/
     'SUMMARY'                      => '摘要',
+    
+    /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนอ้างอิง*/
+    'referenceapa'                     => '参考文献 (APA格式)',
+    'close'                         => '关闭',
 
     // cpresearchV2\resources\views\research_proj.blade.php
     'project_service_or_research'  => '学术服务/研究项目',
