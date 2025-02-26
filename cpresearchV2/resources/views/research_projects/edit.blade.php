@@ -68,11 +68,22 @@
                         <input type="number" name="budget" value="{{ $researchProject->budget }}" class="form-control">
                     </div>
                 </div>
-                <div class="form-group row mt-2">
-                    <p class="col-sm-3 "><b>{{ trans('message.Responsible Department') }}</b></p>
+                @php
+    $locale = app()->getLocale();
+@endphp
+                <div class="form-group row">
+                    <p class="col-sm-3"><b>{{ trans('message.Responsible Department') }}</b></p>
                     <div class="col-sm-3">
                         <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
-                            <option value=''>{{ trans('message.Select Department') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}" {{ $dep->department_name_th == $researchProject->responsible_department ? 'selected' : '' }}>{{ $dep->department_name_th }}</option>@endforeach
+                            <option value=''>{{ trans('message.Select Department') }}</option>
+                            @foreach($deps as $dep)
+                                @php
+                                    $department_name = ($locale == 'th') ? $dep->department_name_th : $dep->department_name_en;
+                                @endphp
+                                <option value="{{ $department_name }}" {{ $department_name == $researchProject->responsible_department ? 'selected' : '' }}>
+                                    {{ $department_name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -97,30 +108,34 @@
                     <table class="table">
                         <tr>
                             <th>{{ trans('message.Project Leader') }}</th>
+                        </tr>
                         <tr>
                             <td>
                                 <select id='head0' style='width: 200px;' name="head">
                                     @php
-                                    // ตรวจสอบ role ของผู้ใช้ที่ล็อกอิน
-                                    $userRole = DB::table('model_has_roles')
-                                    ->where('model_id', Auth::user()->id)
-                                    ->value('role_id');
+                                        $userRole = DB::table('model_has_roles')->where('model_id', Auth::user()->id)->value('role_id');
                                     @endphp
-
-                                    @if($userRole == 1) {{-- ถ้าเป็น admin ให้เลือกได้ทุกคน --}}
-                                    <option value="">Select User</option>
+                                    @if($userRole == 1)
+                                    <option value="">{{ trans('message.Select_User') }}</option>
                                     @foreach($users as $user)
-                                    <option value="{{ $user->id }}" {{ $researchProject->head == $user->id ? 'selected' : '' }}>
-                                        {{ $user->fname_th }} {{ $user->lname_th }}
-                                    </option>
+                                        @php
+                                            $fname = ($locale == 'th') ? $user->fname_th : $user->fname_en;
+                                            $lname = ($locale == 'th') ? $user->lname_th : $user->lname_en;
+                                        @endphp
+                                        <option value="{{ $user->id }}" {{ $researchProject->head == $user->id ? 'selected' : '' }}>
+                                            {{ $fname }} {{ $lname }}
+                                        </option>
                                     @endforeach
-                                    @else {{-- ถ้าไม่ใช่ admin ให้เลือกได้เฉพาะตัวเอง --}}
+                                    @else
+                                    @php
+                                        $fname = ($locale == 'th') ? Auth::user()->fname_th : Auth::user()->fname_en;
+                                        $lname = ($locale == 'th') ? Auth::user()->lname_th : Auth::user()->lname_en;
+                                    @endphp
                                     <option value="{{ Auth::user()->id }}" selected>
-                                        {{ Auth::user()->fname_th }} {{ Auth::user()->lname_th }}
+                                        {{ $fname }} {{ $lname }}
                                     </option>
                                     @endif
                                 </select>
-
                             </td>
                         </tr>
                     </table>
@@ -296,6 +311,68 @@
         });
 
         // เมื่อเลือกวันที่สิ้นสุด
+        projectEnd.addEventListener("change", function() {
+            validateDates();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $("#head0").select2();
+
+        function updateAvailableOptions() {
+            let headUserId = $("#head0").val();
+            let selectedUsers = new Set();
+
+            $("select[name^='moreFields']").each(function() {
+                let val = $(this).val();
+                if (val) selectedUsers.add(val);
+            });
+
+            $("select[name^='moreFields']").each(function() {
+                let currentValue = $(this).val();
+                $(this).find("option").each(function() {
+                    let optionValue = $(this).val();
+                    if (optionValue && (selectedUsers.has(optionValue) && optionValue !== currentValue || optionValue === headUserId)) {
+                        $(this).prop("disabled", true);
+                    } else {
+                        $(this).prop("disabled", false);
+                    }
+                });
+            });
+        }
+
+        $(document).on("change", "select[name^='moreFields']", function() {
+            updateAvailableOptions();
+        });
+
+        $("#head0").on("change", function() {
+            updateAvailableOptions();
+        });
+
+        updateAvailableOptions();
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let projectStart = document.getElementById("Project_start");
+        let projectEnd = document.getElementById("Project_end");
+
+        function validateDates() {
+            if (projectStart.value && projectEnd.value) {
+                if (projectEnd.value < projectStart.value) {
+                    alert("{{ trans('message.Invalid Date Range') }}");
+                    projectEnd.value = "";
+                }
+            }
+        }
+
+        projectStart.addEventListener("change", function() {
+            projectEnd.min = projectStart.value;
+            validateDates();
+        });
+
         projectEnd.addEventListener("change", function() {
             validateDates();
         });

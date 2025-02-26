@@ -1045,4 +1045,7 @@ return [
 
     //Title Web
     'title_web' => '计算机学院研究信息系统',
+
+    //cpresearchV2/resources/views/users/edit.blade.php
+'Select Category' => '选择类别',
 ];

@@ -1031,5 +1031,6 @@ return [
     //Title Web
     'title_web' => 'ระบบข้อมูลงานวิจัย วิทยาลัยการคอมพิวเตอร์',
 
-
+//cpresearchV2/resources/views/users/edit.blade.php
+'Select Category' => 'เลือกหมวดหมู่',
 ];
