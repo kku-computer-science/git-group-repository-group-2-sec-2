@@ -80,6 +80,11 @@ return [
         'support_resource' => '支持资源',
     ],
 
+    'required' => '必须填写 :attribute。',
+    'fund_name_required' => '请填写基金名称。',
+    'fund_type_required' => '请填写基金类型。',
+    'support_resource_required' => '请填写支持资源。',
+
     // create research project
     'required' => '必须填写 :attribute。',
     'attributes' => [
@@ -104,5 +109,24 @@ return [
     'attributes' => [
         'name' => '名称',
         'permission' => '权限',
+    ],
+
+    'required' => 'The :attribute field is required.',
+
+    'custom' => [
+        'fund_name' => [
+            'required' => [
+                'en' => 'The fund name field is required.',
+                'th' => 'กรุณากรอกชื่อกองทุนวิจัย',
+                'zh' => '请填写基金名称。',
+            ],
+        ],
+        'support_resource' => [
+            'required' => [
+                'en' => 'The support resource field is required.',
+                'th' => 'กรุณากรอกแหล่งสนับสนุน',
+                'zh' => '请填写支持资源。',
+            ],
+        ],
     ],
 ];

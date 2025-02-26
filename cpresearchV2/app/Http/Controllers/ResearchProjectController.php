@@ -75,11 +75,7 @@ class ResearchProjectController extends Controller
                 'head' => 'required'
             ],
             [
-                'project_name.required' => __('validation.required', ['attribute' => __('validation.attributes.project_name')]),
-                'budget.required' => __('validation.required', ['attribute' => __('validation.attributes.budget')]),
-                'project_year.required' => __('validation.required', ['attribute' => __('validation.attributes.project_year')]),
-                'fund.required' => __('validation.required', ['attribute' => __('validation.attributes.fund')]),
-                'head.required' => __('validation.required', ['attribute' => __('validation.attributes.head')]),
+                'required' => __('validation.required', ['attribute' => ':attribute']),
             ]
         );
         //return $request->fund;

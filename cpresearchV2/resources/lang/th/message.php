@@ -516,12 +516,20 @@ return [
     'program' => 'หลักสูตร',
     'education_history' => 'ประวัติการศึกษา',
 
-    // cpresearchV2\resources\views\roles\show.blade.php
-    'roles' => 'บทบาท',
-    'details_info' => 'ข้อมูลรายละเอียด',
-    'name' => 'ชื่อ',
-    'permissions' => 'สิทธิ์การเข้าถึง',
-    'back' => 'กลับ',
+//=========================Mean==============================
+// cpresearchV2\resources\views\users\show.blade.php
+'user_info'      => 'ข้อมูลผู้ใช้งาน',
+'user_details'   => 'ข้อมูลรายละเอียดผู้ใช้งาน',
+'name_th'        => 'ชื่อ (ภาษาไทย)',
+'name_en'        => 'ชื่อ (ภาษาอังกฤษ)',
+'email'          => 'อีเมล',
+'role'           => 'บทบาท',
+'password'       => 'รหัสผ่าน',
+'back'           => 'กลับ',
+'academic_ranks'   => 'ตำแหน่งทางวิชาการ',
+'department'       => 'ภาควิชา',
+'program'          => 'หลักสูตร',
+'education_history'=> 'ประวัติการศึกษา',
 
     // cpresearchV2\resources\views\books\show.blade.php
     'book_detail' => 'รายละเอียดหนังสือ',
@@ -615,10 +623,10 @@ return [
 'research_group_leader'            => 'หัวหน้ากลุ่มวิจัย',
 'research_group_members'           => 'สมาชิกกลุ่มวิจัย',
 
-    // cpresearchV2\resources\views\departments\show.blade.php
-    'department' => 'ภาควิชา',
-    'department_name_th' => 'ชื่อภาควิชา (ภาษาไทย)',
-    'department_name_en' => 'ชื่อภาควิชา (English)',
+// cpresearchV2\resources\views\departments\show.blade.php
+'department'          => 'ภาควิชา',
+'department_name_th'  => 'ชื่อภาควิชา (ภาษาไทย)',
+'department_name_en'  => 'ชื่อภาควิชา (ภาษาอังกฤษ)',
 
     // cpresearchV2\resources\views\permissions\show.blade.php
     'permission' => 'สิทธิ์การเข้าถึง',
@@ -819,8 +827,8 @@ return [
     'edit_user_details' => "กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน",
     'first_name_th' => "ชื่อ (ภาษาไทย)",
     'last_name_th' => "นามสกุล (ภาษาไทย)",
-    'first_name_en' => "ชื่อ (English)",
-    'last_name_en' => "นามสกุล (English)",
+    'first_name_en' => "ชื่อ (ภาษาอังกฤษ)",
+    'last_name_en' => "นามสกุล (ภาษาอังกฤษ)",
     'email' => "อีเมล",
     'password' => "รหัสผ่าน",
     'confirm_password' => "ยืนยันรหัสผ่าน",
