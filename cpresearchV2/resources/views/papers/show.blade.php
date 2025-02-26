@@ -124,39 +124,65 @@
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('message.author') }}</b></p>
                 <p class="card-text col-sm-9">
+                @php
+    $locale = app()->getLocale();
+@endphp
 
-                    @foreach($paper->author as $teacher)
-                    @if($teacher->pivot->author_type == 1)
-                    <b>{{ trans('message.first_author') }} :</b> {{ $teacher->author_fname}} {{ $teacher->author_lname}} <br>
-                    @endif
-                    @endforeach
-                    @foreach($paper->teacher as $teacher)
-                    @if($teacher->pivot->author_type == 1)
-                    <b>{{ trans('message.first_author') }} :</b> {{ $teacher->fname_en}} {{ $teacher->lname_en}} <br>
-                    @endif 
-                    @endforeach
+@foreach($paper->author as $teacher)
+    @if($teacher->pivot->author_type == 1)
+        <b>{{ trans('message.first_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->author_fname ?? $teacher->author_fname_en) : ($teacher->author_fname_en ?? $teacher->author_fname) }} 
+        {{ $locale == 'th' ? ($teacher->author_lname ?? $teacher->author_lname_en) : ($teacher->author_lname_en ?? $teacher->author_lname) }} 
+        <br>
+    @endif
+@endforeach
 
-                    @foreach($paper->author as $teacher)
-                    @if($teacher->pivot->author_type == 2)
-                    <b>{{ trans('message.co_author') }} :</b> {{ $teacher->author_fname}} {{ $teacher->author_lname}} <br>
-                    @endif
-                    @endforeach
-                    @foreach($paper->teacher as $teacher)
-                    @if($teacher->pivot->author_type == 2)
-                    <b>{{ trans('message.co_author') }} :</b> {{ $teacher->fname_en}} {{ $teacher->lname_en}} <br>
-                    @endif 
-                    @endforeach
+@foreach($paper->teacher as $teacher)
+    @if($teacher->pivot->author_type == 1)
+        <b>{{ trans('message.first_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->fname_th ?? $teacher->fname_en) : ($teacher->fname_en ?? $teacher->fname_th) }} 
+        {{ $locale == 'th' ? ($teacher->lname_th ?? $teacher->lname_en) : ($teacher->lname_en ?? $teacher->lname_th) }} 
+        <br>
+    @endif 
+@endforeach
 
-                    @foreach($paper->author as $teacher)
-                    @if($teacher->pivot->author_type == 3)
-                    <b>{{ trans('message.corresponding_author') }} :</b> {{ $teacher->author_fname}} {{ $teacher->author_lname}} <br>
-                    @endif
-                    @endforeach
-                    @foreach($paper->teacher as $teacher)
-                    @if($teacher->pivot->author_type == 3)
-                    <b>{{ trans('message.corresponding_author') }} :</b> {{ $teacher->fname_en}} {{ $teacher->lname_en}} <br>
-                    @endif 
-                    @endforeach
+@foreach($paper->author as $teacher)
+    @if($teacher->pivot->author_type == 2)
+        <b>{{ trans('message.co_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->author_fname ?? $teacher->author_fname_en) : ($teacher->author_fname_en ?? $teacher->author_fname) }} 
+        {{ $locale == 'th' ? ($teacher->author_lname ?? $teacher->author_lname_en) : ($teacher->author_lname_en ?? $teacher->author_lname) }} 
+        <br>
+    @endif
+@endforeach
+
+@foreach($paper->teacher as $teacher)
+    @if($teacher->pivot->author_type == 2)
+        <b>{{ trans('message.co_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->fname_th ?? $teacher->fname_en) : ($teacher->fname_en ?? $teacher->fname_th) }} 
+        {{ $locale == 'th' ? ($teacher->lname_th ?? $teacher->lname_en) : ($teacher->lname_en ?? $teacher->lname_th) }} 
+        <br>
+    @endif 
+@endforeach
+
+@foreach($paper->author as $teacher)
+    @if($teacher->pivot->author_type == 3)
+        <b>{{ trans('message.corresponding_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->author_fname ?? $teacher->author_fname_en) : ($teacher->author_fname_en ?? $teacher->author_fname) }} 
+        {{ $locale == 'th' ? ($teacher->author_lname ?? $teacher->author_lname_en) : ($teacher->author_lname_en ?? $teacher->author_lname) }} 
+        <br>
+    @endif
+@endforeach
+
+@foreach($paper->teacher as $teacher)
+    @if($teacher->pivot->author_type == 3)
+        <b>{{ trans('message.corresponding_author') }} :</b> 
+        {{ $locale == 'th' ? ($teacher->fname_th ?? $teacher->fname_en) : ($teacher->fname_en ?? $teacher->fname_th) }} 
+        {{ $locale == 'th' ? ($teacher->lname_th ?? $teacher->lname_en) : ($teacher->lname_en ?? $teacher->lname_th) }} 
+        <br>
+    @endif 
+@endforeach
+
+
                     
 
 
