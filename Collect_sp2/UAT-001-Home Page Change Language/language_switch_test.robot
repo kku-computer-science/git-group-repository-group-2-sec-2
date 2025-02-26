@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}    Chrome
-${URL}    http://127.0.0.1:8000
+${URL}    https://soften2sec267.cpkkuhost.com/
 ${LANG_DROPDOWN}    xpath=//*[@id="navbarDropdownMenuLink"]
 ${EN_BUTTON}    xpath=//div[@class='dropdown-menu show']//a[contains(text(), 'English')]
 ${TH_BUTTON}    xpath=//div[@class='dropdown-menu show']//a[contains(text(), 'ไทย')]

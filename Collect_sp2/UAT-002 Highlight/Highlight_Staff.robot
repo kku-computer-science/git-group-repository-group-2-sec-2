@@ -2,18 +2,18 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${SERVER}         127.0.0.1:8000
+${SERVER}         https://soften2sec267.cpkkuhost.com/
 ${DELAY}          1
 ${BROWSER}        Chrome
 ${USERNAME}       staff@gmail.com
 ${PASSWORD}       123456789
 
-${URL}            http://${SERVER}/login
+${URL}            ${SERVER}/login
 
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
-${LANG_THAI}      xpath=//a[@href='http://127.0.0.1:8000/lang/th']
-${LANG_CHINESE}   xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
-${LANG_ENGLISH}   xpath=//a[@href='http://127.0.0.1:8000/lang/en']
+${LANG_THAI}      xpath=//a[@href='${SERVER}/lang/th']
+${LANG_CHINESE}   xpath=//a[@href='${SERVER}/lang/zh']
+${LANG_ENGLISH}   xpath=//a[@href='${SERVER}/lang/en']
 
 ${HIGHLIGHT_TAB}  xpath=//*[@id="sidebar"]/ul/li[12]/a
 
