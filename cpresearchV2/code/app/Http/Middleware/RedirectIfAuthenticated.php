@@ -41,6 +41,21 @@ class RedirectIfAuthenticated
                 //return redirect(RouteServiceProvider::HOME);
                 return redirect()->route('dashboard');
             }
+            elseif( Auth::guard($guard)->check() && Auth::user()->hasRole('Public Relations Officer')){
+                //return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('dashboard');
+            }
+            elseif( Auth::guard($guard)->check() && Auth::user()->hasRole('Educator')){
+                //return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('dashboard');
+            }
+            elseif( Auth::guard($guard)->check() && Auth::user()->hasRole('System Administrator')){
+                //return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('dashboard');
+            }elseif( Auth::guard($guard)->check() && Auth::user()->hasRole('Master Student')){
+                //return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('dashboard');
+            }
             
         }
         return $next($request);

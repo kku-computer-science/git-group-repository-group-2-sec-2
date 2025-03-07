@@ -18,12 +18,20 @@ class isUserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if( Auth::check() && Auth::user()->hasRole('student')){
+        if( Auth::check() && Auth::user()->hasRole('Student')){
             return $next($request);
         }
-        elseif( Auth::check() && Auth::user()->hasRole('teacher')){
+        elseif( Auth::check() && Auth::user()->hasRole('Teacher')){
             return $next($request);
-        }elseif( Auth::check() && Auth::user()->hasRole('staff')){
+        }elseif( Auth::check() && Auth::user()->hasRole('Staff')){
+            return $next($request);
+        }elseif( Auth::check() && Auth::user()->hasRole('Public Relations Officer')){
+            return $next($request);
+        }elseif( Auth::check() && Auth::user()->hasRole('Educator')){
+            return $next($request);
+        }elseif( Auth::check() && Auth::user()->hasRole('Master Student')){
+            return $next($request);
+        }elseif( Auth::check() && Auth::user()->hasRole('System Administrator')){
             return $next($request);
         }
         else{

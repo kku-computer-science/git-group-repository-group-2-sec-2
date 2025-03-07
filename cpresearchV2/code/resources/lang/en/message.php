@@ -1221,4 +1221,6 @@ return [
 
 //cpresearchV2/resources/views/users/edit.blade.php
 'Select Category' => 'Select Category',
+
+    //new roles
 ];
