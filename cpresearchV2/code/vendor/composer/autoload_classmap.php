@@ -76,7 +76,6 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\isAdminMiddleware' => $baseDir . '/app/Http/Middleware/isAdminMiddleware.php',
-    'App\\Http\\Middleware\\isTeacherMiddleware' => $baseDir . '/app/Http/Middleware/isTeacherMiddleware.php',
     'App\\Http\\Middleware\\isUserMiddleware' => $baseDir . '/app/Http/Middleware/isUserMiddleware.php',
     'App\\Imports\\UsersImport' => $baseDir . '/app/Imports/UsersImport.php',
     'App\\Models\\Academicwork' => $baseDir . '/app/Models/Academicwork.php',

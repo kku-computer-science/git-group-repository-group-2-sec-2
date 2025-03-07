@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-12T13:24:18.670204" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Login" source="E:\git-group-repository-group-2-sec-2\tests\test_login.robot">
+<test id="s1-t1" name="User Login With Empty Username And Password" line="16">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:19.284677" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:24:19.653748" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:24:19.284358" elapsed="4.571406"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:23.857770" elapsed="0.099590"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:23.959487" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:23.958751" elapsed="0.401295"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:29.815788" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:24:29.816040" level="FAIL">Text 'Please enter username and password' did not appear in 5 seconds.</msg>
+<arg>Please enter username and password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:24:24.360411" elapsed="5.457975">Text 'Please enter username and password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:29.818801" elapsed="0.000044"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:29.819123" elapsed="0.000034"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:24:19.283224" elapsed="10.536231">Text 'Please enter username and password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t2" name="User Login With Correct Username Only" line="25">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:29.821548" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:24:30.207862" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:24:29.821209" elapsed="4.254774"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:34.076873" elapsed="0.035708"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:34.114044" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:34.113314" elapsed="0.137102"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:34.251574" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:34.251092" elapsed="0.127785"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:39.917139" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:24:39.917464" level="FAIL">Text 'Please enter password' did not appear in 5 seconds.</msg>
+<arg>Please enter password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:24:34.379304" elapsed="5.542771">Text 'Please enter password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:39.923683" elapsed="0.000115"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:39.924407" elapsed="0.000088"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:24:29.820637" elapsed="10.104556">Text 'Please enter password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t3" name="User Login With Incorrect Username Only" line="35">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:39.929267" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:24:40.609063" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:24:39.928661" elapsed="4.580698"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:44.510305" elapsed="0.048715"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:44.559997" level="INFO">Typing text 'pusadee' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${INVALID_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:44.559508" elapsed="0.152913"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:44.713296" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:44.712960" elapsed="0.175777"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:50.262698" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:24:50.263128" level="FAIL">Text 'Please enter password' did not appear in 5 seconds.</msg>
+<arg>Please enter password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:24:44.889198" elapsed="5.376536">Text 'Please enter password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:50.266403" elapsed="0.000070"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:24:50.266751" elapsed="0.000053"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:24:39.927626" elapsed="10.339479">Text 'Please enter password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t4" name="User Login With Correct Password Only" line="45">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:50.269479" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:24:50.770928" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:24:50.268960" elapsed="5.085560"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:24:55.355122" elapsed="0.060573"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:55.416937" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:55.416405" elapsed="0.230522"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:24:55.648074" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:24:55.647615" elapsed="0.207823"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:01.317420" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:25:01.317621" level="FAIL">Text 'Please enter username' did not appear in 5 seconds.</msg>
+<arg>Please enter username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:24:55.858460" elapsed="5.464639">Text 'Please enter username' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:01.323948" elapsed="0.000097"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:01.324341" elapsed="0.000043"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:24:50.268376" elapsed="11.056337">Text 'Please enter username' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t5" name="User Login With Incorrect Password Only" line="55">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:01.326720" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:25:02.024559" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:25:01.326373" elapsed="5.217384"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:25:06.544271" elapsed="0.063794"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:06.609203" level="INFO">Typing text '1234' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:06.608719" elapsed="0.298102"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:06.907739" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:06.907392" elapsed="0.304000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:12.614656" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:25:12.615705" level="FAIL">Text 'Please enter username' did not appear in 5 seconds.</msg>
+<arg>Please enter username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:25:07.211850" elapsed="5.407234">Text 'Please enter username' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:12.619914" elapsed="0.000090"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:12.620372" elapsed="0.000049"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:25:01.325828" elapsed="11.294972">Text 'Please enter username' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t6" name="User Login With Incorrect Credentials" line="65">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:12.622868" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:25:13.607567" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:25:12.622546" elapsed="8.658254"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:25:21.295556" elapsed="0.189745"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:21.509394" level="INFO">Typing text 'pusadee' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${INVALID_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:21.501760" elapsed="0.262181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:21.764868" level="INFO">Typing text '1234' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:21.764474" elapsed="0.225112"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:21.997575" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:21.995988" elapsed="1.705017"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:29.223476" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:25:29.223937" level="FAIL">Text 'Invalid username or password' did not appear in 5 seconds.</msg>
+<arg>Invalid username or password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:25:23.724511" elapsed="5.503434">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:29.229279" elapsed="0.000153"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:29.236477" elapsed="0.000548"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:25:12.621969" elapsed="16.622454">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t7" name="User Login With Correct Username And Incorrect Password" line="76">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:29.295857" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:25:31.818465" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:25:29.294323" elapsed="8.482004"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:25:37.782653" elapsed="0.103237"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:37.887140" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:37.886602" elapsed="0.295004"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:38.183064" level="INFO">Typing text '1234' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:38.182532" elapsed="0.218554"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:38.402178" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:38.401786" elapsed="1.616727"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:45.279604" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:25:45.279802" level="FAIL">Text 'Invalid username or password' did not appear in 5 seconds.</msg>
+<arg>Invalid username or password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:25:40.084973" elapsed="5.196362">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:45.281819" elapsed="0.000092"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:25:45.282288" elapsed="0.000048"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:25:29.278241" elapsed="16.004435">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t8" name="User Login With Incorrect Username And Correct Password" line="87">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:45.285656" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:25:46.486719" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:25:45.284450" elapsed="6.905181"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:25:52.190787" elapsed="0.088059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:52.281373" level="INFO">Typing text 'pusadee' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${INVALID_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:52.280280" elapsed="0.410133"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:52.692597" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:52.691687" elapsed="0.750438"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:25:53.446423" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:25:53.444813" elapsed="1.677853"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:00.363868" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-12T13:26:00.364206" level="FAIL">Text 'Invalid username or password' did not appear in 5 seconds.</msg>
+<arg>Invalid username or password</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-02-12T13:25:55.143187" elapsed="5.222927">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-12T13:26:00.366636" elapsed="0.000064"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-02-12T13:26:00.367066" elapsed="0.000052"/>
+</kw>
+<status status="FAIL" start="2025-02-12T13:25:45.283863" elapsed="15.083636">Text 'Invalid username or password' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-t9" name="User Can Successfully Login" line="98">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:00.369790" level="INFO">Opening browser 'Chrome' to base url 'http://soften2sec267.cpkkuhost.com/login'.</msg>
+<msg time="2025-02-12T13:26:01.752531" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T13:26:00.369456" elapsed="6.594056"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T13:26:06.965348" elapsed="0.083563"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:07.050590" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:26:07.049794" elapsed="0.298612"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:07.349549" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:26:07.349030" elapsed="0.228625"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:07.579082" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T13:26:07.578521" elapsed="4.614203"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-12T13:26:12.194307" elapsed="0.049832"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T13:26:12.569832" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T13:26:12.245153" elapsed="0.325267"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-12T13:26:12.572958" elapsed="2.311884"/>
+</kw>
+<status status="PASS" start="2025-02-12T13:26:00.368849" elapsed="14.517233"/>
+</test>
+<status status="FAIL" start="2025-02-12T13:24:18.672238" elapsed="116.219061"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="8" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="8" skip="0" id="s1" name="Test Login">Test Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-12T13:24:19.653748" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:24:30.207862" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:24:40.609063" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:24:50.770928" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:25:02.024559" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:25:13.607567" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:25:31.818465" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:25:46.486719" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-02-12T13:26:01.752531" level="WARN">The chromedriver version (131.0.6778.264) detected in PATH at C:\ChromeForTesting\chromedriver.exe might not be compatible with the detected chrome version (132.0.6834.160); currently, chromedriver 132.0.6834.159 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
