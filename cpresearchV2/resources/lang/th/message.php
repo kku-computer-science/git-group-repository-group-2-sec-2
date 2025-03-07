@@ -662,10 +662,14 @@ return [
     //cpresearchV2/resources/views/dashboards/users/index.blade.php
     'Hello' => 'สวัสดี',
     'Role_admin' => 'ผู้ดูแลระบบ',
-    'Role_teacher' => 'ครู',
+    'Role_teacher' => 'อาจารย์',
     'Role_student' => 'นักศึกษา',
-    'Role_staff' => 'พนักงาน',
+    'Role_staff' => 'เจ้าหน้าที่',
     'Role_headproject' => 'หัวหน้าโครงการ',
+    'Role_system_administrator' => 'ผู้ดูแลระบบสารสนเทศ',
+    'Role_public_relations_officer' => 'เจ้าหน้าที่ประชาสัมพันธ์',
+    'Role_master_student' => 'นักศึกษาปริญญาโท',
+    'Role_educator' => 'นักการศึกษา',
 
 
     //=========================Mean==============================

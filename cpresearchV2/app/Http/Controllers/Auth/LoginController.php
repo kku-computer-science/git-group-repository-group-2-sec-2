@@ -71,6 +71,8 @@ class LoginController extends Controller
         } elseif (Auth::user()->hasRole('student')) {
             return route('dashboard');
             //return view('home');
+        } elseif (Auth::user()->hasRole('Public Relations Officer')) {
+            return route('dashboard');
         }
     }
 
@@ -158,8 +160,20 @@ class LoginController extends Controller
                     //$user->givePermissionTo('addResearchProject','editResearchProject','deleteResearchProject');
                     //return redirect()->route('teacher.dashboard');
                     return redirect()->route('dashboard');
-                } 
-            } else {
+                } elseif (Auth::user()->hasRole('Public Relations Officer')) { //เจ้าหน้าที่ประชาสัม
+                    //$user=auth()->user();
+                    //$user->assignRole('teacher');
+                    //$user->givePermissionTo('addResearchProject','editResearchProject','deleteResearchProject');
+                    //return redirect()->route('teacher.dashboard');
+                    return redirect()->route('dashboard');
+                } elseif (Auth::user()->hasRole('Educator')) { //เจ้าหน้าที่วิชาการ
+                    return redirect()->route('dashboard');
+                }elseif (Auth::user()->hasRole('Master Student')) { //นักศึกษา ป โท
+                    return redirect()->route('dashboard');
+                }elseif (Auth::user()->hasRole('System Administrator')) { //เจ้าหน้าที่ระบบปฎิบัติการ
+                    return redirect()->route('dashboard');
+                }
+                else {
                 //fail
                 $this->incrementLoginAttempts($request);
                 return redirect()->back()
@@ -169,6 +183,7 @@ class LoginController extends Controller
         } else {
             return redirect('login')->withErrors($validator->errors())->withInput();
         }
+    }
     }
 
 

@@ -32,19 +32,23 @@
                                 @php
                                 $locale = app()->getLocale(); // ดึงภาษาปัจจุบัน
                                 $roleTranslations = [
-                                'admin' => ['th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
-                                'teacher' => ['th' => 'อาจารย์', 'zh' => '教师'],
-                                'student' => ['th' => 'นักเรียน', 'zh' => '学生'],
-                                'staff' => ['th' => 'เจ้าหน้าที่', 'zh' => '职员'],
-                                'headproject' => ['th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
-                                'Undergrad Student' => ['th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
-                                'Master Student' => ['th' => 'นักศึกษาปริญญาโท', 'zh' => '硕士生'],
-                                'Doctoral Student' => ['th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
+                                'admin' => ['en' => 'Admin', 'th' => 'ผู้ดูแลระบบ', 'zh' => '管理员'],
+                                'teacher' => ['en' => 'Teacher', 'th' => 'อาจารย์', 'zh' => '教师'],
+                                'student' => ['en' => 'Student', 'th' => 'นักศึกษา', 'zh' => '学生'],
+                                'staff' => ['en' => 'Staff', 'th' => 'เจ้าหน้าที่', 'zh' => '职员'],
+                                'head project' => ['en' => 'Head Project', 'th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
+                                'project leader' => ['en' => 'Project Leader', 'th' => 'หัวหน้าโครงการ', 'zh' => '项目负责人'],
+                                'System Administrator' => ['en' => 'System Administrator', 'th' => 'ผู้ดูแลระบบระบบ', 'zh' => '系统管理员'],
+                                'Public Relations Officer' => ['en' => 'Public Relations Officer', 'th' => 'เจ้าหน้าที่ประชาสัมพันธ์', 'zh' => '公关人员'],
+                                'Educator' => ['en' => 'Educator', 'th' => 'นักการศึกษา', 'zh' => '教育者'],
+                                'Undergrad Student' => ['en' => 'Undergrad Student', 'th' => 'นักศึกษาปริญญาตรี', 'zh' => '本科生'],
+                                'Master Student' => ['en' => 'Master Student', 'th' => 'นักศึกษาปริญญาโท', 'zh' => '研究生'],
+                                'Doctoral Student' => ['en' => 'Doctoral Student', 'th' => 'นักศึกษาปริญญาเอก', 'zh' => '博士生'],
                                 ];
                                 @endphp
 
                                 @if ($locale == 'en')
-                                {{ $role->name }}
+                                {{ $roleTranslations[$role->name][$locale] }}
                                 @elseif (isset($roleTranslations[$role->name][$locale]))
                                 {{ $roleTranslations[$role->name][$locale] }}
                                 @else

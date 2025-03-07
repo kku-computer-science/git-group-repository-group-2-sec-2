@@ -513,6 +513,10 @@ return [
     'Role_student' => '学生',
     'Role_staff' => '职员',
     'Role_headproject' => '项目负责人',
+    'Role_system_administrator' => '系统管理员',
+    'Role_public_relations_officer' => '公关官员',
+    'Role_master_student' => '硕士生',
+    'Role_educator' => '教育者',
 
 
 
@@ -1048,4 +1052,5 @@ return [
 
     //cpresearchV2/resources/views/users/edit.blade.php
 'Select Category' => '选择类别',
+
 ];

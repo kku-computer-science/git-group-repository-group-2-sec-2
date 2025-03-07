@@ -28,22 +28,52 @@
     $locale = app()->getLocale();
     $roleMap = [];
     if ($locale == 'th') {
-        $roleMap = [
-            'admin'       => 'ผู้ดูแลระบบ',
-            'teacher'     => 'อาจารย์',
-            'student'     => 'นักศึกษา',
-            'staff'       => 'เจ้าหน้าที่',
-            'headproject' => 'หัวหน้าโครงการ',
+    $roleMap = [
+        'admin' => 'ผู้ดูแลระบบ',
+        'teacher' => 'อาจารย์',
+        'student' => 'นักศึกษา',
+        'staff' => 'เจ้าหน้าที่',
+        'head project' => 'หัวหน้าโครงการ',
+        'project leader' => 'หัวหน้าโครงการ',
+        'System Administrator' => 'ผู้ดูแลระบบระบบ',
+        'Public Relations Officer' => 'เจ้าหน้าที่ประชาสัมพันธ์',
+        'Educator' => 'นักการศึกษา',
+        'Undergrad Student' => 'นักศึกษาปริญญาตรี',
+        'Master Student' => 'นักศึกษาปริญญาโท',
+        'Doctoral Student' => 'นักศึกษาปริญญาเอก',
         ];
     } elseif ($locale == 'zh') {
         $roleMap = [
-            'admin'       => '管理员',
-            'teacher'     => '教师',
-            'student'     => '学生',
-            'staff'       => '职员',
-            'headproject' => '项目负责人',
+            'admin' => '管理员',
+            'teacher' => '教师',
+            'student' => '学生',
+            'staff' => '职员',
+            'head project' => '项目负责人',
+            'project leader' => '项目负责人',
+            'System Administrator' => '系统管理员',
+            'Public Relations Officer' => '公关人员',
+            'Educator' => '教育者',
+            'Undergrad Student' => '本科生',
+            'Master Student' => '研究生',
+            'Doctoral Student' => '博士生',
+        ];
+    } else {
+        $roleMap = [
+            'admin' => 'Admin',
+            'teacher' => 'Teacher',
+            'student' => 'Student',
+            'staff' => 'Staff',
+            'head project' => 'Head Project',
+            'project leader' => 'Project Leader',
+            'System Administrator' => 'System Administrator',
+            'Public Relations Officer' => 'Public Relations Officer',
+            'Educator' => 'Educator',
+            'Undergrad Student' => 'Undergrad Student',
+            'Master Student' => 'Master Student',
+            'Doctoral Student' => 'Doctoral Student',
         ];
     }
+
 @endphp
 
 @foreach($user->getRoleNames() as $val)
@@ -51,8 +81,8 @@
         <h6 class="col-md-3"><b>{{ trans('message.role') }} </b></h6>
         <h6 class="col-md-9">
             <label class="badge badge-dark">
-                @if($locale == 'th' || $locale == 'zh')
-                    {{ isset($roleMap[strtolower($val)]) ? $roleMap[strtolower($val)] : $val }}
+                @if($locale == 'th' || $locale == 'zh' || $locale == 'en')
+                    {{ isset($roleMap[$val]) ? $roleMap[$val] : $val }}
                 @else
                     {{ $val }}
                 @endif
