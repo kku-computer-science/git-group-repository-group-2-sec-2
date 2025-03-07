@@ -102,6 +102,10 @@ return [
     'Role_student' => 'Student',
     'Role_staff' => 'Staff',
     'Role_headproject' => 'Project Leader',
+    'Role_system administrator' => 'System Administrator',
+    'Role_public relations officer' => 'Public Relations Officer',
+    'Role_master student' => 'Master Student',
+    'Role_educator' => 'Educator',
 
     //=========================Mean==============================
 
@@ -1222,5 +1226,4 @@ return [
 //cpresearchV2/resources/views/users/edit.blade.php
 'Select Category' => 'Select Category',
 
-    //new roles
 ];
