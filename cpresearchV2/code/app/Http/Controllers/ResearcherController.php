@@ -15,7 +15,7 @@ class ResearcherController extends Controller
     {
         //$reshr = User::role('teacher')->orderBy('department_id')->with('Expertise')->get();
         //$reshr = Department::with(['users' => fn($query) => $query->where('fname', 'like', 'wat%')])->get();
-        $reshr = Program::with(['users' => fn ($query) => $query->role('teacher')->with('expertise')])->where('degree_id', '=', 1)->get();
+        $reshr = Program::with(['users' => fn($query) => $query->role('teacher')->with('expertise')])->where('degree_id', '=', 1)->get();
         //$reshr = Department::with('users')->join('expertises', 'id', '=', 'expertises.user_id')->get();
 
 
@@ -26,28 +26,28 @@ class ResearcherController extends Controller
         //$res=User::where('id',$id)->with('paper')->get();
         //User::with(['paper'])->where('id',$id)->get();
         //$paper = User::with(['paper','author'])->where('id',$id)->get();
-        $user1 = User::role('teacher')->where('position_th', 'ศ.ดร.')->with('program')->whereHas('program', function($q) use($id){
+        $user1 = User::role('teacher')->where('position_th', 'ศ.ดร.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user2 = User::role('teacher')->where('position_th', 'รศ.ดร.')->with('program')->whereHas('program', function($q) use($id){
+        $user2 = User::role('teacher')->where('position_th', 'รศ.ดร.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user3 = User::role('teacher')->where('position_th', 'ผศ.ดร.')->with('program')->whereHas('program', function($q) use($id){
+        $user3 = User::role('teacher')->where('position_th', 'ผศ.ดร.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user4 = User::role('teacher')->where('position_th', 'ศ.')->with('program')->whereHas('program', function($q) use($id){
+        $user4 = User::role('teacher')->where('position_th', 'ศ.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user5 = User::role('teacher')->where('position_th', 'รศ.')->with('program')->whereHas('program', function($q) use($id){
+        $user5 = User::role('teacher')->where('position_th', 'รศ.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user6 = User::role('teacher')->where('position_th', 'ผศ.')->with('program')->whereHas('program', function($q) use($id){
+        $user6 = User::role('teacher')->where('position_th', 'ผศ.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user7 = User::role('teacher')->where('position_th', 'อ.ดร.')->with('program')->whereHas('program', function($q) use($id){
+        $user7 = User::role('teacher')->where('position_th', 'อ.ดร.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
-        $user8 = User::role('teacher')->where('position_th', 'อ.')->with('program')->whereHas('program', function($q) use($id){
+        $user8 = User::role('teacher')->where('position_th', 'อ.')->with('program')->whereHas('program', function ($q) use ($id) {
             $q->where('id', '=', $id);
         })->orderBy('fname_en')->get();
 
@@ -58,50 +58,83 @@ class ResearcherController extends Controller
         // $query->role('teacher')->orderByRaw("FIELD(position_en , 'Prof. Dr.' , 'Assoc. Prof. Dr.' , 'Asst. Prof. Dr.' ,'Assoc. Prof.' , 'Asst. Prof.' , 'Dr.' ,'Lecturer' )")
         // ->with('expertise')])
         // ->where('degree_id', '=', 1, 'and')->where('id','=',$id)->get();
-        $request = Program::where('id','=',$id)->get();
+        $request = Program::where('id', '=', $id)->get();
         // $request = Program::with('users')->whereHas('users', function (Builder $query) {
         //     $query->role('teacher')->where('position_en', '==', 'Prof. Dr.');
         //     });
         //return $request;
         //$user = User::orderByRaw("FIELD(position_en , '	Prof. Dr.', 'Assoc. Prof. Dr.', 'Asst. Prof. Dr.','Assoc. Prof.', 'Asst. Prof.', 'Dr.','Lecturer') ASC");
         //return $request;
-        return view('researchers', compact('request','users'));
+        return view('researchers', compact('request', 'users'));
     }
     public function searchs($id, $text)
     {
+        // ดึงค่าภาษาในระบบ
+        $locale = app()->getLocale();
 
+        // ดึงรายการคำแปล
+        $expertise_translations = trans('message.expertise_translation');
+        $matching_expertises = [];
+        $matching_thai_expertises = [];
+
+        // ค้นหาข้อความในภาษาไทยและภาษาจีน
+        foreach ($expertise_translations as $eng => $translation) {
+            if (strpos($translation, $text) !== false) {
+                $matching_expertises[] = $eng;
+            }
+            if ($locale == 'th' && strpos($eng, $text) !== false) {
+                $matching_thai_expertises[] = $eng;
+            }
+        }
+
+        // รวมรายการที่พบในภาษาไทยและภาษาจีน
+        $matching_expertises = array_unique(array_merge($matching_expertises, $matching_thai_expertises));
 
         $users = User::whereHas('roles', function ($q) use ($id) {
                 $q->where('roles.id', $id);
             })
             ->with('expertise')
-            ->where(function ($q) use ($text) {
-                $q->whereHas('expertise', function ($q) use ($text) {
-                    $q->where('expert_name', 'LIKE', "%{$text}%");
-                })
-                ->orWhere('fname_en', 'LIKE', "%{$text}%")
-                ->orWhere('lname_en', 'LIKE', "%{$text}%")
-                ->orWhere('fname_th', 'LIKE', "%{$text}%")
-                ->orWhere('lname_th', 'LIKE', "%{$text}%");
+            ->where(function ($q) use ($text, $matching_expertises, $locale) {
+                if (!empty($matching_expertises)) {
+                    $q->whereHas('expertise', function ($q) use ($matching_expertises) {
+                        $q->whereIn('expert_name', $matching_expertises);
+                    });
+                } else {
+                    $q->whereHas('expertise', function ($q) use ($text) {
+                        $q->where('expert_name', 'LIKE', "%{$text}%");
+                    });
+                }
+
+                // ถ้าเป็นภาษาไทย เพิ่มการค้นหาใน fname_th และ lname_th
+                if ($locale == 'th') {
+                    $q->orWhere('fname_th', 'LIKE', "%{$text}%")
+                      ->orWhere('lname_th', 'LIKE', "%{$text}%");
+                }
+
+                // การค้นหาภาษาอังกฤษยังคงทำงานปกติ
+                $q->orWhere('fname_en', 'LIKE', "%{$text}%")
+                  ->orWhere('lname_en', 'LIKE', "%{$text}%");
             })
             ->orderBy('fname_en')
             ->get();
 
         $request = Role::where('id', $id)->get();
-
         return view('researchers', compact('request', 'users'));
     }
-    public function search($id,Request $request){
+
+
+
+    public function search($id, Request $request)
+    {
         $request = $request->textsearch;
-        $a = $this->searchs($id,$request);
+        $a = $this->searchs($id, $request);
         return $a;
     }
     public function requestByRole($id)
     {
-        if($id != 2 && $id != 6 && $id != 7 && $id != 8){
+        if ($id != 2 && $id != 6 && $id != 7 && $id != 8) {
             $newid = 2;
-        }
-        else{
+        } else {
             $newid = $id;
         }
 

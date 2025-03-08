@@ -41,7 +41,7 @@
                         </select>
                     </div> -->
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary"> {{ trans('message.search') }}</button>
+                    <button type="submit" class="btn btn-outline-primary"> {{ trans('message.search_button') }}</button>
                 </div>
             </form>
         </div>

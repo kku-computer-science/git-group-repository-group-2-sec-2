@@ -253,6 +253,7 @@ return [
     'fund_name' => 'ชื่อทุน',
     'fund_type' => 'ประเภททุน',
     'fund_level' => 'ระดับทุน',
+
     'action' => 'การดำเนินการ',
     'search' => 'ค้นหา',
     'show' => 'แสดง',
@@ -402,7 +403,8 @@ return [
     'researcher_role_undergrad_student' => 'นักศึกษาปริญญาตรี',
     'researcher_role_master_student' => 'นักศึกษาปริญญาโท',
     'researcher_role_doctoral_student' => 'นักศึกษาปริญญาเอก',
-    'placeholder_research' => 'ความเชี่ยวชาญที่สนใจ',
+    'placeholder_research' => 'ความเชี่ยวชาญที่สนใจหรือชื่อนักวิจัย',
+    'search_button' => 'ค้นหา',
 
 
     //=========================Mean==============================
@@ -1037,7 +1039,9 @@ return [
         'Remote Sensing for Vegatation study' => 'การสำรวจระยะไกลเพื่อศึกษาพืชพรรณ',
         'Cloud Computing' => 'การประมวลผลแบบคลาวด์',
         'smart_x' => 'สมาร์ท X: ฟาร์มอัจฉริยะ, บ้านอัจฉริยะ, ระบบสุขภาพอัจฉริยะ, รถยนต์อัจฉริยะ, อาคารอัจฉริยะ, อุปกรณ์อัจฉริยะ ฯลฯ',
-
+        'Internet Security' => 'การรักษาความปลอดภัยของอินเทอร์เน็ต',
+        'IoT' => 'อินเทอร์เน็ตของสรรพสิ่ง',
+        'Mobile and Wireless Communicaiton' => 'การสื่อสารเคลื่อนที่และไร้สาย',
     ],
 
     //Title Web
