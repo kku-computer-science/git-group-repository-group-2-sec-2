@@ -91,8 +91,8 @@ class ResearcherController extends Controller
         $matching_expertises = array_unique(array_merge($matching_expertises, $matching_thai_expertises));
 
         $users = User::whereHas('roles', function ($q) use ($id) {
-                $q->where('roles.id', $id);
-            })
+            $q->where('roles.id', $id);
+        })
             ->with('expertise')
             ->where(function ($q) use ($text, $matching_expertises, $locale) {
                 if (!empty($matching_expertises)) {
@@ -105,15 +105,11 @@ class ResearcherController extends Controller
                     });
                 }
 
-                // ถ้าเป็นภาษาไทย เพิ่มการค้นหาใน fname_th และ lname_th
-                if ($locale == 'th') {
-                    $q->orWhere('fname_th', 'LIKE', "%{$text}%")
-                      ->orWhere('lname_th', 'LIKE', "%{$text}%");
-                }
+                $q->orWhere('fname_th', 'LIKE', "%{$text}%")
+                    ->orWhere('lname_th', 'LIKE', "%{$text}%");
 
-                // การค้นหาภาษาอังกฤษยังคงทำงานปกติ
                 $q->orWhere('fname_en', 'LIKE', "%{$text}%")
-                  ->orWhere('lname_en', 'LIKE', "%{$text}%");
+                    ->orWhere('lname_en', 'LIKE', "%{$text}%");
             })
             ->orderBy('fname_en')
             ->get();
