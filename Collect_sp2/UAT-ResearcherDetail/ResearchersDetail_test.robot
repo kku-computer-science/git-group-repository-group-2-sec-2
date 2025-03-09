@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}    http://soften2sec267.cpkkuhost.com/
+${URL}   http://127.0.0.1:8000/researchers/2
 ${BROWSER}    Edge
 
 *** Test Cases ***
