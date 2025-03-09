@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${SERVER}         localhost:8000
+${SERVER}         soften2sec267.cpkkuhost.com
 ${DELAY}          1
 ${BROWSER}        Firefox
 ${USERNAME}       punhor1@kku.ac.th
