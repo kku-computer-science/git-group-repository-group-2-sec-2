@@ -37,10 +37,12 @@
                         <tr>
                             <td>{{ $department->id }}</td>
                             <td>
-                                @if(app()->getLocale() == 'th')
-                                {{ $department->department_name_th }}
+                                @if(app()->getLocale() == 'zh')
+                                {{ !empty($department->department_name_zh) ? $department->department_name_zh : $department->department_name_en }}
+                                @elseif(app()->getLocale() == 'th')
+                                    {{ $department->department_name_th }}
                                 @else
-                                {{ $department->department_name_en }}
+                                    {{ $department->department_name_en }}
                                 @endif
                             </td>
 

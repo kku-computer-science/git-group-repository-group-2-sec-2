@@ -55,6 +55,7 @@ class ProgramController extends Controller
         $r = $request->validate([
             'program_name_th' => 'required',
             'program_name_en' => 'required',
+            'program_name_zh' => 'nullable',
             'degree' => 'required',
             'department' => 'required',
 
@@ -76,6 +77,7 @@ class ProgramController extends Controller
 
             $pro2->program_name_en = $request->program_name_en;
             $pro2->program_name_th = $request->program_name_th;
+            $pro2->program_name_zh = $request->program_name_zh;
             $pro2->save();
             //$pro2::Create(['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
             //$pro2->department()->associate($department);

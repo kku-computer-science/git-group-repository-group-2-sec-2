@@ -441,6 +441,10 @@ return [
     'Academic_Program' => '学术课程',
     'Name_TH' => '名称 (泰文)',
     'Name_EN' => '名称 (英文)',
+    'Name_ZH' => '名称 (中文)',
+    'placeholder_program_name_th' => '输入泰语课程名称',
+    'placeholder_program_name_en' => '输入英语课程名称',
+    'placeholder_program_name_zh' => '输入中文课程名称',
     'Submit' => '提交',
     'Cancle' => '取消',
 
@@ -451,6 +455,7 @@ return [
     // cpresearchV2/resources/views/departments/create.blade.php
     'Department_Name_TH' => '系名称 (泰文)',
     'Department_Name_EN' => '系名称 (英文)',
+    'Department_Name_ZH' => '系名称 (中文)',
     'Create_Department' => '创建系',
     'Departments' => '系',
     'error_title' => '糟糕!',
@@ -642,6 +647,7 @@ return [
     'department'          => '系',
     'department_name_th'  => '系名称 (泰语)',
     'department_name_en'  => '系名称 (英语)',
+    'department_name_zh'  => '系名称 (中文)',
 
     // cpresearchV2\resources\views\permissions\show.blade.php
     'permission'                    => '权限',

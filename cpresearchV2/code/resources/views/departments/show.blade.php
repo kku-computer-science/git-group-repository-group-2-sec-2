@@ -32,6 +32,10 @@
                     <strong>{{ trans('message.department_name_en') }} :</strong>
                     {{ $department->department_name_en }}
                 </div>
+                <div class="lead">
+                    <strong>{{ trans('message.department_name_zh') }} :</strong>
+                    {{ !empty($department->department_name_zh) ? $department->department_name_zh : $department->department_name_en }}
+                </div>
             </div>
         </div>
     </div>

@@ -29,6 +29,10 @@ return [
     'Academic_Program' => 'Academic Program',
     'Name_TH' => 'Name (TH)',
     'Name_EN' => 'Name (EN)',
+    'Name_ZH' => 'Name (ZH)',
+    'placeholder_program_name_th' => 'Enter program name in Thai',
+    'placeholder_program_name_en' => 'Enter program name in English',
+    'placeholder_program_name_zh' => 'Enter program name in Chinese',
     'Submit' => 'Submit',
     'Cancle' => 'Cancel',
 
@@ -39,6 +43,7 @@ return [
     // cpresearchV2/resources/views/departments/create.blade.php
     'Department_Name_TH' => 'Department Name (TH)',
     'Department_Name_EN' => 'Department Name (EN)',
+    'Department_Name_ZH' => 'Department Name (ZH)',
     'Create_Department' => 'Create Department',
     'Departments' => 'Departments',
     'error_title' => 'Oops!',
@@ -182,6 +187,7 @@ return [
     'edit_department' => 'Edit Department',
     'department_name_th' => 'Department Name (TH)',
     'department_name_en' => 'Department Name (EN)',
+    'department_name_zh' => 'Department Name (ZH)',
 
     'No.' => 'No.',
     'Year' => 'Year',

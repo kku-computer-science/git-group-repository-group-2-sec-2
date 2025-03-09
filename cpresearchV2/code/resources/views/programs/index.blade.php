@@ -50,6 +50,8 @@
                         <td>
                             @if(app()->getLocale() == 'th')
                             {{ $program->program_name_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{ $program->program_name_zh  ?? $program->program_name_en }}
                             @else
                             {{ $program->program_name_en }}
                             @endif
@@ -59,6 +61,8 @@
                         <td>
                             @if(app()->getLocale() == 'th')
                             {{ $program->degree->degree_name_th }}
+                            @elseif(app()->getLocale() == 'zh')
+                            {{ $program->degree->degree_name_zh ?? $program->degree->degree_name_en }}
                             @else
                             {{ $program->degree->degree_name_en }}
                             @endif
@@ -109,10 +113,16 @@
     <div class="col-sm-8">
         <select id="degree" class="custom-select my-select" name="degree">
             @foreach($degree as $d)
-                @php
-                    $locale = app()->getLocale();
-                    $degree_name = ($locale === 'th') ? $d->degree_name_th : $d->degree_name_en;
-                @endphp
+            @php
+                $locale = app()->getLocale();
+                if ($locale === 'th') {
+                    $degree_name = $d->degree_name_th;
+                } elseif ($locale === 'zh') {
+                    $degree_name = $d->degree_name_zh;
+                } else {
+                    $degree_name = $d->degree_name_en;
+                }
+            @endphp
                 <option value="{{ $d->id }}">{{ $degree_name }}</option>
             @endforeach
         </select>
@@ -124,24 +134,37 @@
     <div class="col-sm-8">
         <select id="department" class="custom-select my-select" name="department">
             @foreach($department as $d)
-                @php
-                    $locale = app()->getLocale();
-                    $department_name = ($locale === 'th') ? $d->department_name_th : $d->department_name_en;
-                @endphp
+            @php
+                $locale = app()->getLocale();
+                if ($locale === 'th') {
+                    $department_name = $d->department_name_th;
+                } elseif ($locale === 'zh') {
+                    $department_name = $d->department_name_zh;
+                } else {
+                    $department_name = $d->department_name_en;
+                }
+            @endphp
                 <option value="{{ $d->id }}">{{ $department_name }}</option>
             @endforeach
         </select>
     </div>
 </div>
 
-                            <div class="form-group">
-                                <strong>{{trans('message.Name_TH')}}:</strong>
-                                <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
-                            </div>
-                            <div class="form-group">
-                                <strong>{{trans('message.Name_EN')}}:</strong>
-                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program_name_en" onchange="validate()">
-                            </div>
+                        <div class="form-group">
+                            <strong>{{ trans('message.Name_TH') }}:</strong>
+                            <input type="text" name="program_name_th" id="program_name_th" class="form-control" 
+                                placeholder="{{ trans('message.placeholder_program_name_th') }}" onchange="validate()">
+                        </div>
+                        <div class="form-group">
+                            <strong>{{ trans('message.Name_EN') }}:</strong>
+                            <input type="text" name="program_name_en" id="program_name_en" class="form-control" 
+                                placeholder="{{ trans('message.placeholder_program_name_en') }}" onchange="validate()">
+                        </div>
+                        <div class="form-group">
+                            <strong>{{ trans('message.Name_ZH') }}:</strong>
+                            <input type="text" name="program_name_zh" id="program_name_zh" class="form-control" 
+                                placeholder="{{ trans('message.placeholder_program_name_zh') }}" onchange="validate()">
+</div>
                             <!-- <div class="form-group">
                                 <strong>ระดับการศึกษา:</strong>
                                 <input type="text" name="degree_id" id="degree_id" class="form-control" placeholder="degree_id" onchange="validate()">

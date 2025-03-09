@@ -36,6 +36,10 @@
                     <strong>{{ trans('message.department_name_en') }}</strong>
                     {!! Form::text('department_name_en', null, array('placeholder' => trans('message.department_name_en_holder'),'class' => 'form-control')) !!}
                 </div>
+                <div class="form-group">
+                    <strong>{{ trans('message.department_name_zh') }}</strong>
+                    {!! Form::text('department_name_zh', null, array('placeholder' => trans('message.department_name_en_holder'),'class' => 'form-control')) !!}
+                </div>
                 <button type="submit" class="btn btn-primary">{{ trans('message.submit_button') }}</button>
                 {!! Form::close() !!}
             </div>

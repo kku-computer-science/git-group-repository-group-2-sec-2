@@ -45,6 +45,17 @@
                     @endif
                 </div>
 
+                <div class="form-group">
+                    <strong>{{ trans('message.Department_Name_ZH') }} :</strong>
+                    {!! Form::text('department_name_zh', old('department_name_zh'), [
+                        'placeholder' => trans('message.Department_Name_ZH'),
+                        'class' => 'form-control ' . ($errors->has('department_name_zh') ? 'is-invalid' : '')
+                    ]) !!}
+                    @if ($errors->has('department_name_zh'))
+                        <span class="text-danger">{{ trans($errors->first('department_name_zh')) }}</span>
+                    @endif
+                </div>
+
                 <button type="submit" class="btn btn-primary">{{ trans('message.Submit') }}</button>
                 {!! Form::close() !!}
             </div>

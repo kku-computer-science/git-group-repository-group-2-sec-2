@@ -415,6 +415,10 @@ return [
     'Academic_Program' => 'สาขาวิชา',
     'Name_TH' => 'ชื่อ (ไทย)',
     'Name_EN' => 'ชื่อ (อังกฤษ)',
+    'Name_ZH' => 'ชื่อ (จีน)',
+    'placeholder_program_name_th' => 'กรอกชื่อหลักสูตรภาษาไทย',
+    'placeholder_program_name_en' => 'กรอกชื่อหลักสูตรภาษาอังกฤษ',
+    'placeholder_program_name_zh' => 'กรอกชื่อหลักสูตรภาษาจีน',
     'Submit' => 'ยืนยัน',
     'Cancle' => 'ยกเลิก',
 
@@ -444,10 +448,11 @@ return [
     'Expert_Name' => 'ชื่อผู้เชี่ยวชาญ',
 
     // cpresearchV2/resources/views/departments/create.blade.php
-    'Department_Name_TH' => 'ชื่อหน่วยงาน (ไทย)',
-    'Department_Name_EN' => 'ชื่อหน่วยงาน (อังกฤษ)',
-    'Create_Department' => 'สร้างหน่วยงาน',
-    'Departments' => 'หน่วยงาน',
+    'Department_Name_TH' => 'ชื่อสาขาวิชา (ไทย)',
+    'Department_Name_EN' => 'ชื่อสาขาวิชา (อังกฤษ)',
+    'Department_Name_ZH' => 'ชื่อสาขาวิชา (จีน)',
+    'Create_Department' => 'สร้างสาขาวิชา',
+    'Departments' => 'สาขาวิชา',
     'error_title' => 'อุ๊ปส์!',
     'error_message' => 'มีบางอย่างผิดพลาด กรุณาตรวจสอบข้อผิดพลาดด้านล่าง',
 
@@ -624,9 +629,10 @@ return [
 'research_group_members'           => 'สมาชิกกลุ่มวิจัย',
 
 // cpresearchV2\resources\views\departments\show.blade.php
-'department'          => 'ภาควิชา',
-'department_name_th'  => 'ชื่อภาควิชา (ภาษาไทย)',
-'department_name_en'  => 'ชื่อภาควิชา (ภาษาอังกฤษ)',
+'department'          => 'สาขาวิชา',
+'department_name_th'  => 'ชื่อสาขาวิชา (ภาษาไทย)',
+'department_name_en'  => 'ชื่อสาขาวิชา (ภาษาอังกฤษ)',
+'department_name_zh'  => 'ชื่อสาขาวิชา (ภาษาจีน)',
 
     // cpresearchV2\resources\views\permissions\show.blade.php
     'permission' => 'สิทธิ์การเข้าถึง',
@@ -838,7 +844,7 @@ return [
     'confirm_password' => "ยืนยันรหัสผ่าน",
     'role' => "บทบาท",
     'status' => "สถานะ",
-    'department' => "หน่วยงาน",
+    'department' => "สาขาวิชา",
     'program' => "หลักสูตร",
     'scholar_id' => "Scholar ID",
 

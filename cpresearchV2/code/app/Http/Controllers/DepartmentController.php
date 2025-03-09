@@ -53,6 +53,7 @@ class DepartmentController extends Controller
         $request->validate([
             'department_name_th' => 'required',
             'department_name_en' => 'required',
+            'department_name_zh' => 'nullable',
         ], [
             'department_name_th.required' => trans('validation.custom.department_name_th.required'),
             'department_name_en.required' => trans('validation.custom.department_name_en.required'),
