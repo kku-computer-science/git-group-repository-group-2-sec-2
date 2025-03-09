@@ -16,8 +16,9 @@ return [
     'reference'                    => '参考',
     'before'                       => '之前',
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
-    'report_total_articles'     => '报告文章总数（5年：累计）',
-    'number'                    => '编号',
+    'report_total_articles'         => '报告文章总数（5年：累计）',
+    //P'France แก้ไข number เพราะซ้ำ
+    'number_total'                  => '编号',
     /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง*/
     'SUMMARY'                      => '摘要',
     

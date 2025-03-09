@@ -129,8 +129,9 @@ return [
     'before'                        => 'Before',
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
     'report_total_articles'      => 'Report the total number of articles (5 years: cumulative)',
-    'number'                     => 'Number',
-    'SUMMARY'                    => 'SUMMARY',
+    //P'France แก้ไข number เพราะซ้ำ
+    'number_total'                  => 'Number',
+    'SUMMARY'                       => 'SUMMARY',
     /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนอ้างอิง*/
     'referenceapa'                  => 'Referenceapa (APA)',
     'close'                         => 'close',
