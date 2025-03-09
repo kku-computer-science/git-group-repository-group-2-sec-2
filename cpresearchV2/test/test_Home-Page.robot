@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}    Firefox
-${URL}    http://127.0.0.1:8000
+${URL}    https://soften2sec267.cpkkuhost.com
 
 # ✅ ปุ่มเปลี่ยนภาษา
 ${LANG_DROPDOWN}    xpath=//*[@id="navbarDropdownMenuLink"]
