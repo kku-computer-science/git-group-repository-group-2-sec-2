@@ -1,0 +1,34 @@
+{
+  "name": "chriskonnertz/deeply",
+  "description": "DeepLy is a PHP client for the DeepL.com translation API",
+  "keywords": ["deepl", "deeply", "translation", "translate", "language", "neural", "ai", "api", "client", "library"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chris Konnertz"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "ChrisKonnertz\\DeepLy": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyServiceProvider"
+      ],
+      "aliases": {
+        "DeepLy": "ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev"
+}

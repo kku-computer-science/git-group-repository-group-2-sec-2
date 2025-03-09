@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-02-25T22:23:50.744855" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Status Test" source="C:\Users\User\Desktop\Work2568\ProjectSoften\git-group-repository-group-2-sec-2\Collect_sp2\UAT-api\api_status_test.robot">
+<test id="s1-t1" name="Test Switch Language For API status" line="20">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:50.876078" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-25T22:23:50.876078" elapsed="1.665672"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-25T22:23:52.542289" elapsed="0.017605"/>
+</kw>
+<kw name="Login As Admin">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:23:52.559894" elapsed="0.016776"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:52.576670" level="INFO">Typing text 'admin@gmail.com' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${USERNAME_ADMIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:23:52.576670" elapsed="0.054049"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:52.630719" level="INFO">Typing text '12345678' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${PASSWORD_ADMIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:23:52.630719" elapsed="0.070212"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:52.700931" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:23:52.700931" elapsed="1.235689"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T22:23:53.937618" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:23:52.559894" elapsed="1.377724"/>
+</kw>
+<kw name="Navigate To User Profile">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:53.938618" level="INFO">Opening url 'http://127.0.0.1:8000/profile'</msg>
+<arg>${URL_PROFILE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-02-25T22:23:53.937618" elapsed="1.004994"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:23:56.943991" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:23:54.943127" elapsed="2.000864"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:57.254872" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T22:23:56.946061" elapsed="0.308811"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:23:53.937618" elapsed="3.317254"/>
+</kw>
+<kw name="Go To Research API">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="sidebar"]/ul/li[17]/a</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:23:57.256859" elapsed="0.428456"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:23:57.687382" level="INFO">Clicking element 'xpath=//*[@id="sidebar"]/ul/li[17]/a'.</msg>
+<arg>xpath=//*[@id="sidebar"]/ul/li[17]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:23:57.686261" elapsed="0.692452"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:03.378852" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:23:58.378713" elapsed="5.000139"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T22:24:03.378852" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-25T22:23:57.255840" elapsed="6.123012"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-02-25T22:24:03.379359" elapsed="0.000000"/>
+</kw>
+<kw name="Change Language">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:03.379359" elapsed="0.612046"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:03.991405" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:24:03.991405" elapsed="0.307584"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:04.298989" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:04.298989" elapsed="0.646120"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:06.945273" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:04.945109" elapsed="2.000164"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:06.945273" elapsed="0.631471"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:07.578281" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/lang/th']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:07.577261" elapsed="0.973240"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:10.551887" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:08.550501" elapsed="2.001386"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:10.948647" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T22:24:10.552908" elapsed="0.395739"/>
+</kw>
+<arg>${LANG_THAI}</arg>
+<status status="PASS" start="2025-02-25T22:24:03.379359" elapsed="7.570289"/>
+</kw>
+<kw name="Change Language">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:10.950656" elapsed="0.629458"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:11.580114" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:24:11.580114" elapsed="0.306699"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:11.888525" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:11.887409" elapsed="0.655384"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:14.544993" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:12.543812" elapsed="2.001181"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:14.545936" elapsed="0.633959"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:15.179895" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/lang/zh']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:15.179895" elapsed="0.966624"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:18.147302" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:16.147038" elapsed="2.000264"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:18.529522" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T22:24:18.147302" elapsed="0.382220"/>
+</kw>
+<arg>${LANG_CHINESE}</arg>
+<status status="PASS" start="2025-02-25T22:24:10.950656" elapsed="7.578866"/>
+</kw>
+<kw name="Change Language">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:18.530524" elapsed="0.622406"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:19.153435" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-25T22:24:19.152930" elapsed="0.311755"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:19.466640" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:19.465636" elapsed="0.657695"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:22.123517" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:20.123331" elapsed="2.000186"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-25T22:24:22.124580" elapsed="0.629293"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:22.756317" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/lang/en']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-25T22:24:22.754746" elapsed="0.982626"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-25T22:24:25.739872" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-25T22:24:23.738428" elapsed="2.001965"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-25T22:24:26.130111" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-25T22:24:25.740393" elapsed="0.389718"/>
+</kw>
+<arg>${LANG_ENGLISH}</arg>
+<status status="PASS" start="2025-02-25T22:24:18.530524" elapsed="7.599587"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-25T22:24:26.132110" elapsed="2.402822"/>
+</kw>
+<doc>Test Switch Language For API status</doc>
+<status status="PASS" start="2025-02-25T22:23:50.874616" elapsed="37.660821"/>
+</test>
+<status status="PASS" start="2025-02-25T22:23:50.745860" elapsed="37.790584"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Api Status Test">Api Status Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

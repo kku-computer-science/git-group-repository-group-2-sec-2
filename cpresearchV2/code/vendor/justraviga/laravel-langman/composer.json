@@ -1,0 +1,40 @@
+{
+    "name": "justraviga/laravel-langman",
+    "description": "Manage language files with ease.",
+    "keywords": ["laravel", "localization", "multilingual"],
+    "homepage": "https://github.com/themsaid/laravel-langman",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Said",
+            "email": "theMohamedSaid@gmail.com",
+            "homepage": "https://themsaid.github.io"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^7.4",
+        "illuminate/support": "^9|^8",
+        "illuminate/console": "^9|^8",
+        "illuminate/filesystem": "^9|^8"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "9.*",
+        "orchestra/testbench": "7.*",
+        "mockery/mockery": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Themsaid\\Langman\\": "src"
+        },
+        "classmap": [
+            "tests"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Themsaid\\Langman\\LangmanServiceProvider"
+            ]
+        }
+    }
+}
