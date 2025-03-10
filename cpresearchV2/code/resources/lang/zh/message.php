@@ -419,15 +419,15 @@ return [
 
 
     // cpresearchV2/resources/views/research_g.blade.php
-    'Research_Group' => '研究小组',
+    'research_group' => '研究小组',
     'Laboratory_Supervisor' => '实验室主管',
     // 'Expertise' => '专业领域',
     'Add_Expertise' => '添加专业领域',
     // 'Course' => '课程',
     'Research_Information_Management_System' => '研究信息管理系统',
     // 'Add_Course' => '添加课程',
-    'Research_Group' => '研究小组',
-    'Laboratory_Supervisor' => '实验室主管',
+    //'Research_Group' => '研究小组',
+    //'Laboratory_Supervisor' => '实验室主管',
     'details' => '详细信息',
 
     // 研究小组描述

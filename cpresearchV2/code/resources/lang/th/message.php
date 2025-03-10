@@ -424,6 +424,10 @@ return [
     // 'Expertise' => 'ความเชี่ยวชาญ',
 
 
+    //code/resources/views/research_g.blade.php
+    'Laboratory_Supervisor' => 'หัวหน้าห้องปฏิบัติการ',
+    'research_group' => 'กลุ่มวิจัย',
+
     // cpresearchV2/resources/views/programs/index.blade.php
     'Add_New_Program' => 'เพิ่มหลักสูตรใหม่',
     'Edit_Program' => 'แก้ไขหลักสูตร',
