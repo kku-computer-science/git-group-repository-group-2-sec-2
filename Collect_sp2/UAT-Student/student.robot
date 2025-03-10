@@ -10,10 +10,16 @@ ${PASSWORD}       605020077-3  # รหัสผ่านสำหรับล�
 
 ${URL}            http://${SERVER}/login  # URL ของหน้า Login
 ${URL_CERIFICATE}     http://${SERVER}/certificate  # URL ของหน้า Certificate
-${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']  # XPath ของ dropdown เปลี่ยนภาษา
-${LANG_THAI}      xpath=//a[@href='http://${SERVER}/lang/th']  # XPath ของปุ่มเปลี่ยนเป็นภาษาไทย
-${LANG_CHINESE}   xpath=//a[@href='http://${SERVER}/lang/zh']  # XPath ของปุ่มเปลี่ยนเป็นภาษาจีน
-${LANG_ENGLISH}   xpath=//a[@href='http://${SERVER}/lang/en']  # XPath ของปุ่มเปลี่ยนเป็นภาษาอังกฤษ
+
+${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']  
+${LANG_THAI}      xpath=//a[contains(@href, '/lang/th')]
+${LANG_CHINESE}   xpath=//a[contains(@href, '/lang/zh')]
+${LANG_ENGLISH}   xpath=//a[contains(@href, '/lang/en')]
+
+# Language Codes
+${LANG_THAI_CODE}        th
+${LANG_CHINESE_CODE}     zh
+${LANG_ENGLISH_CODE}     en
 
 ${CERT_CONTAINER}  xpath=/html/body/div/div/div/div/div  # XPath ของคอนเทนต์ในหน้า Certificate
 ${CERT_TEXT_ENG}   Certificate Form\nWelcome to the Certificate Form page. Please proceed with your submission.  # ข้อความที่คาดหวังในภาษาอังกฤษ
@@ -22,36 +28,25 @@ ${CERT_TEXT_THAI}  แบบฟอร์มใบรับรอง\nยิน�
 
 ${NAV_CERTIFICATE}  xpath=/html/body/div/div/nav//a[contains(@href, '/certificateform')]  # XPath ของลิงก์ Certificate Form ในเมนู
 
-*** Test Cases ***
-Change Language Before Login
-    Open Browser  ${URL}  ${BROWSER}  # เปิดเบราว์เซอร์และไปที่หน้า Login
-    Maximize Browser Window  # ขยายหน้าต่างเบราว์เซอร์ให้เต็มจอ
-    Open Browser And Login  # ทำการล็อกอินเข้าสู่ระบบ
-    Click Target Menu  # คลิกเมนูที่ต้องการ
-    Verify Certificate Form Link  # ตรวจสอบว่ามีลิงก์ Certificate Form หรือไม่
-    Click Certificate Form Link  # คลิกเข้าไปที่หน้า Certificate Form
-    Change Language And Check Context  ${LANG_THAI}  ${CERT_TEXT_THAI}  # เปลี่ยนภาษาเป็นไทยและตรวจสอบเนื้อหา
-    Change Language And Check Context  ${LANG_CHINESE}  ${CERT_TEXT_CHI}  # เปลี่ยนภาษาเป็นจีนและตรวจสอบเนื้อหา
-    Change Language And Check Context  ${LANG_ENGLISH}  ${CERT_TEXT_ENG}  # เปลี่ยนภาษาเป็นอังกฤษและตรวจสอบเนื้อหา
-    Close Browser  # ปิดเบราว์เซอร์
 
 *** Keywords ***
 Change Language And Check Context
-    [Arguments]  ${LANG_OPTION}  ${EXPECTED_TEXT}
-    Change Language  ${LANG_OPTION}  # เรียกใช้ฟังก์ชันเปลี่ยนภาษา
-    Verify Certificate Page Text  ${EXPECTED_TEXT}  # ตรวจสอบเนื้อหาหลังเปลี่ยนภาษา
+    [Arguments]  ${LANG_OPTION}  ${LANG_CODE}  ${EXPECTED_TEXT}
+    Change Language  ${LANG_OPTION}  ${LANG_CODE}
+    Verify Certificate Page Text  ${EXPECTED_TEXT}  
 
 Change Language
-    [Arguments]  ${LANG_OPTION}
-    Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s  # รอให้ dropdown แสดงขึ้นมา
-    Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();  # ใช้ JavaScript คลิก dropdown
-    Click Element  ${LANG_DROPDOWN}  # คลิก dropdown เปลี่ยนภาษา
-    Sleep  2s  # รอให้เมนูเปลี่ยนแสดงผล
-    Wait Until Element Is Visible  ${LANG_OPTION}  timeout=5s  # รอให้ตัวเลือกภาษาปรากฏ
-    Click Element  ${LANG_OPTION}  # คลิกเลือกภาษา
-    Sleep  2s  # รอให้หน้าเว็บโหลดใหม่
-    Capture Page Screenshot  # จับภาพหน้าจอหลังเปลี่ยนภาษา
-    Log    Changed language to ${LANG_OPTION}  # บันทึก Log
+    [Arguments]  ${LANG_OPTION}  ${LANG_CODE}
+    Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s  
+    Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();  
+    Click Element  ${LANG_DROPDOWN}  
+    Sleep  1s  
+    Wait Until Element Is Visible  ${LANG_OPTION}  timeout=5s  
+    Click Element  ${LANG_OPTION}  
+    Sleep  1s  
+
+    Capture Page Screenshot  language_${LANG_CODE}.png  # 📸 จับภาพหน้าจอหลังเปลี่ยนภาษา
+    Log  Changed language to ${LANG_CODE}
 
 Verify Certificate Page Text
     [Arguments]  ${EXPECTED_TEXT}
@@ -87,3 +82,35 @@ Click Target Menu
     Sleep  2s  # รอให้หน้าโหลด
     Capture Page Screenshot  # จับภาพหน้าจอหลังคลิกเมนู
 
+Logout
+    Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
+    Execute JavaScript    document.getElementById('logout-form').submit();  
+    Sleep    2s  
+    Wait Until Page Contains    Login    timeout=10s  
+    Capture Page Screenshot    logout.png  # 📸 จับภาพหลัง Logout
+    Log    Successfully logged out
+
+*** Test Cases ***
+Login
+    Open Browser  ${URL}  ${BROWSER}  # เปิดเบราว์เซอร์และไปที่หน้า Login
+    Maximize Browser Window  # ขยายหน้าต่างเบราว์เซอร์ให้เต็มจอ
+    Open Browser And Login  # ทำการล็อกอินเข้าสู่ระบบ
+
+Verify Certificate Form Link
+    Click Target Menu  # คลิกเมนูที่ต้องการ
+    Verify Certificate Form Link  # ตรวจสอบว่ามีลิงก์ Certificate Form หรือไม่
+    Click Certificate Form Link  # คลิกเข้าไปที่หน้า Certificate Form
+
+
+Change Language to Thai
+    Change Language And Check Context  ${LANG_THAI}  ${LANG_THAI_CODE}  ${CERT_TEXT_THAI}  # เปลี่ยนภาษาเป็นไทยและตรวจสอบเนื้อหา
+
+Change Language to Chinese
+    Change Language And Check Context  ${LANG_CHINESE}  ${LANG_CHINESE_CODE}  ${CERT_TEXT_CHI}  # เปลี่ยนภาษาเป็นจีนและตรวจสอบเนื้อหา
+
+Change Language to English
+    Change Language And Check Context  ${LANG_ENGLISH}  ${LANG_ENGLISH_CODE}  ${CERT_TEXT_ENG}  # เปลี่ยนภาษาเป็นอังกฤษและตรวจสอบเนื้อหา
+
+Logout
+    Logout 
+    Close Browser  # ปิดเบราว์เซอร์

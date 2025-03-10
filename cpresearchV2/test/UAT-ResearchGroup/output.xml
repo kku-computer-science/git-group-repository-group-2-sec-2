@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.8 on win32)" generated="2025-03-10T16:24:41.494789" rpa="false" schemaversion="5">
+<suite id="s1" name="researchGroup test" source="D:\about codind\SoftwareEngineering\project_group\git-group-repository-group-2-sec-2\cpresearchV2\test\UAT-ResearchGroup\researchGroup_test.robot">
+<test id="s1-t1" name="Test Research Group in Thai" line="92">
+<kw name="Navigate To Research Group Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:41.804325" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/researchgroup'.</msg>
+<arg>${EXPECTED_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-10T16:24:41.804325" elapsed="3.528693"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-10T16:24:45.333018" elapsed="0.052431"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:48.385606" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:45.385449" elapsed="3.000157"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${AGT_NAME_EN}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:48.385606" elapsed="0.014055"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:48.524869" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="researchgroup_initial.png"&gt;&lt;img src="researchgroup_initial.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>researchgroup_initial.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:24:48.399661" elapsed="0.126208"/>
+</kw>
+<status status="PASS" start="2025-03-10T16:24:41.803331" elapsed="6.722538"/>
+</kw>
+<kw name="Check Research Group Page">
+<kw name="Change Language">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:48.527169" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:24:48.527169" elapsed="0.105347"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:49.134078" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:48.633516" elapsed="0.500562"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:49.134078" level="INFO">Clicking element '//a[normalize-space()='ไทย']'.</msg>
+<arg>${LANG_TH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:24:49.134078" elapsed="1.871051"/>
+</kw>
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:49.134078" elapsed="1.871051"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:51.005129" elapsed="0.001013"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:51.006142" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:52.006683" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:51.006142" elapsed="1.000541"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:52.123839" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="after_change_language_TH.png"&gt;&lt;img src="after_change_language_TH.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>after_change_language_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:24:52.006683" elapsed="0.118113"/>
+</kw>
+<arg>${language}</arg>
+<status status="PASS" start="2025-03-10T16:24:48.527169" elapsed="3.597627"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:54.125774" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:52.124796" elapsed="2.001514"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${research_group}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.128064" elapsed="0.051090"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${lab_supervisor}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.180286" elapsed="0.041795"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${agt_name}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.222081" elapsed="0.018879"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher1}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.240960" elapsed="0.015588"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher2}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.256548" elapsed="0.013276"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher3}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.269824" elapsed="0.015265"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${description}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.285089" elapsed="0.016535"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:54.482954" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="researchgroup_TH.png"&gt;&lt;img src="researchgroup_TH.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>researchgroup_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.301624" elapsed="0.181330"/>
+</kw>
+<arg>TH</arg>
+<arg>${RESEARCH_GROUP_TH}</arg>
+<arg>${LAB_SUPERVISOR_TH}</arg>
+<arg>${AGT_NAME_TH}</arg>
+<arg>${AGT_RESHEARCHER_PIPAT_TH}</arg>
+<arg>${AGT_RESHEARCHER_CHAIYAPORN_TH}</arg>
+<arg>${AGT_RESHEARCHER_NAGON_TH}</arg>
+<arg>${AGT_DESC_TH}</arg>
+<arg>${MORE_DETAILS_BTN_TH}</arg>
+<status status="PASS" start="2025-03-10T16:24:48.525869" elapsed="5.958087"/>
+</kw>
+<status status="PASS" start="2025-03-10T16:24:41.803331" elapsed="12.680625"/>
+</test>
+<test id="s1-t2" name="Test Research Group in English" line="96">
+<kw name="Check Research Group Page">
+<kw name="Change Language">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:54.488191" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.486957" elapsed="0.114839"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:55.102055" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:54.601796" elapsed="0.500259"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:55.102055" elapsed="0.000550"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:55.103654" level="INFO">Clicking element '//a[normalize-space()='English']'.</msg>
+<arg>${LANG_EN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:24:55.102605" elapsed="1.868622"/>
+</kw>
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:55.102605" elapsed="1.868622"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:24:56.971227" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:24:57.972408" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:56.971227" elapsed="1.001181"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:24:58.114460" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="after_change_language_EN.png"&gt;&lt;img src="after_change_language_EN.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>after_change_language_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:24:57.972408" elapsed="0.143089"/>
+</kw>
+<arg>${language}</arg>
+<status status="PASS" start="2025-03-10T16:24:54.486957" elapsed="3.628540"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:25:00.115917" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:24:58.115497" elapsed="2.000420"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${research_group}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.115917" elapsed="0.020543"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${lab_supervisor}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.137498" elapsed="0.012934"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${agt_name}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.150432" elapsed="0.008258"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher1}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.159723" elapsed="0.010996"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher2}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.170719" elapsed="0.012231"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher3}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.182950" elapsed="0.011401"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${description}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.194351" elapsed="0.012604"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:25:00.327335" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="researchgroup_EN.png"&gt;&lt;img src="researchgroup_EN.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>researchgroup_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.206955" elapsed="0.120380"/>
+</kw>
+<arg>EN</arg>
+<arg>${RESEARCH_GROUP_EN}</arg>
+<arg>${LAB_SUPERVISOR_EN}</arg>
+<arg>${AGT_NAME_EN}</arg>
+<arg>${AGT_RESHEARCHER_PIPAT_EN}</arg>
+<arg>${AGT_RESHEARCHER_CHAIYAPORN_EN}</arg>
+<arg>${AGT_RESHEARCHER_NAGON_EN}</arg>
+<arg>${AGT_DESC_EN}</arg>
+<arg>${MORE_DETAILS_BTN_EN}</arg>
+<status status="PASS" start="2025-03-10T16:24:54.485958" elapsed="5.841377"/>
+</kw>
+<status status="PASS" start="2025-03-10T16:24:54.484958" elapsed="5.843406"/>
+</test>
+<test id="s1-t3" name="Test Research Group in Chinese" line="99">
+<kw name="Check Research Group Page">
+<kw name="Change Language">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:25:00.330343" level="INFO">Clicking element '//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.330343" elapsed="0.075287"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:25:00.906644" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.405630" elapsed="0.501014"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'TH'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_TH}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.907676" elapsed="0.000941"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${language}' == 'EN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_EN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.908617" elapsed="0.001124"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:25:00.911722" level="INFO">Clicking element '//a[normalize-space()='中文']'.</msg>
+<arg>${LANG_CN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.910723" elapsed="1.652852"/>
+</kw>
+<arg>'${language}' == 'CN'</arg>
+<arg>Click Element</arg>
+<arg>${LANG_CN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T16:25:00.909741" elapsed="1.653834"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:25:03.563880" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:25:02.563575" elapsed="1.000305"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:25:03.680628" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="after_change_language_CN.png"&gt;&lt;img src="after_change_language_CN.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>after_change_language_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:25:03.563880" elapsed="0.116748"/>
+</kw>
+<arg>${language}</arg>
+<status status="PASS" start="2025-03-10T16:25:00.330343" elapsed="3.350285"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T16:25:05.680803" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T16:25:03.680628" elapsed="2.000175"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${research_group}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.681318" elapsed="0.021250"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${lab_supervisor}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.703594" elapsed="0.012519"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${agt_name}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.716113" elapsed="0.007896"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher1}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.725042" elapsed="0.011588"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher2}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.736630" elapsed="0.011765"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${researcher3}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.748395" elapsed="0.011390"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${description}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.760807" elapsed="0.012291"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-10T16:25:05.886734" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="researchgroup_CN.png"&gt;&lt;img src="researchgroup_CN.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>researchgroup_${language}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.773098" elapsed="0.113636"/>
+</kw>
+<arg>CN</arg>
+<arg>${RESEARCH_GROUP_CN}</arg>
+<arg>${LAB_SUPERVISOR_CN}</arg>
+<arg>${AGT_NAME_CN}</arg>
+<arg>${AGT_RESHEARCHER_PIPAT_CN}</arg>
+<arg>${AGT_RESHEARCHER_CHAIYAPORN_CN}</arg>
+<arg>${AGT_RESHEARCHER_NAGON_CN}</arg>
+<arg>${AGT_DESC_CN}</arg>
+<arg>${MORE_DETAILS_BTN_CN}</arg>
+<status status="PASS" start="2025-03-10T16:25:00.329368" elapsed="5.557366"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-10T16:25:05.888006" elapsed="2.163257"/>
+</kw>
+<status status="PASS" start="2025-03-10T16:25:00.328364" elapsed="7.723895"/>
+</test>
+<status status="PASS" start="2025-03-10T16:24:41.496825" elapsed="26.558409"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="researchGroup test" id="s1" pass="3" fail="0" skip="0">researchGroup test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

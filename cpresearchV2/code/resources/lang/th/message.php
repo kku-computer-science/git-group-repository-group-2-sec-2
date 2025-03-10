@@ -1046,4 +1046,8 @@ return [
 
 //cpresearchV2/resources/views/users/edit.blade.php
 'Select Category' => 'เลือกหมวดหมู่',
+
+// fix 
+'Research_Group' => 'กลุ่มวิจัย',
+'Laboratory_Supervisor' =>'หัวหน้าห้องปฏิบัติการ',
 ];
