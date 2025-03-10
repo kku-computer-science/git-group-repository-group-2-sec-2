@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-12T06:33:20.208964" rpa="false" schemaversion="5">
+<suite id="s1" name="Fund Edit" source="C:\Users\franc\Desktop\se_67\test-case-sp1_\test_edit\fund_edit\fund_edit.robot">
+<test id="s1-t1" name="User Can Add, Edit, And Delete Fund" line="107">
+<kw name="Open Browser And Login">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:20.448967" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:8000/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-12T06:33:20.448785" elapsed="1.684271"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-12T06:33:22.133304" elapsed="0.030296"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:22.163806" elapsed="0.016989"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:22.181235" level="INFO">Typing text 'pusadee@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:22.180982" elapsed="0.103852"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:22.285430" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:22.285116" elapsed="0.162657"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:22.448754" level="INFO">Clicking button 'xpath=//button[text()='Log In']'.</msg>
+<arg>xpath=//button[text()='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:22.448082" elapsed="1.375497"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-12T06:33:23.823735" elapsed="0.008668"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:23.905398" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:23.832568" elapsed="0.072922"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:24.906248" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:23.905640" elapsed="1.000710"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:20.448260" elapsed="4.458200"/>
+</kw>
+<kw name="Click Manage Fund In Sidebar">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SIDEBAR_MANAGE_FUND}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:24.907067" elapsed="0.014806"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:24.922173" level="INFO">Clicking element '//*[@id="sidebar"]/ul/li[5]/a/span'.</msg>
+<arg>${SIDEBAR_MANAGE_FUND}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:24.922008" elapsed="0.375353"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Manage Fund</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-12T06:33:25.297526" elapsed="0.009492"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:25.383610" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:25.307182" elapsed="0.076540"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:26.384309" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:25.383878" elapsed="1.000537"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:24.906863" elapsed="1.477648"/>
+</kw>
+<kw name="Click Button &quot;ADD&quot;">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_FUND_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.385104" elapsed="0.013140"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:26.398526" level="INFO">Clicking element '//a[contains(@href, '/funds/create')]'.</msg>
+<arg>${ADD_FUND_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.398369" elapsed="0.295929"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>เพิ่มทุนวิจัย</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.694463" elapsed="0.008829"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:26.384892" elapsed="0.318507"/>
+</kw>
+<kw name="Fill Fund Form">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DROPDOWN_FUND_TYPE}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.703918" elapsed="0.011029"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:26.715262" level="INFO">Clicking element '//select[@id="fund_type"]'.</msg>
+<arg>${DROPDOWN_FUND_TYPE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.715093" elapsed="0.047667"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:26.763152" level="INFO">Selecting options from selection list '//select[@id="fund_type"]' by label ทุนภายใน.</msg>
+<arg>${DROPDOWN_FUND_TYPE}</arg>
+<arg>${fund_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.762927" elapsed="0.046320"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:27.809711" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:26.809407" elapsed="1.000405"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:27.810138" level="INFO">Clicking element '//select[@name="fund_level"]'.</msg>
+<arg>${DROPDOWN_FUND_LEVEL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:27.809963" elapsed="0.049111"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:27.859641" level="INFO">Executing JavaScript:
+document.querySelector('select[name="fund_level"]').value = 'กลาง'
+Without any arguments.</msg>
+<arg>document.querySelector('select[name="fund_level"]').value = '${fund_level}'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T06:33:27.859251" elapsed="0.005163"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:28.865417" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:27.864782" elapsed="1.000745"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:28.865856" level="INFO">Typing text 'test_fund' into text field '//input[@name='fund_name']'.</msg>
+<arg>${INPUT_FUND_NAME}</arg>
+<arg>${fund_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:28.865673" elapsed="0.064174"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:28.930201" level="INFO">Typing text 'test_support' into text field '//input[@name='support_resource']'.</msg>
+<arg>${INPUT_SUPPORT_UNIT}</arg>
+<arg>${support_unit}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:28.930006" elapsed="0.065344"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:29.088128" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:28.995515" elapsed="0.092706"/>
+</kw>
+<arg>ทุนภายใน</arg>
+<arg>test_fund</arg>
+<arg>test_support</arg>
+<arg>กลาง</arg>
+<status status="PASS" start="2025-02-12T06:33:26.703680" elapsed="2.384625"/>
+</kw>
+<kw name="Submit Fund Form">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:29.088829" elapsed="0.012073"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T06:33:29.101059" elapsed="0.274475"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:29.375862" level="INFO">Clicking button '//button[@type='submit' and contains(text(), 'Submit')]'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:29.375698" elapsed="0.380430"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:30.756812" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:29.756333" elapsed="1.000613"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:30.829776" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:30.757091" elapsed="0.072786"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:29.088632" elapsed="1.741324"/>
+</kw>
+<kw name="Edit Fund">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDIT_FUND_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:30.830481" elapsed="0.011359"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${EDIT_FUND_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T06:33:30.841957" elapsed="0.276152"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:31.118430" level="INFO">Clicking element '//*[@id="example1"]/tbody/tr[2]/td[5]/form/li[2]/a'.</msg>
+<arg>${EDIT_FUND_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:31.118256" elapsed="0.305395"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:33.424355" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:31.423813" elapsed="2.000688"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:33.510616" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.424660" elapsed="0.086062"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_FUND_NAME}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.510874" elapsed="0.010333"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:33.521523" level="INFO">Typing text 'updated_fund' into text field '//input[@name='fund_name']'.</msg>
+<arg>${INPUT_FUND_NAME}</arg>
+<arg>updated_fund</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.521356" elapsed="0.063154"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:33.584855" level="INFO">Typing text 'updated_support_unit' into text field '//input[@name='support_resource']'.</msg>
+<arg>${INPUT_SUPPORT_UNIT}</arg>
+<arg>updated_support_unit</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.584669" elapsed="0.079845"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:33.762799" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.664685" elapsed="0.098204"/>
+</kw>
+<kw name="Submit Fund Form">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.763240" elapsed="0.010225"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T06:33:33.773618" elapsed="0.271128"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:34.045095" level="INFO">Clicking button '//button[@type='submit' and contains(text(), 'Submit')]'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:34.044899" elapsed="0.360354"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:35.405892" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:34.405424" elapsed="1.000578"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:35.487603" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:35.406149" elapsed="0.081619"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:33.763060" elapsed="1.724792"/>
+</kw>
+<doc>เปิดหน้าแก้ไขทุนและเปลี่ยนแปลงข้อมูล</doc>
+<status status="PASS" start="2025-02-12T06:33:30.830299" elapsed="4.657604"/>
+</kw>
+<kw name="Delete Fund">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELETE_FUND_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:35.488409" elapsed="0.011256"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${DELETE_FUND_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-12T06:33:35.499791" elapsed="0.268932"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:35.769036" level="INFO">Clicking element '//*[@id="example1"]/tbody/tr[2]/td[5]/form/li[3]/button'.</msg>
+<arg>${DELETE_FUND_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-12T06:33:35.768869" elapsed="0.042380"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:37.811865" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:35.811411" elapsed="2.000574"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_DELETE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:37.812167" elapsed="0.011993"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:37.824602" level="INFO">Executing JavaScript:
+document.querySelector('.swal-button--confirm').click()
+Without any arguments.</msg>
+<arg>document.querySelector('.swal-button--confirm').click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T06:33:37.824314" elapsed="0.005365"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:39.830586" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:37.829829" elapsed="2.000892"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DELETE_SUCCESS_OK}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-12T06:33:39.830868" elapsed="0.009478"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:39.840758" level="INFO">Executing JavaScript:
+document.querySelector('.swal-button--confirm').click()
+Without any arguments.</msg>
+<arg>document.querySelector('.swal-button--confirm').click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T06:33:39.840489" elapsed="0.580361"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:42.421511" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:40.421109" elapsed="2.000525"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:42.500309" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:42.421843" elapsed="0.078557"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:42.500818" level="INFO">Executing JavaScript:
+window.location.reload();
+Without any arguments.</msg>
+<arg>window.location.reload();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-12T06:33:42.500538" elapsed="0.262049"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-12T06:33:45.763475" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-12T06:33:42.762800" elapsed="3.000782"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-12T06:33:45.851136" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-12T06:33:45.763745" elapsed="0.087539"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:35.488221" elapsed="10.363141"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-12T06:33:45.851635" elapsed="2.154220"/>
+</kw>
+<status status="PASS" start="2025-02-12T06:33:20.447684" elapsed="27.558544"/>
+</test>
+<status status="PASS" start="2025-02-12T06:33:20.211324" elapsed="27.795907"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Fund Edit">Fund Edit</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
