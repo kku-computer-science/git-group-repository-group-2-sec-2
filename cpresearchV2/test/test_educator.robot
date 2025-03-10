@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${BASE_URL}    http://127.0.0.1:8000 
+${BASE_URL}    https://soften2sec267.cpkkuhost.com
 ${URL}         ${BASE_URL}/login
 ${BROWSER}     firefox
 ${USERNAME}    rojanha@kku.ac.th
