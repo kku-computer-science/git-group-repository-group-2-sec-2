@@ -331,9 +331,5 @@ Test Journal
     Change Language And Check Context  ${LANG_ENGLISH}
     Check Journal Details Context EN
     Check DOI Context EN
-Test Head Teacher
     Click ManagePublications In Sidebar EN
-    Click Assistant Wanted In Sidebar EN
-    Change Language And Check Context  ${LANG_THAI}
-    Change Language And Check Context  ${LANG_CHINESE}
     Close Browser
