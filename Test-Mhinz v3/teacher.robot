@@ -157,10 +157,10 @@ Check Profile Setting Context EN
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    Profile Setting
-    
+    #เช็ค คำที่เปลี่ยน ชื่อคำนำหน้า
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    Name Title
-
+    #เช็ค คำที่ไม่เปลี่ยน Scholar ID
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
@@ -170,10 +170,10 @@ Check Profile Setting Context TH
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    ตั้งค่าโปรไฟล์
-
+    #เช็ค คำที่เปลี่ยน ชื่อคำนำหน้า
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    คำนำหน้าชื่อ
-
+    #เช็ค คำที่ไม่เปลี่ยน Scholar ID
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
@@ -183,15 +183,16 @@ Check Profile Setting Context ZH
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    个人资料设置
-
+    #เช็ค คำที่เปลี่ยน ชื่อคำนำหน้า
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    姓名标题
-
+    #เช็ค คำที่ไม่เปลี่ยน Scholar ID
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
 
-Check DOI Context EN
+Check DOI Context EN 
+#เช็ค คำที่ไม่เปลี่ยน DOI
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
@@ -199,6 +200,7 @@ Check DOI Context EN
     Capture Page Screenshot
 
 Check DOI Context TH
+#เช็ค คำที่ไม่เปลี่ยน DOI
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
@@ -206,6 +208,7 @@ Check DOI Context TH
     Capture Page Screenshot
 
 Check DOI Context ZH
+#เช็ค คำที่ไม่เปลี่ยน DOI
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
@@ -213,6 +216,7 @@ Check DOI Context ZH
     Capture Page Screenshot
 
 Check Published Research Context EN
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Published Research
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
@@ -220,6 +224,7 @@ Check Published Research Context EN
     Capture Page Screenshot
 
 Check Published Research Context TH
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Published Research
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
@@ -227,6 +232,7 @@ Check Published Research Context TH
     Capture Page Screenshot
 
 Check Published Research Context ZH
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Published Research
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
@@ -250,6 +256,7 @@ Click Button "VIEW"
     Wait Until Page Contains  Journal Details  timeout=5s
 
 Check Journal Details Context EN
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Journal Details
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
@@ -257,6 +264,7 @@ Check Journal Details Context EN
     Capture Page Screenshot
 
 Check Journal Details Context TH
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Journal Details
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
@@ -264,6 +272,7 @@ Check Journal Details Context TH
     Capture Page Screenshot
 
 Check Journal Details Context ZH
+#เช็ค คำที่เปลี่ยน ชื่อหน้า Journal Details
     Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
