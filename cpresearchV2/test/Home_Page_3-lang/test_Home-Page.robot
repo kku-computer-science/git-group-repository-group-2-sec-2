@@ -98,19 +98,16 @@ Test Website Functionality
     [Arguments]    ${CURRENT_LANGUAGE}
 
     # ✅ ตรวจสอบโลโก้
-    #Log To Console  *** Checking LOGO ***
     Element Should Be Visible    ${LOGO}
     Capture Page Screenshot  logo_${CURRENT_LANGUAGE}.png
     Log To Console  ✅ LOGO is visible!
 
     # ✅ ตรวจสอบแบนเนอร์เริ่มต้น (Banner 1)
-    Log To Console  *** Checking FIRST BANNER ***
     Element Should Be Visible    ${BANNER1}
     Capture Page Screenshot  initial_banner_${CURRENT_LANGUAGE}.png
     Log To Console  ✅ First banner is visible!
 
     # ✅ กดปุ่มเปลี่ยน Banner
-    #Log To Console  *** Clicking Next to Change Banner ***
     Wait Until Element Is Visible    ${NEXT_BUTTON}    10s
     Click Element    ${NEXT_BUTTON}
     Sleep    3s
@@ -118,12 +115,10 @@ Test Website Functionality
     Log To Console  ✅ Banner1 to Banner2 changed successfully!
 
     # ✅ ตรวจสอบแบนเนอร์เปลี่ยนแล้ว
-    #Log To Console  *** Verifying Banner Change ***
     Element Should Be Visible    ${BANNER2}
     Log To Console  ✅ Second banner is visible!
     
     # ✅ เลื่อนหน้าไปยังกราฟ
-    #Log To Console  *** Scrolling to Graph ***
     Element Should Be Visible    ${TARGET_ELEMENT}
     Execute JavaScript    window.scrollBy(0, 500);
     Sleep    3s
@@ -132,13 +127,11 @@ Test Website Functionality
     Log To Console  ✅ Scrolling to Graph
 
     # ✅ ตรวจสอบว่ากราฟมีอยู่จริง
-    #Log To Console  *** Checking If Graph Exists ***
     Page Should Contain Element    ${BAR_CHART}
     Wait Until Keyword Succeeds    5x    2s    Execute JavaScript    return typeof Chart !== 'undefined' && Chart.instances && Object.keys(Chart.instances).length > 0;
     Log To Console  ✅ Graph is present!
 
     # ✅ ตรวจสอบข้อความใน Section
-    #Log To Console  *** Checking Text in Target Column ***
     Wait Until Element Is Visible    ${TEXT_ELEMENT}    10s
     ${actual_text} =    Get Text    ${TEXT_ELEMENT}
     Log  Found Text: ${actual_text}
@@ -153,42 +146,49 @@ Test Website Functionality
     Capture Page Screenshot  text_check_${CURRENT_LANGUAGE}.png
 
     # ✅ ตรวจสอบคำที่ไม่เปลี่ยนแปลง
-    #Log To Console  *** Checking Fixed Texts (SCOPUS, WOS, TCI) ***
     Verify Fixed Text    ${SCOPUS_TEXT}    SCOPUS
     Verify Fixed Text    ${WOS_TEXT}    WOS
     Verify Fixed Text    ${TCI_TEXT}    TCI
     Log To Console  ✅ Checking Fixed Texts (SCOPUS, WOS, TCI)
 
     # ✅ เลื่อนหน้าไปยัง "Publications (In the Last 5 Years)"
-    #Log To Console  *** Scrolling to Publications Section ***
     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
     Sleep    2s
     Capture Page Screenshot  scrolled_to_publications_${CURRENT_LANGUAGE}.png
     Log To Console   ✅ Scrolling to Publications Section 
 
     # ✅ กดปุ่มปี 2022
-    #Log To Console  *** Clicking 2022 Publications ***
     Wait Until Element Is Visible    ${YEAR_2022_BUTTON}    timeout=5s
     Click Element    ${YEAR_2022_BUTTON}
     Sleep    2s
     Capture Page Screenshot  clicked_2022_${CURRENT_LANGUAGE}.png
-    Log To Console  ✅ licking 2022 Publications
+    Log To Console  ✅ Clicking 2022 Publications
 
-    # ✅ กดลิงก์ URL และปิดแท็บ
-    #Log To Console  *** Clicking and Closing URL Link ***
-    Click And Close Link    ${URL_LINK}
-    Log To Console  ✅ Clicking and Closing URL Link
+    # ✅ กดลิงก์ URL (Scopus) และปิดแท็บ
+    Log To Console    🔄 Clicking and Closing URL Link
+    Click Scopus Link
+    Log To Console    ✅ Clicking and Closing URL Link
 
     # ✅ กดลิงก์ DOI และปิดแท็บ
-    #Log To Console  *** Clicking and Closing DOI Link ***
-    Click And Close Link    ${DOI_LINK}
-    Log To Console  ✅ Clicking and Closing DOI Link
-
+    Log To Console    🔄 Clicking and Closing DOI Link
+    Click DOI Link
+    Log To Console    ✅ Clicking and Closing DOI Link
+    
     # ✅ กดปุ่ม Paper2 และปิดโมดัล
-    Wait Until Element Is Visible    ${PAPER2_BUTTON}    timeout=5s
-    Click Element    ${PAPER2_BUTTON}
+    Log To Console    🔄 Navigating to Paper2 Button using TAB
+    Press Keys    None    TAB
+    Sleep    0.3s
+    Press Keys    None    TAB
+    Sleep    0.3s
+    Press Keys    None    TAB
+    Sleep    0.3s
+    Press Keys    None    SHIFT+TAB
+    Sleep    0.3s
+    Press Keys    None    SHIFT+TAB
+    Sleep    0.3s
+    Press Keys    None    ENTER
     Sleep    2s
-    Capture Page Screenshot  paper2_${CURRENT_LANGUAGE}.png
+    Capture Page Screenshot    paper2_${CURRENT_LANGUAGE}.png
 
     Wait Until Element Is Visible    ${MODAL_BUTTON}    timeout=5s
     Click Element    ${MODAL_BUTTON}
@@ -210,3 +210,44 @@ Verify Fixed Text
     [Arguments]    ${ELEMENT_XPATH}    ${EXPECTED_TEXT}
     ${actual_text} =    Get Text    ${ELEMENT_XPATH}
     Should Be Equal    ${actual_text}    ${EXPECTED_TEXT}    Fixed text '${EXPECTED_TEXT}' has changed!
+
+Click Scopus Link
+    # ✅ ตรวจสอบว่า accordion ปี 2022 เปิดอยู่หรือไม่
+    ${is_open}    Execute JavaScript    return document.querySelector('div#collapse2022').classList.contains('show');
+    Run Keyword If    not ${is_open}    Execute JavaScript    document.querySelector('button[aria-controls="collapse2022"]').click();
+    Sleep    2s
+
+    # ✅ รอให้ URL ปรากฏ
+    Wait Until Element Is Visible    xpath=//div[@id="collapse2022"]//a[contains(@href, 'scopus.com')]    timeout=10s
+
+    # ✅ คลิกลิงก์ให้เปิดแท็บใหม่
+    Click Element    xpath=//div[@id="collapse2022"]//a[contains(@href, 'scopus.com')]
+    Sleep    3s
+
+    # ✅ สลับไปแท็บใหม่ (Scopus) แล้วปิด
+    Switch Window    NEW
+    Sleep    2s
+    Close Window
+    Switch Window    MAIN
+    Sleep    2s
+
+Click DOI Link
+    # ✅ ตรวจสอบว่า accordion ปี 2022 เปิดอยู่หรือไม่
+    ${is_open}    Execute JavaScript    return document.querySelector('div#collapse2022').classList.contains('show');
+    Run Keyword If    not ${is_open}    Execute JavaScript    document.querySelector('button[aria-controls="collapse2022"]').click();
+    Sleep    2s
+
+    # ✅ รอให้ DOI ปรากฏ
+    Wait Until Element Is Visible    xpath=//div[@id="collapse2022"]//a[contains(@href, 'doi.org')]    timeout=10s
+
+    # ✅ คลิกลิงก์ให้เปิดแท็บใหม่
+    Click Element    xpath=//div[@id="collapse2022"]//a[contains(@href, 'doi.org')]
+    Sleep    3s
+
+    # ✅ สลับไปแท็บใหม่ (DOI) แล้วปิด
+    Switch Window    NEW
+    Sleep    2s
+    Close Window
+    Switch Window    MAIN
+    Sleep    2s
+
