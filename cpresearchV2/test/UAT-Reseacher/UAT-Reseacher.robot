@@ -37,6 +37,7 @@ ${EXPERTISE_PUNYAPHOL_TH}   //div[@class='card-expertise']/p[contains(text(),'�
 ${EXPERTISE_PUNYAPHOL_CN}   //div[@class='card-expertise']/p[contains(text(),'机器学习与智能系统')]
 
 ${SEARCH_NAME_PUNYAPHOL}   Punyaphol
+${SEARCH_NAME_PUNYAPHOL_TH}   ปัญญาพล
 
 # Arfat Elements
 ${CHECK_ARFAT_EN}   //h5[contains(text(),'Arfat Ahmad Khan, Ph.D.')]
@@ -58,6 +59,7 @@ ${CHECK_FAN_TH}   //h5[contains(text(),'Fan Bingbing')]
 ${CHECK_FAN_CN}   //h5[contains(text(),'范冰冰')]
 
 ${SEARCH_NAME_FAN}   Fan 
+${SEARCH_NAME_FAN_CH}   范冰冰
 
 # Search Fields
 ${SEARCH_BOX}      //input[@name='textsearch']
@@ -120,15 +122,14 @@ Change Language And Search
 
     Wait Until Element Is Visible    ${SEARCH_BOX}    timeout=10s
     Input Text    ${SEARCH_BOX}    ${search_text}
+    Sleep    3s
     Click Element    ${search_btn}
-    Sleep    2s
+    Sleep    3s
     Wait Until Page Contains Element    ${expected_result}    timeout=10s
-
-Reset Search To Show All
-    Wait Until Element Is Visible    ${SEARCH_BOX}    timeout=10s
     Clear Element Text    ${SEARCH_BOX}
-    Click Element    ${SEARCH_BTN_EN}
-    Sleep    2s
+    Click Element    ${search_btn}
+
+
 
 *** Test Cases ***
 เปิดเบราว์เซอร์และไปที่หน้าผู้วิจัย
@@ -138,11 +139,9 @@ Reset Search To Show All
     Sleep    2s
 
 TC_01: ทดสอบข้อมูลอาจารย์ Punyaphol
-    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_PUNYAPHOL_TH}    ${CHECK_PUNYAPHOL_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_PUNYAPHOL_TH}    ${SEARCH_NAME_PUNYAPHOL}
+    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_PUNYAPHOL_TH}    ${CHECK_PUNYAPHOL_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_PUNYAPHOL_TH}    ${SEARCH_NAME_PUNYAPHOL_TH}
     Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_PUNYAPHOL_CN}    ${CHECK_PUNYAPHOL_CN}    ${POSITION_PUNYAPHOL_CN}    ${EXPERTISE_LABEL_CN}    ${EXPERTISE_PUNYAPHOL_CN}    ${SEARCH_NAME_PUNYAPHOL}
     Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_PUNYAPHOL_EN}    ${CHECK_PUNYAPHOL_EN}    ${POSITION_PUNYAPHOL_EN}    ${EXPERTISE_LABEL_EN}    ${EXPERTISE_PUNYAPHOL_EN}    ${SEARCH_NAME_PUNYAPHOL}
-    Sleep    2s
-    Reset Search To Show All
     Sleep    2s
 
 TC_02: ทดสอบข้อมูลอาจารย์ Arfat
@@ -156,7 +155,7 @@ TC_02: ทดสอบข้อมูลอาจารย์ Arfat
 
 TC_03: ทดสอบข้อมูล Fan Bingbing
     Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_FAN_TH}    ${CHECK_FAN_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EMPTY}    ${SEARCH_NAME_FAN}
-    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_FAN_CN}    ${CHECK_FAN_CN}    ${EMPTY}    ${EXPERTISE_LABEL_CN}    ${EMPTY}    ${SEARCH_NAME_FAN}
+    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_FAN_CN}    ${CHECK_FAN_CN}    ${EMPTY}    ${EXPERTISE_LABEL_CN}    ${EMPTY}    ${SEARCH_NAME_FAN_CH}
     Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_FAN_EN}    ${CHECK_FAN_EN}    ${EMPTY}    ${EXPERTISE_LABEL_EN}    ${EMPTY}    ${SEARCH_NAME_FAN}
 
     Close Browser

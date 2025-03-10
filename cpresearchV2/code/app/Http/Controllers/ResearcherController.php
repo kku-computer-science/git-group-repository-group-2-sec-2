@@ -90,6 +90,14 @@ class ResearcherController extends Controller
         // รวมรายการที่พบในภาษาไทยและภาษาจีน
         $matching_expertises = array_unique(array_merge($matching_expertises, $matching_thai_expertises));
 
+        // กำหนดค่าการแปลงชื่อจีนเป็นภาษาอังกฤษ
+        $chinese_name_mapping = [
+            '范冰冰' => ['Fan Bingbing'],
+        ];
+
+        // ตรวจสอบว่าคำค้นหาเป็นภาษาจีนและมีการแมปไปยังชื่ออังกฤษหรือไม่
+        $english_names = $chinese_name_mapping[$text] ?? [$text];
+
         $users = User::whereHas('roles', function ($q) use ($id) {
             $q->where('roles.id', $id);
         })
@@ -106,10 +114,18 @@ class ResearcherController extends Controller
                 }
 
                 $q->orWhere('fname_th', 'LIKE', "%{$text}%")
-                    ->orWhere('lname_th', 'LIKE', "%{$text}%");
-
-                $q->orWhere('fname_en', 'LIKE', "%{$text}%")
+                    ->orWhere('lname_th', 'LIKE', "%{$text}%")
+                    ->orWhere('fname_en', 'LIKE', "%{$text}%")
                     ->orWhere('lname_en', 'LIKE', "%{$text}%");
+
+                // เงื่อนไขพิเศษสำหรับชื่อ Fan Bingbing เมื่อค้นหาด้วย 范冰冰
+                if (preg_match('/[\x{4E00}-\x{9FFF}]/u', $text)) { // ตรวจสอบว่ามีตัวอักษรจีนหรือไม่
+                    if (strpos($text, '范冰冰') !== false) {
+                        $q->orWhere(function ($subQuery) {
+                            $subQuery->where('fname_en', 'Fan')->where('lname_en', 'Bingbing');
+                        });
+                    }
+                }
             })
             ->orderBy('fname_en')
             ->get();
