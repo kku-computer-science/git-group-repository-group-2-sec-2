@@ -17,6 +17,7 @@ ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
 ${LANG_THAI}      xpath=//a[@href='http://${SERVER}/lang/th']
 ${LANG_CHINESE}   xpath=//a[@href='http://${SERVER}/lang/zh']
 ${LANG_ENGLISH}   xpath=//a[@href='http://${SERVER}/lang/en']
+
 ${SIDEBAR_MANAGE_FUND}   //*[@id="sidebar"]/ul/li[5]/a/span
 ${SIDEBAR_BOOKS}        //*[@id="sidebar"]/ul/li[8]/a/span
 ${SIDEBAR_MANAGE_PUBLIC}       //*[@id="sidebar"]/ul/li[8]/a/span
@@ -24,10 +25,16 @@ ${SIDEBAR_RESPROJECT}   //*[@id="sidebar"]/ul/li[6]/a/span
 ${SIDEBAR_RESEARCH_GROUP}       //*[@id="sidebar"]/ul/li[7]/a/span
 ${ACCOUNT}   //*[@id="account-tab"]
 ${VIEW_BUTTON}       //*[@id="example1"]/tbody[1]/tr[5]/td[5]/form/li[1]/a
+
 *** Keywords ***
+Zoom Out
+    [Documentation]    ซูมออกหน้าเว็บเพื่อลดขนาดการแสดงผล
+    Execute Javascript    document.body.style.zoom="60%"
+
 Open Browser And Login
     Open Browser  ${URL}  ${BROWSER}
     Maximize Browser Window
+    Zoom Out
     Wait Until Element Is Visible  id=username  timeout=10s
     Input Text  id=username  ${USERNAME}
     Input Text  id=password  ${PASSWORD}
@@ -37,9 +44,11 @@ Open Browser And Login
     Sleep  1s
 
 Change Language And Check Context
+    Zoom Out
     [Arguments]  ${LANG_OPTION}
     Change Language  ${LANG_OPTION}
 Change Language
+    Zoom Out
     [Arguments]  ${LANG_OPTION}
     Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s
     Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();
@@ -53,6 +62,7 @@ Change Language
 
 
 Click ManagePublications In Sidebar EN
+    Zoom Out
     Wait Until Element Is Visible  ${SIDEBAR_MANAGE_PUBLIC}  timeout=5s
     Click Element  ${SIDEBAR_MANAGE_PUBLIC}
     Click Element  xpath=//a[@href='#ManagePublications']
@@ -66,6 +76,7 @@ Click ManagePublications In Sidebar EN
 
 
 Click ManagePublications In Sidebar TH
+    Zoom Out
     Wait Until Element Is Visible  ${SIDEBAR_MANAGE_PUBLIC}  timeout=5s
     Click Element  ${SIDEBAR_MANAGE_PUBLIC}
     Click Element  xpath=//a[@href='#ManagePublications']
@@ -79,6 +90,7 @@ Click ManagePublications In Sidebar TH
 
 
 Click ManagePublications In Sidebar ZH
+    Zoom Out
     Wait Until Element Is Visible  ${SIDEBAR_MANAGE_PUBLIC}  timeout=5s
     Click Element  ${SIDEBAR_MANAGE_PUBLIC}
     Click Element  xpath=//a[@href='#ManagePublications']
@@ -92,6 +104,7 @@ Click ManagePublications In Sidebar ZH
 
 
 Click User Profile In Sidebar EN
+    Zoom Out
     Go To  ${URL_PROFILE}
     Wait Until Element Is Visible  ${ACCOUNT}  timeout=5s
     Click Element  ${ACCOUNT}
@@ -100,6 +113,7 @@ Click User Profile In Sidebar EN
     Sleep  1s
 
 Click User Profile In Sidebar TH
+    Zoom Out
     Go To  ${URL_PROFILE}
     Wait Until Element Is Visible  ${ACCOUNT}  timeout=5s
     Click Element  ${ACCOUNT}
@@ -108,6 +122,7 @@ Click User Profile In Sidebar TH
     Sleep  1s
 
 Click User Profile In Sidebar ZH
+    Zoom Out
     Go To  ${URL_PROFILE}
     Wait Until Element Is Visible  ${ACCOUNT}  timeout=5s
     Click Element  ${ACCOUNT}
@@ -116,18 +131,21 @@ Click User Profile In Sidebar ZH
     Sleep  1s
 
 Click Assistant Wanted In Sidebar EN
+    Zoom Out
     Go To  ${URL_HEAD}
     Check For Head Project Context EN
     Capture Page Screenshot
     Sleep  1s
 
 Click Assistant Wanted In Sidebar TH
+    Zoom Out
     Go To  ${URL_HEAD}
     Check For Head Project Context TH
     Capture Page Screenshot
     Sleep  1s
 
 Click Assistant Wanted In Sidebar ZH
+    Zoom Out
     Go To  ${URL_HEAD}
     Check For Head Project Context ZH
     Capture Page Screenshot
@@ -135,43 +153,88 @@ Click Assistant Wanted In Sidebar ZH
 
 
 Check Profile Setting Context EN
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    Profile Setting
+    
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    Name Title
+
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
 
 Check Profile Setting Context TH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    ตั้งค่าโปรไฟล์
+
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    คำนำหน้าชื่อ
+
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
 
 Check Profile Setting Context ZH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=//*[@id="account"]/h3    timeout=${TIMEOUT}
     Element Text Should Be    xpath=//*[@id="account"]/h3    个人资料设置
+
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[3]/div/label    姓名标题
+
+    Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div/div/div/div/div[1]/div/div[2]/div[1]/form/div[1]/div[9]/div/label    Scholar ID
     Capture Page Screenshot
 
+Check DOI Context EN
+    Zoom Out
+    Log    Checking Context
+    Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b    DOI
+    Capture Page Screenshot
+
+Check DOI Context TH
+    Zoom Out
+    Log    Checking Context
+    Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b    DOI
+    Capture Page Screenshot
+
+Check DOI Context ZH
+    Zoom Out
+    Log    Checking Context
+    Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b   timeout=${TIMEOUT}
+    Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/div[13]/p[1]/b    DOI
+    Capture Page Screenshot
 
 Check Published Research Context EN
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/div/div/h4    Published Research
     Capture Page Screenshot
 
 Check Published Research Context TH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/div/div/h4    วารผลงานตีพิมพ์
     Capture Page Screenshot
 
 Check Published Research Context ZH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/div/div/h4   已發表的研究
     Capture Page Screenshot
 
 Click Button "VIEW"
+    Zoom Out
     Wait Until Element Is Visible  ${VIEW_BUTTON}  timeout=5s
     ${is_visible}=    Set Variable    False  
     WHILE    not ${is_visible}    limit=50
@@ -187,36 +250,42 @@ Click Button "VIEW"
     Wait Until Page Contains  Journal Details  timeout=5s
 
 Check Journal Details Context EN
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    Journal Details    
     Capture Page Screenshot
 
 Check Journal Details Context TH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    รายละเอียดงานวารสาร    
     Capture Page Screenshot
 
 Check Journal Details Context ZH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div[3]/div/div/div/div/div/div/h4    期刊详情    
     Capture Page Screenshot
 
 Check For Head Project Context EN
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/h2    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/h2    Assistant Wanted
     Capture Page Screenshot
 
 Check For Head Project Context TH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/h2    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/h2    ต้องการผู้ช่วยวิจัย
     Capture Page Screenshot
 
 Check For Head Project Context ZH
+    Zoom Out
     Log    Checking Context
     Wait Until Element Is Visible    xpath=/html/body/div/div/div/div/div/h2    timeout=${TIMEOUT}
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/h2   招聘研究助理
@@ -225,28 +294,35 @@ Check For Head Project Context ZH
 
 
 *** Test Cases ***
-Test Head Teacher
+Test Teacher
     Open Browser And Login
     Change Language And Check Context  ${LANG_THAI}
     Change Language And Check Context  ${LANG_CHINESE}
     Change Language And Check Context  ${LANG_ENGLISH}
+Test Profile Teacher
     Click User Profile In Sidebar EN
     Change Language And Check Context  ${LANG_THAI}
     Click User Profile In Sidebar TH
     Change Language And Check Context  ${LANG_CHINESE}
     Click User Profile In Sidebar ZH
     Change Language And Check Context  ${LANG_ENGLISH}
+Test Journal
     Click ManagePublications In Sidebar EN
     Change Language And Check Context  ${LANG_THAI}
     Change Language And Check Context  ${LANG_CHINESE}
     Change Language And Check Context  ${LANG_ENGLISH}
     Click Button "VIEW"
+    Zoom Out
     Change Language And Check Context  ${LANG_THAI}
     Check Journal Details Context TH
+    Check DOI Context TH
     Change Language And Check Context  ${LANG_CHINESE}
     Check Journal Details Context ZH
+    Check DOI Context ZH
     Change Language And Check Context  ${LANG_ENGLISH}
     Check Journal Details Context EN
+    Check DOI Context EN
+Test Head Teacher
     Click ManagePublications In Sidebar EN
     Click Assistant Wanted In Sidebar EN
     Change Language And Check Context  ${LANG_THAI}
