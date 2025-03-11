@@ -9,7 +9,7 @@ ${URL_LOGIN}        ${SERVER}/login  # URL ของหน้า Login
 # ${SERVER}           http://127.0.0.1:8000
 # ${URL_LOGIN}        ${SERVER}/login  # URL ของหน้า Login
 
-${BROWSER}          Chrome
+${BROWSER}          fire fox
 
 # Language Dropdown & Language Selection
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']  
