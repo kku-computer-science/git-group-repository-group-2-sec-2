@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 Library    Process
 Suite Setup    Run Keyword    Setup Suite
 
+
 *** Variables ***
 ${DELAY}    3s
 
