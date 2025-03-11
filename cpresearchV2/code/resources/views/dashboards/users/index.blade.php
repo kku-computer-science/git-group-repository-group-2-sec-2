@@ -12,7 +12,8 @@ $position_map = [
     'Asst. Prof.' => '助理教授',
     'Asst. Prof. Dr.' => '助理教授 博士',
     'Lecturer' => '讲师',
-    'Prof. Dr.' => '教授 博士'
+    'Prof. Dr.' => '教授 博士',
+    'Master Student' => '硕士生',
 ];
 
 // Determine position translation
@@ -34,10 +35,15 @@ if ($locale === 'zh') {
     $role = Auth::user()->roles->first()->name ?? 'staff'; // ดึง role ของผู้ใช้
     $roleKey = 'message.Role_' . strtolower($role);
     $translatedRole = trans($roleKey);
-
     // แสดงชื่อเป็นภาษาที่เลือก
-    $fnameKey = ($locale === 'th') ? Auth::user()->fname_th : (($locale === 'zh') ? Auth::user()->fname_en : Auth::user()->fname_en);
-    $lnameKey = ($locale === 'th') ? Auth::user()->lname_th : (($locale === 'zh') ? Auth::user()->lname_en : Auth::user()->lname_en);
+    if ($locale === 'zh' && Auth::user()->fname_en === 'Fan' && Auth::user()->lname_en === 'Bingbing') {
+        $fnameKey = '范冰冰';
+        $lnameKey = '';
+    } else {
+        $fnameKey = ($locale === 'th') ? Auth::user()->fname_th : (($locale === 'zh') ? Auth::user()->fname_en : Auth::user()->fname_en);
+        $lnameKey = ($locale === 'th') ? Auth::user()->lname_th : (($locale === 'zh') ? Auth::user()->lname_en : Auth::user()->lname_en);
+    }
+
 @endphp
 
 <h4>{{ trans('message.Hello') }} {{ $translatedRole }} {{ $fnameKey }} {{ $lnameKey }}</h4>

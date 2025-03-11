@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container card-3 ">
-    <p>{{ trans('message.Research_Group') }}</p>
+    <p>{{ trans('message.research_group') }}</p>
     @foreach ($resg as $index => $rg)
     @php
         $locale = app()->getLocale();
@@ -30,8 +30,8 @@
             <div class="col-md-4">
                 <div class="card-body">
                     <img src="{{ asset('img/'.$rg->group_image) }}" alt="...">
-                    <h2 class="card-text-1">{{ trans('message.Laboratory_Supervisor') }}</h2>
-                    
+                    <h2 class="card-text-1">{{ trans('message.laboratory_supervisor') }}</h2>
+
                     <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if ($r->hasRole('teacher'))
@@ -66,7 +66,7 @@
 </div>
 
 <!-- Script แปลเฉพาะคำอธิบาย (group_desc) -->
-@php 
+@php
 $locale = app()->getLocale();
 @endphp
 

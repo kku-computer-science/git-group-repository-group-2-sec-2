@@ -675,9 +675,9 @@ return [
     'Role_student' => 'นักศึกษา',
     'Role_staff' => 'เจ้าหน้าที่',
     'Role_headproject' => 'หัวหน้าโครงการ',
-    'Role_system_administrator' => 'ผู้ดูแลระบบสารสนเทศ',
-    'Role_public_relations_officer' => 'เจ้าหน้าที่ประชาสัมพันธ์',
-    'Role_master_student' => 'นักศึกษาปริญญาโท',
+    'Role_system administrator' => 'ผู้ดูแลระบบสารสนเทศ',
+    'Role_public relations officer' => 'เจ้าหน้าที่ประชาสัมพันธ์',
+    'Role_master student' => 'นักศึกษาปริญญาโท',
     'Role_educator' => 'นักการศึกษา',
 
 

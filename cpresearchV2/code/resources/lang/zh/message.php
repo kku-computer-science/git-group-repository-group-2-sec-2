@@ -520,9 +520,9 @@ return [
     'Role_student' => '学生',
     'Role_staff' => '职员',
     'Role_headproject' => '项目负责人',
-    'Role_system_administrator' => '系统管理员',
-    'Role_public_relations_officer' => '公关官员',
-    'Role_master_student' => '硕士生',
+    'Role_system administrator' => '系统管理员',
+    'Role_public relations officer' => '公关官员',
+    'Role_master student' => '硕士生',
     'Role_educator' => '教育者',
 
 
