@@ -67,6 +67,22 @@ ${SEARCH_BTN_EN}   //button[contains(text(),'Search')]
 ${SEARCH_BTN_TH}   //button[contains(text(),'ค้นหา')]
 ${SEARCH_BTN_CN}   //button[normalize-space()='搜索']
 
+# Researchers Title
+${TITLE_RESEARCHER_EN}   //p[contains(@class,'title') and normalize-space(.)="Researchers"]
+${TITLE_RESEARCHER_TH}   //p[contains(@class,'title') and normalize-space(.)="ผู้วิจัย"]
+${TITLE_RESEARCHER_CN}   //p[contains(@class,'title') and normalize-space(.)="研究人员"]
+
+# Lecturer Label
+${LABEL_LECTURER_EN}   //span[contains(normalize-space(),'Lecturer')]
+${LABEL_LECTURER_TH}   //span[contains(normalize-space(),'อาจารย์')]
+${LABEL_LECTURER_CN}   //span[contains(normalize-space(),'教师')]
+
+# Master Student Label
+${LABEL_MASTER_EN}   //span[contains(normalize-space(),'Master Student')]
+${LABEL_MASTER_TH}   //span[contains(normalize-space(),'นักศึกษาปริญญาโท')]
+${LABEL_MASTER_CN}   //span[contains(.,'硕士生')]
+
+
 *** Keywords ***
 Open Browser And Navigate To Home
     Open Browser    ${URL}    ${BROWSER}
@@ -96,7 +112,7 @@ Navigate To Researchers Master Student Page
     Wait Until Page Contains Element    ${CHECK_FAN_EN}    timeout=20s
 
 Change Language And Search
-    [Arguments]    ${language}    ${search_btn}    ${expected_result}    ${check_language}    ${position_check}    ${expertise_label}    ${expertise_check}    ${search_text}
+    [Arguments]    ${language}    ${search_btn}    ${expected_result}    ${check_language}    ${position_check}    ${expertise_label}    ${expertise_check}    ${search_text}    ${check_title_reseacher}    ${check_role_reseacher}
     
     Wait Until Element Is Visible    ${LANG_MENU}    timeout=10s
     Click Element    ${LANG_MENU}
@@ -107,6 +123,8 @@ Change Language And Search
     Run Keyword If    '${language}' == 'CN'    Click Element    ${LANG_CN}
     Sleep    2s
     Wait Until Page Contains Element    ${check_language}    timeout=10s
+    Wait Until Page Contains Element    ${check_title_reseacher}    timeout=10s
+    Wait Until Page Contains Element    ${check_role_reseacher}    timeout=10s
 
     # ตรวจสอบ Label ของ Expertise (คำว่า "Expertise", "ความเชี่ยวชาญ", "专长")
     ${EXPERTISE_LABEL_EXISTS}    Run Keyword And Return Status    Page Should Contain Element    ${expertise_label}    timeout=10s
@@ -134,28 +152,26 @@ Change Language And Search
 *** Test Cases ***
 เปิดเบราว์เซอร์และไปที่หน้าผู้วิจัย
     Open Browser And Navigate To Home
-    Navigate To Researchers Lecturer Page
-    Wait Until Page Contains    Punyaphol Horata    timeout=15s
-    Sleep    2s
-
-TC_01: ทดสอบข้อมูลอาจารย์ Punyaphol
-    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_PUNYAPHOL_TH}    ${CHECK_PUNYAPHOL_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_PUNYAPHOL_TH}    ${SEARCH_NAME_PUNYAPHOL_TH}
-    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_PUNYAPHOL_CN}    ${CHECK_PUNYAPHOL_CN}    ${POSITION_PUNYAPHOL_CN}    ${EXPERTISE_LABEL_CN}    ${EXPERTISE_PUNYAPHOL_CN}    ${SEARCH_NAME_PUNYAPHOL}
-    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_PUNYAPHOL_EN}    ${CHECK_PUNYAPHOL_EN}    ${POSITION_PUNYAPHOL_EN}    ${EXPERTISE_LABEL_EN}    ${EXPERTISE_PUNYAPHOL_EN}    ${SEARCH_NAME_PUNYAPHOL}
-    Sleep    2s
-
-TC_02: ทดสอบข้อมูลอาจารย์ Arfat
-    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_ARFAT_TH}    ${CHECK_ARFAT_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_ARFAT_TH}    ${SEARCH_NAME_ARFAT}
-    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_ARFAT_CN}    ${CHECK_ARFAT_CN}    ${POSITION_ARFAT_CN}    ${EXPERTISE_LABEL_CN}    ${EXPERTISE_ARFAT_CN}    ${SEARCH_NAME_ARFAT}
-    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_ARFAT_EN}    ${CHECK_ARFAT_EN}    ${POSITION_ARFAT_EN}    ${EXPERTISE_LABEL_EN}    ${EXPERTISE_ARFAT_EN}    ${SEARCH_NAME_ARFAT}
-    Sleep    2s
     Navigate To Researchers Master Student Page
     Wait Until Page Contains    Fan Bingbing    timeout=15s
     Sleep    2s
 
-TC_03: ทดสอบข้อมูล Fan Bingbing
-    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_FAN_TH}    ${CHECK_FAN_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EMPTY}    ${SEARCH_NAME_FAN}
-    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_FAN_CN}    ${CHECK_FAN_CN}    ${EMPTY}    ${EXPERTISE_LABEL_CN}    ${EMPTY}    ${SEARCH_NAME_FAN_CH}
-    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_FAN_EN}    ${CHECK_FAN_EN}    ${EMPTY}    ${EXPERTISE_LABEL_EN}    ${EMPTY}    ${SEARCH_NAME_FAN}
+TC_01: ทดสอบข้อมูล Fan Bingbing
+    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_FAN_TH}    ${CHECK_FAN_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EMPTY}    ${SEARCH_NAME_FAN}  ${TITLE_RESEARCHER_TH}   ${LABEL_MASTER_TH}
+    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_FAN_CN}    ${CHECK_FAN_CN}    ${EMPTY}    ${EXPERTISE_LABEL_CN}    ${EMPTY}    ${SEARCH_NAME_FAN_CH}  ${TITLE_RESEARCHER_CN}   ${LABEL_MASTER_CN}
+    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_FAN_EN}    ${CHECK_FAN_EN}    ${EMPTY}    ${EXPERTISE_LABEL_EN}    ${EMPTY}    ${SEARCH_NAME_FAN}  ${TITLERESEARCHER_EN}   ${LABEL_MASTER_EN}
 
-    Close Browser
+    Navigate To Researchers Lecturer Page
+    Wait Until Page Contains    Arfat    timeout=15s
+
+TC_02: ทดสอบข้อมูลอาจารย์ Arfat
+    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_ARFAT_TH}    ${CHECK_ARFAT_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_ARFAT_TH}    ${SEARCH_NAME_ARFAT}  ${TITLE_RESEARCHER_TH}   ${LABEL_LECTURER_TH}
+    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_ARFAT_CN}    ${CHECK_ARFAT_CN}    ${POSITION_ARFAT_CN}    ${EXPERTISE_LABEL_CN}    ${EXPERTISE_ARFAT_CN}    ${SEARCH_NAME_ARFAT}  ${TITLE_RESEARCHER_CN}   ${LABEL_LECTURER_CN}
+    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_ARFAT_EN}    ${CHECK_ARFAT_EN}    ${POSITION_ARFAT_EN}    ${EXPERTISE_LABEL_EN}    ${EXPERTISE_ARFAT_EN}    ${SEARCH_NAME_ARFAT}    ${TITLE_RESEARCHER_EN}   ${LABEL_LECTURER_EN}
+    Sleep    2s
+
+TC_03: ทดสอบข้อมูลอาจารย์ Punyaphol
+    Change Language And Search    TH    ${SEARCH_BTN_TH}    ${CHECK_PUNYAPHOL_TH}    ${CHECK_PUNYAPHOL_TH}    ${EMPTY}    ${EXPERTISE_LABEL_TH}    ${EXPERTISE_PUNYAPHOL_TH}    ${SEARCH_NAME_PUNYAPHOL_TH}  ${TITLE_RESEARCHER_TH}    ${LABEL_LECTURER_TH}
+    Change Language And Search    CN    ${SEARCH_BTN_CN}    ${CHECK_PUNYAPHOL_CN}    ${CHECK_PUNYAPHOL_CN}    ${POSITION_PUNYAPHOL_CN}    ${EXPERTISE_LABEL_CN}    ${EXPERTISE_PUNYAPHOL_CN}    ${SEARCH_NAME_PUNYAPHOL}  ${TITLE_RESEARCHER_CN}   ${LABEL_LECTURER_CN}
+    Change Language And Search    EN    ${SEARCH_BTN_EN}    ${CHECK_PUNYAPHOL_EN}    ${CHECK_PUNYAPHOL_EN}    ${POSITION_PUNYAPHOL_EN}    ${EXPERTISE_LABEL_EN}    ${EXPERTISE_PUNYAPHOL_EN}    ${SEARCH_NAME_PUNYAPHOL}    ${TITLE_RESEARCHER_EN}   ${LABEL_LECTURER_EN}
+    Sleep    2s
