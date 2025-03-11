@@ -26,7 +26,6 @@ ${LANG_ENGLISH}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/en']
 *** Test Cases ***
 ๊UAT-HeadProject-Role
     [Documentation]    Test Switch Language For HeadProject
-    [Teardown]    No Operation
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     Login To website
