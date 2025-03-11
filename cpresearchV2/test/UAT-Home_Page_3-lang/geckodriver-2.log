@@ -1,0 +1,76 @@
+1741685019444	geckodriver	INFO	Listening on 127.0.0.1:56353
+1741685022581	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56354" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\franc\\AppData\\Local\\Temp\\rust_mozprofileaPBDfA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1741685022977	Marionette	INFO	Marionette enabled
+1741685023075	Marionette	INFO	Listening on port 56364
+WebDriver BiDi listening on ws://127.0.0.1:56354
+Read port: 56364
+1741685023238	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56354/devtools/browser/d423bced-16d3-40c5-b8b5-0b86b5b95e05
+console.error: ({})
+console.error: ({})
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://ijece.iaescore.com/index.php/IJECE/article/view/26396" ({})
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://soften2sec267.cpkkuhost.com/" ({})
+console.error: ({})
+console.error: ({})
+JavaScript warning: https://components.scopus.com/www/components/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://assets.adobedtm.com/4a848ae9611a/8abdb8d26bcc/launch-5ed435cee62b.min.js, line 6: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=09ac273255885eee66cf1306358ab29d, line 13: Script terminated by timeout at:
+p@https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=09ac273255885eee66cf1306358ab29d:13:10552
+S/<@https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=09ac273255885eee66cf1306358ab29d:13:34587
+
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js, line 400: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.cookie.js, line 42: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/Helper.js, line 357: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/ObjectProxy.js, line 153: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/Handler.js, line 589: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/linkAction/LinkActionRequest.js, line 150: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/features/Feature.js, line 148: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/SiteHandler.js, line 510: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/UrlInDivHandler.js, line 88: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/AutocompleteHandler.js, line 238: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/ExtrasOnDemandHandler.js, line 190: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/FormHandler.js, line 459: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/AjaxFormHandler.js, line 145: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/ClientFormHandler.js, line 70: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/grid/GridHandler.js, line 827: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/linkAction/LinkActionHandler.js, line 5: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/pages/search/SearchFormHandler.js, line 88: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/statistics/ReportGeneratorFormHandler.js, line 605: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/plugins/generic/lucene/js/LuceneAutocompleteHandler.js, line 82: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.pkp.js, line 89: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/inlinePdf.js, line 14: ReferenceError: $ is not defined
+console.error: ({})
+console.error: ({})
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://soften2sec267.cpkkuhost.com/" ({})
+console.warn: WindowsJumpLists: "Failed to fetch favicon for " "https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=09ac273255885eee66cf1306358ab29d" ({})
+JavaScript warning: https://components.scopus.com/www/components/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://assets.adobedtm.com/4a848ae9611a/8abdb8d26bcc/launch-5ed435cee62b.min.js, line 6: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=f0d437ccc5b12e961e4f4a76e199a82a, line 13: Script terminated by timeout at:
+nrWrapper@https://www.scopus.com/record/display.uri?eid=2-s2.0-85126809240&origin=inward&txGid=f0d437ccc5b12e961e4f4a76e199a82a:13:17584
+
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js, line 400: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.cookie.js, line 42: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/Helper.js, line 357: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/ObjectProxy.js, line 153: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/Handler.js, line 589: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/linkAction/LinkActionRequest.js, line 150: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/classes/features/Feature.js, line 148: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/SiteHandler.js, line 510: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/UrlInDivHandler.js, line 88: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/AutocompleteHandler.js, line 238: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/ExtrasOnDemandHandler.js, line 190: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/FormHandler.js, line 459: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/AjaxFormHandler.js, line 145: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/form/ClientFormHandler.js, line 70: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/grid/GridHandler.js, line 827: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/controllers/linkAction/LinkActionHandler.js, line 5: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/pages/search/SearchFormHandler.js, line 88: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/statistics/ReportGeneratorFormHandler.js, line 605: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/plugins/generic/lucene/js/LuceneAutocompleteHandler.js, line 82: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/lib/pkp/js/lib/jquery/plugins/jquery.pkp.js, line 89: ReferenceError: jQuery is not defined
+JavaScript error: https://ijece.iaescore.com/js/inlinePdf.js, line 14: ReferenceError: $ is not defined
+1741685320009	Marionette	INFO	Stopped listening on port 56364
+Dynamically enable window occlusion 1
