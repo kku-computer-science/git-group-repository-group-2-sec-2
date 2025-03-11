@@ -49,6 +49,7 @@ TC:05 ตรวจสอบการเปลียนภาษาใน Departm
 
 TC:06 Logout and Close Browser
     Logout
+    Close Browser
 
 
 

@@ -352,9 +352,6 @@ Test Journal
 
 ๊UAT-HeadProject-Role
     [Documentation]    Test Switch Language For HeadProject
-    Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window
-    Login To website
     Click Target Menu
     Go To Assistant Researcher Page
     Check Assistant Researcher Context EN
@@ -364,6 +361,7 @@ Test Journal
     Check Assistant Researcher Context ZH
     Change Language And Check Context  ${LANG_ENGLISH}
     Logout
+    Close Browser
 
 *** Keywords ***
 Login To website
@@ -401,21 +399,21 @@ Check Assistant Researcher Context ZH
     Element Text Should Be    xpath=/html/body/div/div/div/div/div/h2    招聘研究助理
     Capture Page Screenshot
 
-Change Language And Check Context
-    [Arguments]  ${LANG_OPTION}
-    Change Language  ${LANG_OPTION}
+# Change Language And Check Context
+#     [Arguments]  ${LANG_OPTION}
+#     Change Language  ${LANG_OPTION}
 
-Change Language
-    [Arguments]  ${LANG_OPTION}
-    Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s
-    Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();
-    Click Element  ${LANG_DROPDOWN}
-    Sleep  1s
-    Wait Until Element Is Visible  ${LANG_OPTION}  timeout=5s
-    Click Element  ${LANG_OPTION}
-    Sleep  1s
-    Capture Page Screenshot
-    Log    Changed language to ${LANG_OPTION}
+# Change Language
+#     [Arguments]  ${LANG_OPTION}
+#     Wait Until Element Is Visible  ${LANG_DROPDOWN}  timeout=10s
+#     Execute JavaScript    document.getElementById('navbarDropdownMenuLink').click();
+#     Click Element  ${LANG_DROPDOWN}
+#     Sleep  1s
+#     Wait Until Element Is Visible  ${LANG_OPTION}  timeout=5s
+#     Click Element  ${LANG_OPTION}
+#     Sleep  1s
+#     Capture Page Screenshot
+#     Log    Changed language to ${LANG_OPTION}
 
 Logout
     Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
