@@ -9,6 +9,8 @@ ${PASSWORD}    123456789
 ${DELAY}       0.2
 ${TIMEOUT}     10s
 
+
+
 # XPaths ของปุ่มเปลี่ยนภาษา
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
 ${LANG_THAI}      xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/th']
@@ -42,11 +44,13 @@ Login To website
 
 
 Click Target Menu
-    Wait Until Element Is Visible  xpath=//a[contains(@href, '/assistant-researcher')]  timeout=10s 
+    Wait Until Element Is Visible  xpath=//a[contains(@href, '/assistant-researcher')]  timeout=10s
+    
+    
 Go To Assistant Researcher Page
-    Go To    https://soften2sec267.cpkkuhost.com/assistant-researcher
+    Click Element    xpath=//a[contains(@href, '/assistant-researcher')] 
     Capture Page Screenshot
-    Log    Navigated to API Status Page
+    Log    Navigated to Assisant-Researcher Page
 
 Check Assistant Researcher Context EN
     Log    Checking Assistant Researcher Context
