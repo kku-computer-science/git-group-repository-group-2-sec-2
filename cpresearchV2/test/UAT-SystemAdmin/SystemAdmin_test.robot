@@ -2,8 +2,8 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}         http://127.0.0.1:8000/login
-# ${URL}         https://soften2sec267.cpkkuhost.com/login
+# ${URL}         http://127.0.0.1:8000/login
+${URL}         https://soften2sec267.cpkkuhost.com/login
 ${BROWSER}     firefox
 ${USERNAME_ADMIN}    nantas@kku.ac.th
 ${PASSWORD_ADMIN}    123456789
@@ -12,13 +12,13 @@ ${TIMEOUT}     10s
 
 # XPaths ของปุ่มเปลี่ยนภาษา
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
-# ${LANG_THAI}      xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/th']
-# ${LANG_CHINESE}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/zh']
-# ${LANG_ENGLISH}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/en']
+${LANG_THAI}      xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/th']
+${LANG_CHINESE}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/zh']
+${LANG_ENGLISH}   xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/en']
 
-${LANG_THAI}      xpath=//a[@href='http://127.0.0.1:8000/lang/th']
-${LANG_CHINESE}   xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
-${LANG_ENGLISH}   xpath=//a[@href='http://127.0.0.1:8000/lang/en']
+# ${LANG_THAI}      xpath=//a[@href='http://127.0.0.1:8000/lang/th']
+# ${LANG_CHINESE}   xpath=//a[@href='http://127.0.0.1:8000/lang/zh']
+# ${LANG_ENGLISH}   xpath=//a[@href='http://127.0.0.1:8000/lang/en']
 
 *** Test Cases ***
 UAT-SystemAdmin-Role
