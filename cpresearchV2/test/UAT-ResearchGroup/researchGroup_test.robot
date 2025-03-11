@@ -6,7 +6,7 @@ Library    SeleniumLibrary
 ${SERVER}       soften2sec267.cpkkuhost.com
 # ${SERVER}       127.0.0.1:8000
 ${EXPECTED_URL}  http://${SERVER}/researchgroup
-${BROWSER}     Chrome
+${BROWSER}     firefox
 
 # Language Buttons
 ${LANG_MENU}   //a[@id='navbarDropdownMenuLink']

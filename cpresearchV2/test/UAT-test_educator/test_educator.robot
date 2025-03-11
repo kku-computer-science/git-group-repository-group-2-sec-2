@@ -9,6 +9,7 @@ ${USERNAME}    rojanha@kku.ac.th
 ${PASSWORD}    123456789
 ${DELAY}       0.2
 ${TIMEOUT}     10s
+${LOGOUT_BTN}  xpath=//a[contains(@href, '/logout') or contains(text(), 'Logout')]
 
 # XPaths ของปุ่มเปลี่ยนภาษา
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']
@@ -125,9 +126,9 @@ Change Language
     Log    Changed language to ${LANG_OPTION}
 
 Logout
-    Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
-    Execute JavaScript    document.getElementById('logout-form').submit();  
-    Sleep    2s  
+    Wait Until Element Is Visible    ${LOGOUT_BTN}    timeout=15s
+    Execute JavaScript    document.getElementById('logout-form').submit();
+    Sleep    2s
     Capture Page Screenshot    logout.png
-    Wait Until Page Contains    Login    timeout=10s  
+    Wait Until Page Contains    Login    timeout=10s
     Log    Successfully logged out
