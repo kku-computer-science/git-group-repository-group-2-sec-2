@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 *** Variables ***
 ${URL}         https://soften2sec267.cpkkuhost.com/researchers/2
 ${EXPECTED_URL}  ${URL}researchers/2
-${BROWSER}     Edge
+${BROWSER}     firefox
 
 # Language Buttons
 ${LANG_MENU}   //a[@id='navbarDropdownMenuLink']
