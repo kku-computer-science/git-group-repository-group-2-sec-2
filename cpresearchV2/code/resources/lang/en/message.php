@@ -14,7 +14,7 @@ return [
     //=========================Mean==============================
 
     // cpresearchV2/resources/views/research_g.blade.php
-    'Research_Group' => 'Research Group',
+    'research_group' => 'Research Group',
     'Laboratory_Supervisor' => 'Laboratory Supervisor',
     // 'Expertise' => 'Expertise',
     'Add_Expertise' => 'Add Expertise',
