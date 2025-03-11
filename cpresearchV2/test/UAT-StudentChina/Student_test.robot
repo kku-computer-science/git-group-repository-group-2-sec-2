@@ -45,6 +45,7 @@ Open Browser And Login
     Wait Until Element Is Visible  id=username  timeout=10s  
     Input Text  id=username  ${USERNAME}  
     Input Text  id=password  ${PASSWORD}  
+    Capture Page Screenshot  Login.png
     Click Button  xpath=//button[@type='submit']  
     Wait Until Page Contains  Dashboard  timeout=10s  
     Capture Page Screenshot  dashboard.png  # 📸 จับภาพหน้าจอ Dashboard
@@ -99,11 +100,12 @@ Logout
     Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
     Execute JavaScript    document.getElementById('logout-form').submit();  
     Sleep    2s  
+    Capture Page Screenshot    logout.png
     Wait Until Page Contains    Login    timeout=10s  
     Log    Successfully logged out
 
 
-*** Test Cases ***
+
 *** Test Cases ***
 Login Test
     Open Browser And Login
@@ -111,7 +113,8 @@ Login Test
 Dashboard Test
     Maximize Browser Window  
     Wait Until Page Contains  Dashboard  timeout=10s  
-    Capture Page Screenshot  dashboard.png  
+    Verify And Click Navigation Link  ${NAV_RESEARCH_PUBLICATION}  Manage Publications  
+    Capture Page Screenshot  Show Element.png  
 
 Verify Research Project Navigation
     Check If Navigation Element Exists  ${NAV_RESEARCH_PROJECT}  Research Project  
