@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}         http://127.0.0.1:8000/researchers/2
+${URL}         https://soften2sec267.cpkkuhost.com/researchers/2
 ${EXPECTED_URL}  ${URL}researchers/2
 ${BROWSER}     Edge
 
