@@ -39,11 +39,9 @@ Test Switching Between All Languages
     ${text} =    Get Text    ${LANG_DROPDOWN}
     Log  Current language: ${text}
     Click Button  xpath=//html/body/div/div[2]/div[3]/form/div[4]/button
-    Close Browser
+
 
 Open Browser And Login Fail
-    Open Browser  ${URL}  ${BROWSER}
-    Maximize Browser Window
     Change Language To Thai
     ${text} =    Get Text    ${LANG_DROPDOWN}
     Log  Current language: ${text}
