@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-03-11T19:54:16.705483" rpa="false" schemaversion="5">
+<suite id="s1" name="Highlight" source="C:\Users\franc\Desktop\se_67\git_sp3\branch Chayanit_1244\git-group-repository-group-2-sec-2\cpresearchV2\test\Highlight\highlight.robot">
+<test id="s1-t1" name="Login, Go to Highlight Tab, Change Language, and Logout" line="24">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:17.097039" level="INFO">Opening browser 'Firefox' to base url 'https://soften2sec267.cpkkuhost.com/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-11T19:54:17.096817" elapsed="8.816526"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-11T19:54:25.913781" elapsed="0.286177"/>
+</kw>
+<kw name="Open Browser And Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:26.201000" elapsed="0.062865"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:26.264250" level="INFO">Typing text 'thanlao@kku.ac.th' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:26.264049" elapsed="0.045287"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:26.309708" level="INFO">Typing text '123456789' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:26.309500" elapsed="0.017651"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:26.327315" elapsed="0.007564"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:26.335190" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:26.335038" elapsed="2.092506"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-11T19:54:28.427707" elapsed="0.004371"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:28.468831" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:28.432308" elapsed="0.036620"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:29.469410" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:28.469071" elapsed="1.000444"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:54:26.200706" elapsed="3.268940"/>
+</kw>
+<kw name="Click Highlight Menu">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HIGHLIGHT_TAB}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:29.470183" elapsed="0.007813"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:29.478308" level="INFO">Clicking element 'xpath=//*[@id="sidebar"]/ul/li[6]/a'.</msg>
+<arg>${HIGHLIGHT_TAB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:29.478133" elapsed="0.413274"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:31.891879" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:29.891559" elapsed="2.000421"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:31.925499" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:31.892138" elapsed="0.033462"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:54:29.469963" elapsed="2.455725"/>
+</kw>
+<kw name="Change Language And Verify">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🔄 กำลังเปลี่ยนภาษาเป็น ${EXPECTED_TEXT}...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:31.926163" elapsed="0.000209"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:31.926470" elapsed="0.007663"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:31.934607" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-11T19:54:31.934293" elapsed="0.005971"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:31.940606" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:31.940421" elapsed="0.226177"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:34.167052" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:32.166757" elapsed="2.000397"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:34.167301" elapsed="0.009464"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:34.177103" level="INFO">Clicking element 'xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/th']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:34.176920" elapsed="0.718687"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:36.896536" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:34.895763" elapsed="2.000908"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:36.926146" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.896831" elapsed="0.029450"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:54:36.926723" level="INFO">Changed language to ไฮไลท์</msg>
+<arg>Changed language to ${EXPECTED_TEXT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.926562" elapsed="0.000199"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:36.936441" level="INFO">${tab_text} = ไฮไลท์</msg>
+<var>${tab_text}</var>
+<arg>${HIGHLIGHT_TAB}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.926839" elapsed="0.009636"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${tab_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.936612" elapsed="0.000171"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบแท็บ Highlight: ${tab_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.936851" elapsed="0.000237"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:36.943915" level="INFO">${header_text} = ไฮไลท์</msg>
+<var>${header_text}</var>
+<arg>${HIGHLIGHT_HEADER}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.937217" elapsed="0.006741"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${header_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.944091" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบหัวข้อ Highlight: ${header_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.944340" elapsed="0.000215"/>
+</kw>
+<arg>${LANG_THAI}</arg>
+<arg>ไฮไลท์</arg>
+<status status="PASS" start="2025-03-11T19:54:31.925944" elapsed="5.018692"/>
+</kw>
+<kw name="Change Language And Verify">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🔄 กำลังเปลี่ยนภาษาเป็น ${EXPECTED_TEXT}...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.945091" elapsed="0.000469"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.945656" elapsed="0.006382"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:36.952428" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.952156" elapsed="0.006573"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:36.959077" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:36.958892" elapsed="0.229593"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:39.189344" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:37.188662" elapsed="2.000784"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:39.189597" elapsed="0.008325"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:39.198255" level="INFO">Clicking element 'xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/zh']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:39.198077" elapsed="0.704433"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:41.903442" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:39.902675" elapsed="2.000869"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:41.933977" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.903690" elapsed="0.030395"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:54:41.934350" level="INFO">Changed language to 亮点</msg>
+<arg>Changed language to ${EXPECTED_TEXT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.934227" elapsed="0.000158"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:41.943556" level="INFO">${tab_text} = 亮点</msg>
+<var>${tab_text}</var>
+<arg>${HIGHLIGHT_TAB}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.934459" elapsed="0.009133"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${tab_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.943723" elapsed="0.000158"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบแท็บ Highlight: ${tab_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.943950" elapsed="0.000309"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:41.949768" level="INFO">${header_text} = 亮点</msg>
+<var>${header_text}</var>
+<arg>${HIGHLIGHT_HEADER}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.944400" elapsed="0.005398"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${header_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.949911" elapsed="0.000147"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบหัวข้อ Highlight: ${header_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.950139" elapsed="0.000314"/>
+</kw>
+<arg>${LANG_CHINESE}</arg>
+<arg>亮点</arg>
+<status status="PASS" start="2025-03-11T19:54:36.944857" elapsed="5.005673"/>
+</kw>
+<kw name="Change Language And Verify">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🔄 กำลังเปลี่ยนภาษาเป็น ${EXPECTED_TEXT}...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.950973" elapsed="0.000352"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_DROPDOWN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.951430" elapsed="0.006944"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:41.958945" level="INFO">Executing JavaScript:
+document.getElementById('navbarDropdownMenuLink').click();
+Without any arguments.</msg>
+<arg>document.getElementById('navbarDropdownMenuLink').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.958532" elapsed="0.006339"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:41.965201" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>${LANG_DROPDOWN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:41.965023" elapsed="0.212691"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:44.178385" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:42.177862" elapsed="2.000625"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANG_OPTION}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:44.178628" elapsed="0.008961"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:44.187913" level="INFO">Clicking element 'xpath=//a[@href='https://soften2sec267.cpkkuhost.com/lang/en']'.</msg>
+<arg>${LANG_OPTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:44.187729" elapsed="0.702979"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:46.891286" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:44.890873" elapsed="2.000548"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:46.922990" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.891574" elapsed="0.031535"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:54:46.923392" level="INFO">Changed language to Highlight</msg>
+<arg>Changed language to ${EXPECTED_TEXT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.923252" elapsed="0.000172"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:46.931668" level="INFO">${tab_text} = Highlight</msg>
+<var>${tab_text}</var>
+<arg>${HIGHLIGHT_TAB}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.923496" elapsed="0.008208"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${tab_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.931844" elapsed="0.000189"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบแท็บ Highlight: ${tab_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.932103" elapsed="0.000375"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:46.939191" level="INFO">${header_text} = Highlight</msg>
+<var>${header_text}</var>
+<arg>${HIGHLIGHT_HEADER}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.932583" elapsed="0.006656"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${header_text}</arg>
+<arg>${EXPECTED_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.939421" elapsed="0.000213"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ตรวจสอบหัวข้อ Highlight: ${header_text} (ถูกต้อง)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.939711" elapsed="0.000411"/>
+</kw>
+<arg>${LANG_ENGLISH}</arg>
+<arg>Highlight</arg>
+<status status="PASS" start="2025-03-11T19:54:41.950764" elapsed="4.989470"/>
+</kw>
+<kw name="Logout">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGOUT_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.940693" elapsed="0.007895"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:46.948932" level="INFO">Clicking element 'xpath=/html/body/div/nav/div[2]/ul[2]/li[4]/a'.</msg>
+<arg>${LOGOUT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-11T19:54:46.948747" elapsed="0.661916"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-11T19:54:49.611430" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-11T19:54:47.610833" elapsed="2.000714"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-11T19:54:49.653190" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-11T19:54:49.611703" elapsed="0.041600"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ออกจากระบบสำเร็จ</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-11T19:54:49.653457" elapsed="0.000469"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-11T19:54:49.654115" level="INFO">Successfully logged out</msg>
+<arg>Successfully logged out</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-11T19:54:49.654041" elapsed="0.000103"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:54:46.940500" elapsed="2.713716"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-11T19:54:49.654385" elapsed="2.608462"/>
+</kw>
+<status status="PASS" start="2025-03-11T19:54:17.095838" elapsed="35.167311"/>
+</test>
+<status status="PASS" start="2025-03-11T19:54:16.706842" elapsed="35.557052"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Highlight">Highlight</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

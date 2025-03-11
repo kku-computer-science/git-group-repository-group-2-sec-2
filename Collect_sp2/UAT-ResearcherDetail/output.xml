@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.3 on linux)" generated="2025-02-26T13:21:12.406460" rpa="false" schemaversion="5">
+<suite id="s1" name="ResearchersDetail test" source="/home/mean/Desktop/git-group-repository-group-2-sec-2/Collect_sp2/UAT-ResearcherDetail/ResearchersDetail_test.robot">
+<test id="s1-t1" name="Click Researchers Menu and Browse Profiles" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:12.551188" level="INFO">Opening browser 'Edge' to base url 'http://soften2sec267.cpkkuhost.com/'.</msg>
+<msg time="2025-02-26T13:21:12.665446" level="WARN">The msedgedriver version (132.0.2957.140) detected in PATH at /usr/local/bin/msedgedriver might not be compatible with the detected MicrosoftEdge version (133.0.3065.69); currently, msedgedriver 133.0.3065.82 is recommended for MicrosoftEdge 133.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-26T13:21:12.550832" elapsed="6.771794"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-26T13:21:19.323462" elapsed="0.018089"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:21.342541" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:19.341933" elapsed="2.000840"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:21.344412" level="INFO">Executing JavaScript:
+document.querySelector("a[data-bs-toggle='dropdown']").click()
+Without any arguments.</msg>
+<arg>document.querySelector("a[data-bs-toggle='dropdown']").click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-26T13:21:21.343302" elapsed="0.033682"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:23.377694" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:21.377278" elapsed="2.000671"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:23.379316" level="INFO">Clicking element 'xpath=//ul[contains(@class, 'dropdown-menu show')]//a[contains(text(), 'Lecturer')]'.</msg>
+<arg>xpath=//ul[contains(@class, 'dropdown-menu show')]//a[contains(text(), 'Lecturer')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:23.378464" elapsed="9.377043"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:34.756236" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:32.755773" elapsed="2.000734"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:34.757000" elapsed="0.308030"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:37.065704" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:35.065320" elapsed="2.000658"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-26T13:21:37.066494" elapsed="0.047626"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:37.115088" level="INFO">Clicking element 'xpath=(//div[contains(@class, 'card-body')])[1]'.</msg>
+<arg>xpath=(//div[contains(@class, 'card-body')])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:37.114614" elapsed="3.158798"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:42.274617" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:40.274001" elapsed="2.000875"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:42.276262" level="INFO">Executing JavaScript:
+window.scrollBy(0, 500)
+Without any arguments.</msg>
+<arg>window.scrollBy(0, 500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-26T13:21:42.275355" elapsed="0.012990"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:42.321543" level="INFO">${tabs} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.178")&gt;, &lt;selenium.webdri...</msg>
+<var>${tabs}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:42.288899" elapsed="0.032762"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:42.322854" elapsed="0.273582"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:42.597660" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.178")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:42.596939" elapsed="0.138826"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:43.736758" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:42.736115" elapsed="1.000889"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.178")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:42.322561" elapsed="1.414602"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:43.737901" elapsed="0.271661"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:44.010633" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.179")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:44.010078" elapsed="0.125491"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:45.136478" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:44.135979" elapsed="1.000732"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.179")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:43.737560" elapsed="1.399344"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:45.137567" elapsed="0.270152"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:45.408777" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.180")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:45.408266" elapsed="0.123457"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:46.532897" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:45.532217" elapsed="1.000942"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.180")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:45.137297" elapsed="1.396011"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:46.533948" elapsed="0.270785"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:46.805684" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.181")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:46.805180" elapsed="0.119476"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:47.925893" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:46.925097" elapsed="1.001033"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.181")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:46.533671" elapsed="1.392613"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:47.926974" elapsed="0.272357"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:48.200343" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.182")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:48.199770" elapsed="0.121485"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:49.322774" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:48.321684" elapsed="1.001353"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.182")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:47.926678" elapsed="1.396510"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:49.323819" elapsed="0.270906"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:49.595653" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.183")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:49.595147" elapsed="0.120729"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:50.716964" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:49.716309" elapsed="1.000920"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.183")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:49.323543" elapsed="1.393848"/>
+</iter>
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-26T13:21:50.718060" elapsed="0.271162"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:50.990140" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.184")&gt;'.</msg>
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:50.989621" elapsed="0.120835"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:52.111481" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:51.110907" elapsed="1.000857"/>
+</kw>
+<var name="${tab}">&lt;selenium.webdriver.remote.webelement.WebElement (session="657e66acd1451b5769c43eb5d361eb75", element="f.071747C833D9C715A95287571AE3728A.d.E0009721DA9B41D69ED2ED4CC61F8068.e.184")&gt;</var>
+<status status="PASS" start="2025-02-26T13:21:50.717764" elapsed="1.394229"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs}</value>
+<status status="PASS" start="2025-02-26T13:21:42.322013" elapsed="9.790131"/>
+</for>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:52.113673" level="INFO">Executing JavaScript:
+window.scrollTo(0, -500)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, -500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-02-26T13:21:52.112705" elapsed="0.013113"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:54.126843" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:52.126309" elapsed="2.000767"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:54.128060" level="INFO">Clicking element 'xpath=//a[@id='navbarDropdownMenuLink']'.</msg>
+<arg>xpath=//a[@id='navbarDropdownMenuLink']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-26T13:21:54.127597" elapsed="0.166501"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-26T13:21:56.295047" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-26T13:21:54.294523" elapsed="2.000764"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-26T13:21:56.296198" level="INFO">Clicking element 'xpath=//a[@href='http://127.0.0.1:8000/lang/th']'.</msg>
+<msg time="2025-02-26T13:21:56.518487" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-26T13:21:56.518703" level="FAIL">Element with locator 'xpath=//a[@href='http://127.0.0.1:8000/lang/th']' not found.</msg>
+<arg>xpath=//a[@href='http://127.0.0.1:8000/lang/th']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-02-26T13:21:56.295736" elapsed="0.232338">Element with locator 'xpath=//a[@href='http://127.0.0.1:8000/lang/th']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.528428" elapsed="0.000049"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollBy(0, 500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.528643" elapsed="0.000036"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<var>${tabs}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.528844" elapsed="0.000036"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.529229" elapsed="0.000036"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.529376" elapsed="0.000033"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.529514" elapsed="0.000033"/>
+</kw>
+<var name="${tab}"/>
+<status status="NOT RUN" start="2025-02-26T13:21:56.529124" elapsed="0.000469"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs}</value>
+<status status="NOT RUN" start="2025-02-26T13:21:56.528995" elapsed="0.000653"/>
+</for>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollTo(0, -500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.529859" elapsed="0.000033"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530054" elapsed="0.000033"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@id='navbarDropdownMenuLink']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530220" elapsed="0.000032"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530378" elapsed="0.000031"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@href='http://127.0.0.1:8000/lang/zh']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530541" elapsed="0.000032"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530699" elapsed="0.000031"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollBy(0, 500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.530874" elapsed="0.000032"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<var>${tabs}</var>
+<arg>xpath=//ul[@class='nav nav-tabs']/li/button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531041" elapsed="0.000034"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531392" elapsed="0.000033"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531528" elapsed="0.000031"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531666" elapsed="0.000034"/>
+</kw>
+<var name="${tab}"/>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531295" elapsed="0.000452"/>
+</iter>
+<var>${tab}</var>
+<value>@{tabs}</value>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531177" elapsed="0.000637"/>
+</for>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollTo(0, -500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.531988" elapsed="0.000032"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.532134" elapsed="0.000027"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@id='navbarDropdownMenuLink']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.532273" elapsed="0.000261"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.532656" elapsed="0.000029"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@href='http://127.0.0.1:8000/lang/en']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.532810" elapsed="0.000028"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.532944" elapsed="0.000027"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollBy(0, 500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533081" elapsed="0.000026"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533218" elapsed="0.000029"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>Reasoning in inconsistent prioritized knowledge bases:</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533380" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533500" elapsed="0.000024"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>CTRL+A</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533628" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533748" elapsed="0.000024"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.533884" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534005" elapsed="0.000023"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>Teerawat Polsawat Apisak Pattanachak</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534126" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534248" elapsed="0.000094"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>CTRL+A</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534483" elapsed="0.000027"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534610" elapsed="0.000023"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534734" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534876" elapsed="0.000025"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>Conference Proceeding</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.534999" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535118" elapsed="0.000023"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>CTRL+A</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535240" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535359" elapsed="0.000031"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535514" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535633" elapsed="0.000023"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>International Journal of Electrical and Computer Engineering</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535750" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.535880" elapsed="0.000023"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>CTRL+A</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536002" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536122" elapsed="0.000023"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536244" elapsed="0.000023"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536361" elapsed="0.000024"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>Scopus</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536501" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536620" elapsed="0.000023"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollTo(0, -500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536740" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.536888" elapsed="0.000024"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@id='navbarDropdownMenuLink']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537012" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537130" elapsed="0.000024"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[@href='http://127.0.0.1:8000/lang/zh']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537251" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537369" elapsed="0.000023"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollBy(0, 500)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537511" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537629" elapsed="0.000024"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@type='search']</arg>
+<arg>期刊</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537749" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-26T13:21:56.537880" elapsed="0.000024"/>
+</kw>
+<status status="FAIL" start="2025-02-26T13:21:12.549711" elapsed="43.988407">Element with locator 'xpath=//a[@href='http://127.0.0.1:8000/lang/th']' not found.</status>
+</test>
+<status status="FAIL" start="2025-02-26T13:21:12.407411" elapsed="44.131176"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="ResearchersDetail test" id="s1" pass="0" fail="1" skip="0">ResearchersDetail test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-26T13:21:12.665446" level="WARN">The msedgedriver version (132.0.2957.140) detected in PATH at /usr/local/bin/msedgedriver might not be compatible with the detected MicrosoftEdge version (133.0.3065.69); currently, msedgedriver 133.0.3065.82 is recommended for MicrosoftEdge 133.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
