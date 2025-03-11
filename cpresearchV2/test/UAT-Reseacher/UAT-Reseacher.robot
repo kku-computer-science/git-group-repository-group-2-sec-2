@@ -2,10 +2,10 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${URL}         http://127.0.0.1:8000/
+${URL}         https://soften2sec267.cpkkuhost.com/
 ${Lecturer_URL}  ${URL}researchers/2
 ${Master_Student_URL}  ${URL}researchers/7
-${BROWSER}     Chrome
+${BROWSER}     Firefox
 
 # Language Buttons
 ${LANG_MENU}   //a[@id='navbarDropdownMenuLink']
