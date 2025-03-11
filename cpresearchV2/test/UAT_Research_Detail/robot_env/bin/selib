@@ -1,8 +1,0 @@
-#!/home/mean/Desktop/git-group-repository-group-2-sec-2/cpresearchV2/test/UAT_Research_Detail/robot_env/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from SeleniumLibrary.entry.__main__ import cli
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(cli())
