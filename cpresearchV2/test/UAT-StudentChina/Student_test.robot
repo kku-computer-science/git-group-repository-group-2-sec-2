@@ -3,19 +3,20 @@ Library    SeleniumLibrary
 
 *** Variables ***
 #will fix later when the server is ready
-# ${SERVER}           soften2sec267.cpkkuhost.com
-# ${URL_LOGIN}        ${SERVER}/login  # URL ของหน้า Login
-
-${SERVER}           http://127.0.0.1:8000
+${SERVER}           http://soften2sec267.cpkkuhost.com
 ${URL_LOGIN}        ${SERVER}/login  # URL ของหน้า Login
+
+# ${SERVER}           http://127.0.0.1:8000
+# ${URL_LOGIN}        ${SERVER}/login  # URL ของหน้า Login
 
 ${BROWSER}          Chrome
 
 # Language Dropdown & Language Selection
 ${LANG_DROPDOWN}  xpath=//a[@id='navbarDropdownMenuLink']  
-${LANG_THAI}      xpath=//a[@href='${SERVER}/lang/th']  
-${LANG_CHINESE}   xpath=//a[@href='${SERVER}/lang/zh']  
-${LANG_ENGLISH}   xpath=//a[@href='${SERVER}/lang/en']  
+${LANG_THAI}      xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(@href, 'lang/th')]
+${LANG_CHINESE}   xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(@href, 'lang/zh')]
+${LANG_ENGLISH}   xpath=//div[contains(@class, 'dropdown-menu')]//a[contains(@href, 'lang/en')]
+
 
 # Language Codes
 ${LANG_THAI_CODE}        th
@@ -37,6 +38,10 @@ ${CERT_CONTAINER}    xpath=/html/body/div/div/div/div/div
 ${CERT_TEXT_ENG}   Certificate Form\nWelcome to the Certificate Form page. Please proceed with your submission.
 ${CERT_TEXT_CHI}   证书表单\n欢迎来到证书表单页面。请继续提交您的信息。
 ${CERT_TEXT_THAI}  แบบฟอร์มใบรับรอง\nยินดีต้อนรับสู่หน้าแบบฟอร์มใบรับรอง กรุณาดำเนินการส่งข้อมูลของคุณ  
+
+# LOG OUT BUTTON
+${LOGOUT_BTN}    xpath=//a[contains(@href, '/logout') or contains(text(), 'Logout')]
+
 
 *** Keywords ***
 Open Browser And Login
@@ -96,13 +101,15 @@ Verify Certificate Page Text
     Should Be Equal  ${ACTUAL_TEXT}  ${EXPECTED_TEXT}  
     Log  Verified text: ${ACTUAL_TEXT}  
 
+
 Logout
-    Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
+    Wait Until Element Is Visible    ${LOGOUT_BTN}    timeout=15s  
     Execute JavaScript    document.getElementById('logout-form').submit();  
     Sleep    2s  
     Capture Page Screenshot    logout.png
     Wait Until Page Contains    Login    timeout=10s  
     Log    Successfully logged out
+
 
 
 
@@ -131,12 +138,13 @@ Verify Certificate Form Navigation
 Check Certificate Form in Thai
     Change Language And Check Context  ${LANG_THAI}  ${LANG_THAI_CODE}  ${CERT_TEXT_THAI} 
 
+Check Certificate Form in English
+    Change Language And Check Context  ${LANG_ENGLISH}  ${LANG_ENGLISH_CODE}  ${CERT_TEXT_ENG} 
+
 Check Certificate Form in Chinese
     Change Language And Check Context  ${LANG_CHINESE}  ${LANG_CHINESE_CODE}  ${CERT_TEXT_CHI}  
 
-Check Certificate Form in English
-    Change Language And Check Context  ${LANG_ENGLISH}  ${LANG_ENGLISH_CODE}  ${CERT_TEXT_ENG} 
-    
+
 Logout Test
     Logout  
     Close Browser  

@@ -3,8 +3,8 @@ Library    SeleniumLibrary
 
 *** Variables ***
 # Server
-# ${SERVER}       soften2sec267.cpkkuhost.com
-${SERVER}       127.0.0.1:8000
+${SERVER}       soften2sec267.cpkkuhost.com
+# ${SERVER}       127.0.0.1:8000
 ${EXPECTED_URL}  http://${SERVER}/researchgroup
 ${BROWSER}     Chrome
 
@@ -17,11 +17,11 @@ ${LANG_CN}     //a[normalize-space()='中文']
 # ELEMENTS FOR CHECKING RESEARCH GROUP 
 ${RESEARCH_GROUP_EN}    //div[contains(@class,'container')]//p[normalize-space()='Research Group']
 ${RESEARCH_GROUP_TH}    //div[contains(@class,'container')]//p[normalize-space()='กลุ่มวิจัย']
-${RESEARCH_GROUP_CN}    //div[contains(@class,'container')]//p[normalize-space()='研究小组']
+${RESEARCH_GROUP_CN}    //div[contains(@class,'container')]//p[normalize-space()='研究小組']
 
 # Lab Supervisor
 ${LAB_SUPERVISOR_EN}    //h2[contains(text(),'Laboratory Supervisor')]
-${LAB_SUPERVISOR_TH}    //h2[contains(text(),'หัวหน้าห้องปฏิบัติการ')]
+${LAB_SUPERVISOR_TH}    //h2[contains(text(),'ผู้ควบคุมห้องปฏิบัติการ')]
 ${LAB_SUPERVISOR_CN}    //h2[contains(text(),'实验室主管')]
 
 # Elements for Checking Advanced GIS Technology (AGT) card 1
