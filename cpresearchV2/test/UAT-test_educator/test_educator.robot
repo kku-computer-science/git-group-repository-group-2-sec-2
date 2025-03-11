@@ -92,20 +92,20 @@ Check Context ZH
 
 Check Context EN in programs
     Log     Checking Context
-    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
-    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]      Computer Science
+    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
+    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]      Computer Science
     Capture Page Screenshot
 
 Check Context TH in programs
     Log     Checking Context
-    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
-    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]       สาขาวิชาวิทยาการคอมพิวเตอร์     
+    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
+    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]       สาขาวิชาวิทยาการคอมพิวเตอร์     
     Capture Page Screenshot
 
 Check Context ZH in programs
     Log     Checking Context
-    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
-    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody/tr[1]/td[2]      计算机科学   
+    Wait Until Element Is Visible   xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]    timeout=${TIMEOUT}
+    Element Text Should Be      xpath=/html/body/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[2]      计算机科学   
     Capture Page Screenshot
 
 Change Language And Check Context
