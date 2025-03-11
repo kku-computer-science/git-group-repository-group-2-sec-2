@@ -21,7 +21,7 @@ return [
     'number_total'                  => '编号',
     /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง*/
     'SUMMARY'                      => '摘要',
-    
+
     /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนอ้างอิง*/
     'referenceapa'                     => '参考文献 (APA格式)',
     'close'                         => '关闭',
@@ -412,7 +412,8 @@ return [
     'researcher_role_undergrad_student' => '本科生',
     'researcher_role_master_student' => '硕士生',
     'researcher_role_doctoral_student' => '博士生',
-    'placeholder_research' => '研究兴趣',
+    'placeholder_research' => '研究兴趣或姓名',
+    'search_button' => '搜索',
 
 
     //=========================Mean==============================
@@ -1051,7 +1052,9 @@ return [
         'Remote Sensing for Vegatation study' => '植被研究的遥感',
         'Cloud Computing' => '云计算',
         'smart_x' => '智能X：智能农场、家居、医疗、汽车、建筑、设备等。',
-
+        'Internet Security' => '互联网安全',
+        'IoT' => '物联网',
+        'Mobile and Wireless Communicaiton' => '移动和无线通信',
     ],
 
     //Title Web

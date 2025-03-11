@@ -41,7 +41,7 @@
                         </select>
                     </div> -->
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary"> {{ trans('message.search') }}</button>
+                    <button type="submit" class="btn btn-outline-primary"> {{ trans('message.search_button') }}</button>
                 </div>
             </form>
         </div>
@@ -86,9 +86,15 @@
 
 
                             @if($locale == 'en' || $locale == 'zh')
+
                             <h5 class="card-title">
+                                @if(app()->getLocale() == 'zh' && $r->fname_en . ' ' . $r->lname_en == 'Fan Bingbing')
+                                范冰冰
+                                @else
                                 {{ $fname }} {{ $lname }}{{ $doctoral_degree ? ', ' . $doctoral_degree : '' }}
+                                @endif
                             </h5>
+
                             @if(!empty($academic_rank))
                             <h5 class="card-title-2">{{ $academic_rank }}</h5>
                             @endif
