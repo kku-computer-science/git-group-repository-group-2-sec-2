@@ -17,7 +17,8 @@ return [
     'before' => 'ก่อนหน้า',
     /*P'France ทำการลบ comment ออกเพื่อเอามาใช้*/
     'report_total_articles'      => 'รายงานจำนวนบทความทั้งหมด (ย้อนหลัง 5 ปี: รวม)',
-    'number'                     => 'จำนวน',
+    //P'France แก้ไข number เพราะซ้ำ
+    'number_total'                  => 'จำนวน',
     /*P'France เพิ่มเพื่อเอามาใช้ในกราฟหน้า Homepage ส่วนตาราง*/
     'SUMMARY'                      => 'จำนวนทั้งหมด',
 

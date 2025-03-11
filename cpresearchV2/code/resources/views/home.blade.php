@@ -291,7 +291,7 @@
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: @json(__('message.number'))
+                    labelString: @json(__('message.number_total')) // P.France rdit number_total
                 }
             }],
             xAxes: [{
