@@ -155,52 +155,9 @@ Click Tabs And Verify Table Headers
     Click Tab And Check Table    //button[@id='patent-tab']    Other
     Click Tab And Check Table    //button[@id='scholar-tab']    Scholar
 
-    
-*** Keywords ***
-Click Tab And Check Table
-    [Arguments]    ${tab_xpath}    ${tab_name}
-    [Documentation]  กดที่แท็บและตรวจสอบว่ามีหัวข้อ No, Year, Author หรือข้ามถ้าไม่มี
 
-    # คลิกแท็บ
-    Wait Until Element Is Visible    ${tab_xpath}    timeout=5s
-    Click Element    ${tab_xpath}
-    Sleep    2s  # รอให้ข้อมูลโหลด
-
-
-    # ตั้งค่าตารางที่เป็น active tab
-    ${TABLE}    Set Variable    //div[contains(@class,'tab-pane') and contains(@class,'active')]//table[contains(@class,'dataTable')]
-    ${TABLE_HEADER_NO}    Set Variable    ${TABLE}//th[contains(text(),'No.')]
-    ${TABLE_HEADER_YEAR}  Set Variable    ${TABLE}//th[contains(text(),'Year')]
-    ${TABLE_HEADER_AUTHOR}    Set Variable    ${TABLE}//th[contains(text(),'Author')]
-
-    # เช็คว่ามี No. และ Year อยู่ในตารางหรือไม่
-    ${NO_EXISTS}    Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_NO}
-    ${YEAR_EXISTS}  Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_YEAR}
-
-    Run Keyword If    ${NO_EXISTS}==True and ${YEAR_EXISTS}==True    Run Table Validation    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
-    Run Keyword If    ${NO_EXISTS}==False or ${YEAR_EXISTS}==False    Log    Skipping ${tab_name} (No table headers found)
-    
-    Log    Checked tab ${tab_name} successfully.
-
-*** Keywords ***
-Run Table Validation
-    [Arguments]    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
-    [Documentation]  ตรวจสอบว่า No, Year, Author มีอยู่ในตาราง
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_NO}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_NO}    No.
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_YEAR}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_YEAR}    Year
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_AUTHOR}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_AUTHOR}    Author
-
-
-
-*** Test Cases ***
 Change Language To English
-    [Documentation]  คลิกเปลี่ยนภาษาเป็น English และตรวจสอบว่ามีคำว่า English อยู่ในหน้า
+    [Documentation]  คลิกเปลี่ยนภาษาเป็น ไทย และตรวจสอบว่ามีคำว่า ไทย อยู่ในหน้า
     
     Execute Javascript    window.scrollTo(0, 0)
     Sleep    1s  # รอให้หน้าเลื่อนขึ้นก่อนทำงานต่อ
@@ -219,7 +176,7 @@ Change Language To English
     
 
 Verify Summary And SCOPUS Tabs
-    [Documentation]  ตรวจสอบว่าแท็บ Summary และ SCOPUS มีข้อความถูกต้อง
+    [Documentation]  ตรวจสอบว่าแท็บ งานทั้งหมด และ SCOPUS มีข้อความถูกต้อง
 
     # เลื่อนจอลง
     Execute Javascript    window.scrollBy(0, 400)
@@ -235,7 +192,7 @@ Verify Summary And SCOPUS Tabs
 
 
 Verify Table Headers
-    [Documentation]  ตรวจสอบว่าหัวตาราง No, Year, Author มีข้อความถูกต้อง
+    [Documentation]  ตรวจสอบว่าหัวตาราง ลำดับที่, ปีที่ตีพิมพ์, ผู้แต่ง มีข้อความถูกต้อง
 
     # ตรวจสอบว่า "No." ปรากฏและมีข้อความถูกต้อง
     Wait Until Element Is Visible    //th[contains(text(),'ลำดับที่')]    timeout=5s
@@ -280,7 +237,7 @@ Verify Tab Names
 
 
 Click Tabs And Verify Table Headers
-    [Documentation]  คลิกแต่ละแท็บและตรวจสอบว่าตารางมี No, Year, Author ถูกต้อง
+    [Documentation]  คลิกแต่ละแท็บและตรวจสอบว่าตารางมี ลำดับที่, ปีที่ตีพิมพ์, ผู้แต่ง ถูกต้อง
 
     # ฟังก์ชันช่วยเหลือในการกดแท็บและตรวจสอบตาราง
     Click Tab And Check Table    //button[@id='home-tab']    งานทั้งหมด
@@ -291,52 +248,9 @@ Click Tabs And Verify Table Headers
     Click Tab And Check Table    //button[@id='patent-tab']    อื่นๆ
     Click Tab And Check Table    //button[@id='scholar-tab']    Scholar
 
-    
-*** Keywords ***
-Click Tab And Check Table TH
-    [Arguments]    ${tab_xpath}    ${tab_name}
-    [Documentation]  กดที่แท็บและตรวจสอบว่ามีหัวข้อ No, Year, Author หรือข้ามถ้าไม่มี
 
-    # คลิกแท็บ
-    Wait Until Element Is Visible    ${tab_xpath}    timeout=5s
-    Click Element    ${tab_xpath}
-    Sleep    2s  # รอให้ข้อมูลโหลด
-
-
-    # ตั้งค่าตารางที่เป็น active tab
-    ${TABLE}    Set Variable    //div[contains(@class,'tab-pane') and contains(@class,'active')]//table[contains(@class,'dataTable')]
-    ${TABLE_HEADER_NO}    Set Variable    ${TABLE}//th[contains(text(),'ลำดับที่')]
-    ${TABLE_HEADER_YEAR}  Set Variable    ${TABLE}//th[contains(text(),'ปีที่ตีพิมพ์')]
-    ${TABLE_HEADER_AUTHOR}    Set Variable    ${TABLE}//th[contains(text(),'ผู้แต่ง')]
-
-    # เช็คว่ามี No. และ Year อยู่ในตารางหรือไม่
-    ${NO_EXISTS}    Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_NO}
-    ${YEAR_EXISTS}  Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_YEAR}
-
-    Run Keyword If    ${NO_EXISTS}==True and ${YEAR_EXISTS}==True    Run Table Validation    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
-    Run Keyword If    ${NO_EXISTS}==False or ${YEAR_EXISTS}==False    Log    Skipping ${tab_name} (No table headers found)
-    
-    Log    Checked tab ${tab_name} successfully.
-
-*** Keywords ***
-Run Table Validation TH
-    [Arguments]    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
-    [Documentation]  ตรวจสอบว่า No, Year, Author มีอยู่ในตาราง
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_NO}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_NO}    No.
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_YEAR}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_YEAR}    Year
-
-    Wait Until Element Is Visible    ${TABLE_HEADER_AUTHOR}    timeout=5s
-    Element Text Should Be    ${TABLE_HEADER_AUTHOR}    Author
-
-
-
-*** Test Cases ***
 Change Language To CN
-    [Documentation]  คลิกเปลี่ยนภาษาเป็น China และตรวจสอบว่ามีคำว่า 中文 อยู่ในหน้า
+    [Documentation]  คลิกเปลี่ยนภาษาเป็น 中文 และตรวจสอบว่ามีคำว่า 中文 อยู่ในหน้า
     Execute Javascript    window.scrollTo(0, 0)
     Sleep    1s  # รอให้หน้าเลื่อนขึ้นก่อนทำงานต่อ
 
@@ -370,7 +284,7 @@ Verify Summary And SCOPUS Tabs
     Element Text Should Be    //button[@id='scopus-tab']    SCOPUS
 
 Verify Table Headers
-    [Documentation]  ตรวจสอบว่าหัวตาราง No, Year, Author มีข้อความถูกต้อง
+    [Documentation]  ตรวจสอบว่าหัวตาราง 编号, 年份, 作者 มีข้อความถูกต้อง
 
     # ตรวจสอบว่า "No." ปรากฏและมีข้อความถูกต้อง
     Wait Until Element Is Visible    //th[contains(text(),'编号')]    timeout=5s
@@ -416,7 +330,7 @@ Verify Tab Names
     
 
 Click Tabs And Verify Table Headers
-    [Documentation]  คลิกแต่ละแท็บและตรวจสอบว่าตารางมี No, Year, Author ถูกต้อง
+    [Documentation]  คลิกแต่ละแท็บและตรวจสอบว่าตารางมี 编号, 年份, 作者 ถูกต้อง
 
     # ฟังก์ชันช่วยเหลือในการกดแท็บและตรวจสอบตาราง
     Click Tab And Check Table    //button[@id='home-tab']    摘要
@@ -426,9 +340,53 @@ Click Tabs And Verify Table Headers
     Click Tab And Check Table    //button[@id='book-tab']    书籍
     Click Tab And Check Table    //button[@id='patent-tab']    其他
     Click Tab And Check Table    //button[@id='scholar-tab']    Scholar
-
     
+
+End
+    Execute Javascript    window.scrollTo(0, 0)
+    Sleep    1s  # รอให้หน้าเลื่อนขึ้นก่อนทำงานต่อ
+
+    Close Browser
+
 *** Keywords ***
+Click Tab And Check Table
+    [Arguments]    ${tab_xpath}    ${tab_name}
+    [Documentation]  กดที่แท็บและตรวจสอบว่ามีหัวข้อ No, Year, Author หรือข้ามถ้าไม่มี
+
+    # คลิกแท็บ
+    Wait Until Element Is Visible    ${tab_xpath}    timeout=5s
+    Click Element    ${tab_xpath}
+    Sleep    2s  # รอให้ข้อมูลโหลด
+
+
+    # ตั้งค่าตารางที่เป็น active tab
+    ${TABLE}    Set Variable    //div[contains(@class,'tab-pane') and contains(@class,'active')]//table[contains(@class,'dataTable')]
+    ${TABLE_HEADER_NO}    Set Variable    ${TABLE}//th[contains(text(),'No.')]
+    ${TABLE_HEADER_YEAR}  Set Variable    ${TABLE}//th[contains(text(),'Year')]
+    ${TABLE_HEADER_AUTHOR}    Set Variable    ${TABLE}//th[contains(text(),'Author')]
+
+    # เช็คว่ามี No. และ Year อยู่ในตารางหรือไม่
+    ${NO_EXISTS}    Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_NO}
+    ${YEAR_EXISTS}  Run Keyword And Return Status    Page Should Contain Element    ${TABLE_HEADER_YEAR}
+
+    Run Keyword If    ${NO_EXISTS}==True and ${YEAR_EXISTS}==True    Run Table Validation    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
+    Run Keyword If    ${NO_EXISTS}==False or ${YEAR_EXISTS}==False    Log    Skipping ${tab_name} (No table headers found)
+    
+    Log    Checked tab ${tab_name} successfully.
+
+Run Table Validation
+    [Arguments]    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
+    [Documentation]  ตรวจสอบว่า No, Year, Author มีอยู่ในตาราง
+
+    Wait Until Element Is Visible    ${TABLE_HEADER_NO}    timeout=5s
+    Element Text Should Be    ${TABLE_HEADER_NO}    No.
+
+    Wait Until Element Is Visible    ${TABLE_HEADER_YEAR}    timeout=5s
+    Element Text Should Be    ${TABLE_HEADER_YEAR}    Year
+
+    Wait Until Element Is Visible    ${TABLE_HEADER_AUTHOR}    timeout=5s
+    Element Text Should Be    ${TABLE_HEADER_AUTHOR}    Author
+
 Click Tab And Check Table CN
     [Arguments]    ${tab_xpath}    ${tab_name}
     [Documentation]  กดที่แท็บและตรวจสอบว่ามีหัวข้อ No, Year, Author หรือข้ามถ้าไม่มี
@@ -454,10 +412,9 @@ Click Tab And Check Table CN
     
     Log    Checked tab ${tab_name} successfully.
 
-*** Keywords ***
 Run Table Validation CN
     [Arguments]    ${TABLE_HEADER_NO}    ${TABLE_HEADER_YEAR}    ${TABLE_HEADER_AUTHOR}
-    [Documentation]  ตรวจสอบว่า No, Year, Author มีอยู่ในตาราง
+    [Documentation]  ตรวจสอบว่า 编号, 年份, 作者 มีอยู่ในตาราง
 
     Wait Until Element Is Visible    ${TABLE_HEADER_NO}    timeout=5s
     Element Text Should Be    ${TABLE_HEADER_NO}    编号
@@ -467,10 +424,26 @@ Run Table Validation CN
 
     Wait Until Element Is Visible    ${TABLE_HEADER_AUTHOR}    timeout=5s
     Element Text Should Be    ${TABLE_HEADER_AUTHOR}    作者
+#*** Keywords ***
 
-*** Test Cases ***
-End
-    Execute Javascript    window.scrollTo(0, 0)
-    Sleep    1s  # รอให้หน้าเลื่อนขึ้นก่อนทำงานต่อ
 
-    Close Browser
+
+#*** Test Cases ***
+
+    
+#*** Keywords ***
+
+
+
+
+#*** Test Cases ***
+
+
+    
+#*** Keywords ***
+
+
+#*** Keywords ***
+
+
+#*** Test Cases ***
