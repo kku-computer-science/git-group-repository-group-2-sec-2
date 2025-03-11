@@ -17,20 +17,28 @@ ${LANG_CHINESE}   xpath=//a[@href='${BASE_URL}/lang/zh']
 ${LANG_ENGLISH}   xpath=//a[@href='${BASE_URL}/lang/en']
 
 *** Test Cases ***
-Test Switch Language For Educator
+TC:01 Login
     [Documentation]    Test Switch Language For Educator
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     Login To website
+
+TC:02 Find Element To Click and Go To Department Page
     Click Target Menu
     Go To departments Page
+
+TC:03 ตรวจสอบการเปลียนภาษาใน Department Page
     Check Context EN
     Change Language And Check Context   ${LANG_THAI}
     Check Context TH
     Change Language And Check Context  ${LANG_CHINESE}
     Check Context ZH
     Change Language And Check Context  ${LANG_ENGLISH}
+
+TC:04 Find Element To Click and Go To Program Page
     Go To programs Page
+
+TC:05 ตรวจสอบการเปลียนภาษาใน Department Page
     Check Context EN in programs
     Change Language And Check Context   ${LANG_THAI}
     Check Context TH in programs
@@ -38,7 +46,8 @@ Test Switch Language For Educator
     Check Context ZH in programs
     Change Language And Check Context  ${LANG_ENGLISH}
 
-    Close Browser
+TC:06 Logout and Close Browser
+    Logout
 
 
 
@@ -114,3 +123,11 @@ Change Language
     Sleep  1s
     Capture Page Screenshot
     Log    Changed language to ${LANG_OPTION}
+
+Logout
+    Wait Until Element Is Visible    xpath=//a[contains(text(), 'Logout')]    timeout=10s  
+    Execute JavaScript    document.getElementById('logout-form').submit();  
+    Sleep    2s  
+    Capture Page Screenshot    logout.png
+    Wait Until Page Contains    Login    timeout=10s  
+    Log    Successfully logged out
